@@ -1,6 +1,7 @@
 import { site } from "@/lib/site";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function Footer() {
+export function Footer({ dict }: { dict: Dictionary }) {
   return (
     <footer className="bg-band mt-20 w-full text-[color:var(--color-cream)]">
       {/* Alinhado junto à barra de navegação: 40px da lateral esquerda,
@@ -9,7 +10,7 @@ export function Footer() {
         {/* Figma: "Redes sociais" e IG/IN são Clother Regular (400). Os handles
             abaixo é que são Light (300). O peso global virou 300, então fixo o
             400 aqui explicitamente. */}
-        <p className="font-normal">Redes sociais</p>
+        <p className="font-normal">{dict.footer.social}</p>
         <ul className="mt-2 flex flex-col gap-1">
           <li className="flex items-center gap-3">
             <span className="w-5 shrink-0 font-normal">IG</span>

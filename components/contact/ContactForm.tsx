@@ -3,6 +3,8 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { z } from "zod";
+import { useTranslations } from "@/lib/i18n/use-translation";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 const isValidEmail = (v: string) => z.email().safeParse(v).success;
 
@@ -13,30 +15,31 @@ function isValidPhone(v: string) {
   return /^[+()\d\s.-]+$/.test(v) && digits.length >= 8 && digits.length <= 13;
 }
 
+type FormDict = Dictionary["contact"]["form"];
+
 // email e telefone são opcionais (chegam como ""), mas pelo menos um precisa vir
 // preenchido pra Ágatha conseguir responder — e quando preenchidos, têm que ser
-// válidos. Cada erro tem mensagem própria.
-const schema = z
-  .object({
-    nome: z.string().min(1, "Conta seu nome :)"),
-    email: z.string(),
-    telefone: z.string(),
-    mensagem: z
-      .string()
-      .min(5, "Conta um pouquinho mais sobre o que você precisa :)"),
-  })
-  .refine((d) => d.email.trim() !== "" || d.telefone.trim() !== "", {
-    message: "Adicione uma forma de contato (email ou telefone) para enviar :)",
-    path: ["email"],
-  })
-  .refine((d) => d.email === "" || isValidEmail(d.email), {
-    message: "Esse email não parece válido, confere pra mim? :)",
-    path: ["email"],
-  })
-  .refine((d) => d.telefone === "" || isValidPhone(d.telefone), {
-    message: "Esse telefone não parece válido, confere os números? :)",
-    path: ["telefone"],
-  });
+// válidos. Cada erro tem mensagem própria, traduzida pelo dicionário.
+const makeSchema = (f: FormDict) =>
+  z
+    .object({
+      nome: z.string().min(1, f.errors.nameRequired),
+      email: z.string(),
+      telefone: z.string(),
+      mensagem: z.string().min(5, f.errors.messageMinLength),
+    })
+    .refine((d) => d.email.trim() !== "" || d.telefone.trim() !== "", {
+      message: f.errors.contactRequired,
+      path: ["email"],
+    })
+    .refine((d) => d.email === "" || isValidEmail(d.email), {
+      message: f.errors.invalidEmail,
+      path: ["email"],
+    })
+    .refine((d) => d.telefone === "" || isValidPhone(d.telefone), {
+      message: f.errors.invalidPhone,
+      path: ["telefone"],
+    });
 
 type FormState = "idle" | "sending" | "success" | "error";
 
@@ -48,6 +51,10 @@ const fieldClass =
 const EMPTY = { nome: "", email: "", telefone: "", mensagem: "" };
 
 export function ContactForm() {
+  const { dict, locale } = useTranslations();
+  const f = dict.contact.form;
+  const schema = makeSchema(f);
+
   const [state, setState] = useState<FormState>("idle");
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [fields, setFields] = useState(EMPTY);
@@ -59,7 +66,7 @@ export function ContactForm() {
   const update =
     (name: keyof typeof fields) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setFields((f) => ({ ...f, [name]: e.target.value }));
+      setFields((prev) => ({ ...prev, [name]: e.target.value }));
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -67,7 +74,7 @@ export function ContactForm() {
 
     if (!parsed.success) {
       setState("error");
-      setErrorMsg(parsed.error.issues[0]?.message ?? "Preencha os campos");
+      setErrorMsg(parsed.error.issues[0]?.message ?? f.errorFallback);
       return;
     }
 
@@ -77,9 +84,7 @@ export function ContactForm() {
 
     if (!serviceId || !templateId || !publicKey) {
       setState("error");
-      setErrorMsg(
-        "EmailJS não configurado. Defina as variáveis em .env.local para enviar.",
-      );
+      setErrorMsg(f.emailjsNotConfigured);
       return;
     }
 
@@ -94,7 +99,7 @@ export function ContactForm() {
           email: parsed.data.email,
           phone: parsed.data.telefone,
           message: parsed.data.mensagem,
-          time: new Date().toLocaleString("pt-BR"),
+          time: new Date().toLocaleString(locale),
         },
         { publicKey },
       );
@@ -102,9 +107,7 @@ export function ContactForm() {
       setFields(EMPTY);
     } catch (err) {
       setState("error");
-      setErrorMsg(
-        err instanceof Error ? err.message : "Falha ao enviar. Tenta de novo?",
-      );
+      setErrorMsg(err instanceof Error ? err.message : f.sendFailed);
     }
   }
 
@@ -115,13 +118,37 @@ export function ContactForm() {
       noValidate
     >
       {/* Nome (full) + contato (email/telefone, pelo menos um) */}
-      <input name="nome" type="text" autoComplete="name" placeholder="Seu nome" value={fields.nome} onChange={update("nome")} className={fieldClass} />
+      <input
+        name="nome"
+        type="text"
+        autoComplete="name"
+        placeholder={f.namePlaceholder}
+        value={fields.nome}
+        onChange={update("nome")}
+        className={fieldClass}
+      />
       <div className="grid gap-3 sm:grid-cols-2">
-        <input name="email" type="email" autoComplete="email" placeholder="Seu email" value={fields.email} onChange={update("email")} className={fieldClass} />
-        <input name="telefone" type="tel" autoComplete="tel" placeholder="Seu telefone" value={fields.telefone} onChange={update("telefone")} className={fieldClass} />
+        <input
+          name="email"
+          type="email"
+          autoComplete="email"
+          placeholder={f.emailPlaceholder}
+          value={fields.email}
+          onChange={update("email")}
+          className={fieldClass}
+        />
+        <input
+          name="telefone"
+          type="tel"
+          autoComplete="tel"
+          placeholder={f.phonePlaceholder}
+          value={fields.telefone}
+          onChange={update("telefone")}
+          className={fieldClass}
+        />
       </div>
       <p className="-mt-1 text-xs text-[color:var(--color-blue)]/70">
-        Deixe pelo menos um: email ou telefone.
+        {f.minContactHint}
       </p>
 
       {/* Campo de solicitação — o protagonista, com o botão de enviar DENTRO da
@@ -130,14 +157,14 @@ export function ContactForm() {
         <textarea
           name="mensagem"
           rows={8}
-          placeholder="Digite sua solicitação..."
+          placeholder={f.messagePlaceholder}
           value={fields.mensagem}
           onChange={update("mensagem")}
           className={`${fieldClass} resize-none pb-16`}
         />
         <button
           type="submit"
-          aria-label="Enviar solicitação"
+          aria-label={f.submitAriaLabel}
           disabled={state === "sending"}
           className={`absolute bottom-3 right-3 grid h-12 w-12 place-items-center rounded-full text-[color:var(--color-cream)] transition-all disabled:opacity-60 ${
             canSend
@@ -148,7 +175,12 @@ export function ContactForm() {
           {state === "sending" ? (
             <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
           ) : (
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5" aria-hidden>
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-5 w-5"
+              aria-hidden
+            >
               {/* mingcute:send-fill — mesmo ícone do Figma */}
               <path d="M20.235 5.686c.432-1.195-.726-2.353-1.921-1.92L3.709 9.048c-1.199.434-1.344 2.07-.241 2.709l4.662 2.699l4.163-4.163a1 1 0 0 1 1.414 1.414L9.544 15.87l2.7 4.662c.638 1.103 2.274.957 2.708-.241z" />
             </svg>
@@ -160,11 +192,7 @@ export function ContactForm() {
         className={`text-sm ${state === "error" ? "text-red-600" : "text-[color:var(--color-blue)]"}`}
         role="status"
       >
-        {state === "success"
-          ? "Recebida! Vou responder em breve :)"
-          : state === "error"
-            ? errorMsg
-            : ""}
+        {state === "success" ? f.successMessage : state === "error" ? errorMsg : ""}
       </p>
     </form>
   );

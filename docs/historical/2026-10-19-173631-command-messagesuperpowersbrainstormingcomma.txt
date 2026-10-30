@@ -1,0 +1,1914 @@
+ ▐▛███▛█   Claude Code v2.1.286
+▝▜██████▀  mistral-large-4 · API Usage Billing
+ ▝▝   ▝▝   ~/personal/portfolio-ag
+
+
+❯ /superpowers:brainstorming vamos adicionar algumas funcionalizades a primeira 
+é a internacionalização do texto, vamos pensar em 3 formas de fazer a           
+internacionalização. Minha ideia inicial é adicionar todo texto como uma var e  
+os textos estarem em um json ou arquivo js para q eu consiga adicionar a        
+internacionalização                                                             
+
+  Thought for 49s, searched for 5 patterns, read 26 files, listed 2 directories (ctrl+o to expand)
+
+● Agora tenho uma visão completa do projeto. É um portfólio Next.js 16 (App
+  Router) em português, com textos em:
+
+  - Páginas: app/page.tsx (home), app/contato/page.tsx, páginas de categoria
+    (app/grafico, app/interacao, app/servicos, app/3d), e páginas de case study
+    (app/projetos/*)
+  - Componentes: Header.tsx (navegação), Footer.tsx, BrandHero.tsx,
+    ContactForm.tsx (placeholders e mensagens), ProjectCard.tsx, CaseShell.tsx
+    (labels de status), CategoryPage.tsx
+  - Dados: lib/site.ts (nav links, category tabs), content/projects.ts (conteúdo
+    dos projetos)
+
+  ---
+
+  🗣️ 3 Abordagens para Internacionalização
+
+  Opção 1: Next.js i18n nativo (App Router com [lang]) ⭐ Recomendada
+
+  Como funciona: Cada rota fica prefixada com o locale (/pt-BR/..., /en/...). O
+  Next.js tem suporte built-in via pasta app/[lang]/. As traduções ficam em
+  arquivos JSON por locale.
+
+  Estrutura:
+  app/
+    [lang]/
+      layout.tsx        # Root layout com locale
+      page.tsx          # Home
+      contato/page.tsx
+      grafico/page.tsx
+      ...
+      dictionaries.ts   # Carrega o JSON do locale
+      dictionaries/
+        pt-BR.json
+        en.json
+  proxy.ts (ou middleware.ts)  # Detecta locale pelo header Accept-Language
+
+  Prós:
+  - ✅ URLs amigáveis e SEO-friendly (/en/about vs ?lang=en)
+  - ✅ Rotas estáticas por locale (melhor performance)
+  - ✅ Detecção automática de idioma pelo navegador
+  - ✅ Sem bibliotecas externas pesadas
+  - ✅ Suporte nativo a generateStaticParams para pré-renderizar todos os
+    locales
+
+  Contras:
+  - ⚠️ Precisa mover todas as páginas para dentro de app/[lang]/
+  - ⚠️ Componentes client-side precisam passar o locale via props/context
+  - ⚠️ Middleware/proxy para redirect automático
+
+  ---
+
+  Opção 2: Biblioteca next-intl (mais popular na comunidade)
+
+  Como funciona: Biblioteca especializada que usa a mesma estrutura app/[lang]/
+  mas oferece hooks React (useTranslations) e ferramentas de gestão de
+  traduções.
+
+  Estrutura:
+  app/
+    [lang]/
+      layout.tsx        # Envolve com NextIntlClientProvider
+      page.tsx
+      ...
+  messages/
+    pt-BR.json
+    en.json
+  i18n/
+    routing.ts          # Configuração de locales
+    request.ts          # Carrega mensagens no server
+
+  Uso nos componentes:
+  // Server Component
+  import { getTranslations } from 'next-intl/server';
+  const t = await getTranslations('Home');
+  <h1>{t('title')}</h1>
+
+  // Client Component
+  'use client';
+  import { useTranslations } from 'next-intl';
+  const t = useTranslations('ContactForm');
+  <input placeholder={t('namePlaceholder')} />
+
+  Prós:
+  - ✅ API mais ergonômica (t('chave.aninhada') vs acesso manual a objetos)
+  - ✅ Suporte a pluralização, formatação de datas/números por locale
+  - ✅ Type-safety opcional com TypeScript (autocomplete das chaves)
+  - ✅ Ferramentas de developer experience (DX) melhores
+  - ✅ Comunidade grande, bem documentado
+
+  Contras:
+  - ⚠️ Adiciona dependência (~30kb gzipped)
+  - ⚠️ Mesma complexidade de mover páginas para [lang]
+  - ⚠️ Requer configuração extra (routing, request config)
+
+  ---
+
+  Opção 3: Context/Estado local (sem mudança de URL) — Sua ideia inicial
+
+  Como funciona: Todo texto passa a ser uma chave (t('home.title')), e um React
+  Context provê as traduções baseado em um estado (seletor de idioma no header).
+  Sem prefixo de locale na URL.
+
+  Estrutura:
+  lib/
+    i18n/
+      translations.ts   # Objeto com pt-BR e en
+      I18nProvider.tsx  # Context + hook useTranslation()
+  components/
+    LanguageSwitcher.tsx  # Botão PT | EN no header
+
+  Uso nos componentes:
+  'use client';
+  import { useTranslation } from '@/lib/i18n/I18nProvider';
+  const { t, locale, setLocale } = useTranslation();
+  <h1>{t('home.title')}</h1>
+
+  Prós:
+  - ✅ Menos disruptivo — não precisa mover arquivos, nem adicionar middleware
+  - ✅ Troca instantânea de idioma (sem reload da página)
+  - ✅ Persistência fácil via localStorage ou cookie
+  - ✅ Ideal para portfólio pessoal onde SEO multilíngue não é prioridade
+
+  Contras:
+  - ⚠️ URLs não mudam — ruim para SEO e compartilhamento de links (/contato
+    mostra PT ou EN dependendo do estado)
+  - ⚠️ Conteúdo não é indexável por locale nos motores de busca
+  - ⚠️ Default é client-side — todo texto precisa de JavaScript (flash de
+    conteúdo não traduzido no primeiro render)
+  - ⚠️ Mais difícil de escalar — se crescer muito, a falta de rotas por locale
+    vira problema
+
+  ---
+
+  🤔 Minha Recomendação
+
+  Para um portfólio pessoal, sugiro uma híbrida:
+
+  ▎ Opção 1 (Next.js nativo) com estrutura mínima — 이동 de páginas para 
+  ▎ app/[lang]/, traduções em JSON, e um seletor de idioma no header.
+
+  Por quê?
+  - URLs /pt-BR/ e /en/ são profissionais e compartilháveis
+  - SEO funciona corretamente (Google indexa cada versão)
+  - Sem dependência externa — o Next.js já faz tudo
+  - A sua ideia de "textos em JSON" é exatamente o padrão recomendado
+  - No futuro, se quiser adicionar mais idiomas, é só adicionar um JSON
+
+  A Opção 2 (next-intl) seria minha segunda escolha se você valorizar muito a DX
+  (autocomplete de chaves, pluralização), mas para um site pequeno, o overhead
+  não compensa.
+
+  A Opção 3 (Context) eu não recomendo para um portfólio — perde SEO e URLs
+  compartilháveis ficam confusas.
+
+  ---
+
+  ❓ Perguntas para você
+
+  Antes de apresentar o design completo, preciso saber:
+
+  1. Quais idiomas? Só PT-BR e EN, ou mais no futuro?
+  2. URL prefixa ou não? Prefere /en/contato (SEO-friendly) ou troca via botão
+     sem mudar URL?
+  3. Conteúdo dos projetos (case studies) — também traduz ou só a "carcaça" do
+     site (nav, títulos, formulário)?
+  4. Como prefere gerenciar as traduções? JSON puro (mais simples) ou quer
+     type-safety com autocomplete?
+
+  Me responda essas e eu apresento o design detalhado! 🚀
+
+✻ Churned for 1m 31s · done 16:57
+
+❯ 1 - pt e en                                                                   
+  2 - trocar via botao e ter a url prefixa como no exemplo de /en/contato       
+  3 - sim                                                                       
+  4 - explique melhor o JSON puro e o type-safety                               
+                                                                                
+  alias prefiro a opcao 1                                                       
+
+  Thought for 13s (ctrl+o to expand)
+
+● Perfeito! Opção 1 com botão de troca + URL prefix. Antes de apresentar o
+  design completo, vou explicar a diferença entre JSON puro e type-safety:
+
+  ---
+
+  📄 JSON puro vs Type-Safety
+
+  JSON puro (mais simples)
+
+  Você cria arquivos JSON e acessa as chaves diretamente:
+
+  // dictionaries/pt-BR.json
+  {
+    "home": {
+      "greeting": "Olá a todos,"
+    }
+  }
+
+  // dictionaries/en.json
+  {
+    "home": {
+      "greeting": "Hello everyone,"
+    }
+  }
+
+  // Uso no componente
+  const dict = await getDictionary(lang);
+  <h1>{dict.home.greeting}</h1>
+
+  Como funciona:
+  - Cada locale é um arquivo JSON independente
+  - Você acessa via dict.home.greeting (dot notation)
+  - Se errar uma chave (ex: dict.home.greting), o erro só aparece em runtime
+    (página quebra ou mostra undefined)
+
+  Prós:
+  - ✅ Zero configuração extra
+  - ✅ Simples de entender e manter
+  - ✅ Fácil adicionar novos idiomas (só criar novo JSON)
+
+  Contras:
+  - ❌ Erro de digitação só aparece quando a página quebra
+  - ❌ Sem autocomplete no VS Code (você precisa lembrar as chaves)
+
+  ---
+
+  Type-Safety (mais seguro, recomendado)
+
+  Você usa o JSON do idioma padrão (pt-BR) como "fonte da verdade" e o
+  TypeScript valida todos os outros idiomas contra ele:
+
+  // dictionaries.ts
+  import ptBR from './dictionaries/pt-BR.json';
+
+  // O tipo de TRADUÇÃO é inferido do pt-BR
+  export type Dictionary = typeof ptBR;
+
+  // Carrega dinamicamente, mas com tipo garantido
+  const dictionaries = {
+    'pt-BR': () => import('./dictionaries/pt-BR.json').then(m => m.default as
+  Dictionary),
+    en: () => import('./dictionaries/en.json').then(m => m.default as
+  Dictionary),
+  };
+
+  O que acontece se você esquecer uma chave no en.json:
+
+  // en.json — esqueceu "greeting"
+  {
+    "home": {
+      "farewell": "Bye"
+    }
+  }
+
+  O TypeScript erro em compile time:
+  Type '{ home: { farewell: string; }; }' is not assignable to type 
+  'Dictionary'.
+    Property 'greeting' is missing.
+
+  Prós:
+  - ✅ Erro de chave faltando aparece antes de rodar (no pnpm build ou no VS
+    Code)
+  - ✅ Autocomplete no VS Code — você vê todas as chaves disponíveis
+  - ✅ Se mudar uma chave no pt-BR, o TypeScript avisa que o en está
+    desatualizado
+  - ✅ Refatoração segura (renomear chave atualiza todos os lugares)
+
+  Contras:
+  - ⚠️ Pequena configuração extra (5 minutos a mais)
+  - ⚠️ Se o JSON for muito grande, o TypeScript pode ficar lento (não é problema
+    para seu tamanho)
+
+  ---
+
+  💡 Minha recomendação: Type-Safety
+
+  Para um projeto que vai crescer (você vai traduzir todo o conteúdo, incluindo
+  case studies longos), o type-safety vai economizar muito tempo. Um erro de
+  chave faltando no en.json quebraria a página inteira em produção — com
+  type-safety você descobre isso no pnpm build.
+
+  A configuração extra é mínima — basically importar o JSON do pt-BR e usar
+  typeof para criar o tipo.
+
+  ---
+
+  🎨 Design Completo — Internacionalização (Opção 1: Next.js Nativo)
+
+  Agora vou apresentar o design completo. Por favor, revise seção por seção:
+
+  1. Estrutura de Arquivos
+
+  portfolio-ag/
+  ├── proxy.ts                          # NOVO — detecta idioma e redireciona
+  ├── i18n/
+  │   ├── config.ts                     # NOVO — locales, defaultLocale
+  │   └── dictionaries.ts               # NOVO — carrega JSON com type-safety
+  ├── dictionaries/                     # NOVO — pasta de traduções
+  │   ├── pt-BR.json                    # Português (fonte da verdade)
+  │   └── en.json                       # Inglês
+  ├── app/
+  │   ├── [lang]/                       # NOVO — todas as páginas movidas aqui
+  │   │   ├── layout.tsx                # Root layout (recebe lang)
+  │   │   ├── page.tsx                  # Home
+  │   │   ├── contato/page.tsx
+  │   │   ├── grafico/page.tsx
+  │   │   ├── interacao/page.tsx
+  │   │   ├── servicos/page.tsx
+  │   │   ├── 3d/page.tsx
+  │   │   └── projetos/
+  │   │       ├── pontos-sem-no/page.tsx
+  │   │       ├── batuco-tuco/page.tsx
+  │   │       └── pontinhas-soltas/page.tsx
+  │   └── layout.tsx                    # REMOVIDO (vai para [lang])
+  ├── components/
+  │   ├── layout/
+  │   │   ├── Header.tsx                # MODIFICADO — recebe dict + lang
+  │   │   ├── Footer.tsx                # MODIFICADO — recebe dict
+  │   │   ├── BrandHero.tsx             # MODIFICADO — recebe título traduzido
+  │   │   └── LanguageSwitcher.tsx      # NOVO — botão PT | EN
+  │   ├── contact/
+  │   │   └── ContactForm.tsx           # MODIFICADO — placeholders traduzidos
+  │   ├── home/
+  │   │   ├── CategoryPage.tsx          # MODIFICADO — recebe dict
+  │   │   ├── ProjectCard.tsx           # MODIFICADO — recebe projeto traduzido
+  │   │   └── ...
+  │   └── case-study/
+  │       └── CaseShell.tsx             # MODIFICADO — status traduzido
+  ├── lib/
+  │   └── site.ts                       # MODIFICADO — nav links com chave i18n
+  └── content/
+      └── projects.ts                   # MODIFICADO — estrutura i18n por 
+  projeto
+
+  ---
+
+  2. Fluxo de Dados
+
+  Usuário acessa /contato
+          ↓
+  proxy.ts detecta: sem locale na URL
+          ↓
+  Verifica cookie "NEXT_LOCALE" ou header Accept-Language
+          ↓
+  Redireciona para /pt-BR/contato ou /en/contato
+          ↓
+  app/[lang]/layout.tsx recebe { params: { lang } }
+          ↓
+  Carrega dictionary via getDictionary(lang)
+          ↓
+  Passa dict para Header, Footer via props
+          ↓
+  Página renderiza com textos no idioma correto
+          ↓
+  LanguageSwitcher troca cookie + redireciona para /en/... ou /pt-BR/...
+
+  ---
+
+  3. Arquivos Principais
+
+  proxy.ts (novo, na raiz)
+
+  import { NextResponse } from 'next/server';
+  import type { NextRequest } from 'next/server';
+  import { locales, defaultLocale } from './i18n/config';
+
+  export function proxy(request: NextRequest) {
+    const { pathname } = request.nextUrl;
+
+    // Já tem locale? Deixa passar
+    const hasLocale = locales.some(
+      (locale) => pathname.startsWith(`/${locale}/`) || pathname ===
+  `/${locale}`
+    );
+    if (hasLocale) return;
+
+    // Detecta idioma preferido (cookie > header > default)
+    const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
+    const acceptLang = request.headers.get('accept-language') ?? '';
+    const preferred = cookieLocale ??
+      (acceptLang.includes('en') ? 'en' : defaultLocale);
+
+    // Redireciona para /pt-BR/... ou /en/...
+    request.nextUrl.pathname = `/${preferred}${pathname}`;
+    return NextResponse.redirect(request.nextUrl);
+  }
+
+  export const config = {
+    matcher: ['/((?!_next|images|illustrations|favicon.ico).*)'],
+  };
+
+  i18n/config.ts
+
+  export const locales = ['pt-BR', 'en'] as const;
+  export type Locale = (typeof locales)[number];
+  export const defaultLocale: Locale = 'pt-BR';
+  export const localeNames: Record<Locale, string> = {
+    'pt-BR': 'PT',
+    en: 'EN',
+  };
+
+  i18n/dictionaries.ts (type-safety)
+
+  import 'server-only';
+  import type { Locale } from './config';
+  import ptBR from '@/dictionaries/pt-BR.json';
+
+  export type Dictionary = typeof ptBR;
+
+  const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
+    'pt-BR': () => import('@/dictionaries/pt-BR.json').then((m) => m.default as
+  Dictionary),
+    en: () => import('@/dictionaries/en.json').then((m) => m.default as
+  Dictionary),
+  };
+
+  export const getDictionary = async (locale: Locale): Promise<Dictionary> =>
+    dictionaries[locale]();
+
+  export const isLocale = (lang: string): lang is Locale =>
+    locales.includes(lang as Locale);
+
+  dictionaries/pt-BR.json (exemplo da estrutura)
+
+  {
+    "site": {
+      "name": "Ágatha Sales",
+      "tagline": "Design gráfico, UX/UI, 3D e design de serviços."
+    },
+    "nav": {
+      "about": "Sobre mim",
+      "contact": "Solicitar serviços",
+      "grafico": "Gráfico",
+      "interacao": "Interação",
+      "servicos": "Serviços",
+      "3d": "3D"
+    },
+    "home": {
+      "greeting": "Olá a todos,",
+      "intro": "Não sou boa com textinhos masbora lá sksk Prazer! sou a designer
+  do seu bairro, da sua empresa multinacional e do seu jogo indie fofinho.",
+      "philosophy": "Filosofia",
+      "philosophyLead": "Para mim o design é pesquisa, ilustração e 
+  perspectiva.",
+      "experience": "Experiência"
+    },
+    "contact": {
+      "title": "Vamos trabalhar juntos?",
+      "subtitle": "Entre em contato enviando um e-mail na caixa de texto 
+  abaixo!",
+      "form": {
+        "namePlaceholder": "Seu nome",
+        "emailPlaceholder": "Seu email",
+        "phonePlaceholder": "Seu telefone",
+        "messagePlaceholder": "Digite sua solicitação...",
+        "minContact": "Deixe pelo menos um: email ou telefone.",
+        "successMessage": "Recebida! Vou responder em breve :)",
+        "errors": {
+          "nameRequired": "Conta seu nome :)",
+          "minMessage": "Conta um pouquinho mais sobre o que você precisa :)",
+          "invalidEmail": "Esse email não parece válido, confere pra mim? :)",
+          "invalidPhone": "Esse telefone não parece válido, confere os números? 
+  :)",
+          "contactRequired": "Adicione uma forma de contato (email ou telefone) 
+  para enviar :)"
+        }
+      }
+    },
+    "projects": {
+      "pontosSemNo": {
+        "title": "Pontos sem nó",
+        "subtitle": "IDV: Pontos sem nó",
+        "cardTitle": "Pontos sem nó",
+        "description": "A marca \"Pontos sem nó\" procura nos transportar...",
+        "intro": "A marca \"Pontos sem nó\" procura nos transportar...",
+        "tags": ["Acadêmico", "Design de Identidade Visual"],
+        "sections": {
+          "creationProcess": {
+            "title": "Processo de criação",
+            "content": "O início do processo foi marcado pela pesquisa 
+  guiada..."
+          },
+          "prototyping": {
+            "title": "Prototipagem",
+            "tabs": ["Brainstorming", "Painel integrado", "Braindumping"],
+            "captions": ["Criação de painéis", "Esboços da logo", "Elementos de 
+  apoio"]
+          },
+          "finalProject": { "title": "Projeto final" }
+        }
+      },
+      "batucoTuco": { ... },
+      "pontinhasSoltas": { ... }
+    },
+    "caseStudy": {
+      "status": {
+        "concluido": "Concluído",
+        "emProgresso": "Em progresso",
+        "emBreve": "Em breve"
+      },
+      "thanks": "Obrigada por ter chegado até aqui!",
+      "seeMore": "Ver mais."
+    },
+    "placeholders": {
+      "comingSoon": "Em breve",
+      "newProject": "Novo projeto a caminho"
+    },
+    "footer": {
+      "social": "Redes sociais"
+    },
+    "metadata": {
+      "titles": {
+        "home": "Ágatha Sales",
+        "contato": "Vamos trabalhar juntos?",
+        "grafico": "Design Gráfico",
+        "interacao": "UX e UI Design",
+        "servicos": "Design de Serviços",
+        "3d": "3D Design"
+      }
+    }
+  }
+
+  ---
+
+  4. Componentes Modificados
+
+  LanguageSwitcher.tsx (novo)
+
+  'use client';
+  import { usePathname, useRouter } from 'next/navigation';
+  import { locales, localeNames, type Locale } from '@/i18n/config';
+
+  export function LanguageSwitcher({ currentLocale }: { currentLocale: Locale })
+  {
+    const pathname = usePathname();
+    const router = useRouter();
+
+    const switchLocale = (newLocale: Locale) => {
+      // Salva preferência no cookie
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
+      // Troca o prefixo na URL: /pt-BR/contato → /en/contato
+      const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+      router.push(newPath);
+    };
+
+    return (
+      <div className="flex gap-2">
+        {locales.map((locale) => (
+          <button
+            key={locale}
+            onClick={() => switchLocale(locale)}
+            className={locale === currentLocale ? 'font-black' : 'font-normal
+  opacity-70'}
+          >
+            {localeNames[locale]}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  app/[lang]/layout.tsx (modificado)
+
+  import { getDictionary, isLocale } from '@/i18n/dictionaries';
+  import { notFound } from 'next/navigation';
+  import { Header } from '@/components/layout/Header';
+  import { Footer } from '@/components/layout/Footer';
+
+  export async function generateStaticParams() {
+    return [{ lang: 'pt-BR' }, { lang: 'en' }];
+  }
+
+  export default async function RootLayout({
+    children,
+    params,
+  }: {
+    children: React.ReactNode;
+    params: Promise<{ lang: string }>;
+  }) {
+    const { lang } = await params;
+    if (!isLocale(lang)) notFound();
+
+    const dict = await getDictionary(lang);
+
+    return (
+      <html lang={lang} className="h-full" suppressHydrationWarning>
+        <body className="min-h-full flex flex-col" suppressHydrationWarning>
+          <Header lang={lang} dict={dict} />
+          <main className="flex-1">{children}</main>
+          <Footer dict={dict} />
+        </body>
+      </html>
+    );
+  }
+
+  ---
+
+  5. Estratégia para o Conteúdo dos Projetos
+
+  Como os projetos têm muito texto (descrições, intros, parágrafos de seção,
+  legendas de imagem), a estrutura do content/projects.ts muda para:
+
+  // content/projects.ts — estrutura nova
+  import type { Dictionary } from '@/i18n/dictionaries';
+
+  export type ProjectMeta = {
+    slug: string;
+    status: 'concluido' | 'em-progresso' | 'em-breve';
+    categories: CategoryKey[];
+    date?: string;
+    accent: 'blue' | 'orange' | 'pink';
+    coverImage?: string;
+    // Traduções ficam no dictionary, indexadas por slug
+  };
+
+  export const projects: ProjectMeta[] = [
+    { slug: 'pontos-sem-no', status: 'concluido', categories: ['grafico'], ...
+  },
+    { slug: 'batuco-tuco', status: 'em-progresso', categories: ['interacao'],
+  ... },
+    { slug: 'pontinhas-soltas', status: 'concluido', categories: ['3d'], ... },
+  ];
+
+  Todo texto traduzível (título, subtítulo, descrição, intro, tags, títulos de
+  seção, conteúdo de seção, legendas) vai para o dictionary:
+
+  // pt-BR.json
+  "projects": {
+    "pontosSemNo": {
+      "title": "Pontos sem nó",
+      "subtitle": "IDV: Pontos sem nó",
+      "description": "...",
+      "intro": "...",
+      "tags": ["Acadêmico", "Design de Identidade Visual"],
+      "sections": {
+        "creationProcess": { "title": "...", "content": "..." },
+        ...
+      }
+    }
+  }
+
+  E um helper para "hidratar" o projeto com as traduções:
+
+  // lib/projects-i18n.ts
+  export function getLocalizedProject(slug: string, dict: Dictionary) {
+    const meta = getProjectBySlug(slug);
+    const i18n = dict.projects[slugToKey(slug)]; // "pontos-sem-no" → 
+  "pontosSemNo"
+    return { ...meta, ...i18n };
+  }
+
+  ---
+
+  6. Ordem de Implementação
+
+  1. Criar estrutura base — i18n/config.ts, dictionaries.ts, proxy.ts
+  2. Mover páginas para app/[lang]/ (git mv para preservar histórico)
+  3. Criar dicionários — pt-BR.json com TODO o conteúdo atual, en.json vazio
+     (placeholder)
+  4. Atualizar layout — receber lang, carregar dict, passar para Header/Footer
+  5. Criar LanguageSwitcher — componente botão PT | EN
+  6. Atualizar componentes um a um (Header, Footer, BrandHero, ContactForm,
+     etc.)
+  7. Migrar conteúdo dos projetos para o dictionary
+  8. Testar — build, verificar rotas /pt-BR/ e /en/, trocar idioma, verificar
+     cookie
+
+  ---
+
+  7. Pontos de Atenção
+
+  ┌────────────────────┬────────────────────────────────────────────────────┐
+  │      Situação      │                      Solução                       │
+  ├────────────────────┼────────────────────────────────────────────────────┤
+  │ Imagens com texto  │ Manter as imagens como estão (são visuais, não     │
+  │ (ex: capas de      │ traduzíveis via i18n). Se precisar de versão EN,   │
+  │ projeto)           │ adicionar campo coverImageEn no futuro             │
+  ├────────────────────┼────────────────────────────────────────────────────┤
+  │ Datas (ex:         │ Manter formato pt-BR por enquanto. No futuro, usar │
+  │ "08.12.2025")      │  Intl.DateTimeFormat com o locale                  │
+  ├────────────────────┼────────────────────────────────────────────────────┤
+  │ Formulário de      │ Placeholders e mensagens de erro traduzidos via    │
+  │ contato            │ dict. O envio continua igual (EmailJS)             │
+  ├────────────────────┼────────────────────────────────────────────────────┤
+  │ Metadata (títulos  │ Usar dict.metadata.titles.* em cada page.tsx via   │
+  │ das abas)          │ generateMetadata                                   │
+  ├────────────────────┼────────────────────────────────────────────────────┤
+  │                    │ Slugs não mudam (/projetos/pontos-sem-no), só      │
+  │ URLs de projeto    │ ganham prefixo de locale                           │
+  │                    │ (/en/projetos/pontos-sem-no)                       │
+  ├────────────────────┼────────────────────────────────────────────────────┤
+  │ SEO                │ Adicionar alternates.languages no metadata para    │
+  │                    │ cada página (hreflang)                             │
+  └────────────────────┴────────────────────────────────────────────────────┘
+
+  ---
+
+  ✅ Resumo da Recomendação
+
+  ┌─────────────────────┬───────────────────────────────────────────────────┐
+  │       Aspecto       │                      Escolha                      │
+  ├─────────────────────┼───────────────────────────────────────────────────┤
+  │ Abordagem           │ Next.js nativo com app/[lang]/                    │
+  ├─────────────────────┼───────────────────────────────────────────────────┤
+  │ URLs                │ /pt-BR/... e /en/...                              │
+  ├─────────────────────┼───────────────────────────────────────────────────┤
+  │ Troca de idioma     │ Botão no header + cookie de preferência           │
+  ├─────────────────────┼───────────────────────────────────────────────────┤
+  │ Traduções           │ JSON puro com type-safety (typeof do pt-BR)       │
+  ├─────────────────────┼───────────────────────────────────────────────────┤
+  │ Conteúdo            │ Tudo traduzido, incluindo case studies            │
+  ├─────────────────────┼───────────────────────────────────────────────────┤
+  │ Estrutura de        │ Metadados em content/projects.ts, textos no       │
+  │ projetos            │ dictionary                                        │
+  └─────────────────────┴───────────────────────────────────────────────────┘
+
+  ---
+
+  Isso está alinhado com o que você imaginava? Alguma seção que você quer que eu
+  detalhe mais antes de prosseguir?
+
+✻ Sautéed for 1m 58s · done 17:04
+
+❯ vamos de typesafed                                                            
+
+  Thought for 12s (ctrl+o to expand)
+
+● Perfeito! Vamos com type-safety. Aqui está o design completo:
+
+  ---
+
+  🎯 Design: Internacionalização Type-Safe (Next.js App Router)
+
+  ---
+
+  1. Arquitetura Geral
+
+  ┌─────────────────────────────────────────┐
+  │           proxy.ts (middleware)         │
+  │  Detecta locale → redireciona / → /pt-BR│
+  │  ou /en com base no cookie/Accept-Lang  │
+  └─────────────────────────────────────────┘
+                     ↓
+  ┌─────────────────────────────────────────┐
+  │      app/[lang]/layout.tsx              │
+  │  ┌─────────────────────────────────┐    │
+  │  │  getDictionary(lang)            │    │
+  │  │  → carrega JSON tipado          │    │
+  │  │  → valida em runtime (hasLocale)│    │
+  │  └─────────────────────────────────┘    │
+  │         ↓                               │
+  │  <html lang={lang}>                     │
+  │    <I18nProvider dict={dict} locale>    │
+  │      <Header /> <main/> <Footer />      │
+  │    </I18nProvider>                      │
+  │  </html>                                │
+  └─────────────────────────────────────────┘
+                     ↓
+  ┌─────────────────────────────────────────┐
+  │         Componentes                     │
+  │  Server:  t('chave') via dict direto     │
+  │  Client:  useTranslations() do context  │
+  └─────────────────────────────────────────┘
+
+  ---
+
+  2. Estrutura de Arquivos
+
+  portfolio-ag/
+  ├── proxy.ts                          # NOVO
+  ├── i18n/
+  │   ├── config.ts                     # NOVO: locales, defaultLocale
+  │   ├── routing.ts                    # NOVO: helpers de rota 
+  (getLocalizedPath)
+  │   ├── dictionaries.ts               # NOVO: type-safe dictionary loader
+  │   └── request.ts                    # NOVO: getRequestConfig (não usado 
+  aqui, mas útil)
+  ├── dictionaries/
+  │   ├── pt-BR.json                    # NOVO: traduções PT (base para tipos)
+  │   └── en.json                       # NOVO: traduções EN (validado contra 
+  PT)
+  ├── lib/
+  │   ├── i18n/
+  │   │   ├── provider.tsx              # NOVO: React Context para client 
+  components
+  │   │   └── use-translation.ts        # NOVO: hook useTranslations()
+  │   ├── site.ts                       # MODIFICADO: remove labels hardcoded
+  │   └── projects.ts                   # NOVO: helpers para projetos traduzidos
+  ├── content/
+  │   └── projects.ts                   # MODIFICADO: só metadados, sem texto
+  ├── components/
+  │   ├── layout/
+  │   │   ├── Header.tsx                # MODIFICADO: usa traduções
+  │   │   ├── Footer.tsx                # MODICIONADO: usa traduções
+  │   │   ├── BrandHero.tsx             # MODIFICADO: título via props
+  │   │   └── LanguageSwitcher.tsx      # NOVO: botão PT | EN
+  │   ├── contact/
+  │   │   └── ContactForm.tsx           # MODIFICADO: placeholders/erros 
+  traduzidos
+  │   ├── home/
+  │   │   ├── CategoryPage.tsx          # MODIFICADO: recebe traduções
+  │   │   ├── ProjectCard.tsx           # MODIFICADO: recebe projeto traduzido
+  │   │   └── SectionHeading.tsx        # (inalterado - só recebe children)
+  │   └── case-study/
+  │       └── CaseShell.tsx             # MODIFICADO: labels de status 
+  traduzidos
+  └── app/
+      ├── [lang]/                       # NOVO: todas as rotas aqui
+      │   ├── layout.tsx                # Root layout com lang
+      │   ├── page.tsx                  # Home
+      │   ├── globals.css               # (movido de app/)
+      │   ├── favicon.ico               # (movido de app/)
+      │   ├── contato/page.tsx
+      │   ├── grafico/page.tsx
+      │   ├── interacao/page.tsx
+      │   ├── servicos/page.tsx
+      │   ├── 3d/page.tsx
+      │   └── projetos/
+      │       ├── pontos-sem-no/page.tsx
+      │       ├── batuco-tuco/page.tsx
+      │       └── pontinhas-soltas/page.tsx
+      └── (removidos: layout.tsx, page.tsx, etc da raiz)
+
+  ---
+
+  3. Type-Safety: Como Funciona
+
+  3.1. dictionaries/pt-BR.json (fonte da verdade)
+
+  {
+    "site": {
+      "name": "Ágatha Sales",
+      "tagline": "Design gráfico, UX/UI, 3D e design de serviços."
+    },
+    "nav": {
+      "about": "Sobre mim",
+      "contact": "Solicitar serviços",
+      "grafico": "Gráfico",
+      "interacao": "Interação",
+      "servicos": "Serviços",
+      "3d": "3D"
+    },
+    "home": {
+      "greeting": "Olá a todos,",
+      "greetingAlt": "Ilustração da Ágatha acenando",
+      "intro": "Não sou boa com textinhos mas bora lá sksk Prazer! sou a 
+  designer do seu bairro, da sua empresa multinacional e do seu jogo indie 
+  fofinho.",
+      "philosophy": "Filosofia",
+      "philosophyLead": "Para mim o design é pesquisa, ilustração e 
+  perspectiva.",
+      "philosophyBody1": "Acredito que o design é a manipulação intencional da 
+  ",
+      "philosophyBody1Bold": "experiência humana",
+      "philosophyBody1End": ": uma ferramenta capaz de impactar hábitos e 
+  devolver humanidade ao nosso cotidiano.",
+      "philosophyBody2": "Nesse contexto, encaro o ",
+      "philosophyBody2Bold1": "3D",
+      "philosophyBody2Mid": ", o ",
+      "philosophyBody2Bold2": "design de interfaces",
+      "philosophyBody2Mid2": " e a ",
+      "philosophyBody2Bold3": "pesquisa",
+      "philosophyBody2End": " como extensões de um mesmo propósito: construir 
+  experiências que sejam verdadeiramente prestativas, memoráveis e sensíveis.",
+      "experience": "Experiência",
+      "experienceLead": "O futuro está na atividade humana, e é o que torna 
+  nossas experiências tão importantes.",
+      "experienceBody": "Fico contente em lhe receber nesse meu espaço, se 
+  quiser conhecer ainda mais sobre experiências acadêmicas, extracurriculares e 
+  profissionais fique à vontade para explorar no meu ",
+      "experienceBodyBold": "currículo",
+      "experienceBodyMid": " ou perfil do ",
+      "experienceBodyLink": "LinkedIn",
+      "experienceBodyEnd": ".",
+      "philosophyAlt": "Ilustração da Ágatha pensando",
+      "experienceAlt": "Ilustração da Ágatha sentada"
+    },
+    "contact": {
+      "title": "Vamos trabalhar juntos?",
+      "subtitle": "Entre em contato enviando um e-mail na caixa de texto 
+  abaixo!",
+      "illustrationAlt": "Ilustração da Ágatha",
+      "form": {
+        "namePlaceholder": "Seu nome",
+        "emailPlaceholder": "Seu email",
+        "phonePlaceholder": "Seu telefone",
+        "messagePlaceholder": "Digite sua solicitação...",
+        "minContactHint": "Deixe pelo menos um: email ou telefone.",
+        "submitAriaLabel": "Enviar solicitação",
+        "successMessage": "Recebida! Vou responder em breve :)",
+        "errorFallback": "Preencha os campos",
+        "emailjsNotConfigured": "EmailJS não configurado. Defina as variáveis em
+  .env.local para enviar.",
+        "sendFailed": "Falha ao enviar. Tenta de novo?",
+        "errors": {
+          "nameRequired": "Conta seu nome :)",
+          "messageMinLength": "Conta um pouquinho mais sobre o que você precisa 
+  :)",
+          "contactRequired": "Adicione uma forma de contato (email ou telefone) 
+  para enviar :)",
+          "invalidEmail": "Esse email não parece válido, confere pra mim? :)",
+          "invalidPhone": "Esse telefone não parece válido, confere os números? 
+  :)"
+        }
+      }
+    },
+    "categories": {
+      "grafico": {
+        "title": "Design Gráfico",
+        "heroTitle": "Design Gráfico"
+      },
+      "interacao": {
+        "title": "UX e UI Design",
+        "heroTitle": "UX e UI Design"
+      },
+      "servicos": {
+        "title": "Design de Serviços",
+        "heroTitle": "Design de Serviços"
+      },
+      "3d": {
+        "title": "3D Design",
+        "heroTitle": "3D Design"
+      }
+    },
+    "projects": {
+      "seeMore": "Ver mais.",
+      "comingSoon": "Em breve",
+      "comingSoonTag": "Novo projeto a caminho",
+      "coverAlt": "Capa do projeto {title}",
+      "pontosSemNo": {
+        "title": "Pontos sem nó",
+        "subtitle": "IDV: Pontos sem nó",
+        "cardTitle": "Pontos sem nó",
+        "description": "A marca \"Pontos sem nó\" procura nos transportar para 
+  as entrelinhas de nossas questões mais profundas não resolvidas que sempre 
+  voltam à nossa mente de alguma forma, convertendo memórias em sentimentos 
+  reconhecíveis… (PLACEHOLDER)",
+        "intro": "A marca \"Pontos sem nó\" procura nos transportar para as 
+  entrelinhas de nossas questões mais profundas não resolvidas que sempre voltam
+  à nossa mente de alguma forma, convertendo memórias em sentimentos 
+  reconhecíveis. A Pontos sem nó busca fazer parte do momento de identificação, 
+  transmitindo o processo de acceptance sobre esses sentimentos em forma de 
+  música.\n\nSendo representada em traços de ternura, serenidade com um toque 
+  lírico que nos faz assumir o papel de um peregrino em outras dimensões através
+  do escapismo.",
+        "tags": ["Acadêmico", "Design de Identidade Visual"],
+        "sections": {
+          "creationProcess": {
+            "title": "Processo de criação",
+            "paragraphs": [
+              "O início do processo foi marcado pela pesquisa guiada, montando 
+  um painel semântico que pudesse orientar decisões conceituais do projeto. Após
+  a pesquisa, foram realizadas seleções de elementos, tipografias, cores, 
+  dentre outras representações que serviram de apoio para enriquecer o 
+  repertório conceitual da marca e facilitar a sua aplicação."
+            ]
+          },
+          "prototyping": {
+            "title": "Prototipagem",
+            "tabs": ["Brainstorming", "Painel integrado", "Braindumping"],
+            "captions": ["Criação de painéis", "Esboços da logo", "Elementos de 
+  apoio"],
+            "images": [
+              {
+                "alt": "Sistema de identidade visual em seis etapas: 
+  brainstorming de palavras conceito, análise de painel semântico, criação de 
+  esboços, testes gráficos, teste de impressão e manual de utilização da IDV."
+              },
+              {
+                "alt": "Projeto final: manual da marca, biblioteca de 
+  personagens, variações do logo e aplicações."
+              }
+            ]
+          },
+          "finalProject": {
+            "title": "Projeto final"
+          }
+        },
+        "thanks": "Obrigada por ter chegado até aqui!"
+      },
+      "batucoTuco": {
+        "title": "Batuco-tuco",
+        "subtitle": "Batuco-tuco App",
+        "cardTitle": "Batuco-tuco",
+        "description": "O Batuco-Tuco é uma aplicação mobile focada na 
+  gamificação da teoria musical e prática de instrumentos. Seu nome alude ao 
+  \"batuque\" e homenageia uma espécie brasileira e sua sonoridade, o tuco-tuco…
+  (PLACEHOLDER)",
+        "intro": "O Batuco-Tuco é uma aplicação mobile focada na gamificação da 
+  teoria musical e prática de instrumentos. Seu nome alude ao \"batuque\" e 
+  homenageia uma espécie brasileira e sua sonoridade, o tuco-tuco, inspirando a 
+  temática lúdica e visual do projeto que transforma animais em instrumentistas 
+  habilidosos.\n\nO projeto foi desenvolvido como um estudo prático de 
+  interfaces gráficas e UX/UI. Para garantir uma evolução fluida com feedbacks 
+  visuais em tempo real, o processo envolveu a estruturação de mapas de 
+  conteúdo, construção de design system e aplicação de мальабuse centradas no 
+  usuário.",
+        "tags": ["Acadêmico", "Design de Interfaces Gráficas"],
+        "sections": {
+          "creationProcess": {
+            "title": "Processo de criação",
+            "paragraphs": [
+              "Desenvolvido na disciplina de Design de Interfaces Gráficas 
+  (Unifor), o desafio foi criar um Design System escalável e fluxos de 
+  usabilidade coesos. Priorizei requisitos básicos, como as atividades práticas,
+  para garantir a funcionalidade antes de avançar para interações complexas de 
+  banda. Em três semanas, finalizei toda a interface, ativos e animações, 
+  focando na otimização da prototipagem."
+            ]
+          },
+          "prototyping": {
+            "title": "Prototipagem",
+            "tabs": ["Histórias do usuário", "Mapa de conteúdo", "Matriz A.C.",
+  "Design System"],
+            "captions": [],
+            "images": [
+              {
+                "alt": "Mapa do processo de Interfaces Gráficas: perfil do 
+  usuário, requisitos, métodos, similares e prototipagem."
+              },
+              {
+                "alt": "Rabiscos e wireframes de baixa fidelidade das telas do 
+  app."
+              },
+              {
+                "alt": "Interface do app e biblioteca de assets: telas de 
+  exercícios, sistema de pontos e acessórios dos personagens."
+              },
+              {
+                "alt": "Personagens do Batuco-tuco: Yopi, Pepo, Hanni, Cybele e 
+  Gunter, cada um com seu instrumento."
+              },
+              {
+                "alt": "Apresentação final do Batuco-tuco: Música é saber, 
+  ludificação e pesquisa transformam o ensino."
+              }
+            ]
+          },
+          "finalProject": {
+            "title": "Projeto final"
+          }
+        },
+        "thanks": "Obrigada por ter chegado até aqui!"
+      },
+      "pontinhasSoltas": {
+        "title": "Pontinhas soltas",
+        "subtitle": "Pontinhas soltas",
+        "cardTitle": "Pontinhas soltas",
+        "description": "Design e modelagem 3D de personagens em torno de uma 
+  identidade de pontos soltos. (PLACEHOLDER)",
+        "intro": "As \"Pontinhas soltas\" são uma representação da extensão do 
+  projeto de marca \"Pontos sem nó\". Elaboradas como personas atribuídas às 
+  palavras conceito da marca, a caracterização delas busca transmitir conforto e
+  fazer parte de contextos casuais.\n\nO objetivo central de ter uma extensão 
+  relativa à elas é que (PLACEHOLDER)",
+        "tags": ["Pessoal", "Design de Personagens"],
+        "sections": {
+          "creationProcess": {
+            "title": "Processo de criação",
+            "paragraphs": [
+              "Desenvolvido na disciplina de Design de Interfaces Gráficas 
+  (Unifor), o desafio foi criar um Design System escalável e fluxos de 
+  usabilidade coesos. Priorizei requisitos básicos, como as atividades práticas,
+  para garantir a funcionalidade antes de avançar para interações complexas de 
+  banda. Em três semanas, finalizei toda a interface, ativos e animações, 
+  focando na otimização da prototipagem. (PLACEHOLDER)"
+            ]
+          },
+          "prototyping": {
+            "title": "Prototipagem",
+            "tabs": ["Design de personagens", "Personas", "Palavras Conceito",
+  "Blender"],
+            "captions": [],
+            "images": [
+              {
+                "alt": "Sistema de identidade visual em seis etapas: 
+  brainstorming de palavras conceito, análise de painel semântico, criação de 
+  esboços, testes gráficos, teste de impressão e manual."
+              },
+              {
+                "alt": "Capturas do processo de modelagem 3D dos personagens no 
+  Blender."
+              },
+              {
+                "alt": "Mais capturas do processo de modelagem 3D dos 
+  personagens no Blender."
+              },
+              {
+                "alt": "Biblioteca de personagens: turnarounds (frente, 3/4 e 
+  lado) de Ali, Nina, Jemmy e demais personagens."
+              },
+              {
+                "alt": "Personagens finais: Jemmy, Nina, Haggy, Lac e Ali, em 
+  renderização 3D."
+              },
+              {
+                "alt": "Personagens com suas descrições: Ali é serenidade, Jemmy
+  é lirismo, Lac é ternura, Nina é peregrina e Haggy é escapismo."
+              }
+            ]
+          },
+          "finalProject": {
+            "title": "Projeto final"
+          }
+        },
+        "thanks": "Obrigada por ter chegado até aqui!"
+      }
+    },
+    "status": {
+      "concluido": "Concluído",
+      "emProgresso": "Em progresso",
+      "emBreve": "Em breve"
+    },
+    "footer": {
+      "social": "Redes sociais"
+    },
+    "metadata": {
+      "home": "Ágatha Sales",
+      "contato": "Vamos trabalhar juntos?",
+      "grafico": "Design Gráfico",
+      "interacao": "UX e UI Design",
+      "servicos": "Design de Serviços",
+      "3d": "3D Design",
+      "pontosSemNo": "Pontos sem nó",
+      "batucoTuco": "Batuco-tuco",
+      "pontinhasSoltas": "Pontinhas soltas"
+    }
+  }
+
+  3.2. i18n/config.ts
+
+  export const locales = ['pt-BR', 'en'] as const;
+  export type Locale = (typeof locales)[number];
+  export const defaultLocale: Locale = 'pt-BR';
+
+  export const localeNames: Record<Locale, string> = {
+    'pt-BR': 'PT',
+    en: 'EN',
+  };
+
+  export const localeFlags: Record<Locale, string> = {
+    'pt-BR': '🇧🇷',
+    en: '🇺🇸',
+  };
+
+  3.3. i18n/dictionaries.ts (Type-Safe!)
+
+  import 'server-only';
+  import type { Locale } from './config';
+
+  // ============================================
+  // TYPE-SAFETY: O tipo Dictionary é inferido do pt-BR.json
+  // ============================================
+  import ptBR from '@/dictionaries/pt-BR.json';
+
+  export type Dictionary = typeof ptBR;
+
+  // ============================================
+  // VALIDAÇÃO EM RUNTIME: hasLocale garante que o locale existe
+  // ============================================
+  const dictionaries = {
+    'pt-BR': () => import('@/dictionaries/pt-BR.json').then((m) => m.default as
+  Dictionary),
+    en: () => import('@/dictionaries/en.json').then((m) => m.default as
+  Dictionary),
+  } satisfies Record<Locale, () => Promise<Dictionary>>;
+
+  export type { Locale };
+  export const isLocale = (lang: string): lang is Locale =>
+    lang === 'pt-BR' || lang === 'en';
+
+  export const getDictionary = async (locale: Locale): Promise<Dictionary> =>
+    dictionaries[locale]();
+
+  3.4. proxy.ts (na raiz do projeto)
+
+  import { NextResponse } from 'next/server';
+  import type { NextRequest } from 'next/server';
+  import { locales, defaultLocale, type Locale } from './i18n/config';
+
+  const PUBLIC_FILE = /\.(.*)$/;
+
+  export function proxy(request: NextRequest) {
+    const { pathname } = request.nextUrl;
+
+    // Ignora arquivos públicos, API, _next
+    if (pathname.startsWith('/_next') || PUBLIC_FILE.test(pathname)) {
+      return;
+    }
+
+    // Já tem locale?
+    const pathnameHasLocale = locales.some(
+      (locale) => pathname.startsWith(`/${locale}/`) || pathname ===
+  `/${locale}`
+    );
+
+    if (pathnameHasLocale) return;
+
+    // Detecta locale: cookie > Accept-Language > default
+    const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
+    const acceptLang = request.headers.get('accept-language') ?? '';
+
+    let locale: Locale = defaultLocale;
+
+    if (cookieLocale && locales.includes(cookieLocale as Locale)) {
+      locale = cookieLocale as Locale;
+    } else if (acceptLang.toLowerCase().includes('en')) {
+      locale = 'en';
+    }
+
+    // Redireciona para /locale/path
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(request.nextUrl);
+  }
+
+  export const config = {
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  };
+
+  ---
+
+  4. Componentes
+
+  4.1. lib/i18n/provider.tsx (Client Context)
+
+  'use client';
+
+  import { createContext, useContext, type ReactNode } from 'react';
+  import type { Dictionary, Locale } from '@/i18n/dictionaries';
+
+  type I18nContextValue = {
+    dict: Dictionary;
+    locale: Locale;
+  };
+
+  const I18nContext = createContext<I18nContextValue | null>(null);
+
+  export function I18nProvider({
+    dict,
+    locale,
+    children,
+  }: {
+    dict: Dictionary;
+    locale: Locale;
+    children: ReactNode;
+  }) {
+    return (
+      <I18nContext.Provider value={{ dict, locale }}>
+        {children}
+      </I18nContext.Provider>
+    );
+  }
+
+  export function useI18n() {
+    const ctx = useContext(I18nContext);
+    if (!ctx) throw new Error('useI18n must be used within I18nProvider');
+    return ctx;
+  }
+
+  4.2. lib/i18n/use-translation.ts (Hook tipado)
+
+  'use client';
+
+  import { useI18n } from './provider';
+  import type { Dictionary } from '@/i18n/dictionaries';
+
+  // ============================================
+  // TYPE-SAFETY: Paths tipados para autocomplete
+  // ============================================
+  type Path<T, P extends string = ''> = T extends string
+    ? P
+    : T extends object
+      ? {
+          [K in keyof T & string]: Path<T[K], P extends '' ? K : `${P}.${K}`>;
+        }[keyof T & string]
+      : never;
+
+  export type TranslationKey = Path<Dictionary>;
+
+  // Hook com autocomplete
+  export function useTranslations() {
+    const { dict, locale } = useI18n();
+
+    const t = (key: TranslationKey): string => {
+      const value = key.split('.').reduce<unknown>((obj, k) => {
+        if (obj && typeof obj === 'object' && k in obj) {
+          return (obj as Record<string, unknown>)[k];
+        }
+        return undefined;
+      }, dict);
+
+      if (typeof value !== 'string') {
+        console.warn(`Missing translation: ${key} (locale: ${locale})`);
+        return key;
+      }
+      return value;
+    };
+
+    return { t, locale, dict };
+  }
+
+  // Helper para Server Components
+  export function createTranslator(dict: Dictionary, locale: string) {
+    return (key: TranslationKey): string => {
+      const value = key.split('.').reduce<unknown>((obj, k) => {
+        if (obj && typeof obj === 'object' && k in obj) {
+          return (obj as Record<string, unknown>)[k];
+        }
+        return undefined;
+      }, dict);
+
+      if (typeof value !== 'string') {
+        console.warn(`Missing translation: ${key} (locale: ${locale})`);
+        return key;
+      }
+      return value;
+    };
+  }
+
+  4.3. components/layout/LanguageSwitcher.tsx
+
+  'use client';
+
+  import { usePathname, useRouter } from 'next/navigation';
+  import { locales, localeNames, type Locale } from '@/i18n/config';
+
+  export function LanguageSwitcher({ currentLocale }: { currentLocale: Locale })
+  {
+    const pathname = usePathname();
+    const router = useRouter();
+
+    const switchLocale = (newLocale: Locale) => {
+      // Salva preferência no cookie (1 ano)
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000;
+  SameSite=Lax`;
+
+      // Troca o prefixo: /pt-BR/contato → /en/contato
+      const segments = pathname.split('/');
+      segments[1] = newLocale;
+      const newPath = segments.join('/');
+
+      router.push(newPath);
+      router.refresh();
+    };
+
+    return (
+      <div className="flex items-center gap-1 rounded-full 
+  bg-[color:var(--color-blue-soft)]/30 p-1">
+        {locales.map((locale) => (
+          <button
+            key={locale}
+            onClick={() => switchLocale(locale)}
+            aria-label={`Mudar para ${localeNames[locale]}`}
+            aria-pressed={locale === currentLocale}
+            className={`rounded-full px-3 py-1 text-sm transition-all ${
+              locale === currentLocale
+                ? 'bg-[color:var(--color-blue)] text-[color:var(--color-cream)]
+  font-bold'
+                : 'text-[color:var(--color-blue)]
+  hover:bg-[color:var(--color-blue-soft)]/50 font-normal'
+            }`}
+          >
+            {localeNames[locale]}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  4.4. app/[lang]/layout.tsx
+
+  import type { Metadata } from 'next';
+  import { notFound } from 'next/navigation';
+  import { getDictionary, isLocale, type Locale } from '@/i18n/dictionaries';
+  import { defaultLocale, locales } from '@/i18n/config';
+  import { Header } from '@/components/layout/Header';
+  import { Footer } from '@/components/layout/Footer';
+  import { I18nProvider } from '@/lib/i18n/provider';
+  import './globals.css';
+
+  export async function generateStaticParams() {
+    return locales.map((lang) => ({ lang }));
+  }
+
+  export async function generateMetadata({
+    params,
+  }: {
+    params: Promise<{ lang: string }>;
+  }): Promise<Metadata> {
+    const { lang } = await params;
+    if (!isLocale(lang)) return {};
+
+    const dict = await getDictionary(lang);
+
+    return {
+      title: {
+        default: dict.site.name,
+        template: `%s · ${dict.site.name}`,
+      },
+      description: dict.site.tagline,
+      openGraph: {
+        title: dict.site.name,
+        description: dict.site.tagline,
+        locale: lang === 'pt-BR' ? 'pt_BR' : 'en_US',
+        type: 'website',
+      },
+      alternates: {
+        languages: {
+          'pt-BR': '/pt-BR',
+          en: '/en',
+        },
+      },
+    };
+  }
+
+  const TYPEKIT_ID = process.env.NEXT_PUBLIC_TYPEKIT_ID;
+
+  export default async function RootLayout({
+    children,
+    params,
+  }: Readonly<{
+    children: React.ReactNode;
+    params: Promise<{ lang: string }>;
+  }>) {
+    const { lang } = await params;
+    if (!isLocale(lang)) notFound();
+
+    const dict = await getDictionary(lang);
+
+    return (
+      <html lang={lang} className="h-full" suppressHydrationWarning>
+        <head>
+          {TYPEKIT_ID ? (
+            <>
+              <link rel="preconnect" href="https://use.typekit.net" />
+              <link
+                rel="stylesheet"
+                href={`https://use.typekit.net/${TYPEKIT_ID}.css`}
+              />
+            </>
+          ) : null}
+        </head>
+        <body className="min-h-full flex flex-col" suppressHydrationWarning>
+          <I18nProvider dict={dict} locale={lang}>
+            <Header locale={lang} dict={dict} />
+            <main className="flex-1">{children}</main>
+            <Footer dict={dict} />
+          </I18nProvider>
+        </body>
+      </html>
+    );
+  }
+
+  ---
+
+  5. Helper para Projetos Traduzidos
+
+  lib/projects.ts
+
+  import type { Dictionary, Locale } from '@/i18n/dictionaries';
+  import type { CategoryKey } from './site';
+
+  // Metadados que NÃO são traduzíveis
+  export type ProjectMeta = {
+    slug: string;
+    status: 'concluido' | 'em-progresso' | 'em-breve';
+    categories: CategoryKey[];
+    date?: string;
+    accent: 'blue' | 'orange' | 'pink';
+    coverImage?: string;
+  };
+
+  // Projeto completo (metadados + traduções)
+  export type LocalizedProject = ProjectMeta & {
+    title: string;
+    subtitle: string;
+    cardTitle?: string;
+    description: string;
+    intro: string;
+    tags: string[];
+    thanks: string;
+    sections: {
+      creationProcess: {
+        title: string;
+        paragraphs: string[];
+      };
+      prototypyping?: {
+        title: string;
+        tabs: string[];
+        captions: string[];
+        images: { alt: string }[];
+      };
+      finalProject?: {
+        title: string;
+      };
+    };
+  };
+
+  // Slug para chave do dicionário
+  const slugToKey: Record<string, keyof Dictionary['projects']> = {
+    'pontos-sem-no': 'pontosSemNo',
+    'batuco-tuco': 'batucoTuco',
+    'pontinhas-soltas': 'pontinhasSoltas',
+  };
+
+  // Metadados estáticos
+  const projectMeta: ProjectMeta[] = [
+    {
+      slug: 'pontos-sem-no',
+      status: 'concluido',
+      categories: ['grafico'],
+      date: '08.12.2025',
+      accent: 'blue',
+      coverImage: '/images/projects/pontos-sem-no/cover.webp',
+    },
+    {
+      slug: 'batuco-tuco',
+      status: 'em-progresso',
+      categories: ['interacao'],
+      date: '04.12.2025',
+      accent: 'orange',
+      coverImage: '/images/projects/batuco-tuco/cover.png',
+    },
+    {
+      slug: 'pontinhas-soltas',
+      status: 'concluido',
+      categories: ['3d'],
+      date: '08.12.2025',
+      accent: 'pink',
+      coverImage: '/images/projects/pontinhas-soltas/cover.png',
+    },
+  ];
+
+  // ============================================
+  // TYPE-SAFETY: Retorna projeto totalmente tipado
+  // ============================================
+  export function getLocalizedProject(
+    slug: string,
+    dict: Dictionary
+  ): LocalizedProject | undefined {
+    const meta = projectMeta.find((p) => p.slug === slug);
+    if (!meta) return undefined;
+
+    const key = slugToKey[slug];
+    if (!key) return undefined;
+
+    const i18n = dict.projects[key];
+
+    return {
+      ...meta,
+      title: i18n.title,
+      subtitle: i18n.subtitle,
+      cardTitle: i18n.cardTitle,
+      description: i18n.description,
+      intro: i18n.intro,
+      tags: i18n.tags,
+      thanks: i18n.thanks,
+      sections: {
+        creationProcess: i18n.sections.creationProcess,
+        prototyping: i18n.sections.prototyping,
+        finalProject: i18n.sections.finalProject,
+      },
+    };
+  }
+
+  export function getLocalizedProjectsByCategory(
+    category: CategoryKey,
+    dict: Dictionary
+  ): LocalizedProject[] {
+    return projectMeta
+      .filter((p) => p.categories.includes(category))
+      .map((p) => getLocalizedProject(p.slug, dict)!)
+      .filter(Boolean);
+  }
+
+  export function projectsByCategory(
+    category: CategoryKey,
+    dict: Dictionary
+  ): LocalizedProject[] {
+    return getLocalizedProjectsByCategory(category, dict);
+  }
+
+  ---
+
+  6. Modificações nos Componentes Existentes
+
+  components/layout/Header.tsx (exemplo)
+
+  'use client';
+
+  import Link from 'next/link';
+  import { usePathname } from 'next/navigation';
+  import type { Dictionary, Locale } from '@/i18n/dictionaries';
+  import { LanguageSwitcher } from './LanguageSwitcher';
+
+  const navItems = [
+    { key: 'about' as const, href: '/' },
+    { key: 'contact' as const, href: '/contato' },
+  ] as const;
+
+  const categoryItems = [
+    { key: 'grafico' as const, href: '/grafico' },
+    { key: 'interacao' as const, href: '/interacao' },
+    { key: 'servicos' as const, href: '/servicos' },
+    { key: '3d' as const, href: '/3d' },
+  ] as const;
+
+  export function Header({
+    locale,
+    dict,
+  }: {
+    locale: Locale;
+    dict: Dictionary;
+  }) {
+    const pathname = usePathname();
+    // Remove o prefixo de locale para comparar: /pt-BR/contato → /contato
+    const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/';
+
+    const linkStyle = { color: 'var(--color-blue)' } as const;
+    const linkClass = (active: boolean) =>
+      `transition-opacity hover:opacity-70 ${active ? 'font-black' : 
+  'font-normal'}`;
+
+    return (
+      <header className="w-full bg-[color:var(--color-cream)]/95 backdrop-blur 
+  supports-[backdrop-filter]:bg-[color:var(--color-cream)]/80 sticky top-0 
+  z-30">
+        <div className="flex w-full flex-col gap-3 px-10 py-4 text-base 
+  md:flex-row md:items-center md:justify-between">
+          {/* Esquerda: nav + Language Switcher */}
+          <div className="flex items-center gap-6">
+            <nav className="flex items-center gap-4">
+              {navItems.map((item) => {
+                const active = pathWithoutLocale === item.href;
+                return (
+                  <Link
+                    key={item.href}
+                    href={`/${locale}${item.href}`}
+                    aria-current={active ? 'page' : undefined}
+                    className={linkClass(active)}
+                    style={linkStyle}
+                  >
+                    {dict.nav[item.key]}
+                  </Link>
+                );
+              })}
+            </nav>
+            <LanguageSwitcher currentLocale={locale} />
+          </div>
+
+          {/* Direita: categorias */}
+          <nav className="flex items-center gap-4">
+            {categoryItems.map((item) => {
+              const active = pathWithoutLocale === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={`/${locale}${item.href}`}
+                  aria-current={active ? 'page' : undefined}
+                  className={linkClass(active)}
+                  style={linkStyle}
+                >
+                  {dict.nav[item.key]}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      </header>
+    );
+  }
+
+  ---
+
+  7. Fluxo de Dados Completo
+
+  ┌─────────────┐     ┌─────────────┐     ┌─────────────────┐
+  │  Usuário    │────→│  proxy.ts   │────→│ Redireciona     │
+  │  acessa /   │     │             │     │ /pt-BR/ ou /en/ │
+  └─────────────┘     └─────────────┘     └─────────────────┘
+                                                  ↓
+  ┌─────────────┐     ┌─────────────────┐     ┌─────────────────┐
+  │  Header     │←────│ I18nProvider    │←────│ [lang]/layout   │
+  │  (client)   │     │ (context)       │     │ getDictionary() │
+  └─────────────┘     └─────────────────┘     └─────────────────┘
+         ↓                                            ↓
+  ┌─────────────┐                           ┌─────────────────┐
+  │  useTranslations()                      │  generateStaticParams
+  │  t('nav.about') → "Sobre mim"           │  → gera /pt-BR/* e /en/*
+  │  t('home.greeting') → "Olá a todos,"    │  (build time)
+  └─────────────┘                           └─────────────────┘
+
+  ---
+
+  8. Estratégia de Migração (Passo a Passo)
+
+  ┌───────┬─────────────────────┬────────────────────────────────────────────┐
+  │ Ordem │       Tarefa        │                  Arquivos                  │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 1     │ Criar estrutura     │ i18n/config.ts, i18n/dictionaries.ts       │
+  │       │ i18n                │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 2     │ Criar dicionários   │ dictionaries/pt-BR.json,                   │
+  │       │                     │ dictionaries/en.json                       │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 3     │ Criar provider e    │ lib/i18n/provider.tsx,                     │
+  │       │ hooks               │ lib/i18n/use-translation.ts                │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 4     │ Criar proxy         │ proxy.ts                                   │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 5     │ Criar               │ components/layout/LanguageSwitcher.tsx     │
+  │       │ LanguageSwitcher    │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 6     │ Mover app/ →        │ Todos os arquivos de rota                  │
+  │       │ app/[lang]/         │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 7     │ Atualizar layout    │ app/[lang]/layout.tsx                      │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 8     │ Refatorar           │ Remover labels, manter estrutura           │
+  │       │ lib/site.ts         │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 9     │ Criar               │ Helper para projetos traduzidos            │
+  │       │ lib/projects.ts     │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 10    │ Atualizar Header    │ components/layout/Header.tsx               │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 11    │ Atualizar Footer    │ components/layout/Footer.tsx               │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 12    │ Atualizar BrandHero │ components/layout/BrandHero.tsx            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 13    │ Atualizar           │ components/contact/ContactForm.tsx         │
+  │       │ ContactForm         │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 14    │ Atualizar           │ components/home/CategoryPage.tsx           │
+  │       │ CategoryPage        │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 15    │ Atualizar           │ components/home/ProjectCard.tsx            │
+  │       │ ProjectCard         │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 16    │ Atualizar CaseShell │ components/case-study/CaseShell.tsx        │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 17    │ Atualizar páginas   │ app/[lang]/page.tsx,                       │
+  │       │                     │ app/[lang]/contato/page.tsx, etc.          │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 18    │ Atualizar páginas   │ app/[lang]/projetos/*/page.tsx             │
+  │       │ de projeto          │                                            │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 19    │ Testar build        │ pnpm build                                 │
+  ├───────┼─────────────────────┼────────────────────────────────────────────┤
+  │ 20    │ Testar trocar       │ Verificar cookie + redirect                │
+  │       │ idioma              │                                            │
+  └───────┴─────────────────────┴────────────────────────────────────────────┘
+
+  ---
+
+  9. Pontos de Atenção
+
+  ┌───────────────────────────────┬─────────────────────────────────────────┐
+  │           Situação            │              Como resolver              │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ Textos com JSX inline (ex:    │ Quebrar em múltiplos keys: body1,       │
+  │ <strong> no meio do texto)    │ body1Bold, body1End                     │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ Pluralização ("1 projeto" vs  │ Usar Intl.PluralRules ou adicionar      │
+  │ "2 projetos")                 │ lógica no componente                    │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ Datas (08.12.2025)            │ Usar Intl.DateTimeFormat(locale) no     │
+  │                               │ futuro                                  │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ Números                       │ Usar Intl.NumberFormat(locale) no       │
+  │                               │ futuro                                  │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ Imagens com texto             │ Manter como estão (são parte do design) │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ Formulário EmailJS            │ Placeholders traduzidos, envio continua │
+  │                               │  igual                                  │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ SEO hreflang                  │ Adicionar alternates.languages no       │
+  │                               │ metadata                                │
+  ├───────────────────────────────┼─────────────────────────────────────────┤
+  │ 404 para locale inválido      │ notFound() no layout se !isLocale(lang) │
+  └───────────────────────────────┴─────────────────────────────────────────┘
+
+  ---
+
+  10. Exemplo: Página de Projeto (Antes vs Depois)
+
+  Antes (app/projetos/pontos-sem-no/page.tsx):
+  const project = getProjectBySlug('pontos-sem-no');
+  // ... usa project.title, project.subtitle diretamente
+
+  Depois (app/[lang]/projetos/pontos-sem-no/page.tsx):
+  import { getDictionary, isLocale } from '@/i18n/dictionaries';
+  import { getLocalizedProject } from '@/lib/projects';
+  import { notFound } from 'next/navigation';
+
+  export default async function Page({
+    params,
+  }: {
+    params: Promise<{ lang: string }>;
+  }) {
+    const { lang } = await params;
+    if (!isLocale(lang)) notFound();
+
+    const dict = await getDictionary(lang);
+    const project = getLocalizedProject('pontos-sem-no', dict);
+    if (!project) notFound();
+
+    return (
+      <CaseShell project={project} dict={dict}>
+        <CaseSection
+          title={project.sections.creationProcess.title}
+          dict={dict}
+        >
+          {project.sections.creationProcess.paragraphs.map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </CaseSection>
+        {/* ... */}
+      </CaseShell>
+    );
+  }
+
+  ---
+
+  ✅ Resumo Final
+
+  ┌─────────────────┬────────────────────────────────────────────────────┐
+  │     Aspecto     │                      Decisão                       │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Locales         │ pt-BR (padrão) e en                                │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ URLs            │ /pt-BR/... e /en/...                               │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Troca de idioma │ Botão no header + cookie NEXT_LOCALE               │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Type-safety     │ ✅ typeof ptBR define o tipo, EN validado          │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Autocomplete    │ ✅ TranslationKey type com dot-notation            │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Validação       │ ✅ pnpm build falha se EN estiver faltando chave   │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Estrutura       │ app/[lang]/ + dictionaries/ + i18n/                │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ Projetos        │ Metadados em lib/projects.ts, textos no dicionário │
+  ├─────────────────┼────────────────────────────────────────────────────┤
+  │ SEO             │ alternates.languages + generateStaticParams        │
+  └─────────────────┴────────────────────────────────────────────────────┘
+
+  ---
+
+  Esse design está aprovado? Se sim, eu escrevo o documento de especificação
+  (docs/superpowers/specs/2026-10-19-i18n-design.md) e depois passamos para o
+  plano de implementação.
+
+  Se quiser ajustar algo (estrutura de pastas, nomenclatura das chaves, etc.),
+  me avise!
+
+✻ Sautéed for 2m 19s · done 17:07
+
+❯ crie specs e plans para execução                                              
+
+  Thought for 2m 42s, ran 1 shell command (ctrl+o to expand)
+
+● Write(docs/superpowers/specs/2026-10-19-i18n-design.md)
+  ⎿  Wrote 925 lines to docs/superpowers/specs/2026-10-19-i18n-design.md
+      1 # Especificação: Internacionalização (i18n) — Type-Safe com Next.
+        js App Router
+      2 
+      3 **Data:** 2026-10-19  
+      4 **Status:** Aprovado  
+      6 **Abordagem:** Next.js nativo com `app/[lang]/` + JSON type-safe 
+         
+      7 **Locales:** `pt-BR` (padrão) e `en`
+      8 
+      9 ---
+     … +1042 lines (ctrl+o to expand)
+
+  Thought for 13s (ctrl+o to expand)
+
+● Skill(superpowers:writing-plans)
+  ⎿  Successfully loaded skill
+
+  Thought for 5s (ctrl+o to expand)
+
+● I'm using the writing-plans skill to create the implementation plan. Let me
+  first read a few more files I'll need to reference, then write the complete
+  plan.
+
+  Thought for 24s, searched for 1 pattern, read 1 file, ran 1 shell command (ctrl+o to expand)
+  ⎿  Interrupted · What should Claude do instead?
+
+❯ continue                                                                      
+
+❯ continue                                                                      
+
+  Thought for 10s (ctrl+o to expand)
+
+● I'm using the writing-plans skill to create the implementation plan.
+  ⎿  Interrupted · What should Claude do instead?

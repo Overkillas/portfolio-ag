@@ -1,7 +1,8 @@
 import Link from "next/link";
-import type { Project } from "@/content/projects";
+import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import type { LocalizedProject } from "@/lib/projects";
 
-const accentClasses: Record<Project["accent"], string> = {
+const accentClasses: Record<LocalizedProject["accent"], string> = {
   blue: "bg-[color:var(--color-blue)]",
   orange: "bg-[color:var(--color-orange)]",
   pink: "bg-[color:var(--color-pink)]",
@@ -34,9 +35,20 @@ function GearIcon({ className }: { className?: string }) {
   );
 }
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  locale,
+  dict,
+}: {
+  project: LocalizedProject;
+  locale: Locale;
+  dict: Dictionary;
+}) {
   return (
-    <Link href={`/projetos/${project.slug}`} className="group block">
+    <Link
+      href={`/${locale}/projetos/${project.slug}`}
+      className="group block"
+    >
       {/* Header — subtítulo (Clother Bold 26px) + ícone.
           Override do fontFamily: a regra global em globals.css força h1-h4 a usar
           a fonte display (AM Novecento), mas o subtítulo é Clother Bold. */}
@@ -68,7 +80,7 @@ export function ProjectCard({ project }: { project: Project }) {
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={project.coverImage}
-            alt={`Capa do projeto ${project.title}`}
+            alt={dict.projects.coverAlt.replace("{title}", project.title)}
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
@@ -95,19 +107,19 @@ export function ProjectCard({ project }: { project: Project }) {
       <p className="mt-3 text-base leading-relaxed text-[color:var(--color-blue)]">
         {project.description}{" "}
         <span className="font-bold whitespace-nowrap group-hover:underline">
-          Ver mais.
+          {dict.projects.seeMore}
         </span>
       </p>
     </Link>
   );
 }
 
-export function PlaceholderCard() {
+export function PlaceholderCard({ dict }: { dict: Dictionary }) {
   return (
-    <div className="block" aria-label="Projeto em breve">
+    <div className="block" aria-label={dict.projects.comingSoon}>
       <div className="mb-2 flex items-end justify-between">
         <h3 className="font-bold text-[1.625rem] leading-tight text-[color:var(--color-muted)]">
-          Em breve
+          {dict.projects.comingSoon}
         </h3>
       </div>
       <div className="bg-placeholder shadow-card flex aspect-[640/238] items-center justify-center rounded-[8px]">
@@ -115,7 +127,7 @@ export function PlaceholderCard() {
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
         <span className="rounded-full bg-[color:var(--color-blue-soft)]/50 px-3.5 py-1 text-base text-[color:var(--color-muted)]">
-          Novo projeto a caminho
+          {dict.projects.comingSoonTag}
         </span>
       </div>
     </div>

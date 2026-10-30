@@ -1,7 +1,6 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
-import { site } from "@/lib/site";
 
 /**
  * Hero display no topo de cada página — banda full-width com gradiente azul e o
@@ -20,9 +19,20 @@ import { site } from "@/lib/site";
  * as letras encostarem nas bordas; um leve overscan empurra o "vazamento".
  *
  * Home/Contato usam "Ágatha sales"; landings, o nome da categoria.
+ *
+ * variant="home" (spec v2 §4.2): banda da home v2 "Pontossemno" — 252px @1728
+ * (14.58vw) com gradiente -62.1° (.bg-hero). O default mantém .bg-band
+ * (-70.88°, clamp(168px,17.5vw,290px)) pra home/contato/categorias antigas.
  */
-export function BrandHero({ title }: { title?: string }) {
-  const text = title ?? site.name;
+export function BrandHero({
+  title,
+  variant = 'default',
+}: {
+  title: string;
+  variant?: 'default' | 'home';
+}) {
+  const isHome = variant === 'home';
+  const text = title;
   const textRef = useRef<SVGTextElement>(null);
   const [box, setBox] = useState<{ x: number; y: number; w: number; h: number } | null>(null);
 
@@ -68,7 +78,13 @@ export function BrandHero({ title }: { title?: string }) {
       { bottom: 0, left: "-0.5%", width: "101%", height: "auto", visibility: box ? "visible" : "hidden" };
 
   return (
-    <div className="bg-band relative w-full overflow-hidden h-[clamp(168px,17.5vw,290px)]">
+    <div
+      className={`relative w-full overflow-hidden ${
+        isHome
+          ? 'bg-hero h-[14.58vw] min-h-[168px]'
+          : 'bg-band h-[clamp(168px,17.5vw,290px)]'
+      }`}
+    >
       {/* h1 real pra semântica/SEO; o visual fica no SVG (aria-hidden). */}
       <h1 className="sr-only">{text}</h1>
       <svg

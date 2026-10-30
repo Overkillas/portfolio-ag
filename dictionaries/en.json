@@ -1,0 +1,258 @@
+{
+  "site": {
+    "name": "Ágatha Sales",
+    "tagline": "Graphic design, UX/UI, 3D and service design."
+  },
+  "nav": {
+    "about": "About me",
+    "contact": "Hire me",
+    "grafico": "Graphic",
+    "interacao": "Interaction",
+    "servicos": "Services",
+    "3d": "3D",
+    "homeAbout": "about",
+    "homeProjects": "projects",
+    "switchLocale": "Switch to {name}"
+  },
+  "home": {
+    "greeting": "Hello everyone,",
+    "greetingAlt": "Illustration of Ágatha waving",
+    "intro": "I'm not good with long texts but here we go haha Pleasure! I'm the designer of your neighborhood, your multinational company and your cute indie game.",
+    "philosophy": "Philosophy",
+    "philosophyAlt": "Illustration of Ágatha thinking",
+    "philosophyLead": "For me, design is research, illustration and perspective.",
+    "philosophyBody1": "I believe design is the intentional manipulation of ",
+    "philosophyBody1Bold": "human experience",
+    "philosophyBody1End": ": a tool capable of impacting habits and giving humanity back to our daily lives.",
+    "philosophyBody2": "In this context, I see ",
+    "philosophyBody2Bold1": "3D",
+    "philosophyBody2Mid": ", the ",
+    "philosophyBody2Bold2": "design of interfaces",
+    "philosophyBody2Mid2": " and the ",
+    "philosophyBody2Bold3": "research",
+    "philosophyBody2End": " as extensions of one same purpose: building experiences that are truly helpful, memorable and sensitive.",
+    "experience": "Experience",
+    "experienceAlt": "Illustration of Ágatha sitting",
+    "experienceLead": "The future lies in human activity, and it is what makes our experiences so important.",
+    "experienceBody": "I'm glad to welcome you here in my space. If you'd like to learn even more about my academic, extracurricular and professional experiences, feel free to explore my ",
+    "experienceBodyBold": "résumé",
+    "experienceBodyMid": " or the ",
+    "experienceBodyLink": "LinkedIn",
+    "experienceBodyEnd": " profile.",
+    "studiesAlt": "Illustration of studies — rabbits in a pink field with flowers",
+    "studiesDoodlesAlt": "Blue panel with sea animal doodles",
+    "careerAlt": "Illustration of a cute whale swimming with bubbles",
+    "contactTitleLine1": "LET'S",
+    "contactTitleLine2": "WORK",
+    "contactTitleLine3": "TOGETHER?",
+    "contactSubtitle": "Get in touch by sending an email below!",
+    "contactIllustrationAlt": "Illustration of Ágatha holding an envelope",
+    "crachaAlt": "Blue badge with the words 'i believe that design is'",
+    "crachaSaying": "i believe that design is",
+    "peekingAlt": "Illustration of Ágatha peeking over the gallery"
+  },
+  "contact": {
+    "title": "Let's work together?",
+    "subtitle": "Get in touch by sending an email in the text box below!",
+    "illustrationAlt": "Illustration of Ágatha",
+    "form": {
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "phonePlaceholder": "Your phone",
+      "messagePlaceholder": "Type your request...",
+      "minContactHint": "Leave at least one: email or phone.",
+      "submitAriaLabel": "Send request",
+      "successMessage": "Got it! I'll reply soon :)",
+      "errorFallback": "Please fill in the fields",
+      "emailjsNotConfigured": "EmailJS is not configured. Set the variables in .env.local to send.",
+      "sendFailed": "Failed to send. Try again?",
+      "errors": {
+        "nameRequired": "Tell me your name :)",
+        "messageMinLength": "Tell me a bit more about what you need :)",
+        "contactRequired": "Add a contact method (email or phone) to send :)",
+        "invalidEmail": "This email doesn't look valid, can you double-check it? :)",
+        "invalidPhone": "This phone number doesn't look valid, can you check the digits? :)"
+      }
+    }
+  },
+  "categories": {
+    "grafico": {
+      "title": "Graphic Design",
+      "heroTitle": "Graphic Design"
+    },
+    "interacao": {
+      "title": "UX and UI Design",
+      "heroTitle": "UX and UI Design"
+    },
+    "servicos": {
+      "title": "Service Design",
+      "heroTitle": "Service Design"
+    },
+    "3d": {
+      "title": "3D Design",
+      "heroTitle": "3D Design"
+    }
+  },
+  "projects": {
+    "seeMore": "See more.",
+    "comingSoon": "Coming soon",
+    "comingSoonTag": "New project on the way",
+    "coverAlt": "Cover for {title}",
+    "pontosSemNo": {
+      "title": "Pontos sem nó",
+      "subtitle": "Brand Identity: Pontos sem nó",
+      "cardTitle": "Pontos sem nó",
+      "description": "The “Pontos sem nó” brand seeks to transport us to the space between the lines of our deepest unresolved questions that always return to our minds in some way, converting memories into recognizable feelings… (PLACEHOLDER)",
+      "intro": "The “Pontos sem nó” brand seeks to transport us to the space between the lines of our deepest unresolved questions that always return to our minds in some way, converting memories into recognizable feelings. Pontos sem nó seeks to be part of the moment of identification, conveying the process of acceptance of those feelings in the form of music.\n\nRepresented through lines of tenderness, serenity with a lyrical touch that makes us take on the role of a pilgrim in other dimensions through escapism.",
+      "tags": [
+        "Academic",
+        "Brand Identity Design"
+      ],
+      "sections": {
+        "creationProcess": {
+          "title": "Creation process",
+          "paragraphs": [
+            "The beginning of the process was marked by guided research, building a semantic board to orient the conceptual decisions of the project. After the research, selections of elements, typefaces, colors and other representations were made to enrich the brand's conceptual repertoire and make its application easier."
+          ],
+          "images": [
+            "Visual identity system in six steps: brainstorming of concept words, semantic board analysis, sketch creation, graphic tests, print test and brand identity manual."
+          ]
+        },
+        "prototyping": {
+          "title": "Prototyping",
+          "tabs": [
+            "Brainstorming",
+            "Semantic board",
+            "Braindumping"
+          ],
+          "thumbs": {
+            "captions": [
+              "Board creation",
+              "Logo sketches",
+              "Support elements"
+            ]
+          },
+          "images": []
+        },
+        "finalProject": {
+          "title": "Final project",
+          "images": [
+            "Final project: brand manual, character library, logo variations and applications."
+          ]
+        }
+      },
+      "thanks": "Thank you for making it this far!"
+    },
+    "batucoTuco": {
+      "title": "Batuco-tuco",
+      "subtitle": "Batuco-tuco App",
+      "cardTitle": "Batuco-tuco",
+      "description": "Batuco-Tuco is a mobile application focused on the gamification of music theory and instrument practice. Its name alludes to the “batuque” and pays tribute to a Brazilian species and its sound, the tuco-tuco… (PLACEHOLDER)",
+      "intro": "Batuco-Tuco is a mobile application focused on the gamification of music theory and instrument practice. Its name alludes to the “batuque” and pays tribute to a Brazilian species and its sound, the tuco-tuco, inspiring the playful theme and visual style of the project, which turns animals into skilled musicians.\n\nThe project was developed as a hands-on study of graphical interfaces and UX/UI. To ensure a smooth evolution with real-time visual feedback, the process involved structuring content maps, building a design system and applying user-centered methodologies.",
+      "tags": [
+        "Academic",
+        "Graphical Interface Design"
+      ],
+      "sections": {
+        "creationProcess": {
+          "title": "Creation process",
+          "paragraphs": [
+            "Developed in the Graphical Interface Design course (Unifor), the challenge was to create a scalable Design System and cohesive usability flows. I prioritized basic requirements, such as the practice activities, to guarantee functionality before moving on to complex band interactions. In three weeks, I finished the entire interface, assets and animations, focusing on prototyping optimization."
+          ],
+          "images": [
+            "Map of the Graphical Interfaces process: user profile, requirements, methods, alternatives and prototyping.",
+            "Scribbles and low-fidelity wireframes of the app screens."
+          ]
+        },
+        "prototyping": {
+          "title": "Prototyping",
+          "tabs": [
+            "User stories",
+            "Content map",
+            "A.C. Matrix",
+            "Design System"
+          ],
+          "thumbs": {
+            "captions": []
+          },
+          "images": [
+            "App interface and asset library: exercise screens, points system and character accessories.",
+            "Batuco-tuco characters: Yopi, Pepo, Hanni, Cybele and Gunter, each with their instrument.",
+            "Final presentation of Batuco-tuco: Music is knowledge, playfulness and research transform teaching."
+          ]
+        },
+        "finalProject": {
+          "title": "Final project",
+          "images": []
+        }
+      },
+      "thanks": "Thank you for making it this far!"
+    },
+    "pontinhasSoltas": {
+      "title": "Pontinhas soltas",
+      "subtitle": "Pontinhas soltas",
+      "cardTitle": "Pontinhas soltas",
+      "description": "Design and 3D modeling of characters around an identity of loose dots. (PLACEHOLDER)",
+      "intro": "The “Pontinhas soltas” are a representation of the extension of the “Pontos sem nó” brand project. Created as personas assigned to the concept words of the brand, their characterization seeks to convey comfort and be part of casual contexts.\n\nThe central goal of having an extension related to them is that (PLACEHOLDER)",
+      "tags": [
+        "Personal",
+        "Character Design"
+      ],
+      "sections": {
+        "creationProcess": {
+          "title": "Creation process",
+          "paragraphs": [
+            "Developed in the Graphical Interface Design course (Unifor), the challenge was to create a scalable Design System and cohesive usability flows. I prioritized basic requirements, such as the practice activities, to guarantee functionality before moving on to complex band interactions. In three weeks, I finished the entire interface, assets and animations, focusing on prototyping optimization. (PLACEHOLDER)"
+          ],
+          "images": [
+            "Visual identity system in six steps: brainstorming of concept words, semantic board analysis, sketch creation, graphic tests, print test and manual.",
+            "Captures of the 3D character modeling process in Blender.",
+            "More captures of the 3D character modeling process in Blender.",
+            "Character library: turnarounds (front, 3/4 and side) of Ali, Nina, Jemmy and other characters."
+          ]
+        },
+        "prototyping": {
+          "title": "Prototyping",
+          "tabs": [
+            "Character design",
+            "Personas",
+            "Concept words",
+            "Blender"
+          ],
+          "thumbs": {
+            "captions": []
+          },
+          "images": [
+            "Final characters: Jemmy, Nina, Haggy, Lac and Ali, in 3D rendering.",
+            "Characters with their descriptions: Ali is serenity, Jemmy is lyricism, Lac is tenderness, Nina is the pilgrim and Haggy is escapism."
+          ]
+        },
+        "finalProject": {
+          "title": "Final project",
+          "images": []
+        }
+      },
+      "thanks": "Thank you for making it this far!"
+    }
+  },
+  "status": {
+    "concluido": "Completed",
+    "emProgresso": "In progress",
+    "emBreve": "Coming soon"
+  },
+  "footer": {
+    "social": "Social media",
+    "visitAlso": "visit too"
+  },
+  "metadata": {
+    "home": "Ágatha Sales",
+    "contato": "Let's work together?",
+    "grafico": "Graphic Design",
+    "interacao": "UX and UI Design",
+    "servicos": "Service Design",
+    "3d": "3D Design",
+    "pontosSemNo": "Pontos sem nó",
+    "batucoTuco": "Batuco-tuco",
+    "pontinhasSoltas": "Pontinhas soltas"
+  }
+}

@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
-import type { Project } from "@/content/projects";
+import type { Dictionary } from "@/i18n/dictionaries";
+import type { LocalizedProject, ProjectStatus } from "@/lib/projects";
 
-const statusLabel: Record<Project["status"], string> = {
-  concluido: "Concluído",
-  "em-progresso": "Em progresso",
-  "em-breve": "Em breve",
+// 'em-progresso' (slug, kebab) → 'emProgresso' (chave do dicionário, camelCase)
+const statusKey: Record<ProjectStatus, keyof Dictionary["status"]> = {
+  concluido: "concluido",
+  "em-progresso": "emProgresso",
+  "em-breve": "emBreve",
 };
 
 /** Fonte do corpo (Clother) — sobrescreve a regra global que joga h1-h4 pra display. */
@@ -33,10 +35,12 @@ function Pill({
 
 export function CaseShell({
   project,
+  dict,
   cover,
   children,
 }: {
-  project: Project;
+  project: LocalizedProject;
+  dict: Dictionary;
   cover?: ReactNode;
   children: ReactNode;
 }) {
@@ -52,7 +56,7 @@ export function CaseShell({
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={project.coverImage}
-              alt={`Capa do projeto ${project.title}`}
+              alt={dict.projects.coverAlt.replace("{title}", project.title)}
               className="shadow-card block w-full rounded-[8px]"
             />
           ))}
@@ -65,7 +69,7 @@ export function CaseShell({
           >
             {project.subtitle}
           </h1>
-          <Pill variant="status">{statusLabel[project.status]}</Pill>
+          <Pill variant="status">{dict.status[statusKey[project.status]]}</Pill>
         </div>
 
         {/* Tags (esquerda) + data (direita) */}
@@ -96,7 +100,7 @@ export function CaseShell({
           className="mt-16 font-normal text-[2rem] leading-tight text-[color:var(--color-blue)]"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Obrigada por ter chegado até aqui!
+          {project.thanks}
         </p>
       </div>
     </article>
