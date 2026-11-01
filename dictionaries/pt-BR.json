@@ -208,8 +208,42 @@
     "interacao": "UX e UI Design",
     "servicos": "Design de Serviços",
     "3d": "3D Design",
+    "projetos": "Projetos",
     "pontosSemNo": "Pontos sem nó",
     "batucoTuco": "Batuco-tuco",
     "pontinhasSoltas": "Pontinhas soltas"
+  },
+  "projectsPage": {
+    "title": "Portfólio",
+    "controlsLabel": "Busca e filtros",
+    "searchLabel": "Pesquisar projetos",
+    "searchPlaceholder": "Pesquise por um tópico",
+    "filtersLabel": "Filtrar por área",
+    "filters": {
+      "all": "todos",
+      "servicos": "design de serviços",
+      "3d": "design 3d",
+      "interacao": "design de interação",
+      "grafico": "design gráfico"
+    },
+    "bubble": {
+      "idle": "Olha que legal!",
+      "featured": "Esse é o meu favorito!",
+      "hover": "Clica pra ver!",
+      "found": "Achei {count}!",
+      "filteredOne": "{count} projeto!",
+      "filteredMany": "{count} projetos!",
+      "empty": "Hmm… nada por aqui"
+    },
+    "listHeading": "Projetos ({count})",
+    "openProject": "Abrir projeto {title}",
+    "featuredBadge": "DESTAQUE",
+    "cursorLine1": "abrir",
+    "cursorLine2": "projeto",
+    "emptyText": "Nenhum projeto com esse tópico… ainda!",
+    "clearFilters": "limpar busca e filtros",
+    "back": "voltar aos projetos",
+    "next": "próximo: {title}",
+    "backToTop": "voltar ao topo"
   }
 }

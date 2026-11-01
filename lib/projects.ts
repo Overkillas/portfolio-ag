@@ -4,6 +4,18 @@ import type { CategoryKey } from './site';
 // Metadados não-translatáveis (estrutura de rota, imagens, design)
 export type ProjectStatus = 'concluido' | 'em-progresso' | 'em-breve';
 
+/** Posição do card na grade bento da página de projetos (não traduzível). */
+export type ProjectGrid = {
+  /** Coluna da grade bento: 0 = estreita (primeira), 1 = larga (segunda), 2 = terceira, também larga */
+  column: 0 | 1 | 2;
+  /** Proporção do card, no formato CSS `aspect-ratio` (ex.: '459 / 590') */
+  aspect: string;
+  /** Ancoragem do recorte da capa, valor CSS de `object-position` */
+  objectPosition: string;
+  /** Linhas da descrição exibidas no hover (corte por line-clamp) */
+  descLines: number;
+};
+
 export type ProjectMeta = {
   slug: string;
   status: ProjectStatus;
@@ -14,6 +26,10 @@ export type ProjectMeta = {
   accent: 'blue' | 'orange' | 'pink';
   /** Caminho da imagem de capa em /public */
   coverImage?: string;
+  /** Projeto em destaque na grade (selo e frase própria do balão) */
+  featured?: boolean;
+  /** Dados de layout da grade bento */
+  grid: ProjectGrid;
 };
 
 // Chaves do dicionário por slug (texto translatável vive em dict.projects.*)
@@ -41,6 +57,8 @@ const projectMeta: ProjectMeta[] = [
     date: '08.12.2025',
     accent: 'blue',
     coverImage: '/images/projects/pontos-sem-no/cover.webp',
+    featured: true,
+    grid: { column: 0, aspect: '459 / 590', objectPosition: 'left center', descLines: 4 },
   },
   {
     slug: 'batuco-tuco',
@@ -49,6 +67,7 @@ const projectMeta: ProjectMeta[] = [
     date: '04.12.2025',
     accent: 'orange',
     coverImage: '/images/projects/batuco-tuco/cover.png',
+    grid: { column: 1, aspect: '612 / 344', objectPosition: 'left center', descLines: 2 },
   },
   {
     slug: 'pontinhas-soltas',
@@ -57,8 +76,12 @@ const projectMeta: ProjectMeta[] = [
     date: '08.12.2025',
     accent: 'pink',
     coverImage: '/images/projects/pontinhas-soltas/cover.png',
+    grid: { column: 1, aspect: '612 / 230', objectPosition: 'left center', descLines: 1 },
   },
 ];
+
+/** Slugs na ordem de `projectMeta` (ordem da grade e do "próximo" do modal). */
+export const projectSlugs: Slug[] = projectMeta.map((p) => p.slug as Slug);
 
 export function getLocalizedProject(
   slug: string,
@@ -85,6 +108,17 @@ export function getLocalizedProjectsByCategory(
     .filter((p) => p.categories.includes(category))
     .map((p) => getLocalizedProject(p.slug, dict)!)
     .filter(Boolean);
+}
+
+/** Todos os projetos localizados, na ordem de `projectMeta`. */
+export function getLocalizedProjects(dict: Dictionary): LocalizedProject[] {
+  return projectSlugs.map((slug) => getLocalizedProject(slug, dict)!);
+}
+
+/** Próximo slug na ordem de `projectMeta`; do último volta ao primeiro. */
+export function getNextSlug(slug: Slug): Slug {
+  const index = projectSlugs.indexOf(slug);
+  return projectSlugs[(index + 1) % projectSlugs.length];
 }
 
 // Alias para compatibilidade

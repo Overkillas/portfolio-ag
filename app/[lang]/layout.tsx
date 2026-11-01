@@ -85,7 +85,7 @@ export default async function RootLayout({
           <main className="flex-1">{children}</main>
           {/* Roteia: home v2 usa HomeFooter (Figma Pontossemno); demais
               páginas mantêm o Footer antigo */}
-          <FooterRouter locale={lang} dict={dict} />
+          <FooterRouter dict={dict} />
         </I18nProvider>
       </body>
     </html>

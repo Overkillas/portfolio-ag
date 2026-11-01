@@ -34,6 +34,7 @@
   --gradient-sidebar: linear-gradient(to bottom, #485699 0%, #5c76b4 39.4%, #6f95ce 73.1%, #6f95ce 100%);
 
   --color-blue-darkest: #08488f; /* fim do gradiente da banda/hero */
+  --color-blue-strong: #0c59ad;  /* link ativo do header — design da aba Projetos */
 
   /* Sombra dos cards — Effect "cards" do Figma:
      DROP_SHADOW #6F96CE @16%, offset (2,8), blur 8, spread 4 */
@@ -163,4 +164,15 @@ a {
 }
 .shadow-card {
   box-shadow: var(--shadow-card);
+}
+
+/* Seta de voltar ao topo no footer de /projetos (animate-[bob_…]). */
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
 }

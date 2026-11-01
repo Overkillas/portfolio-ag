@@ -1,0 +1,290 @@
+/* ============================================================
+   TOKENS (ficam na raiz da página: CSS Modules não aceita :root).
+   Cores que já existem em globals.css usam o token global.
+   ============================================================ */
+.page,
+.sheet {
+  --navy: #175094;
+  --navy-deep: #0e488b;
+  --blue-500: #527fb0;
+  --blue-300: #84a5cb;
+  --blue-200: #c6d4e4;
+  --search-fill-a: #eef2f8;
+  --search-fill-b: #e4eaf3;
+  --pink-ink: #d68aaa;      /* texto das pílulas (tom original do design) */
+  --pink-dash: #f4aecc;     /* tracejado da pílula / fundo da ativa */
+  --pink-dash-active: #ea95b9;
+  --pink-100: #fadae7;
+  --bubble-a: #fff4f8;
+  --bubble-b: #ffe3ee;
+  --pink-outer: var(--color-pink-light); /* anel externo do selo */
+  --badge-fill: #f7cbda;
+  --badge-line: #daa0b7;
+  --badge-ink: var(--color-blue-darkest);
+
+  /* curvas */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);       /* entradas suaves */
+  --ease-spring: cubic-bezier(.2, .9, .3, 1.4);  /* leve overshoot */
+  --ease-bouncy: cubic-bezier(.2, .9, .3, 1.6);  /* overshoot forte (selo, cursor) */
+  --ease-inout: cubic-bezier(.7, 0, .2, 1);      /* capa do modal */
+
+  /* A Clother em negrito pequeno fecha o vão entre palavras (~.135em); o mesmo ajuste da home. */
+  --word-gap: .13em;
+}
+
+.page {
+  outline: none; /* alvo de foco programático do link do rodapé */
+  color: var(--navy);
+  font-family: var(--font-body), system-ui, sans-serif;
+  position: relative;
+}
+
+.srOnly {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+/* ============================================================
+   BUSCA + MASCOTE + FILTROS
+   ============================================================ */
+.controls { display: flex; justify-content: center; padding: 26px 24px 0; }
+.controlsInner { width: 100%; max-width: 650px; display: flex; flex-direction: column; gap: 22px; }
+.topRow { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+
+.search {
+  display: flex; align-items: center; gap: 10px;
+  width: min(300px, 100%); box-sizing: border-box; margin-bottom: 4px;
+  padding: 7px 14px; border-radius: 999px;
+  background: linear-gradient(180deg, var(--search-fill-a), var(--search-fill-b));
+  border: 2px dashed var(--blue-500);
+  box-shadow: 0 0 0 2px #eaeef4, 0 0 0 4px var(--blue-200);
+  transition: box-shadow .25s, transform .3s var(--ease-spring);
+}
+.search:focus-within {
+  transform: scale(1.03);
+  box-shadow: 0 0 0 2px #eaeef4, 0 0 0 4px var(--blue-200), 0 0 0 8px rgba(111,150,206,.25);
+  outline: 3px solid var(--color-blue-darkest); outline-offset: 6px;
+}
+.searchInput {
+  flex: 1; min-width: 0; border: 0; background: transparent; outline: none;
+  font: italic 700 16px var(--font-body), sans-serif; color: var(--navy); word-spacing: var(--word-gap);
+}
+.searchInput::placeholder { color: #5b7fb0; font-style: italic; }
+
+.mascotWrap { display: flex; align-items: center; gap: 10px; }
+.bubble {
+  width: 104px; min-height: 96px; box-sizing: border-box; padding: 10px;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  background: radial-gradient(circle at 35% 30%, var(--bubble-a), var(--bubble-b) 70%);
+  border-radius: 52px 52px 6px 52px;
+  box-shadow: 0 6px 16px -10px rgba(194,85,138,.6);
+  font-size: 14px; font-weight: 700; line-height: 1.25; color: var(--navy); word-spacing: var(--word-gap);
+}
+.bubbleA { display: inline-block; animation: popA .45s var(--ease-spring) both; }
+.bubbleB { display: inline-block; animation: popB .45s var(--ease-spring) both; }
+
+.float { animation: float 3.2s ease-in-out infinite; }
+.mascotFollow { transition: transform .45s var(--ease-spring); will-change: transform; }
+.mascot { display: block; width: 132px; height: auto; transition: transform .45s var(--ease-spring); }
+.mascotHappy { transform: translateY(-6px) scale(1.06); }
+.mascotSad { transform: rotate(10deg) translateY(6px); }
+
+.pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  font: 700 14.5px var(--font-body), sans-serif; line-height: 1; word-spacing: var(--word-gap);
+  padding: 5px 11px; min-height: 26px; border-radius: 999px;
+  background: var(--pink-100); color: var(--pink-ink);
+  border: 1.5px dashed var(--pink-dash);
+  box-shadow: 0 0 0 3px var(--pink-outer);
+  transition: transform .25s var(--ease-spring), background .2s, color .2s;
+}
+@media (hover: hover) { .pill:hover { transform: translateY(-2px) rotate(-1.5deg); } }
+.pill:active { transform: scale(.94); }
+.pillActive { background: var(--pink-dash); color: var(--color-cream); border-color: var(--pink-dash-active); }
+
+/* Ícones usados como máscara: herdam a cor do texto (currentColor) */
+.icon {
+  width: 16px; height: 16px; flex: none; background: currentColor;
+  -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat;
+}
+.iconServicos  { -webkit-mask-image: url('/images/projetos/icones/servicos.png');  mask-image: url('/images/projetos/icones/servicos.png'); }
+.icon3d        { -webkit-mask-image: url('/images/projetos/icones/3d.png');        mask-image: url('/images/projetos/icones/3d.png'); }
+.iconInteracao { -webkit-mask-image: url('/images/projetos/icones/interacao.png'); mask-image: url('/images/projetos/icones/interacao.png'); }
+.iconGrafico   { -webkit-mask-image: url('/images/projetos/icones/grafico.png');   mask-image: url('/images/projetos/icones/grafico.png'); }
+
+/* ============================================================
+   GRADE BENTO
+   ============================================================ */
+.main { padding: 44px 8px 24px; }
+.cols { display: flex; gap: 14px; align-items: flex-start; max-width: 1180px; margin-inline: auto; }
+.col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.colNarrow { flex: 3 1 0; }
+.colWide { flex: 4 1 0; }
+
+.card {
+  position: relative; display: block; overflow: hidden; border-radius: 16px;
+  text-decoration: none; background: #b9ccec;
+  /* `backwards`: depois da entrada a inclinação (inline) volta a valer. Delay vem do inline style. */
+  animation: rise .8s var(--ease-out) backwards;
+  transition: transform .25s ease-out, box-shadow .4s ease;
+  will-change: transform;
+}
+.cardCursorHidden { cursor: none; }
+@media (hover: hover) { .card:hover { box-shadow: 0 24px 44px -20px rgba(14,72,139,.6); } }
+
+.cardImg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform 1s var(--ease-out), filter .5s;
+}
+@media (hover: hover) { .card:hover .cardImg { transform: scale(1.08); filter: blur(2px) saturate(.75); } }
+
+.overlay {
+  position: absolute; inset: 0; opacity: 0; transition: opacity .45s ease;
+  background: linear-gradient(180deg, rgba(23,80,148,.55) 0%, rgba(32,52,90,.86) 55%, rgba(26,43,75,.97) 100%);
+}
+.card:focus-visible .overlay { opacity: 1; }
+@media (hover: hover) { .card:hover .overlay { opacity: 1; } }
+
+.cardText {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0 24px 22px; display: flex; flex-direction: column; gap: 10px; color: #fff;
+}
+.up { opacity: 0; transform: translateY(18px); transition: opacity .45s ease, transform .55s var(--ease-out); }
+.card:focus-visible .up { opacity: 1; transform: none; }
+.card:focus-visible .d1 { transition-delay: .05s; }
+.card:focus-visible .d2 { transition-delay: .12s; }
+.card:focus-visible .d3 { transition-delay: .19s; }
+@media (hover: hover) {
+  .card:hover .up { opacity: 1; transform: none; }
+  .card:hover .d1 { transition-delay: .05s; }
+  .card:hover .d2 { transition-delay: .12s; }
+  .card:hover .d3 { transition-delay: .19s; }
+}
+
+.cardTitle { font-weight: 700; font-size: 18px; letter-spacing: .01em; text-transform: uppercase; line-height: 1.2; word-spacing: var(--word-gap); }
+.cardDesc {
+  font-weight: 500; font-size: 15px; line-height: 1.3; text-align: justify; word-spacing: var(--word-gap);
+  display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 10px; padding: 2px; }
+.tag {
+  font-weight: 600; font-size: 13.5px; color: var(--navy); word-spacing: var(--word-gap);
+  background: var(--color-blue-pale); border: 1.5px dashed var(--color-blue); border-radius: 999px;
+  padding: 2px 10px; box-shadow: 0 0 0 2px var(--color-blue-pale), 0 0 0 3px var(--blue-300);
+}
+
+.badge {
+  position: absolute; top: 34px; right: 34px; z-index: 1;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--badge-fill); color: var(--badge-ink);
+  font-weight: 700; font-size: 19px; line-height: 1; letter-spacing: .03em; word-spacing: var(--word-gap);
+  padding: 7px 12px 7px 9px; border-radius: 2px;
+  box-shadow: inset 0 0 0 2px var(--pink-outer), inset 0 0 0 3.5px var(--badge-line), 0 2px 2px rgba(150,80,110,.45);
+  opacity: 0; transform: scale(.6) rotate(-8deg);
+  transition: opacity .3s, transform .45s var(--ease-bouncy);
+}
+.badge img { display: block; width: 25px; height: 24px; }
+.card:focus-visible .badge { opacity: 1; transform: none; transition-delay: .15s; }
+@media (hover: hover) { .card:hover .badge { opacity: 1; transform: none; transition-delay: .15s; } }
+
+.empty { display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 50px 20px; text-align: center; }
+.emptyText { margin: 0; font-size: 20px; font-weight: 700; word-spacing: var(--word-gap); }
+.emptyBtn {
+  font: 700 15px var(--font-body), sans-serif; word-spacing: var(--word-gap); padding: 10px 18px; min-height: 44px;
+  border-radius: 999px; cursor: pointer; border: 2px dashed var(--blue-500);
+  background: #eaeef4; color: var(--navy);
+}
+
+/* ============================================================
+   CURSOR PERSONALIZADO
+   ============================================================ */
+.cursor {
+  position: fixed; left: 0; top: 0; width: 84px; height: 84px; margin: -42px 0 0 -42px;
+  pointer-events: none; z-index: 40; will-change: transform;
+}
+.cursorDot {
+  width: 100%; height: 100%; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  background: var(--badge-fill); color: var(--badge-ink);
+  font-weight: 700; font-size: 13px; line-height: 1.1; word-spacing: var(--word-gap);
+  box-shadow: inset 0 0 0 2px var(--pink-outer), inset 0 0 0 3.5px var(--badge-line), 0 10px 24px -8px rgba(14,72,139,.6);
+  transform: scale(0); transition: transform .35s var(--ease-bouncy);
+}
+.cursorOn .cursorDot { transform: scale(1); }
+
+/* foco visível */
+.card:focus-visible, .pill:focus-visible, .emptyBtn:focus-visible {
+  outline: 3px solid var(--navy-deep); outline-offset: 4px; border-radius: 16px;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes rise   { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes popA   { 0% { opacity: 0; transform: scale(.6) rotate(-6deg); } 70% { transform: scale(1.06) rotate(2deg); } 100% { opacity: 1; transform: none; } }
+@keyframes popB   { 0% { opacity: 0; transform: scale(.6) rotate(6deg); }  70% { transform: scale(1.06) rotate(-2deg); } 100% { opacity: 1; transform: none; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes heroIn { from { clip-path: inset(30% 25% 30% 25% round 24px); } to { clip-path: inset(0 round 8px); } }
+@keyframes float  { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 900px) {
+  .cols { flex-wrap: wrap; }
+  .colNarrow, .colWide { flex: 1 1 300px; }
+}
+@media (max-width: 700px) {
+  .topRow { flex-direction: column-reverse; align-items: center; }
+}
+/* Sem hover (touch): conteúdo do card sempre visível */
+@media (hover: none) {
+  .overlay, .up, .badge { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   MODAL DO CASE (a folha vive no slot @modal, fora de .page)
+   ============================================================ */
+.sheet {
+  position: fixed; inset: 0; z-index: 60; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--color-cream); outline: none;
+  animation: fadeIn .5s ease both;
+}
+/* "Próximo" remonta a folha: só a primeira abertura faz o fundo aparecer aos poucos. */
+.sheetStatic { animation: none; }
+.sheetInner { padding-top: 24px; }
+.sheetFoot { padding-bottom: 64px; }
+/* Voltar e próximo seguem as bordas da coluna do case (786px, a mesma do CaseShell). */
+.sheetCol { max-width: 786px; margin-inline: auto; display: flex; }
+.backBtn {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; min-height: 44px;
+  font: 700 15px var(--font-body), sans-serif; word-spacing: var(--word-gap); color: var(--navy);
+  background: linear-gradient(180deg, var(--search-fill-a), var(--search-fill-b));
+  border: 2px dashed var(--blue-500); border-radius: 999px; padding: 8px 16px;
+  box-shadow: 0 0 0 2px #eaeef4, 0 0 0 4px var(--blue-200);
+  transition: transform .25s var(--ease-spring);
+}
+@media (hover: hover) { .backBtn:hover { transform: translateX(-4px); } }
+.nextLink {
+  display: flex; align-items: center; gap: 8px; margin-left: auto; cursor: pointer;
+  background: none; border: 0; padding: 4px 0;
+  font: 700 20px var(--font-body), sans-serif; word-spacing: var(--word-gap); color: var(--navy);
+}
+.arrow { display: inline-block; transition: transform .35s var(--ease-spring); }
+@media (hover: hover) { .nextLink:hover .arrow { transform: translateX(6px); } }
+.backBtn:focus-visible, .nextLink:focus-visible {
+  outline: 3px solid var(--navy-deep); outline-offset: 4px; border-radius: 16px;
+}
+
+/* capa expandindo (clip-path) e texto subindo; o conteúdo remonta a cada "próximo" */
+/* `backwards`: depois de terminar o recorte sai, senão ele cortaria a sombra da capa. */
+.heroIn { animation: heroIn .9s var(--ease-inout) backwards; }
+.revealHeader { animation: rise .7s var(--ease-out) .35s both; }
+.revealBody { animation: rise .7s var(--ease-out) .5s both; }
+
+/* Menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after,
+  .sheet, .sheet *, .sheet *::before, .sheet *::after { animation: none !important; transition: none !important; }
+}

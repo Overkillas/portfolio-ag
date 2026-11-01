@@ -14,6 +14,7 @@
 #   4 - Page migration (Task 14)
 #   5 - Runtime verification (Task 16)
 #   6 - Final pre-merge
+#   7 - Projects page (static checks + runtime checks, which SKIP without a server on :3000)
 #
 # Exit code: 0 = PASS, 1 = FAIL
 #
@@ -648,6 +649,275 @@ console.log('Parity OK: ' + ptKeys.length + ' keys');
 }
 
 # ============================================================
+# GATE 7: Projects page (/[lang]/projetos + case modal)
+# ============================================================
+gate_7() {
+  log_gate "7" "Projects page (/[lang]/projetos + case modal)"
+
+  # ----------------------------------------------------------
+  # Static checks (no server needed)
+  # ----------------------------------------------------------
+  log_sub "UI image assets in public/images/projetos/..."
+  for asset in "mascote.png" "icones/coelho.png" "icones/servicos.png" "icones/3d.png" "icones/interacao.png" "icones/grafico.png"; do
+    if [ -f "public/images/projetos/$asset" ]; then
+      log_pass "  $asset exists"
+    else
+      log_fail "  public/images/projetos/$asset missing"
+    fi
+  done
+
+  log_sub "No design-example assets in public/..."
+  # git ls-files pega o que está versionado; find pega também o que ficou só no disco.
+  EXAMPLE_RE='peixes|coelhinhos|jardim|cidade-3d|portfolio-banner|footer-bg|nav-about|nav-projects'
+  EXAMPLE_ASSETS=$( (git ls-files public; find public) 2>/dev/null | grep -E "$EXAMPLE_RE" || true)
+  if [ -z "$EXAMPLE_ASSETS" ]; then
+    log_pass "No example assets from the design in public/"
+  else
+    log_fail "Example assets from the design found in public/:"
+    echo "$EXAMPLE_ASSETS" | sort -u | head -10
+  fi
+
+  log_sub "No hardcoded visible strings from the design in components/ and app/..."
+  # Só casa a frase logo após uma aspa/crase/'>' (texto literal em JSX ou string),
+  # tolerando espaços entre o ancorador e a frase (`> Olha que legal`); nomes de
+  # chave do dicionário e comentários sem aspa não entram. Quebra de linha entre
+  # o ancorador e a frase não é coberta (grep casa linha a linha).
+  HARDCODED_P=$(grep -rnIE "(['\">\`])[[:space:]]*(Olha que legal|Clica pra ver|Achei |Esse é o meu favorito|nada por aqui|Hmm…|DESTAQUE|voltar aos projetos|próximo:|Pesquise por|limpar busca|Nenhum projeto|voltar ao topo|Look how cool|Click to see|FEATURED|back to projects)" components app || true)
+  if [ -z "$HARDCODED_P" ]; then
+    log_pass "No hardcoded design strings in components/ or app/"
+  else
+    log_fail "Hardcoded design strings found:"
+    echo "$HARDCODED_P" | head -10
+  fi
+
+  log_sub "Dictionary keys: projectsPage parity (pt-BR ↔ en) and metadata.projetos..."
+  if node -e "
+const pt = require('./dictionaries/pt-BR.json');
+const en = require('./dictionaries/en.json');
+function leaves(obj, prefix) {
+  return Object.entries(obj).flatMap(([k, v]) =>
+    typeof v === 'object' && v !== null && !Array.isArray(v)
+      ? leaves(v, prefix + k + '.')
+      : [[prefix + k, v]]
+  );
+}
+const fail = (msg) => { console.error(msg); process.exit(1); };
+if (!pt.projectsPage || !en.projectsPage) fail('projectsPage missing in ' + (!pt.projectsPage ? 'pt-BR' : 'en'));
+const a = new Map(leaves(pt.projectsPage, 'projectsPage.'));
+const b = new Map(leaves(en.projectsPage, 'projectsPage.'));
+if (a.size === 0) fail('projectsPage is empty');
+const onlyPt = [...a.keys()].filter((k) => !b.has(k));
+const onlyEn = [...b.keys()].filter((k) => !a.has(k));
+if (onlyPt.length) fail('Only in pt-BR: ' + onlyPt.join(', '));
+if (onlyEn.length) fail('Only in en: ' + onlyEn.join(', '));
+const ph = (s) => (String(s).match(/\{[a-zA-Z]+\}/g) || []).sort().join(',');
+for (const [k, v] of a) {
+  if (typeof v !== 'string' || !v.trim()) fail('Empty value in pt-BR: ' + k);
+  if (typeof b.get(k) !== 'string' || !b.get(k).trim()) fail('Empty value in en: ' + k);
+  if (ph(v) !== ph(b.get(k))) fail('Placeholder mismatch: ' + k);
+}
+for (const [name, d] of [['pt-BR', pt], ['en', en]]) {
+  if (!d.metadata || typeof d.metadata.projetos !== 'string' || !d.metadata.projetos.trim()) fail('metadata.projetos missing in ' + name);
+}
+console.log('ok: ' + a.size + ' keys');
+"; then
+    log_pass "projectsPage keys match in both dictionaries; metadata.projetos present"
+  else
+    log_fail "projectsPage / metadata.projetos dictionary check failed"
+  fi
+
+  log_sub "Intercepted-route folder per project (@modal/(.)<slug>)..."
+  # Sem a pasta o projeto abre como página completa, sem erro; o (.)[slug] dinâmico não serve
+  # (500 no next dev). Os slugs vêm de `slugToKey` em lib/projects.ts.
+  MODAL_DIR="app/[lang]/projetos/@modal"
+  PROJECT_SLUGS=$(sed -n '/^export const slugToKey = {/,/^} as const;/p' lib/projects.ts | sed -nE "s/^[[:space:]]*'?([a-z0-9-]+)'?:.*/\1/p" || true)
+  if [ -z "$PROJECT_SLUGS" ]; then
+    log_fail "Could not read project slugs from lib/projects.ts"
+  else
+    MODAL_OK=1
+    for slug in $PROJECT_SLUGS; do
+      if [ ! -f "$MODAL_DIR/(.)$slug/page.tsx" ]; then
+        log_fail "  $MODAL_DIR/(.)$slug/page.tsx missing for slug '$slug'"
+        MODAL_OK=0
+      fi
+    done
+    for dir in "$MODAL_DIR"/\(.\)*; do
+      [ -d "$dir" ] || continue
+      folder_slug=$(basename "$dir"); folder_slug="${folder_slug#(.)}"
+      if ! printf '%s\n' "$PROJECT_SLUGS" | grep -qx -- "$folder_slug"; then
+        log_fail "  $dir does not match any project slug"
+        MODAL_OK=0
+      fi
+    done
+    if [ "$MODAL_OK" -eq 1 ]; then
+      log_pass "Every project slug has its @modal/(.)<slug>/page.tsx and vice versa"
+    fi
+  fi
+
+  log_sub "No dictionary JSON imported by a Client Component..."
+  DICT_IMPORTS=""
+  # while-read (e não for): os caminhos têm "[lang]", que o shell expandiria como glob.
+  while IFS= read -r file; do
+    [ -n "$file" ] || continue
+    FOUND=$(grep -nE "from ['\"][^'\"]*dictionaries/" "$file" || true)
+    if [ -n "$FOUND" ]; then
+      DICT_IMPORTS="$DICT_IMPORTS$file: $FOUND"$'\n'
+    fi
+  done < <(grep -rlE "^['\"]use client['\"]" components app lib 2>/dev/null || true)
+  if [ -z "$DICT_IMPORTS" ]; then
+    log_pass "No Client Component imports from dictionaries/"
+  else
+    log_fail "Client Component imports from dictionaries/:"
+    echo "$DICT_IMPORTS" | head -10
+  fi
+
+  # ----------------------------------------------------------
+  # Runtime checks (dev or prod server on :3000) — SKIP if nothing answers
+  # ----------------------------------------------------------
+  log_sub "Runtime: server on :3000..."
+  # Mesmo critério do gate 5, mas sem subir o servidor: este gate roda por task,
+  # com `pnpm dev` (ou `pnpm build && pnpm start`) já no ar. Sem servidor, SKIP.
+  # --connect-timeout curto + --max-time longo: recusa de conexão falha na hora,
+  # mas um `pnpm dev` frio ainda tem tempo de compilar a primeira rota.
+  if ! curl -s --connect-timeout 3 --max-time 60 -o /dev/null "http://localhost:3000/pt-BR"; then
+    log_skip "Nothing answers on :3000 — start 'pnpm dev' (or 'pnpm start') and re-run for the runtime checks"
+    return 0
+  fi
+
+  local BASE="http://localhost:3000"
+  # || true em tudo que pode não casar: sob set -e/pipefail, um grep sem match
+  # abortaria o runner no lugar de reportar a falha.
+  http_code() { curl -s --max-time 60 -o /dev/null -w "%{http_code}" "$@" || true; }
+  page() { curl -s --max-time 60 "$BASE$1" | tr '\n' ' ' || true; }
+  # Só o primeiro <header>…</header> (os links do header não podem ser confundidos
+  # com links do corpo da página).
+  header_of() { printf '%s' "$1" | grep -o '<header.*' | sed 's#</header>.*#</header>#' | head -1 || true; }
+
+  log_sub "Test: /{locale}/projetos returns 200..."
+  for locale in pt-BR en; do
+    STATUS=$(http_code "$BASE/$locale/projetos")
+    [ "$STATUS" = "200" ] && log_pass "/$locale/projetos → 200" || log_fail "/$locale/projetos → HTTP $STATUS (expected 200)"
+  done
+
+  log_sub "Test: /projetos (no cookie) redirects to /pt-BR/projetos..."
+  RCODE=$(http_code "$BASE/projetos")
+  RURL=$(curl -s --max-time 60 -o /dev/null -w "%{redirect_url}" "$BASE/projetos" || true)
+  if [ "$RCODE" = "307" ] && [[ "$RURL" == *"/pt-BR/projetos" ]]; then
+    log_pass "/projetos → 307 → /pt-BR/projetos"
+  else
+    log_fail "/projetos → HTTP $RCODE redirect '$RURL' (expected 307 → /pt-BR/projetos)"
+  fi
+
+  log_sub "Test: invalid locale returns 404 on /fr/projetos..."
+  STATUS=$(http_code "$BASE/fr/projetos")
+  [ "$STATUS" = "404" ] && log_pass "/fr/projetos → 404" || log_fail "/fr/projetos → HTTP $STATUS (expected 404)"
+
+  local HTML_PT HTML_EN
+  HTML_PT=$(page "/pt-BR/projetos")
+  HTML_EN=$(page "/en/projetos")
+
+  log_sub "Test: <title> per locale..."
+  TITLE_PT=$(printf '%s' "$HTML_PT" | grep -o '<title>[^<]*</title>' | head -1 || true)
+  TITLE_EN=$(printf '%s' "$HTML_EN" | grep -o '<title>[^<]*</title>' | head -1 || true)
+  [ "$TITLE_PT" = "<title>Projetos · Ágatha Sales</title>" ] && log_pass "pt-BR title: Projetos · Ágatha Sales" || log_fail "pt-BR title: '$TITLE_PT'"
+  [ "$TITLE_EN" = "<title>Projects · Ágatha Sales</title>" ] && log_pass "en title: Projects · Ágatha Sales" || log_fail "en title: '$TITLE_EN'"
+
+  log_sub "Test: hreflang pt-BR / en / x-default are absolute and end in /projetos..."
+  for locale in pt-BR en; do
+    HTML_VAR=$([ "$locale" = "pt-BR" ] && printf '%s' "$HTML_PT" || printf '%s' "$HTML_EN")
+    for hl in pt-BR en x-default; do
+      # -i: Next/React renderiza o atributo como hrefLang (parsing case-insensitive).
+      HL_HREF=$(printf '%s' "$HTML_VAR" | grep -io "<link rel=\"alternate\" hreflang=\"$hl\" href=\"[^\"]*\"" | grep -o 'href="[^"]*"' | head -1 || true)
+      if [[ "$HL_HREF" =~ ^href=\"https?://[^\"]+/projetos\"$ ]]; then
+        log_pass "/$locale/projetos hreflang $hl → $HL_HREF"
+      else
+        log_fail "/$locale/projetos hreflang $hl: '$HL_HREF' (expected absolute URL ending in /projetos)"
+      fi
+    done
+  done
+
+  log_sub "Test: header \"projetos\" link points to /{locale}/projetos (home and index)..."
+  for locale in pt-BR en; do
+    for route in "" "/projetos"; do
+      HDR=$(header_of "$(page "/$locale$route")")
+      if printf '%s' "$HDR" | grep -q "href=\"/$locale/projetos\""; then
+        log_pass "/$locale$route header links to /$locale/projetos"
+      else
+        log_fail "/$locale$route header has no href=\"/$locale/projetos\""
+      fi
+    done
+  done
+
+  log_sub "Test: header per route (HomeHeader on index, aria-current on projetos only there)..."
+  HDR_IDX_PT=$(header_of "$HTML_PT")
+  HDR_IDX_EN=$(header_of "$HTML_EN")
+  HDR_HOME_PT=$(header_of "$(page "/pt-BR")")
+  HDR_CASE_PT=$(header_of "$(page "/pt-BR/projetos/batuco-tuco")")
+  # Índice → HomeHeader ("sobre"/"about", não "Sobre mim"); aria-current só ali.
+  if printf '%s' "$HDR_IDX_PT" | grep -q '>sobre<' && printf '%s' "$HDR_IDX_EN" | grep -q '>about<'; then
+    log_pass "Index uses HomeHeader (sobre / about)"
+  else
+    log_fail "Index header is not the HomeHeader (expected '>sobre<' in pt-BR and '>about<' in en)"
+  fi
+  if printf '%s' "$HDR_IDX_PT" | grep -q 'aria-current="page"[^>]*href="/pt-BR/projetos"\|href="/pt-BR/projetos"[^>]*aria-current="page"' \
+    && printf '%s' "$HDR_IDX_EN" | grep -q 'aria-current="page"[^>]*href="/en/projetos"\|href="/en/projetos"[^>]*aria-current="page"'; then
+    log_pass "aria-current=\"page\" on the projetos link (index, both locales)"
+  else
+    log_fail "projetos link lacks aria-current=\"page\" on the index"
+  fi
+  if printf '%s' "$HDR_HOME_PT" | grep -q 'aria-current'; then
+    log_fail "Home header has aria-current (only the index should)"
+  else
+    log_pass "Home header has no aria-current"
+  fi
+  # Case aberto direto → Header antigo ("Sobre mim"), como hoje.
+  if printf '%s' "$HDR_CASE_PT" | grep -q 'Sobre mim'; then
+    log_pass "Case page opened directly keeps the old Header"
+  else
+    log_fail "Case page opened directly does not show the old Header (expected 'Sobre mim')"
+  fi
+
+  log_sub "Test: the 3 project links per locale (/{locale}/projetos/<slug>)..."
+  for locale in pt-BR en; do
+    HTML_VAR=$([ "$locale" = "pt-BR" ] && printf '%s' "$HTML_PT" || printf '%s' "$HTML_EN")
+    other=$([ "$locale" = "pt-BR" ] && echo "en" || echo "pt-BR")
+    for slug in pontos-sem-no batuco-tuco pontinhas-soltas; do
+      if printf '%s' "$HTML_VAR" | grep -q "href=\"/$locale/projetos/$slug\""; then
+        log_pass "/$locale/projetos links to /$locale/projetos/$slug"
+      else
+        log_fail "/$locale/projetos has no href=\"/$locale/projetos/$slug\""
+      fi
+      if printf '%s' "$HTML_VAR" | grep -q "href=\"/$other/projetos/$slug\""; then
+        log_fail "/$locale/projetos links to the wrong locale: /$other/projetos/$slug"
+      fi
+    done
+  done
+
+  log_sub "Test: no raw projectsPage.* keys in the HTML..."
+  RAW_P=$(printf '%s\n%s' "$HTML_PT" "$HTML_EN" | grep -o 'projectsPage\.[a-zA-Z.]*' | sort -u | head -5 || true)
+  if [ -z "$RAW_P" ]; then
+    log_pass "No raw projectsPage.* keys visible"
+  else
+    log_fail "Raw dictionary keys found: $RAW_P"
+  fi
+
+  log_sub "Test: case opened directly is the full page (200, no dialog)..."
+  for locale in pt-BR en; do
+    STATUS=$(http_code "$BASE/$locale/projetos/batuco-tuco")
+    CASE_HTML=$(page "/$locale/projetos/batuco-tuco")
+    if [ "$STATUS" = "200" ] && ! printf '%s' "$CASE_HTML" | grep -q 'role="dialog"'; then
+      log_pass "/$locale/projetos/batuco-tuco → 200, no role=\"dialog\""
+    else
+      log_fail "/$locale/projetos/batuco-tuco → HTTP $STATUS or contains role=\"dialog\""
+    fi
+  done
+
+  log_sub "Test: unknown project returns 404..."
+  STATUS=$(http_code "$BASE/pt-BR/projetos/nao-existe")
+  [ "$STATUS" = "404" ] && log_pass "/pt-BR/projetos/nao-existe → 404" || log_fail "/pt-BR/projetos/nao-existe → HTTP $STATUS (expected 404)"
+}
+
+# ============================================================
 # Summary
 # ============================================================
 print_summary() {
@@ -685,6 +955,7 @@ main() {
     4) gate_4 ;;
     5) gate_5 ;;
     6) gate_6 ;;
+    7) gate_7 ;;
     all)
       gate_0
       gate_1
@@ -693,9 +964,10 @@ main() {
       gate_4
       # gate_5  # Skip in 'all' — requires manual interaction
       # gate_6  # Skip in 'all' — run before PR
+      # gate_7  # Skip in 'all' — projects page, run per task
       ;;
     *)
-      echo "Usage: $0 [0|1|2|3|4|5|6|all]"
+      echo "Usage: $0 [0|1|2|3|4|5|6|7|all]"
       exit 1
       ;;
   esac

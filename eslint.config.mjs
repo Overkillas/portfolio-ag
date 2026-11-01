@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Pasta local (git-ignored) com o design de referência.
+    "for-implement/**",
   ]),
 ]);
 

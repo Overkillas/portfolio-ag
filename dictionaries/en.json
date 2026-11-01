@@ -251,8 +251,42 @@
     "interacao": "UX and UI Design",
     "servicos": "Service Design",
     "3d": "3D Design",
+    "projetos": "Projects",
     "pontosSemNo": "Pontos sem nó",
     "batucoTuco": "Batuco-tuco",
     "pontinhasSoltas": "Pontinhas soltas"
+  },
+  "projectsPage": {
+    "title": "Portfolio",
+    "controlsLabel": "Search and filters",
+    "searchLabel": "Search projects",
+    "searchPlaceholder": "Search by topic",
+    "filtersLabel": "Filter by area",
+    "filters": {
+      "all": "all",
+      "servicos": "service design",
+      "3d": "3d design",
+      "interacao": "interaction design",
+      "grafico": "graphic design"
+    },
+    "bubble": {
+      "idle": "Look how cool!",
+      "featured": "This one's my favorite!",
+      "hover": "Click to see!",
+      "found": "Found {count}!",
+      "filteredOne": "{count} project!",
+      "filteredMany": "{count} projects!",
+      "empty": "Hmm… nothing here"
+    },
+    "listHeading": "Projects ({count})",
+    "openProject": "Open project {title}",
+    "featuredBadge": "FEATURED",
+    "cursorLine1": "open",
+    "cursorLine2": "project",
+    "emptyText": "No projects on this topic… yet!",
+    "clearFilters": "clear search and filters",
+    "back": "back to projects",
+    "next": "next: {title}",
+    "backToTop": "back to top"
   }
 }

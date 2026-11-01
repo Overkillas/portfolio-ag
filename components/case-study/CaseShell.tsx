@@ -33,15 +33,23 @@ function Pill({
   return <span className={`${base} ${skin}`}>{children}</span>;
 }
 
+/** Acrescenta classes de animação; sem elas devolve `base` intacto (mesmo HTML de antes). */
+function withMotion(base: string, extra?: string) {
+  return extra ? `${base} ${extra}` : base;
+}
+
 export function CaseShell({
   project,
   dict,
   cover,
+  motion,
   children,
 }: {
   project: LocalizedProject;
   dict: Dictionary;
   cover?: ReactNode;
+  /** Classes de animação de entrada (usadas pelo modal): capa, cabeçalho e corpo. */
+  motion?: { cover: string; header: string; body: string };
   children: ReactNode;
 }) {
   const intro = project.intro ?? project.description;
@@ -57,12 +65,17 @@ export function CaseShell({
             <img
               src={project.coverImage}
               alt={dict.projects.coverAlt.replace("{title}", project.title)}
-              className="shadow-card block w-full rounded-[8px]"
+              className={withMotion("shadow-card block w-full rounded-[8px]", motion?.cover)}
             />
           ))}
 
         {/* Subtítulo (Clother Bold 26px) + status */}
-        <div className="mt-8 flex items-center justify-between gap-3">
+        <div
+          className={withMotion(
+            "mt-8 flex items-center justify-between gap-3",
+            motion?.header,
+          )}
+        >
           <h1
             className="font-bold text-[1.625rem] leading-tight text-[color:var(--color-blue)]"
             style={bodyFont}
@@ -73,7 +86,12 @@ export function CaseShell({
         </div>
 
         {/* Tags (esquerda) + data (direita) */}
-        <div className="mt-3 flex flex-wrap items-center gap-2">
+        <div
+          className={withMotion(
+            "mt-3 flex flex-wrap items-center gap-2",
+            motion?.header,
+          )}
+        >
           {project.tags.map((tag) => (
             <Pill key={tag}>{tag}</Pill>
           ))}
@@ -86,18 +104,28 @@ export function CaseShell({
 
         {/* Intro — Clother Light 16px, parágrafos preservando as quebras do Figma */}
         {intro && (
-          <div className="mt-6 flex flex-col gap-4 font-light text-[1rem] leading-relaxed text-[color:var(--color-blue)]">
+          <div
+            className={withMotion(
+              "mt-6 flex flex-col gap-4 font-light text-[1rem] leading-relaxed text-[color:var(--color-blue)]",
+              motion?.header,
+            )}
+          >
             {intro.split("\n\n").map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </div>
         )}
 
-        <div className="mt-12 flex flex-col gap-12">{children}</div>
+        <div className={withMotion("mt-12 flex flex-col gap-12", motion?.body)}>
+          {children}
+        </div>
 
         {/* Figma: Clother Regular (400); o peso global é 300, fixo o 400. */}
         <p
-          className="mt-16 font-normal text-[2rem] leading-tight text-[color:var(--color-blue)]"
+          className={withMotion(
+            "mt-16 font-normal text-[2rem] leading-tight text-[color:var(--color-blue)]",
+            motion?.body,
+          )}
           style={{ fontFamily: "var(--font-body)" }}
         >
           {project.thanks}

@@ -4,6 +4,8 @@ import { usePathname, useRouter } from 'next/navigation';
 import { locales, localeNames, type Locale } from '@/i18n/config';
 import type { Dictionary } from '@/i18n/dictionaries';
 
+const CASE_PATH = /^\/[^/]+\/projetos\/[^/]+$/;
+
 export function LanguageSwitcher({
   currentLocale,
   dict,
@@ -25,6 +27,15 @@ export function LanguageSwitcher({
     const segments = pathname.split('/');
     segments[1] = newLocale;
     const newPath = segments.join('/');
+
+    // Numa página de case (/{locale}/projetos/<slug>) a URL atual está abaixo de
+    // /projetos, a rota que o modal intercepta: uma navegação no cliente passaria
+    // pela interceptação. A troca faz carga completa para entregar sempre a página
+    // do case, sem depender de como o roteador resolve essa interceptação.
+    if (CASE_PATH.test(pathname)) {
+      window.location.assign(newPath);
+      return;
+    }
 
     router.push(newPath);
     router.refresh();
