@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Case Cascavel — frame do Figma 17:4049 (coluna de 1352px), layout 'wide'.
+   Zoom, cursor, lightbox e reveal vêm de batuco.module.css (o BatucoMotion
+   procura as classes de lá).
+
+   Larguras das colunas em % de 1354 (largura do frame 17:4155), então a 1728
+   ficam 1:1 com o Figma. Texto em duas colunas a partir de 64rem e imagens lado
+   a lado a partir de 48rem, como nos outros cases 'wide'.
+   ========================================================================== */
+
+/* ---------- imagens ---------- */
+/* Caixa do Figma (--ar = w / h) com o export 2x do nó dentro. */
+.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ar);
+  object-fit: cover;
+}
+/* Hero (17:4156): 1354 × 436 (export 2708 × 872). */
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1354 / 436;
+  object-fit: cover;
+}
+
+/* ---------- legendas "Imagem a/b", "Primeiras versões…": Clother Bold 24px / 18px ---------- */
+.block {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cap {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 18px;
+  text-align: center;
+  color: var(--color-blue);
+}
+@media (min-width: 48rem) {
+  .cap {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---------- pills ---------- */
+.tags,
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* Tags 8px (17:4167); abas e ferramentas 10px (17:4197, 17:4682). */
+.tags {
+  gap: 0.5rem;
+}
+.pills {
+  gap: 0.5rem 0.625rem;
+}
+/* No Figma as 5 ferramentas passam dos 641px da coluna sem quebrar; no Chrome a
+   Clother sai uns px mais larga por pill. Com a coluna cheia (≥ 1432px) a linha
+   não quebra, como nos outros cases 'wide'. */
+@media (min-width: 1432px) {
+  .nowrap {
+    flex-wrap: nowrap;
+  }
+}
+
+/* ---------- texto ---------- */
+/* O justificado do Figma vale para todas as linhas menos a última do nó: a
+   última linha de cada parágrafo intermediário (e a de antes de uma quebra
+   simples) também justifica. Só com a coluna cheia, onde as quebras de linha
+   são as do Figma. */
+@media (min-width: 1432px) {
+  .fill {
+    text-align-last: justify;
+  }
+}
+.link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+}
+/* Nota de IA (17:4721): 642 dos 669px da coluna. */
+.note {
+  max-width: calc(642 / 669 * 100%);
+}
+
+/* ---------- Prototipagem 557 | 33 | painéis 762 (17:4192); Imagem a 33px abaixo ---------- */
+.proto {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+.protoRow {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 64rem) {
+  .protoRow {
+    grid-template-columns: minmax(0, 557fr) minmax(0, 762fr);
+    column-gap: calc(33 / 1352 * 100%);
+    width: calc(1352 / 1354 * 100%);
+    align-items: center;
+  }
+}
+
+/* ---------- Imagem b (17:4231): colagem 1351.69 × 1009.33 em x = 2.31 ---------- */
+/* Abaixo de 48rem as peças empilham (fruta e casarão lado a lado) e as setas somem. */
+.collage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+}
+.collage > .piece {
+  grid-column: 1 / -1;
+}
+.collage > .piece:nth-child(5),
+.collage > .piece:nth-child(6) {
+  grid-column: auto;
+}
+.arrow {
+  display: none;
+}
+@media (min-width: 48rem) {
+  .collage {
+    display: block;
+    position: relative;
+    width: calc(1351.692 / 1354 * 100%);
+    margin-left: calc(2.308 / 1354 * 100%);
+    aspect-ratio: 1351.692 / 1009.334;
+  }
+  /* Caixas do Figma (--x/--y/--w em px da colagem) → % da colagem. */
+  .piece,
+  .arrow {
+    position: absolute;
+    left: calc(var(--x) / 1351.692 * 100%);
+    top: calc(var(--y) / 1009.334 * 100%);
+    width: calc(var(--w) / 1351.692 * 100%);
+  }
+  .arrow {
+    display: block;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+/* ---------- Primeiras versões (17:4662): 3 colunas, vãos de 4.66 e 12 ---------- */
+.versions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.375rem;
+}
+@media (min-width: 48rem) {
+  .versions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: calc(4.666 / 1354 * 100%);
+    row-gap: 12px;
+  }
+}
+
+/* ---------- duas colunas de texto ---------- */
+.two {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  /* Projeto final 572 | 98 | Ferramentas 641 (17:4676) */
+  .final {
+    grid-template-columns: calc(572 / 1354 * 100%) calc(641 / 1354 * 100%);
+    column-gap: calc(98 / 1354 * 100%);
+  }
+  /* Citação 641 | 56 | Execução 669 (17:4714): no Figma a 2ª coluna passa 12px
+     do frame de 1354; aqui também (cai no respiro lateral do container). */
+  .credits {
+    grid-template-columns: calc(641 / 1354 * 100%) calc(669 / 1354 * 100%);
+    column-gap: calc(56 / 1354 * 100%);
+  }
+}
+
+/* ---------- Renders finais (17:4707, vão 32.06) e créditos 28px abaixo ---------- */
+.end {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.renders {
+  display: flex;
+  flex-direction: column;
+  gap: 32.056px;
+}
+
+/* ---------- frame de 1354px ----------
+   O corpo do case é o frame 17:4155 do Figma (1354px), 2px mais largo que a
+   coluna de 1352 do CaseShell; a sobra cai no respiro lateral do container.
+   Assim as larguras em % de 1354 e as alturas das imagens de largura total
+   ficam 1:1 com o Figma. */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: calc(100% * 1354 / 1352);
+}
+/* Hero (17:4156) também tem 1354: o ZoomButton da capa ganha a largura. */
+button.heroWide {
+  width: calc(100% * 1354 / 1352);
+}
+/* Processo de criação (17:4187): 1352; mapa de fluxo (17:4190): 1353. */
+.w1352 {
+  width: calc(1352 / 1354 * 100%);
+}
+.w1353 {
+  width: calc(1353 / 1354 * 100%);
+}

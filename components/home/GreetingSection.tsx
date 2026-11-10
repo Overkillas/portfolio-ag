@@ -33,14 +33,18 @@ export function GreetingSection({ dict }: { dict: Dictionary }) {
     <section className="relative grid grid-cols-1 items-start gap-8 px-6 pb-12 pt-12 md:grid-cols-[29.68vw_1fr] md:gap-x-[14.93vw] md:pb-[196px] md:pl-[15.05vw] md:pr-[11.23vw] md:pt-[203px]">
       {/* Ilustração — personagem achatado (mão + sombras baked, sem overlay) */}
       <div className="relative mx-auto md:mx-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/home/ola-personagem.png"
-          alt={home.greetingAlt}
-          width={622}
-          height={563}
-          className="h-auto w-full md:ml-[-5.41vw] md:max-w-none md:w-[36.03vw]"
-        />
+        {/* Wrapper flutuando (spec §4.1): o transform fica fora da img,
+            que mantém margens e larguras que a posicionam */}
+        <div className="anim-float">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/home/ola-personagem.png"
+            alt={home.greetingAlt}
+            width={622}
+            height={563}
+            className="h-auto w-full md:ml-[-5.41vw] md:max-w-none md:w-[36.03vw]"
+          />
+        </div>
       </div>
 
       {/* Texto — pt-[18px] assenta o título em y=575 (556.9 da ilustração + 18) */}

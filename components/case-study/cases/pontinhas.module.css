@@ -1,0 +1,222 @@
+/* ============================================================
+   Case Pontinhas soltas — pranchas do Figma
+   ("MacBook Pro 16" - 11", node 17:2872; coluna de 1352px).
+
+   Só layout. Animações, zoom, lightbox e reveal vêm de batuco.module.css
+   (o BatucoMotion procura as classes de lá).
+
+   Mesma régua do Batuco: cada prancha é um container (container-type:
+   inline-size) e --u = 1px do Figma na largura atual (100cqw / largura do
+   frame), definido nos FILHOS — em var() o cqw resolve no elemento que o
+   consome. Coordenadas e tamanhos em "px do Figma" via --x/--y/--w/--h.
+
+   As artes são exports do Figma. Onde havia texto sobre a arte (nomes no card
+   azul, nomes e frases nos cards dos personagens), o texto foi apagado do
+   export e entra aqui como texto vivo, na posição do Figma.
+   ============================================================ */
+
+/* Peça posicionada em px do Figma dentro de uma prancha. */
+.place {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+}
+.place > * {
+  height: 100%;
+}
+
+/* Imagem que preenche a caixa (prancha inteira ou peça). */
+.fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* ---------- Hero (node 17:2979, 1352 × 459.2): PNG achatado do Figma ---------- */
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1352 / 459.2;
+  background: #1a2949;
+}
+
+/* ---------- Fotos de Prototipagem (node 17:3042): 446.9 × 251.13, recorte do Figma ---------- */
+.photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 446.908 / 251.13;
+  object-fit: cover;
+}
+
+/* ---------- Card azul dos personagens (node 17:3082, 1352 × 941.27) ---------- */
+.showcase {
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+  aspect-ratio: 1352 / 941.2658;
+  background: var(--color-blue-deep);
+}
+.showcase > img {
+  position: absolute;
+  inset: 0;
+}
+.showcaseNames {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Nunito Medium 24.366px branco; caixa de 33px no Figma. */
+.showcaseName {
+  --u: calc(100cqw / 1352);
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  font-family: var(--font-nunito);
+  font-weight: 500;
+  font-size: calc(24.366 * var(--u));
+  line-height: calc(33 * var(--u));
+  letter-spacing: 0;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* ---------- Prancha creme (node 17:3247, 1352 × 3144.68) ---------- */
+.cream {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 1352 / 3144.684;
+  background: var(--color-cream);
+}
+.cream > * {
+  --u: calc(100cqw / 1352);
+}
+
+/* ---------- Cards dos personagens (node 17:3989, 1360.95 × 1507.54) ----------
+   No Figma o grupo começa 8.95px antes da coluna (x = -8.952). */
+.cards {
+  container-type: inline-size;
+}
+.cardsArt {
+  display: none;
+}
+.cardList {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Abaixo do lg: cada personagem vira um card — recorte da arte (metade de cima e
+   de baixo nas cores do Figma) e o texto embaixo, na cor da metade de baixo. */
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--fg);
+}
+.cardCrop {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: var(--cw) / var(--ch);
+}
+.cardCrop > img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+  width: calc(1360.952 / var(--cw) * 100%);
+  left: calc(var(--cx) / var(--cw) * -100%);
+  top: calc(var(--cy) / var(--ch) * -100%);
+}
+/* AM Novecento Regular em caixa baixa (os glifos são versaletes); caixa do Figma
+   = 1.377 × o corpo. Classe unlayered: a regra global de h1–h4 ganharia do utilitário. */
+.cardName {
+  margin: 0;
+  padding: 4px 20px 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.377;
+  letter-spacing: 0;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+/* Clother Regular em caixa baixa; "normal" da Clother no Figma = 1.1875. */
+.cardText {
+  margin: 0;
+  padding: 4px 20px 24px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.1875;
+  letter-spacing: 0;
+  text-transform: lowercase;
+}
+.cardText > span {
+  display: block;
+}
+
+@media (min-width: 40rem) {
+  .cardList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Abaixo do lg o bloco de cards não é gatilho do lightbox: empilhado ele teria
+   ~2800px de botão por cima de texto legível. Some o <button> (e com ele o cursor
+   "ampliar +") e o hover não escala o miolo. Classe dobrada para ganhar de
+   `.board:hover .zoomInner` (batuco.module.css). */
+@media (max-width: 63.99rem) {
+  .cardsZoom > button {
+    display: none;
+  }
+  .cardsZoom.cardsZoom:hover > :first-child {
+    transform: none;
+  }
+}
+
+@media (min-width: 64rem) {
+  .cardsOuter {
+    margin-left: calc(-8.952 / 1352 * 100%);
+    width: calc(1360.952 / 1352 * 100%);
+  }
+  .cards {
+    position: relative;
+    aspect-ratio: 1360.952 / 1507.541;
+  }
+  .cardsArt {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .cardList {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+  .card {
+    display: contents;
+  }
+  .cardCrop {
+    display: none;
+  }
+  .cardName,
+  .cardText {
+    --u: calc(100cqw / 1360.952);
+    position: absolute;
+    left: calc(var(--x) * var(--u));
+    top: calc(var(--y) * var(--u));
+    padding: 0;
+    font-size: calc(var(--fs) * var(--u));
+  }
+  .cardText {
+    width: calc(var(--w) * var(--u));
+  }
+}

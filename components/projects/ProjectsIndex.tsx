@@ -56,7 +56,7 @@ export function ProjectsIndex({ projects }: { projects: LocalizedProject[] }) {
   };
 
   return (
-    <div id="top" tabIndex={-1} className={s.page}>
+    <div className={s.page}>
       <BrandHero
         variant="home"
         title={t('projectsPage.title')}

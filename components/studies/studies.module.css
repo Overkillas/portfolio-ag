@@ -1,0 +1,217 @@
+/*
+ * Página de Estudos (Figma EGDJU9UG5XmLO6zV8Howwo, frame 17:2174).
+ *
+ * Galeria: a seção vira container e --u = 100cqw / 1352 = 1px do Figma, como em
+ * batuco.module.css. Cada linha e cada caixa usam as medidas do Figma (lib/studies.ts)
+ * em --w/--h/--gap/--before/--row, então a 1728 de viewport tudo fica 1:1 e encolhe
+ * proporcionalmente. Abaixo de 640px: uma imagem por linha, cada uma com a proporção
+ * da caixa do Figma.
+ *
+ * Movimento (zoom, cursor, lightbox, reveal, balão e bonequinha) vem de
+ * batuco.module.css via BatucoMotion/ZoomButton; aqui só as pílulas e o fade da troca
+ * de filtro. Tudo anima só transform/opacity e termina no estado do Figma.
+ */
+
+/* ---------- Pílulas de filtro (nós 17:2302, 17:2305, 17:2318) ---------- */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Casca #f9cedc (Rosa clarinho que sim) com 4px de respiro, 32px de altura. */
+.pill {
+  display: inline-flex;
+  height: 32px;
+  padding: 4px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--color-pink-light);
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.25s var(--ease-spring);
+}
+@media (hover: hover) {
+  .pill:hover {
+    transform: translateY(-2px) rotate(-1.5deg);
+  }
+}
+.pill:active {
+  transform: scale(0.94);
+}
+.pill:focus-visible {
+  outline: 3px solid #0e488b;
+  outline-offset: 3px;
+}
+
+/* Miolo: inativo #fadae7 + tracejado 2px #f4aecc, Clother Regular 14 #d68aaa;
+   ativo #f4aecc + tracejado #ea95b9, Clother Bold 14 creme. Texto em minúsculas. */
+.pillInner {
+  display: inline-flex;
+  box-sizing: border-box;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  /* Figma: conteúdo a 8px da borda externa, com o traço de 2px por dentro. */
+  padding: 0 6px;
+  border: 2px dashed #f4aecc;
+  border-radius: 100px;
+  background: #fadae7;
+  color: #d68aaa;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: lowercase;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.pill[aria-pressed="true"] .pillInner {
+  border-color: #ea95b9;
+  background: #f4aecc;
+  color: var(--color-cream);
+  font-weight: 700;
+}
+
+/* Ícones do Figma (Layer 2 = 3D, Group 100807 = gráfico) como máscara: herdam a cor
+   do texto, como os ícones das pílulas de /projetos. */
+.icon {
+  flex: none;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+.icon3d {
+  width: 12.829px;
+  height: 15.818px;
+  -webkit-mask-image: url("/images/estudos/icone-3d.svg");
+  mask-image: url("/images/estudos/icone-3d.svg");
+}
+.iconGrafico {
+  width: 10px;
+  height: 14.375px;
+  -webkit-mask-image: url("/images/estudos/icone-grafico.svg");
+  mask-image: url("/images/estudos/icone-grafico.svg");
+}
+
+/* ---------- Galeria (nó 17:2324) ---------- */
+.gallery {
+  container-type: inline-size;
+}
+
+.row {
+  --u: calc(100cqw / 1352);
+  display: flex;
+  width: calc(var(--row) * var(--u));
+  max-width: 100%;
+  gap: calc(var(--gap) * var(--u));
+  margin-top: calc(var(--before) * var(--u));
+}
+.row[data-first] {
+  margin-top: 0;
+}
+/* O display: flex acima ganharia do [hidden] do navegador. */
+.row[hidden],
+.cell[hidden] {
+  display: none;
+}
+
+.cell {
+  width: calc(var(--w) * var(--u));
+  flex: none;
+  aspect-ratio: var(--w) / var(--h);
+}
+
+/* O <button> do ZoomButton (.ph) ocupa a caixa; só a <img> filha dá zoom. */
+.fill {
+  height: 100%;
+}
+.img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 639.98px) {
+  .row {
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .cell {
+    width: 100%;
+  }
+}
+
+/* Balão do topo (dict.studies.bubble): o mesmo "estouro" do balão dos cases (bubIn,
+   a partir do rabinho), mas ao carregar — no topo da página ele já nasce visível,
+   então a versão ligada à rolagem do batuco.module.css não chegaria a tocar. */
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(6deg);
+  }
+  70% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.bubblePop {
+  transform-origin: 100% 80%;
+  animation: bubblePop 0.6s var(--ease-out) 0.25s both;
+}
+
+/* Troca de filtro: a galeria reaparece com um fade curto. Duas classes iguais com
+   nomes de animação diferentes para a animação reiniciar a cada troca. */
+@keyframes swapA {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes swapB {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.swapA {
+  animation: swapA 0.45s var(--ease-out) both;
+}
+.swapB {
+  animation: swapB 0.45s var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill,
+  .pillInner {
+    transition: none;
+  }
+  .pill:hover,
+  .pill:active {
+    transform: none;
+  }
+  .swapA,
+  .swapB,
+  .bubblePop {
+    animation: none;
+  }
+}

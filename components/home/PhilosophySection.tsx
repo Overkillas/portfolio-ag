@@ -62,7 +62,7 @@ function Cracha({ alt, saying }: { alt: string; saying: string }) {
 
   return (
     <div
-      className="cracha relative mx-auto max-md:mx-0 max-md:ml-[calc(50%-67.6px)]"
+      className="cracha cracha-swing relative mx-auto max-md:mx-0 max-md:ml-[calc(50%-67.6px)]"
       style={{ width: "377px", height: "506px" }}
     >
       {/* 1–4. Arte achatada (PNG já rotacionado — sem wrappers de rotate):
@@ -214,7 +214,7 @@ function Cracha({ alt, saying }: { alt: string; saying: string }) {
  * Layout: grid 2 colunas — coluna do texto = 1037px (60.01vw: 1259−222),
  * coluna do crachá = 377px fixo (assenta em x=1259 = 72.8% @1728).
  * O corpo do crachá sangra 99.4px para a ESQUERDA da coluna do crachá (ver doc
- * do Cracha): a coluna do texto reserva esse sangramento com md:pr-[100px],
+ * do Cracha): a coluna do texto reserva esse sangramento com md:pr-[121px],
  * senão o corpo (opaco, pintado depois no DOM) cobre a borda direita dos
  * parágrafos entre 768 e ~1440px. A 1728 não muda nada (texto limitado a
  * 705px dentro de 1037px).
@@ -228,7 +228,7 @@ export function PhilosophySection({ dict }: { dict: Dictionary }) {
   return (
     <section className="relative grid grid-cols-1 items-start gap-8 md:grid-cols-[1fr_377px] md:gap-x-0">
       {/* Texto esquerda */}
-      <div className="md:pr-[100px]">
+      <div className="md:pr-[121px]">
         {/* Título: 120px no Figma = clamp(3rem, 6.94vw, 7.5rem); o box do
             Figma (166 = 120×1.38) é a ALTURA NATURAL da linha — inline style
             (o h2 { line-height: 1 } de globals.css vence a utility leading-*) */}
@@ -255,8 +255,6 @@ export function PhilosophySection({ dict }: { dict: Dictionary }) {
           style={{ wordSpacing: "0.08em" }}
         >
           {home.philosophyBody1}
-          <strong className="font-bold">{home.philosophyBody1Bold}</strong>
-          {home.philosophyBody1End}
         </p>
 
         {/* Body2: 26px, justificado; 4 linhas de 31 = box 124 */}
@@ -272,6 +270,29 @@ export function PhilosophySection({ dict }: { dict: Dictionary }) {
           <strong className="font-bold">{home.philosophyBody2Bold3}</strong>
           {home.philosophyBody2End}
         </p>
+
+        {/* Colunas UX e 3D: vêm do protótipo (philoCols, gap 86.3/1728 em vw);
+            empilhadas abaixo de xl, lado a lado a partir de xl (1280px: colunas >= 240px sem palavra vazando, pt-BR e en) */}
+        <div className="mt-[21px] grid grid-cols-1 gap-y-[21px] xl:grid-cols-2 xl:gap-x-[4.99vw] max-w-[702px]">
+          <p
+            className="text-[1.625rem] leading-[1.19] text-justify text-[color:var(--color-blue)]"
+            style={{ wordSpacing: "0.08em" }}
+          >
+            {home.philosophyColUx}
+            <strong className="font-bold">{home.philosophyColUxBold}</strong>
+            {home.philosophyColUxEnd}
+          </p>
+          <p
+            className="text-[1.625rem] leading-[1.19] text-justify text-[color:var(--color-blue)]"
+            style={{ wordSpacing: "0.08em" }}
+          >
+            {home.philosophyCol3d}
+            <strong className="font-bold">{home.philosophyCol3dBold1}</strong>
+            {home.philosophyCol3dMid}
+            <strong className="font-bold">{home.philosophyCol3dBold2}</strong>
+            {home.philosophyCol3dEnd}
+          </p>
+        </div>
       </div>
 
       {/* Crachá direita — 377px fixos, encostado à direita (x=1636 @1728).

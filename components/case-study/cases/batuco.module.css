@@ -1,0 +1,963 @@
+/* ============================================================
+   Case Batuco-tuco — composições ilustradas do Figma
+   ("MacBook Pro 16" - 10", node 17:2368; coluna de 1352px).
+
+   As seções desenhadas em posição livre (Interface/Assets, Personagens e
+   Marca) usam a mesma régua: cada seção é um container
+   (container-type: inline-size) e --u = 1px do Figma na largura atual
+   (100cqw / 1352). Coordenadas e tamanhos ficam em "px do Figma" via
+   --x/--y/--w/--h, então a composição escala inteira sem perder o texto real.
+   Abaixo de 64rem (lg) as seções de texto viram fluxo normal, empilhado.
+
+   --u só é usado em FILHOS do container: em var() o cqw é resolvido no
+   elemento que o consome, e no próprio container ele apontaria para fora.
+   ============================================================ */
+
+.nunito {
+  font-family: var(--font-nunito);
+}
+
+/* Títulos e logo. Classe (e não utilitário do Tailwind) porque a regra global
+   de h1–h4 (font-display) não fica em layer e ganharia do utilitário. */
+.futurismo {
+  font-family: var(--font-futurismo);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Recorte de sprite: o wrapper tem o tamanho da janela e a <img> é posicionada
+   com os mesmos percentuais do Figma (--iw/--ih/--il/--it). */
+.crop {
+  position: relative;
+  overflow: hidden;
+}
+.crop > img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  width: var(--iw);
+  height: var(--ih);
+  left: var(--il);
+  top: var(--it);
+}
+
+/* Títulos em Clother Bold 32px. No Figma: line-height "normal" e letter-spacing 0.
+   O "normal" da Clother no Figma é 1.1875 (caixa de 38px em 32px); no Chrome
+   ele vira 1.4375 (a fonte tem line gap), então o valor vai explícito.
+   Classe (unlayered) porque a regra global de h1–h4 (line-height 1,
+   letter-spacing -0.01em) ganharia de um utilitário do Tailwind. */
+.title {
+  line-height: 1.1875;
+  letter-spacing: 0;
+}
+@media (min-width: 64rem) {
+  /* Algumas caixas de título têm tamanho fixo no Figma e o conteúdo seguinte
+     começa 24px abaixo da caixa: "Batuco-tuco App" e "Processo de criação"
+     (altura 30) e "Projeto final" (line-height 18). */
+  .titleBox30 {
+    height: 30px;
+  }
+  .titleLine18 {
+    line-height: 18px;
+  }
+}
+
+/* ---------- Hero (node 17:2475, 1352 × 467): PNG achatado do Figma ---------- */
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1352 / 467;
+  background: #ffbd86;
+}
+
+.layer {
+  position: absolute;
+  display: block;
+  max-width: none;
+  /* --ox/--oy: origem do recorte (a faixa de personagens no mobile mostra só
+     um pedaço da composição); 0 = coordenadas do frame inteiro. */
+  left: calc((var(--x) - var(--ox, 0)) * var(--u));
+  top: calc((var(--y) - var(--oy, 0)) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+}
+
+/* ---------- Diagrama do processo (node 17:2546) ---------- */
+.diagram {
+  display: grid;
+  /* Linhas no tamanho do conteúdo: ao lado da intro, o item da grade é esticado. */
+  align-content: start;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  color: var(--color-batuco-brown);
+}
+@media (min-width: 40rem) {
+  .diagram {
+    grid-template-columns: repeat(2, minmax(0, 205px));
+    column-gap: 17px;
+    row-gap: 29px;
+  }
+}
+@media (min-width: 48rem) {
+  .diagram {
+    grid-template-columns: repeat(3, 205.4px);
+    column-gap: 16.5px;
+    /* Figma: a cabeça (152.35) acaba em 152.35 e o título "03" começa em
+       177.54 (com a margem de 3.33 do .stepTitle). */
+    row-gap: 21.86px;
+    padding-left: 8.88px;
+  }
+}
+.diagramHead {
+  position: relative;
+  display: none;
+  height: 152.35px;
+}
+@media (min-width: 48rem) {
+  .diagramHead {
+    display: block;
+    margin-left: -8.88px;
+  }
+}
+.stepTitle {
+  display: flex;
+  align-items: center;
+  gap: 3.33px;
+  margin-top: 3.33px;
+}
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24.41px;
+  height: 24.41px;
+  border-radius: 17.75px;
+  background: var(--color-batuco-yellow);
+  font-size: 17.75px;
+}
+.stepLabel {
+  display: inline-flex;
+  align-items: center;
+  height: 24.41px;
+  padding-inline: 8.88px;
+  border-radius: 17.75px;
+  background: var(--color-batuco-yellow);
+  font-family: var(--font-nunito);
+  font-weight: 800;
+  font-size: 17.75px;
+  white-space: nowrap;
+}
+/* Cards do Figma: 98.755 × 48.823, texto numa caixa de 74.344 centralizada
+   (12.2px de cada lado), centrado na vertical. */
+.stepItems {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 98.755px));
+  gap: 9.99px 6.655px;
+  margin-top: 15.5px;
+}
+.stepItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48.823px;
+  padding: 2px 12.2px;
+  border-radius: 8.88px;
+  background: var(--color-batuco-butter);
+  font-family: var(--font-nunito);
+  font-size: 11.096px;
+  line-height: normal;
+  text-align: center;
+}
+/* "Matriz de atribuição de confiança": o Figma usa 8.877px numa caixa de 82.111. */
+.stepItemSmall {
+  padding-inline: 8.32px;
+  font-size: 8.877px;
+}
+
+/* ---------- Interface / Assets (node 17:2705, 1352 × 1446) ---------- */
+.showcase {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-batuco-cream);
+  container-type: inline-size;
+  color: var(--color-batuco-brown);
+}
+.showcaseIntro {
+  padding: 32px 20px 0;
+  background: var(--color-batuco-orange);
+  color: var(--color-batuco-cream);
+}
+.showcaseTitle {
+  font-size: clamp(3rem, 12cqw, 5.35rem);
+}
+.showcaseTitle.assetsTitle {
+  color: var(--color-batuco-orange);
+}
+.showcaseText {
+  margin-top: 20px;
+  font-family: var(--font-nunito);
+  font-size: 1.125rem;
+  line-height: 1.36;
+}
+.showcaseText strong {
+  font-weight: 800;
+}
+/* Hanni, Cybele e Pepo. No mobile a faixa mostra só a região deles
+   (x 760–1350, y 460–760 do frame), como container próprio. */
+.showcaseCast {
+  --ox: 760;
+  --oy: 460;
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  margin: 16px auto 0;
+  aspect-ratio: 590 / 300;
+  container-type: inline-size;
+}
+.showcaseCast > * {
+  --u: calc(100cqw / 590);
+}
+.screens {
+  --u: calc(100cqw / 766);
+  display: grid;
+  grid-template-columns: repeat(3, calc(255.35 * var(--u)));
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.screen {
+  margin-left: -41.45%;
+  width: 182.9%;
+  max-width: none;
+  aspect-ratio: 1295 / 1257;
+  filter: drop-shadow(0 calc(4 * var(--u)) calc(4 * var(--u)) rgba(0, 0, 0, 0.25));
+}
+.assetsBlock {
+  padding: 8px 20px 32px;
+}
+.assets {
+  --u: min(1.4px, calc((100cqw - 40px) / 444.1));
+  display: grid;
+  grid-template-columns: repeat(3, calc(134.58 * var(--u)));
+  gap: calc(31 * var(--u)) calc(20.19 * var(--u));
+  justify-content: center;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.asset {
+  position: relative;
+  height: calc(228.79 * var(--u));
+  border-radius: calc(10.77 * var(--u));
+  background: var(--color-batuco-orange);
+}
+.assetFrame {
+  position: absolute;
+  left: calc(8.67 * var(--u));
+  top: calc(9.42 * var(--u));
+  width: calc(117.24 * var(--u));
+  height: calc(96.9 * var(--u));
+  border-radius: calc(5.92 * var(--u));
+  background: var(--color-batuco-butter);
+}
+.assetArt {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: calc(var(--w) * var(--u));
+  height: calc(var(--h) * var(--u));
+  border-radius: calc(var(--r, 0) * var(--u));
+  transform: rotate(var(--rot, 0deg));
+}
+.lock {
+  position: absolute;
+  left: calc(90.18 * var(--u));
+  top: calc(14.8 * var(--u));
+  width: calc(29.61 * var(--u));
+  height: calc(29.61 * var(--u));
+}
+.assetName {
+  position: absolute;
+  left: calc(13.46 * var(--u));
+  top: calc(121.12 * var(--u));
+  font-family: var(--font-nunito);
+  font-weight: 700;
+  font-size: calc(18.84 * var(--u));
+  white-space: nowrap;
+}
+.assetPrice {
+  position: absolute;
+  left: calc(18.84 * var(--u));
+  top: calc(161.5 * var(--u));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(95.56 * var(--u));
+  height: calc(40.38 * var(--u));
+  border-radius: calc(10.77 * var(--u));
+  background: var(--color-batuco-peach);
+  font-family: var(--font-nunito);
+  font-weight: 700;
+  font-size: calc(16.15 * var(--u));
+  white-space: nowrap;
+}
+
+@media (min-width: 64rem) {
+  .showcase {
+    aspect-ratio: 1352 / 1446;
+  }
+  .showcase * {
+    --u: calc(100cqw / 1352);
+  }
+  /* Faixa laranja dos 676px de cima */
+  .showcase::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: calc(676 / 1446 * 100%);
+    background: var(--color-batuco-orange);
+  }
+  .showcaseIntro {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    background: none;
+  }
+  .showcaseIntro > * {
+    position: absolute;
+  }
+  .showcaseTitle {
+    left: calc(820.89 * var(--u));
+    top: calc(124.91 * var(--u));
+    font-size: calc(85.57 * var(--u));
+    line-height: normal;
+  }
+  .showcaseText {
+    left: calc(818.75 * var(--u));
+    top: calc(261.82 * var(--u));
+    width: calc(492.03 * var(--u));
+    margin: 0;
+    font-size: calc(21.39 * var(--u));
+    line-height: normal;
+  }
+  .showcaseCast {
+    --ox: 0;
+    --oy: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    aspect-ratio: auto;
+    margin: 0;
+  }
+  .screens {
+    position: absolute;
+    left: calc(17.8 * var(--u));
+    top: calc(47 * var(--u));
+    margin: 0;
+  }
+  .assetsBlock {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+  .assetsBlock > * {
+    pointer-events: auto;
+  }
+  .assetsTitle {
+    position: absolute;
+    left: calc(818.75 * var(--u));
+    top: calc(765.82 * var(--u));
+    font-size: calc(85.57 * var(--u));
+    line-height: normal;
+  }
+  .assets {
+    position: absolute;
+    left: calc(819.85 * var(--u));
+    top: calc(882.69 * var(--u));
+    margin: 0;
+  }
+}
+
+/* ---------- Personagens (node 17:2793, 1352 × 856) ---------- */
+.cast {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--color-batuco-brown);
+}
+.member {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px 12px 12px;
+  border: 3px solid var(--color-batuco-orange);
+  border-radius: 40px;
+  background: var(--color-batuco-cream);
+}
+.memberArt {
+  flex: 0 0 auto;
+  width: min(40%, 180px);
+  aspect-ratio: var(--ar);
+}
+.memberArt.rotated {
+  rotate: 2.52deg;
+}
+.contour {
+  display: none;
+}
+.memberName {
+  font-family: var(--font-nunito);
+  font-weight: 800;
+  letter-spacing: 0;
+  font-size: clamp(1.75rem, 8cqw, 2.5rem);
+  line-height: normal;
+}
+.memberRole {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--color-batuco-butter);
+  font-family: var(--font-nunito);
+  font-weight: 500;
+  font-size: 1rem;
+}
+.castWrap {
+  container-type: inline-size;
+}
+@media (min-width: 40rem) {
+  .cast {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .castWrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1352 / 855.7;
+    background: var(--color-batuco-cream);
+  }
+  .cast {
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+  .cast,
+  .cast * {
+    --u: calc(100cqw / 1352);
+  }
+  .member {
+    display: contents;
+  }
+  .contour {
+    display: block;
+    position: absolute;
+    left: calc(var(--x) * var(--u));
+    top: calc(var(--y) * var(--u));
+    width: calc(var(--w) * var(--u));
+    height: calc(var(--h) * var(--u));
+    max-width: none;
+  }
+  .memberArt {
+    position: absolute;
+    left: calc(var(--x) * var(--u));
+    top: calc(var(--y) * var(--u));
+    width: calc(var(--w) * var(--u));
+    height: calc(var(--h) * var(--u));
+    aspect-ratio: auto;
+  }
+  .memberText {
+    position: absolute;
+    left: calc(var(--x) * var(--u));
+    top: calc(var(--y) * var(--u));
+  }
+  .memberName {
+    font-size: calc(57.15 * var(--u));
+  }
+  .memberRole {
+    margin-top: calc(10 * var(--u));
+    height: calc(52.75 * var(--u));
+    padding: 0 calc(17.58 * var(--u));
+    border-radius: calc(24.83 * var(--u));
+    font-size: calc(24.83 * var(--u));
+    white-space: nowrap;
+  }
+}
+
+/* ---------- Marca (node 17:2824, 1352 × 856) ---------- */
+.brand {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-batuco-cream);
+  container-type: inline-size;
+  color: var(--color-batuco-brown);
+}
+.brandBand {
+  padding: 28px 20px 32px;
+  background: var(--color-batuco-orange);
+}
+.logo {
+  --u: calc((100cqw - 40px) / 700);
+  position: relative;
+  width: calc(700 * var(--u));
+  color: var(--color-batuco-yellow);
+}
+.logoTop {
+  display: block;
+  font-size: calc(161.8 * var(--u));
+  text-align: center;
+  white-space: nowrap;
+}
+.logoBottom {
+  display: grid;
+  grid-template-columns:
+    calc(121.37 * var(--u)) calc(60.68 * var(--u)) calc(121.37 * var(--u)) calc(60.68 * var(--u))
+    calc(121.37 * var(--u)) calc(60.68 * var(--u)) calc(121.37 * var(--u));
+  align-items: center;
+  justify-items: center;
+  margin-left: calc(2.64 * var(--u));
+  font-size: calc(121.35 * var(--u));
+}
+.logoStar {
+  width: calc(60.68 * var(--u));
+  height: calc(60.67 * var(--u));
+}
+.tagline {
+  margin-top: 20px;
+  font-family: var(--font-nunito);
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: normal;
+  color: var(--color-batuco-cream);
+}
+.tagline strong {
+  font-weight: 800;
+}
+.brandBody {
+  padding: 28px 20px 0;
+}
+.brandHeading {
+  font-family: var(--font-nunito);
+  font-weight: 800;
+  font-size: clamp(2rem, 9cqw, 3.5rem);
+  line-height: normal;
+  letter-spacing: 0;
+}
+.brandPills {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.brandPill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 17px;
+  border-radius: 24.17px;
+  background: var(--color-batuco-butter);
+  font-family: var(--font-nunito);
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+.brandPhones {
+  display: block;
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 1500 / 1125;
+  margin-top: 8px;
+}
+
+@media (min-width: 64rem) {
+  .brand {
+    aspect-ratio: 1352 / 855.7;
+  }
+  .brand > *,
+  .brand * {
+    --u: calc(100cqw / 1352);
+  }
+  .brand::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: calc(376.51 / 855.7 * 100%);
+    background: var(--color-batuco-orange);
+  }
+  .brandBand,
+  .brandBody {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    background: none;
+  }
+  .logo {
+    position: absolute;
+    left: calc(26.9 * var(--u));
+    top: calc(49.8 * var(--u));
+  }
+  .tagline {
+    position: absolute;
+    right: calc((1352 - 1292.1) * var(--u));
+    top: calc(68.46 * var(--u));
+    width: calc(365.81 * var(--u));
+    margin: 0;
+    font-size: calc(34.23 * var(--u));
+    text-align: right;
+  }
+  .brandHeading {
+    position: absolute;
+    left: calc(59.9 * var(--u));
+    top: calc(474.91 * var(--u));
+    font-size: calc(55.62 * var(--u));
+    white-space: nowrap;
+  }
+  .brandPills {
+    position: absolute;
+    left: calc(59.9 * var(--u));
+    top: calc(569.04 * var(--u));
+    gap: calc(25.67 * var(--u));
+    margin: 0;
+  }
+  .brandPill {
+    min-height: 0;
+    height: calc(51.34 * var(--u));
+    padding: 0 calc(17.11 * var(--u));
+    border-radius: calc(24.17 * var(--u));
+    font-size: calc(24.17 * var(--u));
+    white-space: nowrap;
+  }
+  .brandPhones {
+    position: absolute;
+    left: calc(496.3 * var(--u));
+    top: calc(130.49 * var(--u));
+    width: calc(991 * var(--u));
+    height: calc(743.25 * var(--u));
+    margin: 0;
+  }
+}
+
+/* ==========================================================================
+   MOVIMENTO (só na página completa: BatucoMotion + `interactive`).
+   Valores da página ProjetoBatuco do Claude Design (guia de animações). Tudo anima
+   só transform/opacity/clip-path e termina no estado do Figma.
+   ========================================================================== */
+.motion {
+  --ease-inout: cubic-bezier(0.7, 0, 0.2, 1);
+  --ease-spring-soft: cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+/* --- §1 Entrada do banner --- */
+.heroIn {
+  animation: heroIn 1.1s var(--ease-inout) both;
+}
+@keyframes heroIn {
+  from {
+    clip-path: inset(12% 8% 12% 8%);
+    opacity: 0.5;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+/* --- §2 Zoom no hover ---
+   .ph: imagem dentro de um <button> (o botão não cresce, só a imagem).
+   .zoomFrame: bloco de HTML vivo + <button> transparente por cima (texto continua
+   acessível); o hover escala o miolo. .board = quadro grande (zoom menor e mais lento). */
+.ph,
+.zoomFrame {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+.ph {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+}
+.ph > img,
+.zoomInner {
+  transition: transform 1s var(--ease-out);
+}
+.ph:hover > img,
+.zoomFrame:hover .zoomInner {
+  transform: scale(1.035);
+}
+.board .zoomInner {
+  transition-duration: 1.4s;
+}
+.board:hover .zoomInner {
+  transform: scale(1.015);
+}
+.zoomBtn {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: transparent;
+}
+.ph:focus-visible,
+.zoomFrame:has(.zoomBtn:focus-visible) {
+  outline: 3px solid #0e488b;
+  outline-offset: 4px;
+}
+.zoomBtn:focus-visible {
+  outline: none;
+}
+/* Cursor nativo some só onde o cursor rosa aparece (mouse, sem reduced motion). */
+.ph,
+.zoomBtn,
+.card {
+  cursor: pointer;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .ph,
+  .zoomBtn,
+  .card {
+    cursor: none;
+  }
+}
+
+/* --- §3 Cards "Talvez você goste…" --- */
+.card {
+  transition:
+    transform 0.45s var(--ease-out),
+    box-shadow 0.45s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px -24px rgba(14, 72, 139, 0.55);
+}
+.cardImg {
+  transition: transform 1.1s var(--ease-out);
+}
+.card:hover .cardImg {
+  transform: scale(1.05);
+}
+
+/* --- §7 Reveal ao rolar / §8 balão --- */
+@keyframes rvIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bubIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(6deg);
+  }
+  70% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.bubble {
+  transform-origin: 100% 80%; /* cresce a partir do "rabinho" */
+}
+@supports (animation-timeline: view()) {
+  .rv {
+    animation: rvIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+  .bubble {
+    animation: bubIn linear both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 70%;
+  }
+}
+/* Sem scroll-driven animations: IntersectionObserver (BatucoMotion põe data-io no
+   wrapper e data-in em cada elemento). Sem JS, nada fica escondido. */
+@supports not (animation-timeline: view()) {
+  .motion[data-io] .rv {
+    transition:
+      opacity 0.7s var(--ease-out),
+      transform 0.7s var(--ease-out);
+  }
+  .motion[data-io] .rv:not([data-in]) {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  .motion[data-io] .bubble:not([data-in]) {
+    opacity: 0;
+  }
+  .motion[data-io] .bubble[data-in] {
+    animation: bubIn 0.6s var(--ease-out) both;
+  }
+}
+
+/* --- §8 Bonequinha balançando --- */
+.face {
+  transform-origin: 50% 90%;
+  animation: wobble 3.6s ease-in-out infinite;
+}
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  30% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(3deg);
+  }
+}
+
+/* --- §6 Lightbox --- */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-sizing: border-box;
+  padding: 24px;
+  background: rgba(14, 30, 66, 0.94);
+  animation: lbFade 0.3s ease both;
+}
+.lbImg {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(1300px, 92vw);
+  max-height: 80vh;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  animation: lbPop 0.45s var(--ease-spring-soft) both;
+}
+.lbBar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--color-cream);
+}
+.lbLabel {
+  min-width: 220px;
+  font-size: 15px;
+  font-weight: 500;
+  /* A Clother pequena fecha o vão entre palavras; o mesmo ajuste do índice e da home. */
+  word-spacing: 0.13em;
+  text-align: center;
+}
+/* Fechar e setas: mesmo botão pontilhado do voltar do CaseTopBar — casca Azul gelo
+   48px (4px de respiro) + miolo 40px #eaeef4 com borda 2px tracejada #527fb0 e o
+   glifo em AM Novecento 32px, recortado (padding 6/16/8 + overflow). */
+.lbBtn {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--color-blue-soft);
+  cursor: pointer;
+  transition: translate 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.4), rotate 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.4);
+}
+.lbBtnInner {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 6px 16px 8px;
+  border: 2px dashed #527fb0;
+  border-radius: 60px;
+  background: #eaeef4;
+}
+.lbGlyph {
+  white-space: nowrap;
+  color: #527fb0;
+  font: 400 2rem / normal var(--font-display);
+}
+.lbBtn:focus-visible {
+  outline: 3px solid #0e488b;
+  outline-offset: 4px;
+}
+/* Desabilitado (ex.: "página anterior" do livro do Caju na capa). */
+.lbBtn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.lbClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+/* Hovers no espírito do voltar: as setas deslizam e giram para o lado que apontam;
+   o fechar gira. */
+@media (prefers-reduced-motion: no-preference) {
+  .lbPrev:not(:disabled):hover {
+    translate: -4px 0;
+    rotate: -10deg;
+  }
+  .lbNext:not(:disabled):hover {
+    translate: 4px 0;
+    rotate: 10deg;
+  }
+  .lbClose:hover {
+    rotate: 90deg;
+  }
+}
+@keyframes lbFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes lbPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- §10 Reduced motion: nada se mexe, tudo visível, lightbox funcionando --- */
+@media (prefers-reduced-motion: reduce) {
+  .motion *,
+  .motion *::before,
+  .motion *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

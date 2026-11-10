@@ -203,15 +203,22 @@
   position: fixed; left: 0; top: 0; width: 84px; height: 84px; margin: -42px 0 0 -42px;
   pointer-events: none; z-index: 40; will-change: transform;
 }
+/* Fallbacks = os mesmos valores dos tokens de .page/.sheet: o cursor também é usado
+   fora deles (página do Batuco-tuco). */
 .cursorDot {
   width: 100%; height: 100%; border-radius: 50%;
   display: flex; align-items: center; justify-content: center; text-align: center;
-  background: var(--badge-fill); color: var(--badge-ink);
-  font-weight: 700; font-size: 13px; line-height: 1.1; word-spacing: var(--word-gap);
-  box-shadow: inset 0 0 0 2px var(--pink-outer), inset 0 0 0 3.5px var(--badge-line), 0 10px 24px -8px rgba(14,72,139,.6);
+  background: var(--badge-fill, #f7cbda); color: var(--badge-ink, var(--color-blue-darkest));
+  font-weight: 700; font-size: 13px; line-height: 1.1; word-spacing: var(--word-gap, .13em);
+  box-shadow: inset 0 0 0 2px var(--pink-outer, var(--color-pink-light)), inset 0 0 0 3.5px var(--badge-line, #daa0b7), 0 10px 24px -8px rgba(14,72,139,.6);
   transform: scale(0); transition: transform .35s var(--ease-bouncy);
 }
 .cursorOn .cursorDot { transform: scale(1); }
+/* Variante "pop" (Batuco-tuco, guia do Claude Design): some na hora ao sair do alvo e
+   "estoura" de 0 a 1 a cada alvo novo (o componente reinicia a animação). */
+.cursorPop .cursorDot { visibility: hidden; transition: none; }
+.cursorPop.cursorOn .cursorDot { visibility: visible; animation: cursorPop .35s var(--ease-bouncy) both; }
+@keyframes cursorPop { from { transform: scale(0); } to { transform: scale(1); } }
 
 /* foco visível */
 .card:focus-visible, .pill:focus-visible, .emptyBtn:focus-visible {
@@ -253,19 +260,9 @@
 }
 /* "Próximo" remonta a folha: só a primeira abertura faz o fundo aparecer aos poucos. */
 .sheetStatic { animation: none; }
-.sheetInner { padding-top: 24px; }
 .sheetFoot { padding-bottom: 64px; }
-/* Voltar e próximo seguem as bordas da coluna do case (786px, a mesma do CaseShell). */
-.sheetCol { max-width: 786px; margin-inline: auto; display: flex; }
-.backBtn {
-  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; min-height: 44px;
-  font: 700 15px var(--font-body), sans-serif; word-spacing: var(--word-gap); color: var(--navy);
-  background: linear-gradient(180deg, var(--search-fill-a), var(--search-fill-b));
-  border: 2px dashed var(--blue-500); border-radius: 999px; padding: 8px 16px;
-  box-shadow: 0 0 0 2px #eaeef4, 0 0 0 4px var(--blue-200);
-  transition: transform .25s var(--ease-spring);
-}
-@media (hover: hover) { .backBtn:hover { transform: translateX(-4px); } }
+/* "Próximo" segue a borda direita da coluna do case (`.container-case`, a mesma do CaseShell). */
+.sheetCol { display: flex; }
 .nextLink {
   display: flex; align-items: center; gap: 8px; margin-left: auto; cursor: pointer;
   background: none; border: 0; padding: 4px 0;
@@ -273,7 +270,7 @@
 }
 .arrow { display: inline-block; transition: transform .35s var(--ease-spring); }
 @media (hover: hover) { .nextLink:hover .arrow { transform: translateX(6px); } }
-.backBtn:focus-visible, .nextLink:focus-visible {
+.nextLink:focus-visible {
   outline: 3px solid var(--navy-deep); outline-offset: 4px; border-radius: 16px;
 }
 

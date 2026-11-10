@@ -41,19 +41,20 @@ export function BentoCard({ project: p, index, tiltDegrees, hideCursor, onHover 
     onHover(null);
   };
 
-  return (
-    <Link
-      ref={ref}
-      href={`/${locale}/projetos/${p.slug}`}
-      scroll={false}
-      aria-label={t('projectsPage.openProject').replace('{title}', p.title)}
-      className={`${s.card}${hideCursor ? ` ${s.cardCursorHidden}` : ''}`}
-      style={{ aspectRatio: p.grid.aspect, animationDelay: `${index * 110}ms` }}
-      onClick={reset}
-      onMouseEnter={() => onHover(p.slug)}
-      onMouseMove={onMove}
-      onMouseLeave={reset}
-    >
+  const linkProps = {
+    ref,
+    href: `/${locale}/projetos/${p.slug}`,
+    'aria-label': t('projectsPage.openProject').replace('{title}', p.title),
+    className: `${s.card}${hideCursor ? ` ${s.cardCursorHidden}` : ''}`,
+    style: { aspectRatio: p.grid.aspect, animationDelay: `${index * 110}ms` },
+    onClick: reset,
+    onMouseEnter: () => onHover(p.slug),
+    onMouseMove: onMove,
+    onMouseLeave: reset,
+  };
+
+  const content = (
+    <>
       {p.coverImage && (
         // eslint-disable-next-line @next/next/no-img-element -- capas estáticas já otimizadas em /public, como no resto do site
         <img
@@ -86,6 +87,16 @@ export function BentoCard({ project: p, index, tiltDegrees, hideCursor, onHover 
           ))}
         </span>
       </div>
+    </>
+  );
+
+  // `opensAsPage` (Batuco-tuco): <a> comum = navegação de página inteira, que não passa
+  // pela interceptação do modal; os demais abrem no modal via <Link>.
+  return p.opensAsPage ? (
+    <a {...linkProps}>{content}</a>
+  ) : (
+    <Link {...linkProps} scroll={false}>
+      {content}
     </Link>
   );
 }

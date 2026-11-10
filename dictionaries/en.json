@@ -17,20 +17,26 @@
   "home": {
     "greeting": "Hello everyone,",
     "greetingAlt": "Illustration of Ágatha waving",
-    "intro": "I'm not good with long texts but here we go haha Pleasure! I'm the designer of your neighborhood, your multinational company and your cute indie game.",
+    "intro": "Nice to meet you, I'm Ágatha! The designer from your neighborhood, your multinational company and your cute indie game. I work with research (UX and UI), illustration and 3D Design.",
     "philosophy": "Philosophy",
     "philosophyAlt": "Illustration of Ágatha thinking",
     "philosophyLead": "For me, design is research, illustration and perspective.",
-    "philosophyBody1": "I believe design is the intentional manipulation of ",
-    "philosophyBody1Bold": "human experience",
-    "philosophyBody1End": ": a tool capable of impacting habits and giving humanity back to our daily lives.",
-    "philosophyBody2": "In this context, I see ",
-    "philosophyBody2Bold1": "3D",
-    "philosophyBody2Mid": ", the ",
-    "philosophyBody2Bold2": "design of interfaces",
-    "philosophyBody2Mid2": " and the ",
-    "philosophyBody2Bold3": "research",
-    "philosophyBody2End": " as extensions of one same purpose: building experiences that are truly helpful, memorable and sensitive.",
+    "philosophyBody1": "I believe design translates how I see the world and how I'd like to shape it, with an open heart to the people, cultures and stories I come across.",
+    "philosophyBody2": "That's why I see ",
+    "philosophyBody2Bold1": "research",
+    "philosophyBody2Mid": ", ",
+    "philosophyBody2Bold2": "interfaces",
+    "philosophyBody2Mid2": " and ",
+    "philosophyBody2Bold3": "3D",
+    "philosophyBody2End": " as extensions of one purpose: listening to realities that aren't mine and turning them into especially sensitive experiences and worlds.",
+    "philosophyColUx": "",
+    "philosophyColUxBold": "UX",
+    "philosophyColUxEnd": " brings me closer to other people's lived experience and turns research into a moment of listening and sharing, where we discover things together.",
+    "philosophyCol3d": "In ",
+    "philosophyCol3dBold1": "3D",
+    "philosophyCol3dMid": " and in ",
+    "philosophyCol3dBold2": "illustration",
+    "philosophyCol3dEnd": ", I tell what I've heard in tiny scenes, the kind that make you stop to watch a ladybug climb a leaf.",
     "experience": "Experience",
     "experienceAlt": "Illustration of Ágatha sitting",
     "experienceLead": "The future lies in human activity, and it is what makes our experiences so important.",
@@ -42,6 +48,20 @@
     "studiesAlt": "Illustration of studies — rabbits in a pink field with flowers",
     "studiesDoodlesAlt": "Blue panel with sea animal doodles",
     "careerAlt": "Illustration of a cute whale swimming with bubbles",
+    "tiles": {
+      "studies": {
+        "title": "Studies",
+        "text": "Some casual studies, and some not so casual :0"
+      },
+      "career": {
+        "title": "My design career",
+        "text": "A little about my path through different areas of design and how I got to the ones I focus on today :)"
+      },
+      "gallery": {
+        "title": "My gallery",
+        "text": "I've gathered some of my art here ^^"
+      }
+    },
     "contactTitleLine1": "LET'S",
     "contactTitleLine2": "WORK",
     "contactTitleLine3": "TOGETHER?",
@@ -49,7 +69,15 @@
     "contactIllustrationAlt": "Illustration of Ágatha holding an envelope",
     "crachaAlt": "Blue badge with the words 'i believe that design is'",
     "crachaSaying": "i believe that design is",
-    "peekingAlt": "Illustration of Ágatha peeking over the gallery"
+    "peekingAlt": "Illustration of Ágatha peeking over the gallery",
+    "contactForm": {
+      "emailPlaceholder": "Enter your email",
+      "messagePlaceholder": "Type your request...",
+      "success": "Message sent! Thank you ✦",
+      "emailLabel": "Your email",
+      "messageLabel": "Your request",
+      "sendLabel": "Send message"
+    }
   },
   "contact": {
     "title": "Let's work together?",
@@ -98,49 +126,173 @@
     "comingSoon": "Coming soon",
     "comingSoonTag": "New project on the way",
     "coverAlt": "Cover for {title}",
+    "lightbox": {
+      "zoom": "zoom +",
+      "close": "Close",
+      "prev": "Previous image",
+      "next": "Next image",
+      "position": "{i} / {n}",
+      "open": "Zoom image: {cap}"
+    },
     "pontosSemNo": {
       "title": "Pontos sem nó",
       "subtitle": "Brand Identity: Pontos sem nó",
       "cardTitle": "Pontos sem nó",
       "description": "The “Pontos sem nó” brand seeks to transport us to the space between the lines of our deepest unresolved questions that always return to our minds in some way, converting memories into recognizable feelings… (PLACEHOLDER)",
-      "intro": "The “Pontos sem nó” brand seeks to transport us to the space between the lines of our deepest unresolved questions that always return to our minds in some way, converting memories into recognizable feelings. Pontos sem nó seeks to be part of the moment of identification, conveying the process of acceptance of those feelings in the form of music.\n\nRepresented through lines of tenderness, serenity with a lyrical touch that makes us take on the role of a pilgrim in other dimensions through escapism.",
+      "intro": "The work compiled here is a study of the brand design process carried out during the Visual Identity Systems course of my undergraduate degree in Design. In this study, students were asked to use design research, data collection, analysis and selection methods, and the technical application of tests and settings of the piece produced in Illustrator (Adobe Cloud) to build their own visual identity manual. The brand I created was the idea of my own studio of musical animations, called “Pontos sem nó”.\n\nThe “Pontos sem nó” brand seeks to transport us to the space between the lines of our deepest unresolved questions, which always return to our minds in some way, converting memories into recognizable feelings. Pontos sem nó seeks to be part of the moment of identification, conveying the process of acceptance of those feelings in the form of music.\n\nRepresented through lines of tenderness and serenity with a lyrical touch that makes us take on the role of a pilgrim in other dimensions through escapism.",
       "tags": [
         "Academic",
-        "Brand Identity Design"
+        "Brand Identity Design",
+        "Authorial project",
+        "High complexity"
       ],
+      "heroAlt": "Project banner: flowers behind a rain-speckled glass, with the white bunny mascot in the center.",
       "sections": {
         "creationProcess": {
           "title": "Creation process",
           "paragraphs": [
-            "The beginning of the process was marked by guided research, building a semantic board to orient the conceptual decisions of the project. After the research, selections of elements, typefaces, colors and other representations were made to enrich the brand's conceptual repertoire and make its application easier."
+            "Within the design process used, the start was marked by guided research, building a semantic board that could orient the project's conceptual decisions. This guided the concepts of tenderness, lyricism, escapism, serenity and pilgrim, which are later recognized in symbols, typefaces, colors and other representations that served as support to enrich the brand's conceptual repertoire, but also to select the sketches and tests most consistent with the characteristics attributed to the brand (carried out in steps 01 to 04).",
+            "Once that was done, we ran print tests to ensure the readability of the typeface and to simulate the behavior of the colors (which, therefore, were selected in CMYK from the start) on printed media and products."
           ],
-          "images": [
-            "Visual identity system in six steps: brainstorming of concept words, semantic board analysis, sketch creation, graphic tests, print test and brand identity manual."
+          "stepsLeadBefore": "I divided the planning into ",
+          "stepsLeadBold": "6 stages",
+          "stepsLeadAfter": ", shown in the panel below.",
+          "stepsLabel": "Planning stages",
+          "steps": [
+            {
+              "n": "01",
+              "title": "Concept word brainstorming",
+              "chips": [
+                "Tenderness",
+                "Escapism",
+                "Pilgrim",
+                "Serenity",
+                "Lyricism"
+              ]
+            },
+            {
+              "n": "02",
+              "title": "Semantic board analysis",
+              "chips": [
+                "Typefaces",
+                "Colors",
+                "Shapes",
+                "Textures",
+                "Symbols",
+                "Patterns",
+                "Effects"
+              ]
+            },
+            {
+              "n": "03",
+              "title": "Sketch creation",
+              "chips": [
+                "Symbol sketches",
+                "Grid",
+                "Protection area",
+                "Reduction"
+              ]
+            },
+            {
+              "n": "04",
+              "title": "Graphic tests",
+              "chips": [
+                "Color palette selection",
+                "Pattern selection",
+                "Support elements",
+                "Manual layout",
+                "Brand versions"
+              ]
+            },
+            {
+              "n": "05",
+              "title": "Print test",
+              "chips": [
+                "Manual dummy printing",
+                "Printed typeface tests",
+                "Printed color tests"
+              ]
+            },
+            {
+              "n": "06",
+              "title": "Brand identity usage manual",
+              "chips": [
+                "Printing of the brand identity manual"
+              ]
+            }
           ]
+        },
+        "gallery": {
+          "posterCabe": "CABE poster",
+          "posterCabeAlt": "CABE poster: people suspended by umbrellas on a blue background, with the brand's rabbit in white line art. The text in the artwork is in Portuguese.",
+          "construction": "Brand construction",
+          "constructionAlts": [
+            "Symbol construction: the brand's rabbit drawn over guide circles.",
+            "The “Pontos sem nó” logo in several sizes on a square grid, from smallest to largest.",
+            "Blue card with the characters' heads, next to the brand's rabbit."
+          ],
+          "support": "Support element",
+          "supportPlural": "Support elements",
+          "supportAlts": [
+            "Pencil sketch of a support element: a jumping character holding a flower.",
+            "Pencil sketch board with several characters (support elements)."
+          ],
+          "mascotEvolution": "Mascot evolution",
+          "mascotEvolutionAlt": "Mascot evolution in four numbered steps: an animal face and a turtle, a shell with seaweed, a jellyfish with bubbles and the final fish.",
+          "prototypes": [
+            "Board creation",
+            "Logo sketches",
+            "Vector tests",
+            "Applications"
+          ],
+          "prototypeAlts": [
+            "Board creation: reference moodboard and a curated board with notes.",
+            "Pencil logo sketches: little rabbit with a spiral and a scribbled wordmark.",
+            "Vector tests: dark boards with rows of characters, facial expressions and icons.",
+            "Applications: mockups with the characters, plush toys and presentation boards."
+          ],
+          "manual": "Brand identity manual",
+          "manualAlt": "Complete brand identity manual: institutional colors, typography, support elements, characters and brand versions. The text in the artwork is in Portuguese.",
+          "ballerina": "Ballerina poster",
+          "ballerinaAlt": "Poster with the bunny ballerina mascot on a spotlighted stage with giant flowers.",
+          "jogoDoTempo": "Jogo do tempo poster",
+          "jogoDoTempoAlt": "Jogo do tempo poster: tic-tac-toe board with the characters and the poem. The text in the artwork is in Portuguese.",
+          "logoGrid": "Logo versions",
+          "logoGridAlt": "Checkerboard grid with the “Pontos sem nó” logo variations on alternating blue and cream backgrounds.",
+          "finalPosters": "Final posters",
+          "finalPostersAlt": "Final collage: 'Hoje não sou mais só' poster, CABE poster and the campaign photos (flowers with bubbles, people on umbrellas, girl tossing petals). The text in the artwork is in Portuguese."
         },
         "prototyping": {
           "title": "Prototyping",
           "tabs": [
             "Brainstorming",
-            "Semantic board",
-            "Braindumping"
+            "Braindumping",
+            "Integrated board",
+            "Layout",
+            "Prints"
           ],
-          "thumbs": {
-            "captions": [
-              "Board creation",
-              "Logo sketches",
-              "Support elements"
-            ]
-          },
-          "images": []
+          "paragraphs": [
+            "The elements created for the brand brought much of the feeling of comfort and imagination, with support elements being imagined characters called “Pontinhas soltas” and color contrasts and gradient transitions that bring a certain freshness and seem to glow, even though they are closer to pastel colors than to bright ones."
+          ]
         },
         "finalProject": {
           "title": "Final project",
-          "images": [
-            "Final project: brand manual, character library, logo variations and applications."
+          "paragraphs": [
+            "The final project is made up of a complete brand identity usage manual, which includes all of its versions, application examples, definitions of the brand's identity and guidelines on its positioning and approach, along with concept posters and other visual models.",
+            "The typeface used is AM Novecento, found on Adobe Fonts."
+          ]
+        },
+        "tools": {
+          "title": "Tools used",
+          "items": [
+            "Autodesk Sketchbook",
+            "Adobe Fonts",
+            "Adobe Illustrator",
+            "Figma"
           ]
         }
       },
+      "aiNote": "* No AI image-generation agent was used for the visual creations (sketches, vectors, illustrations…) in this project.",
       "thanks": "Thank you for making it this far!"
     },
     "batucoTuco": {
@@ -148,22 +300,100 @@
       "subtitle": "Batuco-tuco App",
       "cardTitle": "Batuco-tuco",
       "description": "Batuco-Tuco is a mobile application focused on the gamification of music theory and instrument practice. Its name alludes to the “batuque” and pays tribute to a Brazilian species and its sound, the tuco-tuco… (PLACEHOLDER)",
-      "intro": "Batuco-Tuco is a mobile application focused on the gamification of music theory and instrument practice. Its name alludes to the “batuque” and pays tribute to a Brazilian species and its sound, the tuco-tuco, inspiring the playful theme and visual style of the project, which turns animals into skilled musicians.\n\nThe project was developed as a hands-on study of graphical interfaces and UX/UI. To ensure a smooth evolution with real-time visual feedback, the process involved structuring content maps, building a design system and applying user-centered methodologies.",
+      "intro": "Batuco-tuco was born largely from the opportunity to bring playful contexts into the experience of continuous learning in music. In the Graphical Interface Design course, we were challenged to create an application following a process of requirement prioritization and project management, seeking to understand points of convergence and divergence in order to work on and deliver the application within the scope set in those early stages.\n\nBatuco-Tuco is a mobile application focused on the gamification of music theory and instrument practice. Its name alludes to the \"batuque\" and pays tribute to a Brazilian species and its sound, the tuco-tuco, inspiring the playful theme and visual style of the project, which turns animals into skilled musicians.\n\nThe project was developed as a hands-on study of graphical interfaces and UX/UI. To ensure a smooth evolution with real-time visual feedback, the process involved structuring content maps, building a design system and applying user-centered methodologies.",
       "tags": [
         "Academic",
-        "Graphical Interface Design"
+        "Graphical Interface Design",
+        "Personal project",
+        "Medium complexity"
       ],
+      "heroAlt": "Hanni, Yopi, Gunter, Cybele and Pepo playing their instruments together on a lit stage.",
+      "lightbox": {
+        "processCaption": "Process stages",
+        "processAlt": "Board of the process stages: 01 User profile, 02 Requirements, 03 Methods, 04 Similar apps and 05 Prototyping, with the little fox's head (Portuguese text).",
+        "interfaceCaption": "Interface and assets",
+        "interfaceAlt": "Interface board: app screens on nine phones, text about the exercises and the points system and three characters; Assets board with the shop items and their prices in points (Portuguese text).",
+        "charactersAlt": "Characters board: Yopi, drummer squirrel; Pepo, pianist bear; Hanni, violinist fox; Cybele, kalimba bunny; Gunter, bassist cat (Portuguese text).",
+        "finalAlt": "Final presentation: Batuco-tuco logo, the phrase “Your expression matters, and it is knowledge.”, “Music is knowledge.” and two phones with the app (Portuguese text)."
+      },
       "sections": {
         "creationProcess": {
           "title": "Creation process",
           "paragraphs": [
-            "Developed in the Graphical Interface Design course (Unifor), the challenge was to create a scalable Design System and cohesive usability flows. I prioritized basic requirements, such as the practice activities, to guarantee functionality before moving on to complex band interactions. In three weeks, I finished the entire interface, assets and animations, focusing on prototyping optimization."
+            "The challenge was to create a scalable design system and cohesive usability flows. To do that, the process was split into five stages, each one feeding the next: the user profile (persona, interview analysis and user stories) showed who would use the app and what they expected from it; the requirements turned those expectations into essential, desirable and performance features; the methods (requirement prioritization, value and confidence attribution matrix, content map and flowcharts) defined the scope and structure of the app; the similar products (benchmarking, rough wireframes and design system) guided the visual decisions; and prototyping gave shape to all of it (next stage).",
+            "I prioritized basic requirements, such as the practice activities, to guarantee functionality before moving on to complex band interactions. In the matrices, we realized that playing in real time with other users would hardly be feasible, since synchronization would depend on each person's network."
           ],
           "images": [
-            "Map of the Graphical Interfaces process: user profile, requirements, methods, alternatives and prototyping.",
-            "Scribbles and low-fidelity wireframes of the app screens."
-          ]
+            "Planning boards: project overview, persona, requirements, user stories, flowchart and prioritization matrix by confidence level."
+          ],
+          "planningCaption": "Planning boards",
+          "diagram": {
+            "label": "Stages of the creation process",
+            "steps": [
+              {
+                "label": "User profile",
+                "items": [
+                  "Persona building",
+                  "Interview analysis",
+                  "User stories"
+                ]
+              },
+              {
+                "label": "Requirements",
+                "items": [
+                  "Functional requirements",
+                  "Essential requirements",
+                  "Performance requirements",
+                  "Desirable requirements"
+                ]
+              },
+              {
+                "label": "Methods",
+                "items": [
+                  "Requirement prioritization",
+                  "Confidence attribution matrix",
+                  "Flowchart",
+                  "Content map"
+                ]
+              },
+              {
+                "label": "Similar products",
+                "items": [
+                  "Benchmarking",
+                  "Rough wireframe",
+                  "Design System"
+                ]
+              },
+              {
+                "label": "Prototyping",
+                "items": [
+                  "Low-fidelity screens",
+                  "High-fidelity screens",
+                  "Figma prototype",
+                  "Illustrations and assets"
+                ]
+              }
+            ]
+          }
         },
+        "sketches": [
+          {
+            "caption": "Character sketches",
+            "alt": "Notebook page with pencil sketches of the characters and their instruments."
+          },
+          {
+            "caption": "Home and profile wireframe",
+            "alt": "Pencil wireframe of the home and profile screens, with notes."
+          },
+          {
+            "caption": "Home and activities wireframe",
+            "alt": "Pencil wireframe of the home and activities screens."
+          },
+          {
+            "caption": "Onboarding wireframe",
+            "alt": "Pencil wireframe of the app's sign-in screens."
+          }
+        ],
         "prototyping": {
           "title": "Prototyping",
           "tabs": [
@@ -175,17 +405,101 @@
           "thumbs": {
             "captions": []
           },
+          "paragraphs": [
+            "From the low-fidelity screens to the high-fidelity prototype in Figma, the main flows of the app are built around theory exercises and a points system. The exercises the user completes earn coins to buy new items for the character that represents them in the game, such as a ribbon bow, a cap, a treble clef and a ladybug.",
+            "The characters are Yopi, the drummer squirrel; Pepo, the pianist bear cub; Hanni, the violinist fox; Cybele, the bunny on the kalimba; and Gunter, the bassist kitten. They were heavily inspired by well-known Nintendo and cozy mobile games, such as Animal Crossing and Cats and Soup, with a softer, “cozy” look and approach. In three weeks, I finished the entire interface, the assets and the animations, focusing on optimizing the prototype."
+          ],
           "images": [
-            "App interface and asset library: exercise screens, points system and character accessories.",
-            "Batuco-tuco characters: Yopi, Pepo, Hanni, Cybele and Gunter, each with their instrument.",
-            "Final presentation of Batuco-tuco: Music is knowledge, playfulness and research transform teaching."
+            "Home screen with Hanni on stage, the days of the week and the daily activities.",
+            "Music theory screen with the user's progress and the study modules.",
+            "Exercise screen with a question about intervals on the staff and the answer options.",
+            "Wardrobe with Hanni and the available accessories.",
+            "Shop asking to confirm the purchase of the ribbon bow.",
+            "User profile with musical interests and instruments.",
+            "Home screen with Hanni and Pepo playing together.",
+            "Another exercise screen about intervals.",
+            "Home screen with Cybele on stage."
           ]
+        },
+        "interface": {
+          "title": "Interface",
+          "textBefore": "The main flows of the app are built around ",
+          "bold1": "theory exercises",
+          "textMid": " and a ",
+          "bold2": "points system",
+          "textAfter": ". The exercises the user completes earn coins to buy new items for the character that represents them in the game.",
+          "charactersAlt": "Hanni, Cybele and Pepo playing violin, kalimba and keyboard.",
+          "assetsTitle": "Assets",
+          "assets": [
+            "Ribbon Bow",
+            "Hair Clip",
+            "Cap",
+            "Treble Clef",
+            "Flowers",
+            "Ladybug"
+          ],
+          "pointsLabel": "{points} PTS",
+          "lockedLabel": "Locked"
+        },
+        "characters": {
+          "label": "Characters",
+          "list": [
+            {
+              "name": "Yopi",
+              "role": "Drummer squirrel"
+            },
+            {
+              "name": "Pepo",
+              "role": "Pianist bear cub"
+            },
+            {
+              "name": "Hanni",
+              "role": "Violinist fox"
+            },
+            {
+              "name": "Cybele",
+              "role": "Bunny on the kalimba"
+            },
+            {
+              "name": "Gunter",
+              "role": "Bassist kitten"
+            }
+          ]
+        },
+        "brand": {
+          "logoLabel": "Batuco-tuco",
+          "logoTop": "BATUCO",
+          "logoBottom": "TUCO",
+          "taglineLine1": "Your expression matters,",
+          "taglineBefore": "and it is ",
+          "taglineBold": "knowledge",
+          "taglineAfter": ".",
+          "heading": "Music is knowledge.",
+          "pills": [
+            "Play and research transform teaching",
+            "Learning has endless possibilities",
+            "Learning should be fun too"
+          ],
+          "mockupAlt": "Two phones with Batuco-tuco open: Hanni's wardrobe and the home screen with Cybele."
         },
         "finalProject": {
           "title": "Final project",
+          "paragraphs": [
+            "The final project is the app's clickable prototype in Figma, with its design system, characters and assets, and it is currently back in the research stage to explore the theme further."
+          ],
+          "fontsNote": "The typefaces used are AM Futurismo, found on Adobe Fonts, and Nunito, found in Figma.",
           "images": []
+        },
+        "tools": {
+          "title": "Tools used",
+          "items": [
+            "Autodesk Sketchbook",
+            "Adobe Fonts",
+            "Figma"
+          ]
         }
       },
+      "footnote": "* No AI image generation tool was used for the visual work (sketches, vectors, illustrations…) in this project.",
       "thanks": "Thank you for making it this far!"
     },
     "pontinhasSoltas": {
@@ -193,46 +507,528 @@
       "subtitle": "Pontinhas soltas",
       "cardTitle": "Pontinhas soltas",
       "description": "Design and 3D modeling of characters around an identity of loose dots. (PLACEHOLDER)",
-      "intro": "The “Pontinhas soltas” are a representation of the extension of the “Pontos sem nó” brand project. Created as personas assigned to the concept words of the brand, their characterization seeks to convey comfort and be part of casual contexts.\n\nThe central goal of having an extension related to them is that (PLACEHOLDER)",
+      "intro": "This work is an extension of the “Pontos sem nó” visual identity manual and brings the “Pontinhas soltas”, the imaginary characters who support the brand, into 3D. More than a project in itself, it was a way to give the little dolls volume and to understand how they would behave off the page, while staying true to the original illustrations.",
       "tags": [
         "Personal",
-        "Character Design"
+        "3D modeling",
+        "Original work",
+        "Low complexity"
       ],
+      "heroAlt": "Jemmy, Lac, Haggy, Nina and Ali, the Pontinhas soltas in 3D, side by side on a dark blue background with colored lights.",
+      "gallery": {
+        "showcaseCaption": "Characters in 3D and 2D",
+        "showcaseAlt": "Pontinhas soltas card: on top, Jemmy, Nina, Haggy, Lac and Ali modeled in 3D; below, the same characters in the original illustrations, each with her name and icon.",
+        "flyingCaption": "Character illustrations",
+        "flyingAlt": "Character illustrations: five Pontinhas flying in a circle and two music boxes with ballerinas.",
+        "turnaroundsCaption": "Turnarounds",
+        "turnaroundsAlt": "Turnarounds of Ali, Nina and Jemmy: each one from the front, three-quarter and side, facing right (D) and left (E). Labels in Portuguese.",
+        "headsCaption": "Head and body studies",
+        "headsAlt": "Character studies: heads and full bodies of Haggy, Ali, Jemmy, Nina and Lac.",
+        "dancingCaption": "Pontinhas dancing",
+        "dancingAlt": "Sketches of the five Pontinhas dancing in a row.",
+        "cardsCaption": "Characters and their concepts",
+        "cardsAlt": "3D character cards with their concepts (text in Portuguese): Ali is serenity, Jemmy is lyricism, Lac is tenderness, Nina is a pilgrim and Haggy is escapism."
+      },
       "sections": {
         "creationProcess": {
           "title": "Creation process",
           "paragraphs": [
-            "Developed in the Graphical Interface Design course (Unifor), the challenge was to create a scalable Design System and cohesive usability flows. I prioritized basic requirements, such as the practice activities, to guarantee functionality before moving on to complex band interactions. In three weeks, I finished the entire interface, assets and animations, focusing on prototyping optimization. (PLACEHOLDER)"
+            "Each character stands for one of the brand's concepts: tenderness, lyricism, escapism, serenity and pilgrim, and that guided the choice of their shape, color, species and expression. Unlike the low-poly models I usually make for VR experiences, here the dolls were modeled with more subdivisions in Blender, aiming to stay very faithful to the original images. The softer, rounder edges bring that sense of softness and, at the same time, a somewhat plastic texture. They are not rag dolls, but the idea is that their figure comforts whoever sees them, as if they were made of fabric, like plush toys."
           ],
-          "images": [
-            "Visual identity system in six steps: brainstorming of concept words, semantic board analysis, sketch creation, graphic tests, print test and manual.",
-            "Captures of the 3D character modeling process in Blender.",
-            "More captures of the 3D character modeling process in Blender.",
-            "Character library: turnarounds (front, 3/4 and side) of Ali, Nina, Jemmy and other characters."
-          ]
+          "images": []
         },
         "prototyping": {
           "title": "Prototyping",
           "tabs": [
             "Character design",
             "Personas",
-            "Concept words",
-            "Blender"
+            "3D modeling",
+            "Model sheet"
           ],
           "thumbs": {
             "captions": []
           },
+          "paragraphs": [
+            "The textures were created in Figma and Illustrator from the identity's own palette (Image 2), keeping the contrasts and the gradient transitions between near-pastel colors that make the characters seem to glow or give off a soft light in the areas where the paint is lighter."
+          ],
           "images": [
-            "Final characters: Jemmy, Nina, Haggy, Lac and Ali, in 3D rendering.",
-            "Characters with their descriptions: Ali is serenity, Jemmy is lyricism, Lac is tenderness, Nina is the pilgrim and Haggy is escapism."
+            "Photo of the computer screen with Haggy modeled in Blender and the gradient textures beside her.",
+            "Blender capture: Nina's original illustration next to her 3D model.",
+            "Photo of the computer screen with Jemmy's model in Blender, still untextured.",
+            "Photo of the computer screen with Jemmy textured in Blender and the gradient texture palette.",
+            "Blender capture with the five Pontinhas modeled side by side.",
+            "Photo of the computer screen with Nina's illustration next to her 3D model in Blender."
           ]
         },
         "finalProject": {
           "title": "Final project",
+          "paragraphs": [
+            "The final project is made up of the 3D models of the Pontinhas soltas, with their textures, and the 3D printing tests."
+          ],
           "images": []
+        },
+        "tools": {
+          "title": "Tools used",
+          "items": [
+            "Blender (version 4.5)",
+            "Autodesk Sketchbook",
+            "Adobe Illustrator",
+            "Figma",
+            "Cura"
+          ]
+        },
+        "showcase": {
+          "label": "Pontinhas soltas in 3D and 2D",
+          "names": [
+            "Jemmy",
+            "Nina",
+            "Haggy",
+            "Lac",
+            "Ali"
+          ]
+        },
+        "characterCards": {
+          "label": "Characters and their concepts",
+          "list": [
+            {
+              "name": "Ali",
+              "lines": [
+                "The bear has a serene expression, with colors that recall nature.",
+                "Ali is serenity!"
+              ]
+            },
+            {
+              "name": "Jemmy",
+              "lines": [
+                "Octopus ink was used for decades for writing. Jemmy is lyricism!"
+              ]
+            },
+            {
+              "name": "Lac",
+              "lines": [
+                "The pink mouse with a sleepy expression stands for coziness.",
+                "Lac is tenderness!"
+              ]
+            },
+            {
+              "name": "Nina",
+              "lines": [
+                "A bird known for migrating in childhood.",
+                "Nina is a pilgrim!"
+              ]
+            },
+            {
+              "name": "Haggy",
+              "lines": [
+                "In many depictions, the rabbit symbolizes curiosity and dreamlike thinking.",
+                "Haggy is escapism!"
+              ]
+            }
+          ]
+        }
+      },
+      "aiNote": "* No AI image generation tool was used for the visual work (sketches, vectors, illustrations…) in this project.",
+      "thanks": "Thank you for making it this far!"
+    },
+    "identidadeEvento15Anos": {
+      "title": "Event identity: 15th birthday",
+      "subtitle": "Event identity: 15th birthday",
+      "cardTitle": "Event identity: 15th birthday",
+      "description": "Illustrated visual identity for a pair of twins' 15th birthday, from the save the date to the applications on the day of the event.",
+      "intro": "The commission called for a visual identity for the 15th birthday party of a pair of twins. The service was planned around a delivery schedule, to keep the client quickly updated on the process and to show her how my work was expected to unfold.",
+      "tags": [
+        "Professional",
+        "Digital illustration",
+        "Visual identity",
+        "Graphic design",
+        "Print media",
+        "Medium complexity"
+      ],
+      "heroAlt": "Digital illustration of a garden with trees, flowers and a fountain, the main artwork of the event identity.",
+      "sections": {
+        "creationProcess": {
+          "title": "Creation process",
+          "paragraphs": [
+            "The process was split into defining the scope with the client, building a moodboard of visual references, defining the text content, sketching and prototyping. From the answers to my general briefing form for service requests, the production scope was set, giving the pieces the following characteristics: minimalist and elegant, delicate and organic, favoring pink, yellow and green, with flowers as the main elements. A moderate, stylized level of detail, intended for promotion in digital and print media."
+          ],
+          "images": [
+            "First reference board: watercolor floral invitations, botanical stickers, yellow flowers and delicate frames.",
+            "Second reference board: paintings of gardens and landscapes with flowers in shades of green, orange and pink."
+          ],
+          "captions": [
+            "Reference board - Version 1",
+            "Reference board - Version 2"
+          ]
+        },
+        "prototyping": {
+          "title": "Prototyping",
+          "tabs": [
+            "Moodboard",
+            "Planning the pieces",
+            "Roughs",
+            "Color tests",
+            "Digital rendering",
+            "Print tests"
+          ],
+          "paragraphs": [
+            "The process started with the “Save the date”, which would also give structure to the invitation and the pieces that followed. But input from more people shifted the project's vision a little, adding new references and changing the complexity of the illustration. The main illustration guided the composition of further pieces, such as party favor tags, menus, cake box stickers and even the wrap of a “mini cakes” favor cart hired by the client. After testing the prints and making the necessary revisions, the material was applied to the promotion and to the printed surfaces.",
+            "Every step was approved by the client."
+          ],
+          "thumbs": {
+            "captions": [
+              "Layout test",
+              "Illustration draft",
+              "Raw illustration",
+              "First version of the Save The Date",
+              "Color test"
+            ]
+          },
+          "images": [
+            "Save the date layout test with a floral frame and the names of the birthday twins.",
+            "Draft of the invitation's floral illustration on a beige background.",
+            "Raw illustration of the floral frame, still without text.",
+            "First version of the save the date, with a flower frame and the event date.",
+            "Save the date color test with flowers in warmer tones."
+          ],
+          "invitation": {
+            "label": "Developing the final identity for the invitation",
+            "images": [
+              "Pencil sketch of the garden with trees and a fountain.",
+              "Digital illustration of the garden with trees, flowers and a fountain.",
+              "Final invitation with the C and A monogram in an oval lace frame over the garden illustration.",
+              "Variation of the final invitation with the monogram and the event details."
+            ]
+          }
+        },
+        "finalProject": {
+          "title": "Final project",
+          "paragraphs": [
+            "The delivered project made up the event's identity system and its applications."
+          ],
+          "toolsTitle": "Tools used",
+          "tools": [
+            "Adobe Illustrator",
+            "Autodesk Sketchbook",
+            "Adobe Fonts",
+            "Figma",
+            "Adobe Photoshop"
+          ],
+          "images": [
+            "Horizontal banner with the C and A monogram and “15 anos” in an oval lace frame over the garden's treetops.",
+            "Horizontal banner with the C and A monogram in an oval lace frame, between the fountain and a tree trunk.",
+            "Artwork with the C and A monogram and “15 anos” in an oval lace frame over the garden with fountains, with ornaments in the corners."
+          ],
+          "ledPanel": {
+            "label": "Artwork for the LED panel",
+            "images": [
+              "LED panel artwork in soft tones: the monogram and “15 anos” in an oval frame over the garden, with ornaments in the corners.",
+              "A more saturated version of the LED panel artwork, with the monogram and “15 anos” over the garden."
+            ]
+          },
+          "menuTags": {
+            "label": "Artwork for the menu, tags and cake box stickers",
+            "images": [
+              "Front of the menu with starters, main course and drinks in an oval lace frame over the garden illustration.",
+              "Back of the menu on a cream background with the C and A monogram, “15 anos” and ornaments in the corners.",
+              "Sandal tag numbered 39/40 with the phrase “Dance, sorria e viva a noite!” (Dance, smile and live the night!) over the garden illustration.",
+              "Sandal tag numbered 35/36 over the garden illustration.",
+              "Sandal tag numbered 37/38 over the garden illustration.",
+              "Cake slice box sticker with the monogram and “15 anos” in a lace frame over the garden with a fountain.",
+              "Party favor tag with the monogram, “15 anos” and the phrase “Dois sonhos, uma celebração e muita gratidão!” (Two dreams, one celebration and lots of gratitude!) over the garden."
+            ]
+          },
+          "event": {
+            "label": "Applications at the event",
+            "images": [
+              "Mini cakes cart wrapped with the garden illustration and the monogram.",
+              "Another angle of the wrapped mini cakes cart.",
+              "Printed menu on a green napkin over a decorated plate.",
+              "Cake boxes with the identity stickers.",
+              "Kraft bags with the identity tags.",
+              "Party favor box with the sticker and tag applied."
+            ]
+          },
+          "aiNote": "* No AI image-generation agent was used for the visual creations (sketches, vectors, illustrations…) in this project."
         }
       },
       "thanks": "Thank you for making it this far!"
+    },
+    "caju": {
+      "title": "Caju",
+      "subtitle": "Caju",
+      "cardTitle": "Caju",
+      "description": "Illustrated children's book “Caju in: Seed has no tooth”, created in the Graphic Production course with my classmates Ana and Thays: a story about facing your fears with a big smile.",
+      "intro": "Under the assignment to create an illustrated children's book in the Graphic Production course, Caju was born as the expression of the bond between a group of older sisters (me and my project teammates). The synopsis: “Cajú lives a light and happy life by her mother's side, but after a rainy day, an unexpected change challenges our heroine to see her world from a new perspective. Cajú will show us how to face our fears with a big smile”.\n\nIt was the most fun brainstorming I've ever had in a project, and it gave me a very personal and genuine connection with my story and my teammates': our ideas talked to each other, and we felt like we were thinking of the same little story even before we decided what it would be.",
+      "tags": [
+        "Academic",
+        "Digital illustration",
+        "Graphic design",
+        "Editorial design",
+        "High complexity"
+      ],
+      "heroAlt": "Book illustration: Caju, with blue hair and a yellow dress, in a maze of pink and yellow stripes, with the little grey monster in the background.",
+      "aiNote": "* No AI image-generation agent was used for the visual creations (sketches, vectors, illustrations…) in this project.",
+      "thanks": "Thank you for making it this far!",
+      "sections": {
+        "creationProcess": {
+          "title": "Creation process",
+          "leadBefore": "The creation process was carried out together with my classmates ",
+          "leadAna": "Ana",
+          "leadBetween": " and ",
+          "leadThays": "Thays",
+          "leadAfter": ". We first chose the niche of children's booklets and, to create the story, we drew mainly on illustrations that we asked the children in Ana's family to make spontaneously, letting their eyes guide what would be told. From there, we wrote the story together, coming up with ideas for the title and the message, and structured the script into a beginning, middle and end.",
+          "paragraphs": [
+            "In the story, Caju sees her brother Juca, whose name shares the same syllables as hers, as a scary little monster and decides to face him with the thing that always makes her laugh: tickles. The weather follows her feelings too, from the sunny day to the rain and thunder, until the sky clears when the baby finally laughs and Caju discovers he doesn't even have teeth.",
+            "Later, we looked for references on Behance and Pinterest and put together a mood board (Image a), which guided the character sketches made by me and Thays (Image b): Caju, Juca, their mother Cajuína, portrayed as Mother Nature (hence the influence of the environment in expressing feelings), and the plush toys Mr. Frog, Manuel and Pedro, Caju's allies."
+          ]
+        },
+        "gallery": {
+          "boardCaption": "Planning board",
+          "boardAlt": "The book's planning board, with text in Portuguese: typeface tests (Gambado, Hey Eloise, Pain de Mie, Ruddy, Sketchnote, Bad Dog and P22 Stanyan), title ideas, technical details (32 pages, children's zine booklet, offset printing, coated paper, Bad Dog typeface), the script in beginning, middle and end, a colour palette in blues and lilacs and the characters Cajú, Jucá, Cajuína, Mr. Frog, Manuel and Pedro.",
+          "brainstorming": "Brainstorming",
+          "brainstormingAlts": [
+            "Brainstorming mind map with colourful sticky notes on a sheet of paper.",
+            "Pencil sketch of Caju in a spiral notebook.",
+            "The group's table with notebooks, drawings and pencils during the brainstorming."
+          ],
+          "visualPanel": "Mood board - Image a",
+          "visualPanelAlt": "Mood board with references from illustrations and illustrated children's books.",
+          "colorTests": "Colour tests and storyboard",
+          "colorTestsAlt": "Coloured-pencil tests on the printed illustrations and the storyboard of the pages.",
+          "characters": "Character design - Image b",
+          "charactersAlt": "Pencil sketches of the characters and the finished Caju in colour.",
+          "roughs": "Page roughs",
+          "roughsAlts": [
+            "Pencil rough of a double page: Caju reading in the tent and the scare with the little monster.",
+            "Pencil rough of a double page: the willow tree and the bedroom with the thunder cloud and the cage."
+          ],
+          "painting": "Painting the pages and layout",
+          "paintingAlts": [
+            "A page being painted digitally in Clip Studio, on a tablet.",
+            "An illustration in progress in Clip Studio, with layers and the colour palette.",
+            "Layout in InDesign: the cover, the authors' credits and double pages.",
+            "The book cover being laid out in InDesign."
+          ],
+          "printed": "Printed media",
+          "printedAlts": [
+            "The printed book open on a double page with Caju reading to her brother in the tent.",
+            "The printed book open on a double page with Caju and her mother Cajuína.",
+            "Printed pages spread out on the table."
+          ]
+        },
+        "prototyping": {
+          "title": "Prototyping",
+          "tabs": [
+            "Mood board",
+            "Piece planning",
+            "Roughs",
+            "Colour tests",
+            "Digital rendering",
+            "Print tests"
+          ],
+          "paragraphs": [
+            "One of the most fun steps was testing the colours, with illustrations printed without fill and painted with coloured pencils. Then I made thumbnails of all the pages following the girls' directions (Image 3), and Thays defined a colour palette for the characters and made the illustrations for the pages and the cover, which we split among ourselves to paint. With the pages ready, I wrote the texts, we tested typefaces (Image 4) and laid it out in InDesign, printing the dummy first and, finally, the booklet itself."
+          ]
+        },
+        "finalProject": {
+          "title": "Final project",
+          "paragraphs": [
+            "The final project is the printed children's book “Caju in: Seed has no tooth”. On the last page, we left a space for the children's drawings, giving them back a place in the story they helped create."
+          ]
+        },
+        "tools": {
+          "title": "Tools used",
+          "items": [
+            "Adobe Illustrator",
+            "Clip Studio",
+            "InDesign",
+            "Adobe Fonts"
+          ]
+        },
+        "stack": {
+          "label": "Book pages",
+          "alts": [
+            "Book page (text in Portuguese): “Caju felt herself swaying, confused and lost on her branch; her mother’s presence was now divided.”",
+            "Book page (text in Portuguese): “That scary scream turned into laughter!”",
+            "Book page (text in Portuguese): “This funny story was passed on to the little monster, now called Juca.”",
+            "Book page (text in Portuguese): “That was when she decided it was time to find a way out.”",
+            "Book page (text in Portuguese): “And to her surprise, that little monster was actually a toothless baby!”",
+            "Book page (text in Portuguese): “Every time Caju remembers, she realizes that those two were the fruits of a smile, and nothing could get in the way.”"
+          ]
+        },
+        "readingSim": {
+          "title": "Reading simulation"
+        },
+        "book": {
+          "label": "The book “Caju in: a seed has no tooth!”, to flip through (text in Portuguese)",
+          "faces": [
+            "Cover of the book “Caju in: a seed has no tooth!”",
+            "Dedication: This book is dedicated to all older sisters and their toothless little siblings.",
+            "Title page: Ágatha Ferreira, Ana Francisca and Thays Letícia.",
+            "To Caju, her mother was the most beautiful tree. When she was with her, every day was sunny and the whole forest danced around her.",
+            "But one day, the sound of thunder interrupted the dance. And that was the first rain that clouded the day for the two of them.",
+            "Watching her mother leave, Caju feels enormously confused!",
+            "The taxi took her mother to a faraway place, where the thunder could not reach her.",
+            "She had never been so far from her mother...",
+            "Then she felt the rumble of thunder in her heart.",
+            "This new creature only came to make a mess.",
+            "The family was restless, as if everything were about to crack.",
+            "This little monster would not stop screaming! Her mother would not sit still...",
+            "Her mother holds the little monster, who screams: Uhêêêê!",
+            "The monster’s den looked like a maze, full of toys and strange sounds.",
+            "Illustration: the dark maze, with red eyes peeking out.",
+            "Caju felt herself swaying, confused and lost on her branch; her mother’s presence was now divided.",
+            "That was when she decided it was time to find a way out.",
+            "She called all her trusted friends to a meeting: Mr. Frog, Mr. Penguin and Manoel the Cat. Talking it over, the three reached a conclusion: the little monster would laugh on one condition, tickles would be the solution.",
+            "Illustration: Caju imagines the little monster and the family laughing together.",
+            "Caju goes back to the maze, determined to face the little monster!",
+            "Illustration: the maze, with red eyes peeking out.",
+            "Caju took a deep breath and moved toward the little monster’s cage.",
+            "Illustration: the little monster’s cage, under a cloud of thunder.",
+            "She gathered her courage, stretched out her arms to attack and...",
+            "Illustration: Caju stretches her arms toward the little monster.",
+            "That scary scream turned into laughter!",
+            "And to her surprise, that little monster was actually a toothless baby!",
+            "This funny story was passed on to the little monster, now called Juca.",
+            "Every time Caju remembers, she realizes that those two were the fruits of a smile, and nothing could get in the way.",
+            "Children’s drawings of the characters.",
+            "Children’s drawings of the characters.",
+            "Back cover: Caju lives a light and happy life by her mother’s side, but after a rainy day an unexpected change challenges our heroine to see her world from a new perspective. Caju will show us how to face our fears with a big smile!"
+          ],
+          "counter": {
+            "cover": "Cover",
+            "back": "Back cover",
+            "pages": "Pages {a}–{b} of {n}"
+          },
+          "hint": {
+            "cover": "Click the cover to open the book",
+            "middle": "Click the pages or use the arrows to flip through",
+            "end": "The end! Use the button to go back to the cover"
+          },
+          "nav": {
+            "open": "Open the book",
+            "turn": "Turn the page",
+            "back": "Go back one page",
+            "prev": "Previous page",
+            "next": "Next page",
+            "restart": "Back to the cover"
+          }
+        }
+      }
+    },
+    "cascavel": {
+      "title": "City of Cascavel",
+      "subtitle": "City of Cascavel",
+      "cardTitle": "Cascavel",
+      "description": "A VR project that playfully explores the legend of the serpent-like creature living beneath the soil of Cascavel, CE.",
+      "heroAlt": "Blurred low-poly 3D square in Cascavel with trees, a pond and a bandstand, and the yellow serpent seal on the left",
+      "intro": "“Cascavel” is a VR (virtual reality) project that playfully and light-heartedly explores the legend of a huge creature living beneath the soil of the city of Cascavel, CE. With the appearance of a serpent, the creature grows every time its name is spoken in the city, until its den erupts and it has a catastrophic encounter with the city's population.\nThe brief called for an experience only a few minutes long, part of the opening exhibition “Edson e Yolanda” at the new Cultural Complex of the University of Fortaleza. The idea was for the experience to evoke memories of the city's characteristics and for the story to have fun and unusual endings, while keeping the interaction accessible and immersive for family audiences.\n\nFrom this proposal, I was responsible for scripting the experience and its flow map, sketching, modeling and refining the stylized low-poly 3D map, creating custom assets and adapting previously selected models, animating some characters, creating textures, composing scenarios and modeling the Cascavel itself in two versions.",
+      "tags": [
+        "Professional",
+        "3D environment design",
+        "3D modeling",
+        "High complexity"
+      ],
+      "sections": {
+        "creationProcess": {
+          "title": "Creation process",
+          "leadBefore": "The creation and development process was carried out together with my coworkers ",
+          "nameAmanda": "Amanda",
+          "sep1": ", ",
+          "nameRaquel": "Raquel",
+          "sep2": " and ",
+          "nameFelipe": "Felipe",
+          "leadAfter": ". At first, we read cordel literature about the city available at the University of Fortaleza library, looked for references of tourist spots and landmark spaces in the city, and from that I wrote a script and listed the elements that would compose the environment. After setting dates for the production stages of each element, I began creating the models, and the following stages were refining the map, making small animations and testing the experience with potential users."
+        },
+        "prototyping": {
+          "title": "Prototyping",
+          "tabs": [
+            "Character design",
+            "Personas",
+            "3D modeling",
+            "Model sheet"
+          ],
+          "paragraphs": [
+            "The initial map structure was built from an assembly of free-license models. My role was to compose the scenario, adding the previously planned elements so that its buildings and spaces felt more alive, always making sure there were fewer polygons and that the scenario optimization was efficient. Besides that model, specific elements were created or adapted by me throughout the production (Image a) for the city's context, such as the grotto, the downtown chapel, the cajuzinho market, the bandstand, the bodega, small street markets and little playgrounds. The choice of colors and shaders was also intentional, as they tell about the everyday life and the extravagant simplicity of living in Cascavel.",
+            "I also created designs tied to spaces often recognized as “from the Ceará countryside” and textures for specific moments (Image b), such as the painting of the Cascavel made by the children that the player sees at the little school."
+          ]
+        },
+        "gallery": {
+          "flowAlt": "Flow map of the VR experience, from start to end: the “Waiting for the game to start” screen, instructions, the opening narration, the questions about the city's name (Cascavel or São Bento) with the time to answer, and the good and bad endings up to the “Thanks for playing” screen. The text in the artwork is in Portuguese.",
+          "panelsAlt": "Reference boards with photos of Cascavel (street market elements, local flora, local architecture and local fauna) and the map review with the triangle count and lists of what to reduce in polygons, fix in textures and add",
+          "imageA": "Image a",
+          "imageAAlt": "Dark board with the 3D assets created or adapted: streetlamps, swings, a little house, the bandstand, the grotto with a pond, benches, tables, bunting, trees, city buildings, the versions of the church and chairs",
+          "imageB": "Image b",
+          "schoolAlt": "3D scene of the street market with the dialogue cards hanging on the clothesline, colorful tables and fruit crates",
+          "paintingAlt": "Colorful painting of the Cascavel, the project's serpent, coiled in a spiral",
+          "blenderAlt": "Modeling of the Cascavel in Blender, with the head parts and the body in the viewport",
+          "cardsAlt": "In-game dialogue cards, with text in Portuguese: “Good afternoon, merchant. What a nice smell of fresh fruit...” (01), “They say people have been swapping the names around here...” (03), “Tell me, merchant: is this village's church…” (04), “São Bento… or do they still use the old name, Cascavel?” (05), “I…”, “The end.”, “That's what I hoped to hear. I'll take it all!” (07) and “The end.”",
+          "fruitAlt": "Texture of a green fruit, modeled for the street market",
+          "houseAlt": "Blue two-story 3D house with a balcony and a climbing plant, on a city street",
+          "signsAlt": "In-game signs, with text in Portuguese: Quel Pipoquinhas popcorn (small R$4.50, medium R$6, large R$8), Supermercado Cajuzinho and the Cascavel Annual Street Fair (choirs, bands and dance; Cascavel City Hall)",
+          "firstVersions": "First versions and renders",
+          "firstVersionsAlts": [
+            "Map of the city without textures, shown on the monitor",
+            "The Cascavel being animated in Blender, shown on the monitor",
+            "Aerial view of the untextured map, shown on the monitor",
+            "The Cascavel winding over the city at dusk",
+            "Lit street with houses at night",
+            "Square with trees, a playground and the blue building",
+            "View of the city with the Cascavel in the background",
+            "City at night with the lit church and the Cascavel in the sky",
+            "Interior with red chairs and the Cascavel by the window"
+          ],
+          "rendersAlts": [
+            "Final render: blue twin-towered church and square with tables and market stalls",
+            "Final render: the city at dusk, with the church in the background and the blue house",
+            "Final render: bandstand, trees, bench and streetlamps in the square",
+            "Final render: street with the Cajuzinho supermarket, houses and lit streetlamps",
+            "Final render: Cascavel Annual Street Fair square with bandstand, pond and stalls",
+            "Final render: aerial view of the village with the Cascavel crossing the city"
+          ]
+        },
+        "finalProject": {
+          "title": "Final project",
+          "paragraphs": [
+            "All of these activities resulted in a highly optimized map for use in VR headsets and in the immersive experience of “personally” meeting the murmurs of the legend of Cascavel."
+          ]
+        },
+        "tools": {
+          "title": "Tools used",
+          "items": [
+            "Blender (version 4.5)",
+            "Autodesk Sketchbook",
+            "Adobe Fonts",
+            "Figma",
+            "Rokoko rigging"
+          ]
+        },
+        "credits": {
+          "title": "Reference credits",
+          "fonts": "The fonts used are, respectively, Xilosa, Clother and Asterisco, the first two found on Adobe Fonts and the last one on DaFont.",
+          "models": [
+            "Reference credit for models and textures: Models available on Sketchfab: Cat (“Cat rigged”, by",
+            "), Church (“Church”, by",
+            ") and Tents (“Market props”, by",
+            "), under CC Attribution license; Humans (“Lowpoly NPC pack”, by",
+            "), under CC Attribution-NonCommercial-ShareAlike license; Birds (“Birds”), Museum (“Low poly business buildings pack”) and Smaller hotels (“Low poly accommodations buildings”), under Free Standard license. Textures: Cascavel scales (3D Jungle) and Cascavel eye (Tichila / Adobe Stock, file nº 1633641127)."
+          ],
+          "authors": [
+            " Vr-cvantorium",
+            " henriqueart_lfv",
+            " Wouter Yntema",
+            " Hänsen"
+          ],
+          "authorLink": "{name} on Sketchfab (opens in a new tab)"
+        },
+        "execution": {
+          "title": "Execution promoted by",
+          "lead": "Laboratório Vortex",
+          "body": ", linked to the Vice-Presidency of Research and maintained by the University of Fortaleza."
+        }
+      },
+      "aiNote": "*No AI image-generation agent was used for the visual creations (sketches, vectors, illustrations, textures, 3D models…) in this project, except for the texture of the Cascavel's eye, taken from a stock image bank (Adobe Stock) and AI-generated by its author.",
+      "thanks": "Thank you for scrolling all the way here!"
     }
   },
   "status": {
@@ -254,7 +1050,11 @@
     "projetos": "Projects",
     "pontosSemNo": "Pontos sem nó",
     "batucoTuco": "Batuco-tuco",
-    "pontinhasSoltas": "Pontinhas soltas"
+    "pontinhasSoltas": "Pontinhas soltas",
+    "identidadeEvento15Anos": "Event identity: 15th birthday",
+    "caju": "Caju",
+    "studies": "Studies",
+    "cascavel": "City of Cascavel"
   },
   "projectsPage": {
     "title": "Portfolio",
@@ -287,6 +1087,129 @@
     "clearFilters": "clear search and filters",
     "back": "back to projects",
     "next": "next: {title}",
-    "backToTop": "back to top"
+    "backToTop": "back to top",
+    "related": "You might also like...",
+    "zoomCursor": "zoom in +",
+    "projectCursor": "view project →",
+    "lightbox": {
+      "label": "Enlarged image",
+      "open": "Enlarge: {caption}",
+      "close": "Close",
+      "prev": "Previous image",
+      "next": "Next image",
+      "counter": "{caption} · {index} / {total}"
+    }
+  },
+  "studies": {
+    "title": "Studies",
+    "back": "back to about me",
+    "bubble": "Look how cool!",
+    "filtersLabel": "Filter studies by area",
+    "items": {
+      "velhaInfancia": {
+        "caption": "Velha infância",
+        "alt": "“Velha infância” collage: colorful children's drawings, a table with a vase and fruit, puppy mugs, a watercolor tin, a butterfly and flowers."
+      },
+      "portals": {
+        "caption": "Portals",
+        "alt": "“Portals” collage: two fairies with moth wings among orange flowers, a green-haired figure, a pink moth and eyes scattered over a dark background."
+      },
+      "chillKill": {
+        "caption": "Chill Kill",
+        "alt": "“Chill Kill” collage: dark-toned portraits of two black-haired women, a white lily, miniature ballerinas and a dragon fruit."
+      },
+      "razoes28": {
+        "caption": "28 Reasons",
+        "alt": "“28 Reasons” collage: the title “28 Reasons”, the quote “We simply try to resist from being captivated by evil.”, cut-out silhouettes, a ballerina and portraits of a singer."
+      },
+      "florescer": {
+        "caption": "Florescer",
+        "alt": "“Florescer” collage: a pastel illustration with blossoming branches, a blonde girl, a fawn, ribbons, cute stickers and the quote “Surround yourself with people who see your value and remind you of it”."
+      },
+      "soQuiet": {
+        "caption": "So quiet",
+        "alt": "“So quiet” collage: black-and-white and cool-toned photos of a singer in the snow, newspaper clippings, an animal illustration and an album cover."
+      },
+      "gatoAzul": {
+        "caption": "Studies",
+        "alt": "3D render of a yellow and blue cat-shaped lamp with its mouth open in a red ring, on a blue background with the text “Ágatha e os Pontos sem Nó”."
+      },
+      "gatoAmarelo": {
+        "caption": "Studies",
+        "alt": "The same 3D cat-shaped lamp on a mustard background, with the text “Ágatha e os Pontos sem Nó”."
+      },
+      "calendario2023": {
+        "caption": "Studies",
+        "alt": "2023 calendar titled “2023幸運な年”, next to an illustration of a blue-haired girl with a kitten and stickers."
+      },
+      "calendario2024": {
+        "caption": "Studies",
+        "alt": "2024 calendar titled “2024幸運な年” with blueberries, next to an illustration of a white-haired girl in a blue sailor uniform."
+      },
+      "calendario2025": {
+        "caption": "Studies",
+        "alt": "2025 calendar with a colorful activity legend and an illustration of a girl with bangs holding green apple halves, with the text “Trainee time”."
+      },
+      "coelhos": {
+        "caption": "Studies",
+        "alt": "Illustration of little white bunnies floating over a pink field with tiny flowers."
+      },
+      "telaDeBloqueio": {
+        "caption": "Lock screen",
+        "alt": "Illustrated lock screen: turquoise little fish swimming in a night sky with stars and pink comets."
+      },
+      "quarto2andar": {
+        "caption": "Studies",
+        "alt": "Illustration of a bedroom with a green-striped wall, a window with pink curtains, a desk with a computer and a yellow chair."
+      },
+      "quarto1andar": {
+        "caption": "Studies",
+        "alt": "Illustration of a living room with pink plaid wallpaper, two yellow windows, a light blue sofa, a plant, a bookshelf and a red lamp."
+      },
+      "tomate": {
+        "caption": "Tomato",
+        "alt": "3D render of a red tomato on a yellow background."
+      },
+      "bolo": {
+        "caption": "Cake",
+        "alt": "3D render of a white cake decorated with blueberries and blackberries on a plate."
+      },
+      "sketchGarota": {
+        "caption": "Studies",
+        "alt": "Blue pencil sketch of a wavy-haired girl with a bunny, a question mark, a little skull, a ribbon and the text “IU 스물셋”."
+      },
+      "sestudos": {
+        "caption": "Studies",
+        "alt": "The same drawing finished in color: a brown-haired girl in a yellow top, a bunny, a lilac question mark and a purple ribbon on a light yellow background."
+      },
+      "retrato1": {
+        "caption": "Studies",
+        "alt": "Expression study: a reference photo of a woman frowning next to the pencil drawing with construction lines."
+      },
+      "retrato2": {
+        "caption": "Studies",
+        "alt": "Expression study: a reference photo of a smiling girl with her hands on her chest next to the pencil drawing."
+      },
+      "retrato3": {
+        "caption": "Studies",
+        "alt": "Expression study: a reference photo of a woman laughing with her eyes closed next to the pencil drawing."
+      },
+      "retrato4": {
+        "caption": "Studies",
+        "alt": "Expression study: a photo of a rosy-cheeked child, two numbered sketches of the face and notes on features, the distance between facial points and the intensity of the expression."
+      },
+      "twig": {
+        "caption": "Twig — proportion study",
+        "alt": "Proportion study of Twig, a little deer-fox, drawn over a grid with red construction lines."
+      },
+      "chikorita": {
+        "caption": "Studies",
+        "alt": "Two colored studies of Chikorita, a light green Pokémon with a leaf on its head."
+      },
+      "sketchFinal": {
+        "caption": "Studies",
+        "alt": "Pencil sketch of a girl with long wavy hair, a headscarf and bows, holding her hands close to her chest."
+      }
+    }
   }
 }

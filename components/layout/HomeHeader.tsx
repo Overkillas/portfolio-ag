@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Dictionary, Locale } from '@/i18n/dictionaries';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { NavBerry, activeNavStyle, navLinkClass, navLinkStyle } from './nav-link';
 
 /**
  * Header específico da home — fiel ao Figma "Pontossemno" (spec v2 §4.1):
@@ -32,31 +33,13 @@ export function HomeHeader({
   dict: Dictionary;
   active?: 'about' | 'projects';
 }) {
-  const linkStyle = { color: 'var(--color-blue-soft)' } as const;
-  // Link ativo (design da aba Projetos): azul forte, sombra suave abaixo das
-  // letras e o mirtilo logo depois da palavra.
-  const activeStyle = {
-    color: 'var(--color-blue-strong)',
-    textShadow: '0.03em 0.09em 0.06em rgba(120, 110, 95, 0.35)',
-  } as const;
+  const linkStyle = navLinkStyle;
+  const activeStyle = activeNavStyle;
   const activeClass = 'relative';
   const leftClass = 'justify-self-start';
   const rightClass = 'justify-self-end';
-  // O mirtilo escala com a fonte (≈1.4em de altura no desktop, 1.2em abaixo do
-  // md para caber no padding lateral de 24px) e fica FORA do fluxo, pendurado à
-  // direita do texto: não alarga o link, então o seletor central não se move e
-  // as posições dos links não mudam. Sobe acima das letras, como no design.
-  const berry = (
-    // eslint-disable-next-line @next/next/no-img-element -- ícone decorativo minúsculo
-    <img
-      src="/images/projetos/mirtilo.png"
-      alt=""
-      aria-hidden="true"
-      className="pointer-events-none absolute left-[calc(100%+0.03em)] top-[calc(50%-0.1em)] h-[1.2em] w-auto max-w-none -translate-y-1/2 sm:h-[1.1em] md:h-[1.4em]"
-    />
-  );
-  const linkClass =
-    'font-display text-[22px] lowercase leading-none transition-[opacity,translate,rotate,scale] duration-[350ms] ease-[cubic-bezier(.2,.9,.3,1.4)] hover:opacity-70 motion-safe:hover:-translate-y-[3px] motion-safe:hover:-rotate-2 motion-safe:hover:scale-[1.04] motion-reduce:transition-none sm:text-[24px] md:text-[32px]';
+  const berry = <NavBerry />;
+  const linkClass = navLinkClass;
 
   const projectsHref = `/${locale}/projetos`;
 

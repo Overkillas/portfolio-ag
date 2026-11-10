@@ -1,0 +1,249 @@
+/* ==========================================================================
+   Case "Identidade de evento: 15 anos" — frame do Figma 17:4752, layout 'wide'.
+   Zoom, cursor, lightbox e reveal vêm de batuco.module.css (o BatucoMotion
+   procura as classes de lá).
+
+   O corpo é o frame 17:4856 (1354px), 2px mais largo que a coluna de 1352 do
+   CaseShell, como no Cascavel. Larguras em % de 1354, então a 1728 tudo fica
+   1:1 com o Figma.
+
+   Fileiras de imagens: flex com pesos = larguras do Figma (--grow) e os vãos
+   do Figma em px. Abaixo de 48rem viram grade (1 coluna, ou --cols-sm).
+   Texto em duas colunas só a partir de 64rem, como nos outros cases 'wide'.
+   ========================================================================== */
+
+/* ---------- frame de 1354px ---------- */
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: calc(100% * 1354 / 1352);
+}
+/* Hero (17:4857) também tem 1354: o ZoomButton da capa ganha a largura. */
+button.heroWide {
+  width: calc(100% * 1354 / 1352);
+}
+
+/* ---------- imagens ---------- */
+/* Caixa do Figma (--ar = w / h) com o export 2x do nó dentro. */
+.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ar);
+  object-fit: cover;
+}
+/* Hero (17:4857): frame branco de 1354 × 674 com a arte final. */
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1354 / 674;
+  object-fit: cover;
+}
+
+/* ---------- legendas ---------- */
+/* "Painel de referências - Versão 1/2" (17:4905): Clother Bold 16px, line-height normal (caixa de 19px). */
+.capBold {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.1875;
+  color: var(--color-blue);
+}
+/* Rótulos centralizados dos grupos (17:4967, 17:5007, 17:5013, 17:5028): Clother Bold 16px / 18px. */
+.label {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 18px;
+  text-align: center;
+  color: var(--color-blue);
+}
+/* Legendas das miniaturas de Prototipagem (17:4952…): Clother Regular 15px / 18px. */
+.capThumb {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 18px;
+  color: var(--color-blue);
+}
+
+/* ---------- blocos ---------- */
+.fig {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.block {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cell {
+  min-width: 0;
+}
+
+/* Fileira: grade abaixo de 48rem (1 coluna, ou --cols-sm), flex com pesos acima. */
+.row {
+  display: grid;
+  grid-template-columns: repeat(var(--cols-sm, 1), minmax(0, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+.sm2 {
+  --cols-sm: 2;
+}
+.sm3 {
+  --cols-sm: 3;
+}
+@media (min-width: 48rem) {
+  .row {
+    display: flex;
+    align-items: flex-start;
+  }
+  .row > * {
+    flex: var(--grow) 1 0;
+  }
+  .gap4 {
+    gap: 4.141px;
+  }
+  .gap8 {
+    gap: 8px;
+  }
+  .gap11 {
+    gap: 11px;
+  }
+}
+
+/* ---------- cabeçalho, processo, prototipagem ---------- */
+/* Processo de criação (17:4892): 1352 de largura. */
+.w1352 {
+  width: calc(1352 / 1354 * 100%);
+}
+/* Prototipagem (17:4919): 1350, 2px para dentro. */
+.w1350 {
+  width: calc(1350 / 1354 * 100%);
+  margin-left: calc(2 / 1354 * 100%);
+}
+
+/* Painéis de referências (17:4895): 673.01 | 8 | 673.01. */
+
+/* Desenvolvimento da identidade final para o convite (17:4965): frame de 1348
+   em x = 6.02; a fileira (1348.26) começa 0.128 antes. */
+.invite {
+  width: calc(1348 / 1354 * 100%);
+  margin-left: calc(6.02 / 1354 * 100%);
+}
+
+/* ---------- Projeto final 572 | 98 | Ferramentas 641 (17:4973) ---------- */
+.two {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 64rem) {
+  .two {
+    grid-template-columns: calc(572 / 1354 * 100%) calc(641 / 1354 * 100%);
+    column-gap: calc(98 / 1354 * 100%);
+    align-items: center;
+  }
+}
+
+/* ---------- artes finais ---------- */
+@media (min-width: 48rem) {
+  /* Banners (17:5001): 674.93 | 4.141 | 679.15 = 1358.22, passa 4px da coluna como no Figma. */
+  .banners {
+    width: calc(100% * 1358.22 / 1354);
+    align-items: flex-end;
+  }
+}
+/* Os dois banners estreitos empilhados (17:5002), vão 2.07. */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2.07px;
+}
+
+/* Menu, tags e adesivos (17:5014): menus 724.82 | 10.916 | coluna 618.27. */
+.menuRow {
+  display: grid;
+  gap: 1rem;
+}
+.menus {
+  display: flex;
+  gap: 10.613px;
+  align-items: flex-start;
+}
+.menus > * {
+  flex: var(--grow) 1 0;
+  min-width: 0;
+}
+.tagsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 7.884px;
+}
+.tags {
+  display: flex;
+  gap: 8.49px;
+  align-items: flex-start;
+}
+.tags > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+/* Adesivo de fatia 274.11 | 8.187 | tag "bem vividos" 235.9 = 518.21 de 618.27, alinhados ao topo. */
+.stickers {
+  display: flex;
+  gap: 8.187px;
+  align-items: flex-start;
+  width: calc(518.21 / 618.27 * 100%);
+}
+.stickers > * {
+  flex: var(--grow) 1 0;
+  min-width: 0;
+}
+@media (min-width: 48rem) {
+  .menuRow {
+    display: flex;
+    gap: 10.916px;
+    align-items: flex-start;
+  }
+  .menuRow > * {
+    flex: var(--grow) 1 0;
+    min-width: 0;
+  }
+}
+
+/* Aplicações no evento (17:5026): rótulo com 8px de respiro acima; as duas
+   fileiras (1357) passam 1.5px da coluna para cada lado, como no Figma. */
+.event {
+  padding-top: 8px;
+}
+.eventGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (min-width: 48rem) {
+  .eventGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 10.045px;
+    row-gap: 9.284px;
+    width: calc(100% * 1357 / 1354);
+    margin-left: calc(-1.5 / 1354 * 100%);
+  }
+}
+
+/* Nota de IA (17:5038): 445px à direita; o balão vem 32px abaixo (o CaseShell
+   põe 28px, os 4px que faltam ficam aqui). */
+.note {
+  margin: 0 0 4px auto;
+  max-width: 445px;
+}

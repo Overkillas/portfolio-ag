@@ -1,4 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries";
+import { PeekingReveal } from "./PeekingReveal";
 
 /**
  * Personagem espiando por cima da galeria — fiel ao Figma (Group 100804):
@@ -18,6 +19,14 @@ import type { Dictionary } from "@/i18n/dictionaries";
  *   pointer-events-none; esses pixels ficam com opacidade ≤ ~2% (grão) sobre
  *   os cards — invisível.
  *
+ * Task 6 (scroll reveal): o PNG plano foi substituído por duas peças (cabeça
+ * 744×321 e dedos 744×99, a 1x CSS) registradas sobre ele por varredura de MAE
+ * (offset 23.25, 0.5 px do canvas; MAE 2.2/255). O box segue como âncora: a
+ * cabeça fica num recorte overflow-hidden de 321px cuja borda de baixo cai em
+ * y=321.5 do canvas = topo da galeria (420.5 − 99 do -mb); os dedos (99px)
+ * começam nessa borda e cobrem o topo da galeria. A galeria NÃO se move: a
+ * âncora é relativa ao topo da galeria, não a y absoluto da página.
+ *
  * Plan 4: o peek mora no seam do Plan 4 (ver comentários no page.tsx) —
  * snapshot congelado (spec §3.4): ancoragem/overlap/clip como estão aqui.
  *
@@ -33,10 +42,8 @@ export function PeekingCharacter({ dict }: { dict: Dictionary }) {
       style={{ overflowX: "clip" }}
     >
       <div className="container-narrow">
-        {/* Img plana preenchendo o box — sem stretch, sem offsets, sem
-            maxWidth:none (o width/height explícitos em px blindam contra o
-            clamp de max-width:100% do preflight, que esmaga imgs in-flow
-            mais largas que o container — trap do Task 3). */}
+        {/* O box é a âncora do PeekingReveal (client): recorte da cabeça com a
+            borda de baixo no topo da galeria + dedos por cima dela. */}
         <div
           className="peeking-box pointer-events-none relative -mb-[99px]" // galeria assentada em y=2234 (Figma); snapshot do seam — spec §3.4 (Plan 4)
           style={{
@@ -46,19 +53,7 @@ export function PeekingCharacter({ dict }: { dict: Dictionary }) {
             marginLeft: "48.5%", // (849 − 364 (container content)) / 1000
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/home/espiando.png"
-            alt={dict.home.peekingAlt}
-            loading="lazy"
-            decoding="async"
-            width={767}
-            height={421}
-            style={{
-              width: "766.5px",
-              height: "420.5px",
-            }}
-          />
+          <PeekingReveal alt={dict.home.peekingAlt} />
         </div>
       </div>
     </div>

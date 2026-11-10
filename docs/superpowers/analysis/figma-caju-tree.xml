@@ -1,0 +1,530 @@
+Currently selected nodes:
+- 17:5070: MacBook Pro 16" - 14
+
+
+<frame id="17:5070" name="MacBook Pro 16&quot; - 14" x="176" y="223" width="1728" height="7422">
+  <frame id="17:5071" name="Frame 83" x="278" y="8133" width="1352" height="459.2020263671875">
+    <rounded-rectangle id="17:5072" name="Rectangle 11125" x="156.3176727294922" y="-12.881845474243164" width="989.4265747070312" height="265.39306640625" />
+    <ellipse id="17:5073" name="Ellipse 259" x="289.3310852050781" y="-180.2428741455078" width="802.3060913085938" height="802.3060913085938" />
+    <vector id="17:5074" name="Vector 1049" x="-66.99159240722656" y="251.6541290283203" width="1497.8817138671875" height="281.71173095703125" />
+    <rounded-rectangle id="17:5075" name="capa banner2 2" x="564.276611328125" y="-289.4425964355469" width="851.1472778320312" height="1033.25927734375" />
+    <frame id="17:5076" name="Group 100503" x="564.277099609375" y="18.027788162231445" width="254.21490478515625" height="488.49896240234375">
+      <boolean-operation id="17:5077" name="Subtract" x="748.5332489013672" y="343.77232551574707" width="69.95893859863281" height="64.452392578125" />
+      <vector id="17:5083" name="Vector 707" x="636.7009735107422" y="400.6891040802002" width="127.73904418945312" height="35.83376693725586" />
+      <vector id="17:5084" name="Vector 708" x="746.0562286376953" y="408.49409675598145" width="59.22784423828125" height="73.15287780761719" />
+      <vector id="17:5085" name="Vector 709" x="564.2768843153317" y="411.6448230743408" width="94.87594604492188" height="41.58946228027344" />
+      <vector id="17:5086" name="Vector 710" x="566.5041983127594" y="441.53901863098145" width="101.44648742675781" height="64.42652893066406" />
+      <vector id="17:5087" name="Vector 711" x="650.4296493530273" y="472.73533821105957" width="134.7943878173828" height="33.79142761230469" />
+      <boolean-operation id="17:5088" name="Union" x="580.442626953125" y="346.4683094024658" width="208.5037841796875" height="146.4490966796875" />
+      <vector id="17:5093" name="Vector 712" x="652.5114288330078" y="309.3492603302002" width="84.84992218017578" height="24.879409790039062" />
+      <vector id="17:5094" name="Vector 713" x="724.925048828125" y="314.7263660430908" width="39.17578125" height="50.68714904785156" />
+      <vector id="17:5095" name="Vector 714" x="604.6025390625" y="316.77437019348145" width="62.75550842285156" height="28.778417587280273" />
+      <vector id="17:5096" name="Vector 715" x="606.651496887207" y="340.16710090637207" width="64.61217498779297" height="42.51778793334961" />
+      <vector id="17:5097" name="Vector 716" x="661.6076049804688" y="359.29451179504395" width="89.12025451660156" height="23.208398818969727" />
+      <ellipse id="17:5098" name="Ellipse 176" x="612.9196510314941" y="321.36216926574707" width="144.0777130126953" height="50.130149841308594" />
+      <frame id="17:5099" name="Group 263" x="618.0425224304199" y="18.027745244136895" width="133.30508422851562" height="337.50311279296875">
+        <vector id="17:5100" name="Vector 603" x="678.9322204589844" y="107.71692371093377" width="15.410380363464355" height="14.760544776916504" />
+        <vector id="17:5101" name="Vector 605" x="728.4101676940918" y="49.354208943477715" width="18.55732187513422" height="26.315898615772312" />
+        <frame id="17:5102" name="Group 257" x="644.5836429595947" y="18.02779795024253" width="81.33030700683594" height="97.95403289794922" />
+        <vector id="17:5110" name="Vector 601" x="697.0356254577637" y="37.09566020690545" width="54.31192398071289" height="105.54765319824219" />
+        <vector id="17:5111" name="Vector 602" x="654.0812377929688" y="25.562187192073907" width="75.06433868408203" height="104.83089447021484" />
+        <vector id="17:5112" name="Vector 595" x="664.4259033203125" y="248.04602527343377" width="34.685725062223355" height="98.84773117549867" />
+        <vector id="17:5113" name="Vector 604" x="647.2789649963379" y="205.64929675780877" width="41.12817857420123" height="67.03577619078533" />
+        <vector id="17:5114" name="Vector 597" x="705.5862693786621" y="206.22787952148065" width="41.12817857420123" height="67.03577619078533" />
+        <vector id="17:5115" name="Vector 598" x="696.1785621643066" y="255.30511951171502" width="42.181739984569504" height="100.22577512935368" />
+        <vector id="17:5116" name="Vector 599" x="652.3771018981934" y="110.52282428466424" width="49.85163879394531" height="76.9941177368164" />
+        <vector id="17:5117" name="Vector 600" x="618.0423183935927" y="171.66908740722283" width="109.45887756347656" height="68.20721435546875" />
+      </frame>
+      <vector id="17:5118" name="Vector 717" x="588.1366806030273" y="395.34532356262207" width="194.764892578125" height="63.83212661743164" />
+      <vector id="17:5119" name="Ellipse 177" x="679.5554809570312" y="435.2821521759033" width="5.952953338623047" height="11.905906677246094" />
+      <vector id="17:5120" name="Ellipse 178" x="645.2516098022461" y="425.0831470489502" width="16.24145490319097" height="14.514262176782722" />
+      <ellipse id="17:5121" name="Ellipse 179" x="683.0075073242188" y="438.83369636535645" width="4.793365478515625" height="4.793365478515625" />
+      <ellipse id="17:5122" name="Ellipse 180" x="644.1167907714844" y="431.07295417785645" width="8.2906720234987" height="8.2906720234987" />
+      <ellipse id="17:5123" name="Ellipse 181" x="610.4264678955078" y="423.01280403137207" width="5.803285265656086" height="6.930468347707574" />
+      <ellipse id="17:5124" name="Ellipse 182" x="728.0646057128906" y="438.1765308380127" width="6.341360089927548" height="7.13877597371993" />
+      <vector id="17:5125" name="Vector 718" x="673.0752029418945" y="441.6501941680908" width="6.475142478942871" height="0" />
+      <vector id="17:5126" name="Vector 719" x="634.1744918823242" y="423.1014881134033" width="4.686234275844981" height="6.5462882523925146" />
+      <vector id="17:5127" name="Vector 720" x="619.7899360656738" y="424.52632331848145" width="5.487229337828467" height="2.836641604824763" />
+      <vector id="17:5128" name="Vector 721" x="737.0047760009766" y="442.26289558410645" width="5.778264570348256" height="3.535644929135742" />
+      <vector id="17:5129" name="Vector 722" x="691.6689682006836" y="441.6501941680908" width="6.475142478942871" height="0" />
+      <vector id="17:5130" name="Vector 723" x="647.5574035644531" y="441.8059558868408" width="4.686234275844981" height="6.5462882523925146" />
+      <vector id="17:5131" name="Vector 724" x="604.1250190734863" y="416.42109870910645" width="5.487229337828467" height="2.836641604824763" />
+      <vector id="17:5132" name="Vector 725" x="720.927490234375" y="431.79683113098145" width="6.076950909116931" height="2.830771960699167" />
+      <vector id="17:5133" name="Vector 726" x="685.5116271972656" y="434.96992683410645" width="0" height="6.475142478942871" />
+      <vector id="17:5134" name="Vector 727" x="649.7942276000977" y="430.7729663848877" width="6.546288252393424" height="4.686234275844981" />
+      <vector id="17:5135" name="Vector 728" x="606.9192695617676" y="425.8290271759033" width="2.375285284328129" height="6.553024148254735" />
+      <vector id="17:5136" name="Vector 729" x="724.1574096679688" y="441.4947986602783" width="2.5145687227286544" height="6.841117804066926" />
+      <vector id="17:5137" name="Vector 730" x="685.5116271972656" y="453.66319465637207" width="0" height="6.475142478942871" />
+      <vector id="17:5138" name="Vector 731" x="630.9341201782227" y="444.2776355743408" width="6.546288252393424" height="4.686234275844981" />
+      <vector id="17:5139" name="Vector 732" x="613.755786895752" y="406.95762825012207" width="2.375285284328129" height="6.553024148254735" />
+      <ellipse id="17:5140" name="Ellipse 183" x="608.9335060119629" y="410.8209400177002" width="14.454545073367626" height="17.256464643855907" />
+      <ellipse id="17:5141" name="Ellipse 184" x="757.4800720214844" y="425.0503406524658" width="5.803285265656086" height="6.930468347707574" />
+      <vector id="17:5142" name="Vector 733" x="763.7596435546875" y="418.4586353302002" width="5.487229337828467" height="2.836641604824763" />
+      <vector id="17:5143" name="Vector 734" x="760.9758605957031" y="427.87800788879395" width="2.375285284328129" height="6.553024148254735" />
+      <vector id="17:5144" name="Vector 735" x="754.1284027099609" y="408.9955310821533" width="2.375285284328129" height="6.553024148254735" />
+      <ellipse id="17:5145" name="Ellipse 185" x="758.9487762451172" y="412.8696765899658" width="14.454545073367626" height="17.256464643855907" />
+      <vector id="17:5146" name="Ellipse 186" x="726.0384674072266" y="425.7065601348877" width="15.991135761005353" height="17.961065150949253" />
+    </frame>
+    <rounded-rectangle id="17:5147" name="capa banner2 3" x="883.7803955078125" y="-127.11360931396484" width="806.4855346679688" height="979.0416870117188" />
+  </frame>
+  <frame id="17:5148" name="Frame 6" x="0" y="7153" width="1728" height="269">
+    <text id="17:5149" name="visite também" x="1" y="-35" width="809" height="132" />
+    <frame id="17:5150" name="Frame 100797" x="6" y="95" width="237" height="170">
+      <frame id="17:5151" name="Frame 100796" x="16" y="16" width="205" height="138">
+        <text id="17:5152" name="Redes sociais" x="0" y="0" width="187" height="38" />
+        <frame id="17:5153" name="Frame 100795" x="0" y="54" width="205" height="84">
+          <frame id="17:5154" name="Frame 100793" x="0" y="0" width="173" height="38">
+            <text id="17:5155" name="IG" x="0" y="0" width="34" height="38" />
+            <text id="17:5156" name="@aggy_colon" x="50" y="7" width="123" height="24" />
+          </frame>
+          <frame id="17:5157" name="Frame 100794" x="0" y="46" width="205" height="38">
+            <text id="17:5158" name="IN" x="0" y="0" width="33" height="38" />
+            <text id="17:5159" name="Ágatha Ferreira" x="49" y="7" width="139" height="24" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="17:5160" name="Frame 100885" x="188" y="646" width="660" height="380">
+    <frame id="17:5161" name="Frame 100884" x="0" y="0" width="660" height="380" />
+  </frame>
+  <frame id="17:5162" name="Frame 3" x="188" y="40" width="1354" height="48">
+    <frame id="17:5163" name="Frame 100814" x="0" y="0" width="48" height="48">
+      <frame id="17:5164" name="Frame 32" x="4" y="4" width="40" height="40" />
+    </frame>
+    <text id="17:5167" name="Projects" x="1177" y="2" width="178" height="44" />
+  </frame>
+  <frame id="17:5168" name="Group 100810" x="1347.30078125" y="33" width="66.08847116264405" height="65.16953089552226" />
+  <frame id="17:5176" name="Frame 100906" x="188" y="154" width="1360.49609375" height="6925.1171875">
+    <frame id="17:5177" name="Frame 100913" x="6.49609375" y="0" width="1354" height="461">
+      <rounded-rectangle id="17:5178" name="Caju em semente não tem dente-1-32-20 1" x="0" y="-266" width="727" height="727" />
+      <rounded-rectangle id="17:5179" name="Caju em semente não tem dente-1-32-15 1" x="727" y="-262" width="727" height="727" />
+    </frame>
+    <frame id="17:5180" name="Frame 100905" x="0" y="494" width="1360.49609375" height="6431.1171875">
+      <frame id="17:5181" name="Frame 100967" x="9.49609375" y="0" width="1351" height="636">
+        <frame id="17:5182" name="Frame 100966" x="0" y="0" width="688" height="636">
+          <frame id="17:5183" name="Frame 100904" x="0" y="0" width="685" height="86">
+            <frame id="17:5184" name="Frame 100857" x="0" y="0" width="685" height="86">
+              <text id="17:5185" name="Caju" x="0" y="0" width="685" height="30" />
+              <frame id="17:5186" name="Frame 100859" x="0" y="54" width="685" height="32">
+                <frame id="17:5187" name="Frame 100809" x="0" y="0" width="685" height="32">
+                  <frame id="17:5188" name="Frame 100817" x="0" y="0" width="101" height="32">
+                    <frame id="17:5189" name="Frame 32" x="4" y="4" width="93" height="24" />
+                  </frame>
+                  <frame id="17:5192" name="Frame 100819" x="109" y="0" width="142" height="32">
+                    <frame id="17:5193" name="Frame 32" x="4" y="4" width="134" height="24" />
+                  </frame>
+                  <frame id="17:5196" name="Frame 100821" x="259" y="0" width="123" height="32">
+                    <frame id="17:5197" name="Frame 32" x="4" y="4" width="115" height="24" />
+                  </frame>
+                  <frame id="17:5200" name="Frame 100824" x="390" y="0" width="132" height="32">
+                    <frame id="17:5201" name="Frame 32" x="4" y="4" width="124" height="24" />
+                  </frame>
+                  <frame id="17:5204" name="Frame 100820" x="530" y="0" width="155" height="32">
+                    <frame id="17:5205" name="Frame 32" x="4" y="4" width="147" height="24" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+          <frame id="17:5208" name="Frame 100964" x="0" y="118" width="688" height="518">
+            <frame id="17:5209" name="Frame 100965" x="0" y="0" width="688" height="568">
+              <text id="17:5210" name="Sob a proposta de criação de um livro infantil ilustrado na disciplina de Produção Gráfica, Caju nasceu como a expressão da conexão de um grupo de irmãs mais velhas (eu e minhas colegas de projeto). Sob a sinopse: “Cajú leva uma vida leve e alegre ao lado de sua mãe, mas, após um dia chuvoso, uma mudança inesperada desafia nossa heroína a ver seu mundo de uma nova perspectiva. Cajú vai nos mostrar como enfrentar nossos medos com um grande sorriso”.  Foi o brainstorming mais divertido que já tive em um projeto, e me gerou uma conexão muito pessoal e genuína com a minha história e a das minhas colegas: nossas ideias se conversavam, e nos sentíamos pensando na mesma historinha antes mesmo de determinarmos como ela seria." x="0" y="0" width="688" height="162" />
+              <frame id="17:5211" name="Frame 100886" x="0" y="194" width="688" height="324">
+                <frame id="17:5212" name="Frame 100878" x="0" y="0" width="688" height="324">
+                  <frame id="17:5213" name="Frame 100868" x="0" y="0" width="688" height="324">
+                    <text id="17:5214" name="Processo de criação" x="0" y="0" width="688" height="30" />
+                    <text id="17:5215" name="O processo de criação foi feito em conjunto com minhas colegas Ana e Thays. Inicialmente escolhemos o nicho dos livretos infantis e, para criar a história, nos baseamos especialmente em ilustrações que pedimos que as crianças da família da Ana fizessem espontaneamente, deixando que o olhar delas guiasse o que seria contado. A partir disso, criamos a história juntas, levantando ideias de título e de mensagem, e estruturamos o roteiro em início, meio e fim.   Na história, Caju vê o irmão Juca, que leva as mesmas sílabas do seu nome, como um monstrinho assustador e decide enfrentá-lo com aquilo que sempre a faz rir: cócegas. O tempo também acompanha os seus sentimentos, do dia ensolarado à chuva e aos trovões, até o céu se abrir quando o bebê finalmente ri e Caju descobre que ele nem tem dentes.   Mais tarde, buscamos referências no Behance e no Pinterest e montamos um painel visual (Imagem a), que orientou os esboços dos personagens feitos por mim e pela Thays (Imagem b): Caju, Juca, a mãe Cajuína, representada como a Mãe Natureza (por isso a influência do meio ambiente na comunicação dos sentimentos), e as pelúcias Dono Sapo, Manuel e Pedro, aliadas da Caju." x="0" y="54" width="688" height="270" />
+                  </frame>
+                </frame>
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+        <frame id="17:5216" name="Frame 100918" x="720" y="33.76788330078125" width="631" height="568.4642333984375">
+          <frame id="17:5217" name="Frame 100919" x="214.17340087890625" y="16.456867218017578" width="17.76154899597168" height="8.88077449798584">
+            <text id="17:5218" name="Ideias" x="1.8807748556137085" y="0.9403874278068542" width="14" height="7" />
+          </frame>
+          <frame id="17:5219" name="Frame 100924" x="11.283507347106934" y="5.407128810882568" width="19.76154899597168" height="8.88077449798584">
+            <text id="17:5220" name="Fontes" x="1.8807748556137085" y="0.9403874278068542" width="16" height="7" />
+          </frame>
+          <frame id="17:5221" name="Frame 100923" x="472.0743103027344" y="16.456867218017578" width="52.76155090332031" height="8.88077449798584">
+            <text id="17:5222" name="Informações técnicas" x="1.8807748556137085" y="0.9403874278068542" width="49" height="7" />
+          </frame>
+          <frame id="17:5223" name="Frame 100920" x="214.17340087890625" y="179.61399841308594" width="20.76154899597168" height="8.88077449798584">
+            <text id="17:5224" name="Roteiro" x="1.8807748556137085" y="0.9403874278068542" width="17" height="7" />
+          </frame>
+          <frame id="17:5225" name="Frame 100921" x="215.34713745117188" y="348.6487121582031" width="38.76155090332031" height="8.88077449798584">
+            <text id="17:5226" name="Paleta de cores" x="1.8807748556137085" y="0.9403874278068542" width="35" height="7" />
+          </frame>
+          <frame id="17:5227" name="Frame 100922" x="398.72564697265625" y="348.6487121582031" width="33.76155090332031" height="8.88077449798584">
+            <text id="17:5228" name="Personagens" x="1.8809709548950195" y="0.9403764009475708" width="30" height="7" />
+          </frame>
+          <frame id="17:5229" name="Informações técnicas" x="472.0743103027344" y="30.327482223510742" width="149.13211059570312" height="142.24606323242188">
+            <text id="17:5230" name="Número de páginas: 32 páginas" x="7.47678279876709" y="7.3332438468933105" width="69" height="7" />
+            <text id="17:5231" name="Formato: Livreto infantil zine" x="7.47678279876709" y="19.924854278564453" width="62" height="7" />
+            <text id="17:5232" name="Meio de impressão: Offset" x="7.47678279876709" y="32.51634216308594" width="58" height="7" />
+            <text id="17:5233" name="Tipo de folha: Papel couche" x="7.47678279876709" y="45.10807418823242" width="61" height="7" />
+            <text id="17:5234" name="Fontes: Bad Dog" x="7.47678279876709" y="57.699806213378906" width="36" height="7" />
+            <rounded-rectangle id="17:5235" name="image 19" x="5.704442501068115" y="104.51105499267578" width="48.44210433959961" height="28.481035232543945" />
+            <rounded-rectangle id="17:5236" name="image 20" x="52.687103271484375" y="94.04366302490234" width="91.04194641113281" height="38.948429107666016" />
+          </frame>
+          <frame id="17:5237" name="FONTES" x="11.283507347106934" y="17.70775032043457" width="190.94393920898438" height="545.1141357421875">
+            <rounded-rectangle id="17:5238" name="image 31" x="15.016288757324219" y="159.18414306640625" width="55.82030487060547" height="8.915428161621094" />
+            <rounded-rectangle id="17:5239" name="image 21" x="15.016288757324219" y="175.3527069091797" width="157.06678771972656" height="41.32698440551758" />
+            <rounded-rectangle id="17:5240" name="image 22" x="16.939258575439453" y="31.95235824584961" width="157.06678771972656" height="41.1163215637207" />
+            <rounded-rectangle id="17:5241" name="image 23" x="15.016288757324219" y="99.5140151977539" width="157.0667724609375" height="43.02211380004883" />
+            <shape-with-text id="17:5242" name="Shape with text" x="159.7632598876953" y="134.5462188720703" width="16.356271743774414" height="16.340866088867188">
+              <vector id="0:3" name="Shape" x="0" y="0" width="16.356271743774414" height="16.340866088867188" />
+              <text id="0:4" name="Text" x="3.194584369659424" y="5.1938629150390625" width="9.967103004455566" height="9.612274169921875" />
+            </shape-with-text>
+            <shape-with-text id="17:5243" name="Shape with text" x="138.20370483398438" y="134.5462188720703" width="16.356271743774414" height="16.340866088867188">
+              <vector id="0:5" name="Shape" x="0" y="0" width="16.356271743774414" height="16.340866088867188" />
+              <text id="0:6" name="Text" x="3.194584369659424" y="5.1938629150390625" width="9.967103004455566" height="9.612274169921875" />
+            </shape-with-text>
+            <rounded-rectangle id="17:5244" name="image 24" x="12.126943588256836" y="492.5689392089844" width="166.49847412109375" height="42.423248291015625" />
+            <rounded-rectangle id="17:5245" name="image 25" x="12.126943588256836" y="341.3346252441406" width="166.5631561279297" height="41.86622619628906" />
+            <rounded-rectangle id="17:5246" name="image 26" x="15.016288757324219" y="248.4967041015625" width="153.98699951171875" height="50.98140335083008" />
+            <rounded-rectangle id="17:5247" name="image 27" x="12.126943588256836" y="406.83001708984375" width="166.5631866455078" height="44.544490814208984" />
+            <rounded-rectangle id="17:5248" name="image 28" x="12.126943588256836" y="390.1737365722656" width="30.189579010009766" height="9.577383995056152" />
+            <rounded-rectangle id="17:5249" name="image 30" x="15.016288757324219" y="82.57555389404297" width="58.55604934692383" height="10.48872184753418" />
+            <rounded-rectangle id="17:5250" name="image 32" x="16.939258575439453" y="10.201701164245605" width="157.0667724609375" height="15.640958786010742" />
+            <rounded-rectangle id="17:5251" name="image 33" x="12.126943588256836" y="316.6358337402344" width="166.56320190429688" height="17.684490203857422" />
+            <rounded-rectangle id="17:5252" name="image 34" x="15.016288757324219" y="228.48060607910156" width="153.98703002929688" height="14.818835258483887" />
+            <rounded-rectangle id="17:5253" name="image 35" x="12.126943588256836" y="464.2711486816406" width="87.36981201171875" height="20.31041717529297" />
+            <shape-with-text id="17:5254" name="Shape with text" x="166.3087921142578" y="440.40289306640625" width="16.356271743774414" height="16.340866088867188">
+              <vector id="0:7" name="Shape" x="0" y="0" width="16.356271743774414" height="16.340866088867188" />
+              <text id="0:8" name="Text" x="3.194584369659424" y="5.1938629150390625" width="9.967103004455566" height="9.612274169921875" />
+            </shape-with-text>
+          </frame>
+          <frame id="17:5255" name="Roteiro" x="214.17340087890625" y="191.60406494140625" width="411.3921813964844" height="142.63955688476562">
+            <text id="17:5256" name="Início" x="29.75180435180664" y="22.035350799560547" width="12" height="7" />
+            <text id="17:5257" name="Meio" x="119.86336517333984" y="22.035350799560547" width="11" height="7" />
+            <text id="17:5258" name="Fim" x="209.18264770507812" y="22.035350799560547" width="8" height="7" />
+            <text id="17:5259" name="* A mãe brinca com Caju em um dia ensolarado. * De repente, a mãe de Caju sente uma dor forte e é levada ao hospital — o tempo escurece. * Caju sente medo e observa, apreensiva, a porta de casa enquanto uma forte chuva cai. * A mãe de Caju retorna ao som de trovões, segurando um bebê nos braços. * Caju tenta ver o bebê, mas ele começa a chorar, e sua mãe o leva direto para o quarto. * Caju observa, em silêncio, a porta do quarto. * Ela se aproxima e vê vários brinquedos assustadores pelo caminho." x="11.607815742492676" y="35.3860969543457" width="66.10604858398438" height="85" />
+            <text id="17:5260" name="* Irritada, Caju se refugia em seu quarto — uma cabana mágica. * Lá, ela se lembra de que cócegas a fazem rir. * Então, decide fazer cócegas no monstrinho. * Caju se prepara para enfrentá-lo." x="92.27275848388672" y="35.3860969543457" width="66.10604858398438" height="35" />
+            <text id="17:5261" name="* Ela caminha até a porta. * Mesmo com medo, entra no quarto determinada. * Aproxima-se da jaula onde o monstrinho está. * Ela começa a escalar, mas o monstrinho joga brinquedos nela. * Mesmo assim, Caju sobe até conseguir entrar na jaula. * Ela respira fundo… e salta sobre o monstro. * O bebê começa a rir — e o céu se abre. * Caju percebe que o monstrinho não era assustador. * Ele não tem dentes! * A mãe de Caju entra no quarto, vê os dois rindo e os abraça com carinho. * Caju fecha o livro e escuta a voz da mãe: * — Caju, Juca, vamos para a escola!" x="178.64401245117188" y="35.3860969543457" width="69.25395965576172" height="90" />
+            <text id="17:5262" name="* A mãe brinca com Caju em um dia ensolarado. * De repente, a mãe de Caju sente uma dor forte e é levada ao hospital — o tempo escurece. * Caju sente medo e observa, apreensiva, a porta de casa enquanto uma forte chuva cai. * A mãe de Caju retorna ao som de trovões, segurando um bebê nos braços. * Caju tenta ver o bebê, mas ele começa a chorar, e sua mãe o leva direto para o quarto. * Caju observa, em silêncio, a porta do quarto. * Ela se aproxima e vê vários brinquedos assustadores pelo caminho. * Caju quer brincar com sua mãe, mas o bebê está sempre chorando, e sua mãe vai até ele o tempo todo. * Irritada, Caju se refugia em seu quarto — uma cabana mágica. * Lá, ela se lembra de que cócegas a fazem rir. * Então, decide fazer cócegas no monstrinho. * Caju se prepara para enfrentá-lo. * Ela caminha até a porta. * Mesmo com medo, entra no quarto determinada. * Aproxima-se da jaula onde o monstrinho está. * Ela começa a escalar, mas o monstrinho joga brinquedos nela. * Mesmo assim, Caju sobe até conseguir entrar na jaula. * Ela respira fundo… e salta sobre o monstro. * O bebê começa a rir — e o céu se abre. * Caju percebe que o monstrinho não era assustador. * Ele não tem dentes! * A mãe de Caju entra no quarto, vê os dois rindo e os abraça com carinho. * Caju fecha o livro e escuta a voz da mãe: * — Caju, Juca, vamos para a escola!" x="262.45654296875" y="11.410968780517578" width="141.26235961914062" height="125" />
+          </frame>
+          <frame id="17:5263" name="Paleta de Cores" x="215.34713745117188" y="363.4598083496094" width="174.91204833984375" height="199.36215209960938">
+            <shape-with-text id="17:5264" name="Shape with text" x="61.8768424987793" y="21.41059684753418" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:9" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:10" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5265" name="Shape with text" x="11.637065887451172" y="139.7204132080078" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:11" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:12" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5266" name="Shape with text" x="61.64796447753906" y="42.38340759277344" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:13" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:14" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5267" name="Shape with text" x="61.45625305175781" y="59.86032485961914" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:15" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:16" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5268" name="Shape with text" x="11.867900848388672" y="118.74759674072266" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:17" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:18" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5269" name="Shape with text" x="12.05765438079834" y="101.26994323730469" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:19" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:20" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5270" name="Shape with text" x="12.292401313781738" y="80.29798889160156" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:21" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:22" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5271" name="Shape with text" x="12.519323348999023" y="59.32529830932617" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:23" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:24" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5272" name="Shape with text" x="12.748202323913574" y="38.35260772705078" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:25" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:26" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5273" name="Shape with text" x="12.939911842346191" y="20.874713897705078" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:27" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:28" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5274" name="Shape with text" x="61.22541809082031" y="80.83301544189453" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:29" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:30" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5275" name="Shape with text" x="60.99458312988281" y="101.80582427978516" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:31" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:32" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5276" name="Shape with text" x="60.76570510864258" y="122.77864074707031" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:33" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:34" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <shape-with-text id="17:5277" name="Shape with text" x="60.57399368286133" y="140.25555419921875" width="38.45228958129883" height="38.45228958129883">
+              <ellipse id="0:35" name="Shape" x="0" y="0" width="38.45228958129883" height="38.45228958129883" />
+              <text id="0:36" name="Text" x="5.726144790649414" y="7" width="27" height="24" />
+            </shape-with-text>
+            <rounded-rectangle id="17:5278" name="image 38" x="167.18240356445312" y="6.512351989746094" width="20.537017822265625" height="90.2317886352539" />
+            <rounded-rectangle id="17:5279" name="image 39" x="146.4405517578125" y="6.7238688468933105" width="20.10005760192871" height="88.26547241210938" />
+            <rounded-rectangle id="17:5280" name="image 40" x="166.40577697753906" y="98.11772918701172" width="19.007661819458008" height="88.70242309570312" />
+            <rounded-rectangle id="17:5281" name="image 42" x="144.12828063964844" y="96.81793975830078" width="18.570707321166992" height="92.1980972290039" />
+          </frame>
+          <frame id="17:5282" name="Personagens" x="398.72564697265625" y="363.4598083496094" width="209.72933959960938" height="142.63955688476562">
+            <text id="17:5283" name="Cajú" x="28.078739166259766" y="48.57950973510742" width="10" height="7" />
+            <text id="17:5284" name="Jucá(o monstro)" x="85.03619384765625" y="48.57950973510742" width="36" height="7" />
+            <text id="17:5285" name="Cajuína" x="160.78318786621094" y="48.57950973510742" width="17" height="7" />
+            <text id="17:5286" name="Dono Sapo" x="21.38844871520996" y="113.89859771728516" width="24" height="7" />
+            <text id="17:5287" name="Manuel" x="94.87013244628906" y="113.91180419921875" width="17" height="7" />
+            <text id="17:5288" name="Pedro" x="160.98077392578125" y="113.91180419921875" width="13" height="7" />
+            <text id="17:5289" name="Protagonista e irmã mais velha" x="8.696459770202637" y="58.202301025390625" width="48.98931121826172" height="5" />
+            <text id="17:5290" name="Irmão mais novo, que no início é visto como monstro" x="78.5434799194336" y="58.202301025390625" width="49.18605422973633" height="10" />
+            <text id="17:5291" name="Mãe da Cajú e do Jucá, é representada como a Mãe Natureza" x="144.6462860107422" y="58.202301025390625" width="48.98931121826172" height="15" />
+            <text id="17:5292" name="Criatura mágica aliada da Cajú (pelúcia de sapo)" x="8.800139427185059" y="123.52127075195312" width="48.98931121826172" height="10" />
+            <text id="17:5293" name="Criatura mágica aliada da Cajú (pelúcia de gato)" x="78.5434799194336" y="123.55233001708984" width="48.98931121826172" height="10" />
+            <text id="17:5294" name="Criatura mágica aliada da Cajú (pelúcia de Pinguim)" x="144.6462860107422" y="123.55233001708984" width="48.98931121826172" height="10" />
+            <shape-with-text id="17:5295" name="Shape with text" x="8.800139427185059" y="9.767388343811035" width="48.98931121826172" height="36.26777267456055">
+              <rounded-rectangle id="0:37" name="Shape" x="0" y="0" width="48.98931121826172" height="36.26777267456055" />
+              <text id="0:38" name="Text" x="8" y="7.866113662719727" width="32.98931121826172" height="20.267772674560547" />
+            </shape-with-text>
+            <shape-with-text id="17:5296" name="Shape with text" x="78.44371032714844" y="9.767388343811035" width="48.98931121826172" height="36.26777267456055">
+              <rounded-rectangle id="0:39" name="Shape" x="0" y="0" width="48.98931121826172" height="36.26777267456055" />
+              <text id="0:40" name="Text" x="8" y="7.866113662719727" width="32.98931121826172" height="20.267772674560547" />
+            </shape-with-text>
+            <shape-with-text id="17:5297" name="Shape with text" x="144.55238342285156" y="9.767388343811035" width="48.98931121826172" height="36.26777267456055">
+              <rounded-rectangle id="0:41" name="Shape" x="0" y="0" width="48.98931121826172" height="36.26777267456055" />
+              <text id="0:42" name="Text" x="8" y="7.866113662719727" width="32.98931121826172" height="20.267772674560547" />
+            </shape-with-text>
+            <shape-with-text id="17:5298" name="Shape with text" x="8.895994186401367" y="75.08647918701172" width="48.98931121826172" height="36.26777267456055">
+              <rounded-rectangle id="0:43" name="Shape" x="0" y="0" width="48.98931121826172" height="36.26777267456055" />
+              <text id="0:44" name="Text" x="8" y="7.866113662719727" width="32.98931121826172" height="20.267772674560547" />
+            </shape-with-text>
+            <shape-with-text id="17:5299" name="Shape with text" x="78.64128875732422" y="75.08647918701172" width="48.98931121826172" height="36.26777267456055">
+              <rounded-rectangle id="0:45" name="Shape" x="0" y="0" width="48.98931121826172" height="36.26777267456055" />
+              <text id="0:46" name="Text" x="8" y="7.866113662719727" width="32.98931121826172" height="20.267772674560547" />
+            </shape-with-text>
+            <shape-with-text id="17:5300" name="Shape with text" x="144.7460479736328" y="75.08647918701172" width="48.98931121826172" height="36.26777267456055">
+              <rounded-rectangle id="0:47" name="Shape" x="0" y="0" width="48.98931121826172" height="36.26777267456055" />
+              <text id="0:48" name="Text" x="8" y="7.866113662719727" width="32.98931121826172" height="20.267772674560547" />
+            </shape-with-text>
+            <rounded-rectangle id="17:5301" name="Imagem do WhatsApp de 2025-04-12 à(s) 21.07.54_b758df86 1" x="26.21054458618164" y="79.41474914550781" width="13.57535171508789" height="27.714914321899414" />
+            <rounded-rectangle id="17:5302" name="Imagem do WhatsApp de 2025-04-12 à(s) 21.07.54_b758df86 1" x="94.87013244628906" y="77.053955078125" width="18.653383255004883" height="32.170101165771484" />
+            <rounded-rectangle id="17:5303" name="Imagem do WhatsApp de 2025-04-12 à(s) 21.07.54_b758df86 2" x="158.42007446289062" y="77.053955078125" width="18.653383255004883" height="32.170101165771484" />
+            <rounded-rectangle id="17:5304" name="image 36" x="12.829963684082031" y="46.04644012451172" width="40.6827255246335" height="34.90188776462628" />
+            <rounded-rectangle id="17:5305" name="image 36" x="83.85267639160156" y="45.18142318725586" width="37.00540313352212" height="34.8237320863077" />
+            <rounded-rectangle id="17:5306" name="Imagem do WhatsApp de 2025-04-12 à(s) 19.50.38_ade61ddc 1" x="147.3576202392578" y="12.394844055175781" width="43.48047637939453" height="30.49535369873047" />
+          </frame>
+          <frame id="17:5307" name="Frame" x="214.17340087890625" y="30.327482223510742" width="245.6762237548828" height="142.7038116455078" />
+        </frame>
+      </frame>
+      <frame id="17:5347" name="Frame 100940" x="12.49609375" y="668" width="1348" height="564.7184448242188">
+        <frame id="17:5348" name="Frame 100971" x="-3.24176025390625" y="0" width="1354.4835205078125" height="564.7184448242188">
+          <frame id="17:5349" name="Frame 100969" x="0" y="0" width="724.8406982421875" height="560.7184448242188">
+            <frame id="17:5350" name="Frame 100992" x="0" y="0" width="724.8406982421875" height="560.7184448242188">
+              <frame id="17:5351" name="Frame 100991" x="0" y="0" width="724.8406982421875" height="538.7184448242188">
+                <frame id="17:5352" name="Frame 100968" x="0" y="0.1812744140625" width="316.80194091796875" height="538.3558959960938">
+                  <rounded-rectangle id="17:5353" name="WhatsApp Image 2026-10-29 at 07.02.43 1" x="3.637978807091713e-12" y="212.04124450683594" width="316.8311462402344" height="212.041259765625" />
+                  <rounded-rectangle id="17:5354" name="WhatsApp Image 2026-10-29 at 07.02.44 1" x="0" y="215.5576934814453" width="316.80194091796875" height="322.7981872558594" />
+                </frame>
+                <rounded-rectangle id="17:5355" name="WhatsApp Image 2026-10-29 at 07.02.45 1" x="320.80194091796875" y="0" width="404.0387878417969" height="538.7184448242188" />
+              </frame>
+              <text id="17:5356" name="Brainstorming" x="0" y="542.7184448242188" width="105" height="18" />
+            </frame>
+          </frame>
+          <frame id="17:5357" name="Frame 100993" x="728.3571166992188" y="0" width="626.1263427734375" height="564.7184448242188">
+            <frame id="17:5358" name="Frame 100970" x="0" y="0" width="626.1263427734375" height="538.7184448242188">
+              <rounded-rectangle id="17:5359" name="image 15" x="256.8714294433594" y="192.6542510986328" width="129.8671112060547" height="130.22000122070312" />
+              <rounded-rectangle id="17:5360" name="image 1" x="376.3890075683594" y="-0.000010966473382723052" width="149.90045166015625" height="178.00677490234375" />
+              <rounded-rectangle id="17:5361" name="image 3" x="215.84262084960938" y="322.874267578125" width="168.07537841796875" height="215.84417724609375" />
+              <rounded-rectangle id="17:5362" name="image 4" x="376.3890075683594" y="236.35824584960938" width="249.7370147705078" height="302.3601989746094" />
+              <rounded-rectangle id="17:5363" name="image 5" x="-0.00042969200876541436" y="192.6542510986328" width="256.8723449707031" height="130.53024291992188" />
+              <rounded-rectangle id="17:5364" name="image 13" x="-0.00042969200876541436" y="322.8742980957031" width="215.84413146972656" height="215.84413146972656" />
+              <rounded-rectangle id="17:5365" name="image 16" x="521.7694702148438" y="132.89584350585938" width="104.35438537597656" height="104.35438537597656" />
+              <rounded-rectangle id="17:5366" name="image 17" x="-0.00042969200876541436" y="-0.000010966473382723052" width="376.2565002441406" height="192.7292022705078" />
+              <rounded-rectangle id="17:5367" name="image 37" x="526.230224609375" y="-0.000010966473382723052" width="99.8947982788086" height="133.23468017578125" />
+              <rounded-rectangle id="17:5368" name="image 6" x="376.3890075683594" y="174.81591796875" width="145.38262939453125" height="66.0019302368164" />
+            </frame>
+            <text id="17:5369" name="Painel visual - Imagem a" x="0" y="546.7184448242188" width="173" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:5370" name="Frame 100887" x="0" y="1264.718505859375" width="1360.49609375" height="172">
+        <frame id="17:5371" name="Frame 100913" x="0" y="0" width="1354" height="172">
+          <frame id="17:5372" name="Frame 100880" x="2" y="0" width="1350" height="172">
+            <frame id="17:5373" name="Frame 100879" x="0" y="0" width="1350" height="172">
+              <frame id="17:5374" name="Frame 100773" x="0" y="0" width="1350" height="94">
+                <text id="17:5375" name="Prototipagem" x="0" y="0" width="1350" height="38" />
+                <frame id="17:5376" name="Frame 100773" x="0" y="62" width="1350" height="32">
+                  <frame id="17:5377" name="Frame 100814" x="0" y="0" width="152" height="32">
+                    <frame id="17:5378" name="Frame 32" x="4" y="4" width="144" height="24" />
+                  </frame>
+                  <frame id="17:5381" name="Frame 100816" x="162" y="0" width="186" height="32">
+                    <frame id="17:5382" name="Frame 32" x="4" y="4" width="178" height="24" />
+                  </frame>
+                  <frame id="17:5385" name="Frame 100815" x="358" y="0" width="61" height="32">
+                    <frame id="17:5386" name="Frame 32" x="4" y="4" width="53" height="24" />
+                  </frame>
+                  <frame id="17:5389" name="Frame 100818" x="429" y="0" width="127" height="32">
+                    <frame id="17:5390" name="Frame 32" x="4" y="4" width="119" height="24" />
+                  </frame>
+                  <frame id="17:5393" name="Frame 100819" x="566" y="0" width="167" height="32">
+                    <frame id="17:5394" name="Frame 32" x="4" y="4" width="159" height="24" />
+                  </frame>
+                  <frame id="17:5397" name="Frame 100817" x="743" y="0" width="162" height="32">
+                    <frame id="17:5398" name="Frame 32" x="4" y="4" width="154" height="24" />
+                  </frame>
+                </frame>
+              </frame>
+              <text id="17:5401" name="Uma das etapas mais divertidas foi testar as cores, com ilustrações impressas sem preenchimento e pintadas com lápis de cor. Depois, fiz as thumbnails de todas as páginas com as orientações das meninas (Imagem 3), e a Thays definiu uma paleta de cores para os personagens e fez as ilustrações das páginas e da capa, que distribuímos entre nós para pintar. Com as páginas prontas, escrevi os textos, testamos tipografias (Imagem 4) e diagramamos no Indesign, imprimindo primeiro o boneco e, por fim, o livrinho em si." x="0" y="118" width="1350" height="54" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:5402" name="Frame 100979" x="2.714111328125" y="1468.718505859375" width="1357.781982421875" height="375.8880615234375">
+        <frame id="17:5403" name="Frame 100980" x="0" y="0" width="733.6290283203125" height="375.8880615234375">
+          <frame id="17:5404" name="Frame 100972" x="0" y="0" width="733.6290283203125" height="349.8880615234375">
+            <frame id="17:5405" name="Frame 100973" x="552.7814331054688" y="0" width="180.8260955810547" height="349.78192138671875">
+              <rounded-rectangle id="17:5406" name="WhatsApp Image 2026-10-29 at 07.02.49 1" x="0" y="0" width="180.82611083984375" height="271.44390869140625" />
+              <rounded-rectangle id="17:5407" name="WhatsApp Image 2026-10-29 at 07.02.48 1" x="0.00017809105338528752" y="278.57073974609375" width="180.82611083984375" height="71.21114349365234" />
+            </frame>
+            <frame id="17:5408" name="Frame 100975" x="0" y="0" width="285.0774841308594" height="349.8880615234375">
+              <rounded-rectangle id="17:5409" name="WhatsApp Image 2026-10-29 at 07.02.49 (1) 1" x="0" y="0" width="285.0774841308594" height="156.1244659423828" />
+              <rounded-rectangle id="17:5410" name="WhatsApp Image 2026-10-29 at 07.02.57 1" x="-3.637978807091713e-12" y="349.8880615234375" width="285.0774841308594" height="187.08209228515625" />
+            </frame>
+            <frame id="17:5411" name="Frame 100974" x="291.313720703125" y="0" width="255.23342895507812" height="349.88800048828125">
+              <rounded-rectangle id="17:5412" name="WhatsApp Image 2026-10-29 at 07.02.51 (1) 1" x="0" y="156.12445068359375" width="255.13018798828125" height="156.12445068359375" />
+              <rounded-rectangle id="17:5413" name="WhatsApp Image 2026-10-29 at 07.02.50 1" x="0" y="349.8880615234375" width="255.23342895507812" height="187.08209228515625" />
+            </frame>
+          </frame>
+          <text id="17:5414" name="Teste de cores e storyboard" x="0" y="357.8880615234375" width="197" height="18" />
+        </frame>
+        <frame id="17:5415" name="Frame 100981" x="749.6290283203125" y="0.0479736328125" width="608.1529541015625" height="375.7921142578125">
+          <frame id="17:5416" name="Frame 100978" x="0" y="0" width="608.1529541015625" height="349.7921142578125">
+            <frame id="17:5417" name="Frame 100976" x="0" y="0" width="608.1529541015625" height="150.2579345703125">
+              <rounded-rectangle id="17:5418" name="WhatsApp Image 2026-10-29 at 07.02.46 (1) 1" x="0.00014645910414401442" y="150.25808715820312" width="178.093994140625" height="150.2579345703125" />
+              <rounded-rectangle id="17:5419" name="Imagem do WhatsApp de 2025-04-12 à(s) 19.50.38_ade61ddc 2" x="181.47317504882812" y="0.00005075069566373713" width="220.456298828125" height="150.2579345703125" />
+              <rounded-rectangle id="17:5420" name="Imagem do WhatsApp de 2025-04-12 à(s) 21.07.54_b758df86 3" x="405.30853271484375" y="0" width="202.52157592773438" height="150.2579345703125" />
+            </frame>
+            <frame id="17:5421" name="Frame 100977" x="0.0001464590895920992" y="153.8623504638672" width="608.1529541015625" height="195.92979431152344">
+              <rounded-rectangle id="17:5422" name="WhatsApp Image 2026-10-29 at 07.02.46 (1) 2" x="0.00014645910414401442" y="195.9298858642578" width="252.59759521484375" height="195.92979431152344" />
+              <rounded-rectangle id="17:5423" name="WhatsApp Image 2026-10-29 at 07.02.54 1" x="257.7789001464844" y="0" width="162.663330078125" height="195.9298095703125" />
+              <rounded-rectangle id="17:5424" name="WhatsApp Image 2026-10-29 at 07.02.55 (1) 1" x="425.6237487792969" y="0.00005006020364817232" width="182.5294189453125" height="195.92979431152344" />
+            </frame>
+          </frame>
+          <text id="17:5425" name="Design de personagens - Imagem b" x="0" y="357.7921142578125" width="249" height="18" />
+        </frame>
+      </frame>
+      <frame id="17:5426" name="Frame 100985" x="6.49609375" y="1876.6065673828125" width="1354" height="392.8397521972656">
+        <frame id="17:5427" name="Frame 100988" x="-0.13763427734375" y="0" width="1354.2752685546875" height="392.8397521972656">
+          <text id="17:5428" name="Rafes das páginas" x="611.6376342773438" y="0" width="131" height="18" />
+          <frame id="17:5429" name="Frame 100987" x="0" y="26" width="1354.2752685546875" height="366.8397521972656">
+            <frame id="17:5430" name="Frame 100986" x="0" y="0" width="668.8815307617188" height="366.8397521972656">
+              <rounded-rectangle id="17:5431" name="WhatsApp Image 2026-10-29 at 07.02.51 1" x="0" y="0" width="668.8815307617188" height="366.8397216796875" />
+            </frame>
+            <rounded-rectangle id="17:5432" name="WhatsApp Image 2026-10-29 at 07.02.53 1" x="685.3937377929688" y="0.104522705078125" width="668.881591796875" height="366.6307067871094" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:5433" name="Frame 100984" x="0" y="2301.4462890625" width="1360.49609375" height="786.7572631835938">
+        <frame id="17:5434" name="Frame 100990" x="6.206298828125" y="0" width="1348.08349609375" height="786.7572631835938">
+          <text id="17:5435" name="Pintura das páginas e diagramação" x="546.541748046875" y="0" width="255" height="18" />
+          <frame id="17:5436" name="Frame 100989" x="0" y="26" width="1348.08349609375" height="760.7572631835938">
+            <frame id="17:5437" name="Frame 100982" x="0" y="0" width="665.541748046875" height="760.7572631835938">
+              <rounded-rectangle id="17:5438" name="WhatsApp Image 2026-10-29 at 07.02.55 1" x="0" y="364.4288330078125" width="665.541748046875" height="364.4288330078126" />
+              <rounded-rectangle id="17:5439" name="WhatsApp Image 2026-10-29 at 07.02.54 (2) 1" x="-1.8189894035458565e-12" y="374.0953674316406" width="665.541748046875" height="386.6618957519531" />
+            </frame>
+            <frame id="17:5440" name="Frame 100983" x="682.541748046875" y="0" width="665.541748046875" height="760.7572631835938">
+              <rounded-rectangle id="17:5441" name="WhatsApp Image 2026-10-29 at 07.02.56 (1) 1" x="0" y="0" width="665.541748046875" height="296.76300048828125" />
+              <rounded-rectangle id="17:5442" name="WhatsApp Image 2026-10-29 at 07.02.54 (1) 1" x="0" y="309.3294982910156" width="665.541748046875" height="451.4277648925781" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:5443" name="Frame 100882" x="0" y="3120.20361328125" width="1360.49609375" height="96">
+        <frame id="17:5444" name="Frame 100881" x="0" y="0" width="667" height="96">
+          <text id="17:5445" name="Projeto final" x="0" y="0" width="179" height="18" />
+          <text id="17:5446" name=" O projeto final é o livro infantil impresso “Caju em: Semente não tem dente”. Na última página, reservamos um espaço para os desenhos das crianças, devolvendo a elas um lugar na história que ajudaram a criar." x="0" y="42" width="667" height="54" />
+        </frame>
+        <frame id="17:5447" name="Frame 100861" x="689" y="0" width="641" height="94">
+          <text id="17:5448" name="Ferramentas utilizadas" x="0" y="0" width="641" height="38" />
+          <frame id="17:5449" name="Frame 100773" x="0" y="62" width="641" height="32">
+            <frame id="17:5450" name="Frame 100816" x="0" y="0" width="141" height="32">
+              <frame id="17:5451" name="Frame 32" x="4" y="4" width="133" height="24" />
+            </frame>
+            <frame id="17:5454" name="Frame 100814" x="151" y="0" width="98" height="32">
+              <frame id="17:5455" name="Frame 32" x="4" y="4" width="90" height="24" />
+            </frame>
+            <frame id="17:5458" name="Frame 100819" x="259" y="0" width="81" height="32">
+              <frame id="17:5459" name="Frame 32" x="4" y="4" width="73" height="24" />
+            </frame>
+            <frame id="17:5462" name="Frame 100818" x="350" y="0" width="110" height="32">
+              <frame id="17:5463" name="Frame 32" x="4" y="4" width="102" height="24" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:5466" name="Frame 101004" x="0" y="3248.20361328125" width="1360.49609375" height="442.5842590332031">
+        <text id="17:5467" name="Mídia impressa" x="624.748046875" y="0" width="111" height="18" />
+        <frame id="17:5468" name="Frame 101003" x="0" y="26" width="1360.49609375" height="390.5842590332031">
+          <rounded-rectangle id="17:5469" name="WhatsApp Image 2026-10-29 at 19.14.25 1" x="0" y="0" width="520.7789306640625" height="390.584228515625" />
+          <rounded-rectangle id="17:5470" name="WhatsApp Image 2026-10-29 at 19.14.24 1" x="533.7789306640625" y="0.0000152587890625" width="520.7789306640625" height="390.584228515625" />
+          <rounded-rectangle id="17:5471" name="WhatsApp Image 2026-10-29 at 19.14.36 1" x="1067.557861328125" y="0" width="292.9382019042969" height="390.5842590332031" />
+        </frame>
+        <frame id="17:5472" name="Frame 101002" x="624.748046875" y="424.5842590332031" width="111" height="18" />
+      </frame>
+      <frame id="17:5473" name="Frame 100999" x="1.00830078125" y="3722.787841796875" width="1359.48779296875" height="1273.46337890625">
+        <frame id="17:5474" name="Frame 100997" x="0" y="0" width="662.48779296875" height="1273.46337890625">
+          <rounded-rectangle id="17:5475" name="Caju em semente não tem dente-1-32-16 1" x="0" y="0" width="662.48779296875" height="662.48779296875" />
+          <rounded-rectangle id="17:5476" name="Caju em semente não tem dente-1-32-26 1" x="0" y="305.48779296875" width="662.48779296875" height="662.48779296875" />
+          <rounded-rectangle id="17:5477" name="Caju em semente não tem dente-1-32-28 1" x="0" y="610.9755859375" width="662.48779296875" height="662.48779296875" />
+        </frame>
+        <frame id="17:5478" name="Frame 100998" x="697.48779296875" y="0.231689453125" width="662" height="1273">
+          <rounded-rectangle id="17:5479" name="Caju em semente não tem dente-1-32-17 1" x="0" y="0" width="662" height="662" />
+          <rounded-rectangle id="17:5480" name="Caju em semente não tem dente-1-32-27 1" x="0" y="305" width="662" height="662" />
+          <rounded-rectangle id="17:5481" name="Caju em semente não tem dente-1-32-29 1" x="0" y="610" width="662" height="662" />
+        </frame>
+      </frame>
+      <frame id="17:5482" name="Frame 100944" x="6.49609375" y="5028.25146484375" width="1354" height="940.5599365234375">
+        <frame id="17:5483" name="Frame 100995" x="0" y="0" width="1354" height="708.46875">
+          <frame id="17:5484" name="Frame 100953" x="529" y="0" width="296" height="18">
+            <text id="17:5485" name="Simulação de leitura" x="0" y="0" width="296" height="18" />
+          </frame>
+          <frame id="17:5486" name="Frame 100994" x="0" y="26" width="1354" height="682.46875">
+            <rounded-rectangle id="17:5487" name="Caju em semente não tem dente-1-32-01 4" x="361.765625" y="20" width="630.46875" height="630.46875" />
+          </frame>
+        </frame>
+        <text id="17:5488" name="* Não foi utilizado nenhum agente IA de geração de imagens para as criações visuais (sketches, vetores, ilustrações…) neste projeto." x="909" y="740.46875" width="445" height="36" />
+        <frame id="17:5489" name="Frame 100823" x="1047.2611083984375" y="808.46875" width="306.7388916015625" height="132.09121704101562">
+          <frame id="17:5490" name="Frame 100820" x="0" y="17.04557991027832" width="160" height="98">
+            <text id="17:5491" name="Obrigada por ter chegado até aqui!" x="20" y="35" width="116" height="34" />
+          </frame>
+          <frame id="17:5492" name="Group 100762" x="189.22569274902344" y="1.1368683772161603e-13" width="138.73890305330679" height="132.09122098376974" />
+        </frame>
+      </frame>
+      <frame id="17:5509" name="Frame 100891" x="0" y="6000.81103515625" width="1360.49609375" height="430.3062438964844">
+        <frame id="17:5510" name="Frame 100889" x="0" y="0" width="1360.49609375" height="430.3062438964844">
+          <text id="17:5511" name="Talvez você goste..." x="0" y="0" width="279" height="38" />
+          <frame id="17:5512" name="Frame 100890" x="0" y="53.30624008178711" width="1353.590576171875" height="377">
+            <frame id="17:5513" name="Frame 100805" x="0" y="0" width="669.5906372070312" height="376.6447448730469">
+              <frame id="17:5514" name="Frame 100801" x="0" y="0" width="669.5906372070312" height="376.6447448730469">
+                <rounded-rectangle id="17:5515" name="Tela de bloqueio 1" x="0" y="0" width="669.5906982421875" height="376.644775390625" />
+              </frame>
+            </frame>
+            <frame id="17:5516" name="Frame 100806" x="684.5906372070312" y="0" width="669" height="377">
+              <frame id="17:5517" name="Frame 100799" x="0" y="0" width="669" height="377">
+                <rounded-rectangle id="17:5518" name="arte final (1) 1" x="0" y="0" width="755" height="377" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</frame>
+IMPORTANT: After you call this tool, you MUST call get_design_context if trying to implement the design, since this tool only returns metadata. If you do not call get_design_context, the agent will not be able to implement the design.
+
+<mcp-result-metadata>
+{
+ "_meta": {
+  "mcpRequestId": "6664cde4-fe33-4315-98fc-8158e2319c0f"
+ }
+}
+</mcp-result-metadata>

@@ -1,0 +1,971 @@
+<frame id="17:899" name="MacBook Pro 16&quot; - 5" x="176" y="223" width="1728" height="8255">
+  <frame id="17:900" name="Frame 83" x="278" y="8966" width="1352" height="459.2020263671875">
+    <rounded-rectangle id="17:901" name="Rectangle 11125" x="156.3176727294922" y="-12.881845474243164" width="989.4265747070312" height="265.39306640625" />
+    <ellipse id="17:902" name="Ellipse 259" x="289.3310852050781" y="-180.2428741455078" width="802.3060913085938" height="802.3060913085938" />
+    <vector id="17:903" name="Vector 1049" x="-66.99159240722656" y="251.6541290283203" width="1497.8817138671875" height="281.71173095703125" />
+    <rounded-rectangle id="17:904" name="capa banner2 2" x="564.276611328125" y="-289.4425964355469" width="851.1472778320312" height="1033.25927734375" />
+    <frame id="17:905" name="Group 100503" x="564.27685546875" y="18.027544021606445" width="254.21514892578125" height="488.49945068359375">
+      <boolean-operation id="17:906" name="Subtract" x="748.5332489013672" y="343.77086067199707" width="69.95893859863281" height="64.452392578125" />
+      <vector id="17:912" name="Vector 707" x="636.7009735107422" y="400.6891040802002" width="127.73904418945312" height="35.83376693725586" />
+      <vector id="17:913" name="Vector 708" x="746.0562286376953" y="408.49409675598145" width="59.22784423828125" height="73.15287780761719" />
+      <vector id="17:914" name="Vector 709" x="564.2768843153317" y="411.6448230743408" width="94.87594604492188" height="41.58946228027344" />
+      <vector id="17:915" name="Vector 710" x="566.5041983127594" y="441.53901863098145" width="101.44648742675781" height="64.42652893066406" />
+      <vector id="17:916" name="Vector 711" x="650.4296493530273" y="472.73533821105957" width="134.7943878173828" height="33.79142761230469" />
+      <boolean-operation id="17:917" name="Union" x="580.442626953125" y="346.4683094024658" width="208.5037841796875" height="146.4490966796875" />
+      <vector id="17:922" name="Vector 712" x="652.5114288330078" y="309.3492603302002" width="84.84992218017578" height="24.879409790039062" />
+      <vector id="17:923" name="Vector 713" x="724.925048828125" y="314.7263660430908" width="39.17578125" height="50.68714904785156" />
+      <vector id="17:924" name="Vector 714" x="604.6025390625" y="316.77437019348145" width="62.75550842285156" height="28.778417587280273" />
+      <vector id="17:925" name="Vector 715" x="606.651496887207" y="340.16710090637207" width="64.61217498779297" height="42.51778793334961" />
+      <vector id="17:926" name="Vector 716" x="661.6076049804688" y="359.29451179504395" width="89.12025451660156" height="23.208398818969727" />
+      <ellipse id="17:927" name="Ellipse 176" x="612.9196510314941" y="321.36216926574707" width="144.0777130126953" height="50.130149841308594" />
+      <frame id="17:928" name="Group 263" x="618.0425224304199" y="18.027501103515533" width="133.30520629882812" height="337.50360107421875">
+        <vector id="17:929" name="Vector 603" x="678.9322204589844" y="107.71692371093741" width="15.410380363464355" height="14.760544776916504" />
+        <vector id="17:930" name="Vector 605" x="728.4101676940918" y="49.35420894348135" width="18.557321875134107" height="26.315898615772312" />
+        <frame id="17:931" name="Group 257" x="644.5836429595947" y="18.027596242889558" width="81.33030700683594" height="97.95403289794922" />
+        <vector id="17:939" name="Vector 601" x="697.0356254577637" y="37.09566020690909" width="54.31192398071289" height="105.54765319824219" />
+        <vector id="17:940" name="Vector 602" x="654.0812377929688" y="25.562187192077545" width="75.06433868408203" height="104.83089447021484" />
+        <vector id="17:941" name="Vector 595" x="664.4259033203125" y="248.0460252734374" width="34.685725062223696" height="98.84773117549867" />
+        <vector id="17:942" name="Vector 604" x="647.2789649963379" y="205.6492967578124" width="41.128178574201684" height="67.03577619078533" />
+        <vector id="17:943" name="Vector 597" x="705.5862693786621" y="206.22787952148428" width="41.128178574201684" height="67.03577619078533" />
+        <vector id="17:944" name="Vector 598" x="696.1785621643066" y="255.30511951171866" width="42.18173998457007" height="100.22577512935368" />
+        <vector id="17:945" name="Vector 599" x="652.3771018981934" y="110.52282428466788" width="49.85163879394531" height="76.9941177368164" />
+        <vector id="17:946" name="Vector 600" x="618.0423183935927" y="171.66908740722647" width="109.45887756347656" height="68.20721435546875" />
+      </frame>
+      <vector id="17:947" name="Vector 717" x="588.1366806030273" y="395.34532356262207" width="194.764892578125" height="63.83212661743164" />
+      <vector id="17:948" name="Ellipse 177" x="679.5554809570312" y="435.2821521759033" width="5.952953338623047" height="11.905906677246094" />
+      <vector id="17:949" name="Ellipse 178" x="645.2516098022461" y="425.0831470489502" width="16.24145490319131" height="14.514262176782722" />
+      <ellipse id="17:950" name="Ellipse 179" x="683.0075073242188" y="438.83369636535645" width="4.793365478515625" height="4.793365478515625" />
+      <ellipse id="17:951" name="Ellipse 180" x="644.1167907714844" y="431.07295417785645" width="8.290672023498814" height="8.2906720234987" />
+      <ellipse id="17:952" name="Ellipse 181" x="610.4264678955078" y="423.01280403137207" width="5.803285265656086" height="6.930468347707574" />
+      <ellipse id="17:953" name="Ellipse 182" x="728.0646057128906" y="438.1765308380127" width="6.341360089927207" height="7.13877597371993" />
+      <vector id="17:954" name="Vector 718" x="673.0752029418945" y="441.6501941680908" width="6.475142478942871" height="0" />
+      <vector id="17:955" name="Vector 719" x="634.1744918823242" y="423.1014881134033" width="4.686234275844754" height="6.5462882523925146" />
+      <vector id="17:956" name="Vector 720" x="619.7899360656738" y="424.52632331848145" width="5.4872293378277845" height="2.836641604824763" />
+      <vector id="17:957" name="Vector 721" x="737.0047760009766" y="442.26289558410645" width="5.778264570348256" height="3.535644929135742" />
+      <vector id="17:958" name="Vector 722" x="691.6689682006836" y="441.6501941680908" width="6.475142478942871" height="0" />
+      <vector id="17:959" name="Vector 723" x="647.5574035644531" y="441.8059558868408" width="4.686234275844754" height="6.5462882523925146" />
+      <vector id="17:960" name="Vector 724" x="604.1250190734863" y="416.42109870910645" width="5.4872293378277845" height="2.836641604824763" />
+      <vector id="17:961" name="Vector 725" x="720.927490234375" y="431.79683113098145" width="6.076950909117045" height="2.830771960699167" />
+      <vector id="17:962" name="Vector 726" x="685.5116271972656" y="434.96992683410645" width="0" height="6.475142478942871" />
+      <vector id="17:963" name="Vector 727" x="649.7942276000977" y="430.7729663848877" width="6.546288252392856" height="4.686234275844981" />
+      <vector id="17:964" name="Vector 728" x="606.9192695617676" y="425.8290271759033" width="2.3752852843280152" height="6.553024148254735" />
+      <vector id="17:965" name="Vector 729" x="724.1574096679688" y="441.4947986602783" width="2.5145687227279723" height="6.841117804066926" />
+      <vector id="17:966" name="Vector 730" x="685.5116271972656" y="453.66319465637207" width="0" height="6.475142478942871" />
+      <vector id="17:967" name="Vector 731" x="630.9341201782227" y="444.2776355743408" width="6.546288252392856" height="4.686234275844981" />
+      <vector id="17:968" name="Vector 732" x="613.755786895752" y="406.95762825012207" width="2.3752852843280152" height="6.553024148254735" />
+      <ellipse id="17:969" name="Ellipse 183" x="608.9335060119629" y="410.8209400177002" width="14.454545073367626" height="17.256464643855907" />
+      <ellipse id="17:970" name="Ellipse 184" x="757.4800720214844" y="425.0503406524658" width="5.803285265656086" height="6.930468347707574" />
+      <vector id="17:971" name="Vector 733" x="763.7596435546875" y="418.4586353302002" width="5.4872293378277845" height="2.836641604824763" />
+      <vector id="17:972" name="Vector 734" x="760.9758605957031" y="427.87800788879395" width="2.3752852843280152" height="6.553024148254735" />
+      <vector id="17:973" name="Vector 735" x="754.1284027099609" y="408.9955310821533" width="2.3752852843280152" height="6.553024148254735" />
+      <ellipse id="17:974" name="Ellipse 185" x="758.9487762451172" y="412.8696765899658" width="14.454545073367626" height="17.256464643855907" />
+      <vector id="17:975" name="Ellipse 186" x="726.0384674072266" y="425.7065601348877" width="15.99113576100558" height="17.961065150949253" />
+    </frame>
+    <rounded-rectangle id="17:976" name="capa banner2 3" x="883.7803955078125" y="-127.11360931396484" width="806.4855346679688" height="979.0416870117188" />
+  </frame>
+  <frame id="17:977" name="Frame 6" x="0" y="7986" width="1728" height="269">
+    <text id="17:978" name="visite também" x="1" y="-35" width="809" height="132" />
+    <frame id="17:979" name="Frame 100797" x="6" y="95" width="237" height="170">
+      <frame id="17:980" name="Frame 100796" x="16" y="16" width="205" height="138">
+        <text id="17:981" name="Redes sociais" x="0" y="0" width="187" height="38" />
+        <frame id="17:982" name="Frame 100795" x="0" y="54" width="205" height="84">
+          <frame id="17:983" name="Frame 100793" x="0" y="0" width="173" height="38">
+            <text id="17:984" name="IG" x="0" y="0" width="34" height="38" />
+            <text id="17:985" name="@aggy_colon" x="50" y="7" width="123" height="24" />
+          </frame>
+          <frame id="17:986" name="Frame 100794" x="0" y="46" width="205" height="38">
+            <text id="17:987" name="IN" x="0" y="0" width="33" height="38" />
+            <text id="17:988" name="Ágatha Ferreira" x="49" y="7" width="139" height="24" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="17:989" name="Frame 3" x="187" y="40" width="1353" height="48">
+    <frame id="17:990" name="Frame 100814" x="0" y="0" width="48" height="48">
+      <frame id="17:991" name="Frame 32" x="4" y="4" width="40" height="40" />
+    </frame>
+    <text id="17:994" name="Projects" x="1173" y="2" width="178" height="44" />
+  </frame>
+  <frame id="17:995" name="Group 100810" x="1341.30029296875" y="31" width="66.08847116264542" height="65.16953089552226" />
+  <frame id="17:1003" name="Frame 100858" x="1540" y="154" width="1352" height="459.2020263671875" />
+  <frame id="17:1040" name="Frame 100885" x="188" y="646" width="1351.806640625" height="750.000244140625">
+    <frame id="17:1041" name="Frame 100884" x="0" y="0" width="660" height="742.2555541992188">
+      <frame id="17:1042" name="Frame 100857" x="0" y="0" width="660" height="398">
+        <text id="17:1043" name="IDV: Pontos sem nó" x="0" y="0" width="660" height="30" />
+        <frame id="17:1044" name="Frame 100859" x="0" y="54" width="660" height="32">
+          <frame id="17:1045" name="Frame 100809" x="0" y="0" width="692" height="32">
+            <frame id="17:1046" name="Frame 100817" x="0" y="0" width="101" height="32">
+              <frame id="17:1047" name="Frame 32" x="4" y="4" width="93" height="24" />
+            </frame>
+            <frame id="17:1050" name="Frame 100818" x="117" y="0" width="217" height="32">
+              <frame id="17:1051" name="Frame 32" x="4" y="4" width="209" height="24" />
+            </frame>
+            <frame id="17:1054" name="Frame 100819" x="350" y="0" width="128" height="32">
+              <frame id="17:1055" name="Frame 32" x="4" y="4" width="120" height="24" />
+            </frame>
+            <frame id="17:1058" name="Frame 100820" x="494" y="0" width="155" height="32">
+              <frame id="17:1059" name="Frame 32" x="4" y="4" width="147" height="24" />
+            </frame>
+          </frame>
+        </frame>
+        <text id="17:1062" name="O trabalho compilado neste trecho se trata de um estudo sobre o processo de design de marca realizado ao longo da disciplina de Sistema de Identidade Visual do meu curso de graduação em Design. Neste estudo, foi proposto que os alunos utilizassem pesquisa em design, métodos de coleta, análise e seleção de dados, e aplicação técnica de testes e configurações da peça produzida na plataforma Illustrator (Adobe Cloud) para construir o próprio manual de identidade visual. A marca que criei foi a ideia de um estúdio próprio de animações musicais de nome “Pontos sem nó”.   A marca “Pontos sem nó” procura nos transportar para as entrelinhas de nossas questões mais profundas não resolvidas, que sempre voltam à nossa mente de alguma forma, convertendo memórias em sentimentos reconhecíveis. A Pontos sem nó busca fazer parte do momento de identificação, transmitindo o processo de aceitação sobre esses sentimentos em forma de música.  Sendo representada em traços de ternura, serenidade com um toque lírico que nos faz assumir o papel de um peregrino em outras dimensões por meio do escapismo.  Dividi o planejamento seguido em 6 etapas, as quais estão representadas no painel abaixo." x="0" y="110" width="660" height="288" />
+      </frame>
+      <frame id="17:1063" name="Group 100836" x="0" y="439" width="659.9999389648438" height="303.25555419921875">
+        <frame id="17:1064" name="Group 100742" x="0" y="439" width="180.6985321044922" height="118.26810455322266">
+          <frame id="17:1065" name="Group 100731" x="0.0000015117066141101532" y="439.00000025195186" width="180.69847106933594" height="41">
+            <text id="17:1066" name="01" x="0.0000030234132282203063" y="439.0000005039037" width="50.38797378540039" height="41" />
+            <text id="17:1067" name="Brainsotrming de palavras conceito" x="56.86982496751716" y="449.0849764482409" width="123.82884216308594" height="30" />
+          </frame>
+          <frame id="17:1068" name="Frame 100749" x="-9.094947017729282e-13" y="504.09288787841797" width="47.887821197509766" height="22.003538131713867">
+            <text id="17:1069" name="Ternura" x="7.443910598754883" y="6.501769065856934" width="33" height="9" />
+          </frame>
+          <frame id="17:1070" name="Frame 100750" x="55.03590393066406" y="504.09288787841797" width="59.67513656616211" height="22.003538131713867">
+            <text id="17:1071" name="Escapismo" x="7.837568283081055" y="6.501769065856934" width="44" height="9" />
+          </frame>
+          <frame id="17:1072" name="Frame 100751" x="121.07899475097656" y="504.09288787841797" width="55.38883972167969" height="22.003538131713867">
+            <text id="17:1073" name="Peregrino" x="7.194419860839844" y="6.501769065856934" width="41" height="9" />
+          </frame>
+          <frame id="17:1074" name="Frame 100755" x="-9.094947017729282e-13" y="535.2645568847656" width="62.88985824584961" height="22.003538131713867">
+            <text id="17:1075" name="Serenidade" x="7.444929122924805" y="6.501769065856934" width="48" height="9" />
+          </frame>
+          <frame id="17:1076" name="Frame 100756" x="71.54589080810547" y="535.2645568847656" width="45.74467086791992" height="22.003538131713867">
+            <text id="17:1077" name="Lirismo" x="7.372335433959961" y="6.501769065856934" width="31" height="9" />
+          </frame>
+        </frame>
+        <frame id="17:1078" name="Group 100738" x="0" y="594.6470947265625" width="212.28237915039062" height="147.6082000732422">
+          <frame id="17:1079" name="Frame 100754" x="100.89802551269531" y="689.080322265625" width="96.10865783691406" height="22.003538131713867">
+            <text id="17:1080" name="Elementos de apoio" x="7.554328918457031" y="6.501769065856934" width="81" height="9" />
+          </frame>
+          <frame id="17:1081" name="Frame 100755" x="-9.094947017729282e-13" y="720.2518539428711" width="117.54014587402344" height="22.003538131713867">
+            <text id="17:1082" name="Diagramação do manual" x="7.770072937011719" y="6.501769065856934" width="102" height="9" />
+          </frame>
+          <frame id="17:1083" name="Frame 100756" x="124.74630737304688" y="720.2518539428711" width="87.53606414794922" height="22.003538131713867">
+            <text id="17:1084" name="Versões da marca" x="7.268032073974609" y="6.501769065856934" width="73" height="9" />
+          </frame>
+          <frame id="17:1085" name="Group 100734" x="0.00039798265788704157" y="594.6472151246853" width="156.84979248046875" height="41">
+            <text id="17:1086" name="04" x="0.00030768406577408314" y="594.6472134524893" width="58.96464920043945" height="41" />
+            <text id="17:1087" name="Testes gráficos" x="66.04219180590007" y="602.9016573396511" width="90.80780029296875" height="30" />
+          </frame>
+          <frame id="17:1088" name="Frame 100763" x="-9.094947017729282e-13" y="657.9087867736816" width="122.89801788330078" height="22.003538131713867">
+            <text id="17:1089" name="Escolha de paleta de cores" x="7.449008941650391" y="6.501769065856934" width="108" height="9" />
+          </frame>
+          <frame id="17:1090" name="Frame 100764" x="-9.094947017729282e-13" y="689.080322265625" width="93.96551513671875" height="22.003538131713867">
+            <text id="17:1091" name="Escolha de padrões" x="7.482757568359375" y="6.501769065856934" width="79" height="9" />
+          </frame>
+        </frame>
+        <frame id="17:1092" name="Group 100737" x="235.725341796875" y="439" width="221.8665008544922" height="116.43603515625">
+          <frame id="17:1093" name="Group 100735" x="235.72565766167827" y="439.0000582089342" width="192.62258911132812" height="41">
+            <text id="17:1094" name="02" x="235.72572938585654" y="439.0001164178684" width="58.96464920043945" height="41" />
+            <text id="17:1095" name="Análise de painel semântico" x="301.76778717827983" y="449.085557972423" width="126.58059692382812" height="30" />
+          </frame>
+          <frame id="17:1096" name="Frame 100759" x="235.72539850362227" y="502.2609329223633" width="62.88985824584961" height="22.003538131713867">
+            <text id="17:1097" name="Tipografias" x="7.444929122924805" y="6.501769065856934" width="48" height="9" />
+          </frame>
+          <frame id="17:1098" name="Frame 100760" x="306.3545913696289" y="502.2609329223633" width="39.31522750854492" height="22.003538131713867">
+            <text id="17:1099" name="Cores" x="7.657613754272461" y="6.501769065856934" width="24" height="9" />
+          </frame>
+          <frame id="17:1100" name="Frame 100761" x="352.2151412963867" y="502.2609329223633" width="45.74467086791992" height="22.003538131713867">
+            <text id="17:1101" name="Formas" x="6.872335433959961" y="6.501769065856934" width="32" height="9" />
+          </frame>
+          <frame id="17:1102" name="Frame 100762" x="405.4176483154297" y="502.2609329223633" width="52.17411804199219" height="22.003538131713867">
+            <text id="17:1103" name="Texturas" x="7.587059020996094" y="6.501769065856934" width="37" height="9" />
+          </frame>
+          <frame id="17:1104" name="Frame 100765" x="296.2651557922363" y="533.4324645996094" width="48.95939636230469" height="22.003538131713867">
+            <text id="17:1105" name="Padrões" x="7.479698181152344" y="6.501769065856934" width="34" height="9" />
+          </frame>
+          <frame id="17:1106" name="Frame 100766" x="352.2151412963867" y="533.4324645996094" width="44.673099517822266" height="22.003538131713867">
+            <text id="17:1107" name="Efeitos" x="7.336549758911133" y="6.501769065856934" width="30" height="9" />
+          </frame>
+          <frame id="17:1108" name="Frame 100767" x="235.72539850362227" y="533.4324645996094" width="53.24569320678711" height="22.003538131713867">
+            <text id="17:1109" name="Símbolos" x="7.622846603393555" y="6.501769065856934" width="38" height="9" />
+          </frame>
+        </frame>
+        <frame id="17:1110" name="Group 100740" x="235.725341796875" y="594.6473388671875" width="156.85003662109375" height="147.6082763671875">
+          <frame id="17:1111" name="Frame 100751" x="235.72539850362227" y="657.909049987793" width="147.54421997070312" height="22.003538131713867">
+            <text id="17:1112" name="Impressão do boneco do manual" x="7.7721099853515625" y="6.501769065856934" width="132" height="9" />
+          </frame>
+          <frame id="17:1113" name="Frame 100752" x="235.72539850362227" y="689.0807113647461" width="141.11477661132812" height="22.003538131713867">
+            <text id="17:1114" name="Teste de tipografias impressas" x="7.5573883056640625" y="6.501769065856934" width="126" height="9" />
+          </frame>
+          <frame id="17:1115" name="Group 100733" x="235.72565766167827" y="594.647283501512" width="156.84979248046875" height="41">
+            <text id="17:1116" name="05" x="235.72572938585654" y="594.6472281358365" width="58.96464920043945" height="41" />
+            <text id="17:1117" name="Teste de impressão" x="301.76778717827983" y="604.7327765892805" width="90.80780029296875" height="30" />
+          </frame>
+          <frame id="17:1118" name="Frame 100754" x="235.72539850362227" y="720.2519836425781" width="116.46856689453125" height="22.003538131713867">
+            <text id="17:1119" name="Teste de cores impressas" x="7.234283447265625" y="6.501769065856934" width="102" height="9" />
+          </frame>
+        </frame>
+        <frame id="17:1120" name="Group 100741" x="471.73486328125" y="439" width="155.93118286132812" height="116.43313598632812">
+          <frame id="17:1121" name="Group 100732" x="471.73498570974334" y="439.0000202082647" width="155.93096923828125" height="41">
+            <text id="17:1122" name="03" x="471.7351081382367" y="439.0000404165294" width="57.8925666809082" height="41" />
+            <text id="17:1123" name="Criação de esboços" x="536.8582843547629" y="449.08499640455375" width="90.80780029296875" height="30" />
+          </frame>
+          <frame id="17:1124" name="Frame 100752" x="471.7349106789843" y="502.2584457397461" width="98.2518081665039" height="22.003538131713867">
+            <text id="17:1125" name="Esboços de símbolos" x="7.125904083251953" y="6.501769065856934" width="84" height="9" />
+          </frame>
+          <frame id="17:1126" name="Frame 100753" x="577.2164306640625" y="502.2584457397461" width="32.88578414916992" height="22.003538131713867">
+            <text id="17:1127" name="Grid" x="6.942892074584961" y="6.501769065856934" width="19" height="9" />
+          </frame>
+          <frame id="17:1128" name="Frame 100757" x="471.7349106789843" y="533.4295883178711" width="86.46449279785156" height="22.003538131713867">
+            <text id="17:1129" name="Área de proteção" x="7.232246398925781" y="6.501769065856934" width="72" height="9" />
+          </frame>
+          <frame id="17:1130" name="Frame 100758" x="565.2925491333008" y="533.4295883178711" width="51.102542877197266" height="22.003538131713867">
+            <text id="17:1131" name="Redução" x="7.051271438598633" y="6.501769065856934" width="37" height="9" />
+          </frame>
+        </frame>
+        <frame id="17:1132" name="Group 100739" x="471.73486328125" y="594.6473388671875" width="188.2650909423828" height="85.26539611816406">
+          <frame id="17:1133" name="Frame 100753" x="471.7359571381239" y="657.9091796875" width="188.2640380859375" height="22.003538131713867">
+            <text id="17:1134" name="Impressão do manual de identidade visual" x="7.63201904296875" y="6.501769065856934" width="173" height="9" />
+          </frame>
+          <frame id="17:1135" name="Group 100736" x="471.73498570974334" y="594.6472937039289" width="177.94610595703125" height="41">
+            <text id="17:1136" name="06" x="471.7351081382367" y="594.6472485406703" width="56.82048034667969" height="41" />
+            <text id="17:1137" name="Manual de utilização da IDV" x="535.9421085124777" y="604.7326561383161" width="113.73906707763672" height="30" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="17:1138" name="Frame 100802" x="764" y="0" width="587.8067016601562" height="750.000244140625">
+      <frame id="17:1139" name="Group 100806" x="0" y="0" width="587.8634033203125" height="750.000244140625">
+        <rounded-rectangle id="17:1140" name="image 166" x="0" y="0" width="587.8634033203125" height="749.9999389648438" />
+        <frame id="17:1141" name="Mask group" x="0" y="0.9483229517936707" width="587.8634033203125" height="749.0518798828125">
+          <rounded-rectangle id="17:1142" name="Rectangle 11417" x="0" y="0.9483229517936707" width="587.8634033203125" height="749.0518798828125" />
+          <frame id="17:1143" name="Group" x="-131.79464721679688" y="404.86772602796555" width="372.8879089355469" height="370.7332458496094">
+            <vector id="17:1144" name="Vector" x="74.18803405761719" y="404.86770064192024" width="77.52200317382812" height="163.4185333251953" />
+            <vector id="17:1145" name="Vector" x="-23.435211181640625" y="406.0045147538185" width="264.5284118652344" height="369.596435546875" />
+            <vector id="17:1146" name="Vector" x="-70.21963119506836" y="592.9732710719109" width="174.40029907226562" height="147.86300659179688" />
+            <vector id="17:1147" name="Vector" x="54.128265380859375" y="648.6816756129265" width="2.2548155784606934" height="5.914259910583496" />
+            <vector id="17:1148" name="Vector" x="155.93154907226562" y="682.8605543971062" width="22.01088523864746" height="15.603836059570312" />
+            <vector id="17:1149" name="Vector" x="142.13919067382812" y="714.0340773463249" width="34.96809005737305" height="9.785900115966797" />
+            <vector id="17:1150" name="Vector" x="155.93154907226562" y="682.8605543971062" width="22.01088523864746" height="15.603836059570312" />
+            <vector id="17:1151" name="Vector" x="221.981689453125" y="737.0643202662468" width="12.863539695739746" height="15.672821998596191" />
+            <vector id="17:1152" name="Vector" x="-65.08465576171875" y="711.7794997096062" width="46.24608612060547" height="25.21625328063965" />
+            <vector id="17:1153" name="Vector" x="-90.39868927001953" y="676.8508192896843" width="38.58699417114258" height="35.85800552368164" />
+            <vector id="17:1154" name="Vector" x="-108.9744758605957" y="625.6922499537468" width="41.638092041015625" height="55.37892150878906" />
+            <vector id="17:1155" name="Vector" x="-131.7948575745104" y="564.6228377223015" width="126.29936218261719" height="77.15708923339844" />
+            <vector id="17:1156" name="Vector" x="54.128265380859375" y="648.6816756129265" width="2.2548155784606934" height="5.914259910583496" />
+            <vector id="17:1157" name="Vector" x="55.60783386230469" y="629.7427260279655" width="47.4959602355957" height="31.80022621154785" />
+            <vector id="17:1158" name="Vector" x="-29.551025390625" y="605.2502486109734" width="84.544189453125" height="87.11931610107422" />
+            <vector id="17:1159" name="Vector" x="1.4534454345703125" y="635.4852187037468" width="16.357913970947266" height="22.463768005371094" />
+          </frame>
+        </frame>
+        <text id="17:1160" name="cabe" x="316.68756103515625" y="570.7970581054688" width="236" height="112" />
+        <text id="17:1161" name="apenas a você acreditar no que pode ser, em potencial, em fenômeno, em vida e em visão. Se dê boas vindas, pois as portas tem mudado de tamanho e ainda cabe a você atravessar esse sonho." x="318.5832214355469" y="682.6802978515625" width="231.3527069091797" height="27" />
+        <text id="17:1162" name="@pontossemno" x="16.11880111694336" y="98.60945129394531" width="14" height="80" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="17:1163" name="Frame 100886" x="188" y="1428" width="1352" height="570">
+    <frame id="17:1164" name="Frame 100867" x="0" y="0" width="1352" height="275">
+      <frame id="17:1165" name="Frame 100864" x="3.5" y="0" width="422" height="275">
+        <frame id="17:1166" name="Group" x="29" y="13" width="364.5918273925781" height="248.4949188232422">
+          <frame id="17:1167" name="Group" x="61.38811492919922" y="27.0148983001709" width="246.9338836669922" height="233.90576171875" />
+          <frame id="17:1181" name="Group" x="29" y="13" width="364.5918273925781" height="248.4949188232422">
+            <vector id="17:1182" name="Vector" x="152.2866973876953" y="110.5566635131836" width="157.84353637695312" height="150.36280822753906" />
+            <vector id="17:1183" name="Vector" x="88.7740592956543" y="121.85437774658203" width="127.98236083984375" height="121.91685485839844" />
+            <vector id="17:1184" name="Vector" x="122.37309265136719" y="22.263768196105957" width="156.88563537597656" height="149.45030212402344" />
+            <vector id="17:1185" name="Vector" x="248.5019989013672" y="202.9565887451172" width="61.45070266723633" height="58.538330078125" />
+            <vector id="17:1186" name="Vector" x="121.63423156738281" y="142.86134338378906" width="62.30447769165039" height="59.35164260864258" />
+            <vector id="17:1187" name="Vector" x="239.55844116210938" y="202.33291625976562" width="31.38129425048828" height="29.89404296875" />
+            <vector id="17:1188" name="Vector" x="64.38932037353516" y="107.26355743408203" width="62.95000457763672" height="59.96657943725586" />
+            <vector id="17:1189" name="Vector" x="77.97769165039062" y="142.3649139404297" width="62.95000457763672" height="59.96657943725586" />
+            <vector id="17:1190" name="Vector" x="92.34577178955078" y="179.26246643066406" width="42.18877410888672" height="40.18932342529297" />
+            <vector id="17:1191" name="Vector" x="235.76914978027344" y="21.5989933013916" width="157.82269287109375" height="150.3429412841797" />
+            <vector id="17:1192" name="Vector" x="201.7118377685547" y="21.926827430725098" width="125.85834503173828" height="119.89350891113281" />
+            <vector id="17:1193" name="Vector" x="107.94298553466797" y="196.39178466796875" width="42.18878936767578" height="40.189308166503906" />
+            <vector id="17:1194" name="Vector" x="133.14976501464844" y="22.145383834838867" width="125.85836029052734" height="119.89350891113281" />
+            <vector id="17:1195" name="Vector" x="171.0593719482422" y="13" width="166.27713012695312" height="158.39669799804688" />
+            <vector id="17:1196" name="Vector" x="218.8394317626953" y="152.33407592773438" width="62.949989318847656" height="59.96661376953125" />
+            <vector id="17:1197" name="Vector" x="28.99999999999909" y="131.45508575439453" width="75.00691986083984" height="71.45207977294922" />
+            <vector id="17:1198" name="Vector" x="185.68833923339844" y="173.32135009765625" width="29.54881477355957" height="28.14839744567871" />
+            <vector id="17:1199" name="Vector" x="142.68648529052734" y="112.1739273071289" width="156.1776580810547" height="148.77586364746094" />
+            <vector id="17:1200" name="Vector" x="241.72430419921875" y="196.39178466796875" width="31.089746475219727" height="29.61629867553711" />
+            <vector id="17:1201" name="Vector" x="247.88768005371094" y="182.7340087890625" width="31.38129425048828" height="29.894027709960938" />
+            <vector id="17:1202" name="Vector" x="153.0782241821289" y="121.19920349121094" width="144.41226196289062" height="137.5680694580078" />
+            <vector id="17:1203" name="Vector" x="272.82521057128906" y="220.85061645507812" width="33.088836669921875" height="31.52064323425293" />
+            <vector id="17:1204" name="Vector" x="144.90453338623047" y="112.1739273071289" width="38.44052505493164" height="36.61869812011719" />
+            <vector id="17:1205" name="Vector" x="200.7741241455078" y="92.23882293701172" width="38.44052505493164" height="36.61869812011719" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:1206" name="Frame 100865" x="465.5" y="0" width="421" height="275">
+        <rounded-rectangle id="17:1207" name="image 180" x="9" y="11" width="404.5347595214844" height="253.24368286132812" />
+      </frame>
+      <frame id="17:1208" name="Frame 100866" x="926.5" y="0" width="422" height="275">
+        <frame id="17:1209" name="Group 100747" x="-11" y="0" width="447.45782470703125" height="275">
+          <frame id="17:1210" name="Group 100622" x="-11" y="0" width="447.45782470703125" height="275">
+            <frame id="17:1211" name="Group 100537" x="-11" y="0" width="447.45782470703125" height="275">
+              <rounded-rectangle id="17:1212" name="Rectangle 11343" x="-11" y="0" width="447.4576416015625" height="275" />
+              <rounded-rectangle id="17:1213" name="image 181" x="-11" y="0" width="447.4576110839844" height="275" />
+              <frame id="17:1214" name="Group 100746" x="-11" y="0" width="447.45782470703125" height="275">
+                <rounded-rectangle id="17:1215" name="Rectangle 11443" x="-11" y="0" width="447.4576416015625" height="275" />
+                <rounded-rectangle id="17:1216" name="Rectangle 11444" x="212.72901916503906" y="0" width="223.72882080078125" height="275" />
+                <vector id="17:1217" name="Vector" x="9.974720001220703" y="62.80984878540039" width="188.01922607421875" height="163.6273956298828" />
+                <frame id="17:1218" name="Group" x="232.4238739013672" y="37.288291931152344" width="180.8634033203125" height="200.38450622558594" />
+                <frame id="17:1227" name="Group" x="16.97760772705078" y="152.7871551513672" width="64.85574340820312" height="40.3668212890625" />
+                <frame id="17:1236" name="Group" x="109.10009765625" y="100.65784454345703" width="55.531742095947266" height="39.387752532958984" />
+                <frame id="17:1248" name="Group" x="142.0012969970703" y="146.87770080566406" width="45.1293830871582" height="44.078609466552734" />
+                <frame id="17:1260" name="Group" x="88.66597747802734" y="138.63961791992188" width="48.20927810668945" height="61.980010986328125" />
+                <frame id="17:1271" name="Group" x="44.03573989868164" y="82.0781478881836" width="57.097599029541016" height="63.25763702392578" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="17:1280" name="Frame 100878" x="0" y="307" width="1352" height="263">
+      <frame id="17:1281" name="Frame 100875" x="0" y="0" width="667" height="263">
+        <frame id="17:1282" name="Frame 100876" x="0" y="0" width="257" height="263">
+          <frame id="17:1283" name="Group 100617" x="0" y="0" width="257" height="234">
+            <frame id="17:1284" name="Group 100537" x="0" y="0" width="257" height="234">
+              <rounded-rectangle id="17:1285" name="image 187" x="0" y="0" width="257" height="234" />
+            </frame>
+          </frame>
+          <text id="17:1286" name="Elemento de apoio" x="0" y="244" width="134" height="19" />
+        </frame>
+        <frame id="17:1287" name="Frame 100877" x="267" y="0" width="400" height="263">
+          <rounded-rectangle id="17:1288" name="WhatsApp Image 2026-05-20 at 14.17.04 1" x="0" y="0" width="400" height="234" />
+          <text id="17:1289" name="Elementos de apoio" x="0" y="244" width="141" height="19" />
+        </frame>
+      </frame>
+      <frame id="17:1290" name="Frame 100868" x="692" y="0" width="660" height="234">
+        <text id="17:1291" name="Processo de criação" x="0" y="0" width="660" height="30" />
+        <text id="17:1292" name="Dentro do processo de design utilizado, o início foi marcado pela pesquisa guiada, montando um painel semântico que pudesse orientar decisões conceituais do projeto, isso norteou os conceitos de ternura, lirismo, escapismo, serenidade e peregrino que mais tarde são reconhecidos em símbolos, tipografias, cores, dentre outras representações que serviram de apoio para enriquecer o repertório conceitual da marca mas também selecionar mais tarde os esboços e testes mais consistentes às características atribuídas à marca (Realizado nas etapas de 01 a 04).   Realizado esse processo, fizemos testes de impressão para garantir a qualidade de leitura da tipografia e simular o comportamento das cores (que, portanto, desde o princípio foram selecionadas em CMYK) em mídias ou produtos impressos." x="0" y="54" width="660" height="180" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="17:1293" name="Frame 100887" x="188" y="2030" width="1352.003173828125" height="575.7713623046875">
+    <frame id="17:1294" name="Frame 100880" x="0" y="0" width="1352.003173828125" height="190">
+      <frame id="17:1295" name="Frame 100879" x="0" y="0" width="641" height="190">
+        <frame id="17:1296" name="Frame 100773" x="0" y="0" width="641" height="94">
+          <text id="17:1297" name="Prototipagem" x="0" y="0" width="641" height="38" />
+          <frame id="17:1298" name="Frame 100773" x="0" y="62" width="641" height="32">
+            <frame id="17:1299" name="Frame 100814" x="0" y="0" width="122" height="32">
+              <frame id="17:1300" name="Frame 32" x="4" y="4" width="114" height="24" />
+            </frame>
+            <frame id="17:1303" name="Frame 100816" x="132" y="0" width="122" height="32">
+              <frame id="17:1304" name="Frame 32" x="4" y="4" width="114" height="24" />
+            </frame>
+            <frame id="17:1307" name="Frame 100815" x="264" y="0" width="138" height="32">
+              <frame id="17:1308" name="Frame 32" x="4" y="4" width="130" height="24" />
+            </frame>
+            <frame id="17:1311" name="Frame 100817" x="412" y="0" width="118" height="32">
+              <frame id="17:1312" name="Frame 32" x="4" y="4" width="110" height="24" />
+            </frame>
+            <frame id="17:1315" name="Frame 100818" x="540" y="0" width="94" height="32">
+              <frame id="17:1316" name="Frame 32" x="4" y="4" width="86" height="24" />
+            </frame>
+          </frame>
+        </frame>
+        <text id="17:1319" name="Os elementos criados para a marca trouxeram muito da sensação de conforto e imaginação, com elementos de apoio sendo personagens imaginárias chamadas de “Pontinhas soltas” e contrastes de cores e transições em degradê que trazem um certo frescor e parecem brilhar, mesmo sendo mais próximas de cores pastéis que de cores brilhantes." x="0" y="118" width="641" height="72" />
+      </frame>
+      <frame id="17:1320" name="Group 100834" x="693" y="20.4217529296875" width="659.0032348632812" height="169.5782470703125">
+        <frame id="17:1321" name="Group 100823" x="1297.8832397460938" y="122.53822326660156" width="54.11993408203125" height="42.26885223388672" />
+        <frame id="17:1324" name="Group 100824" x="1118.4149475097656" y="110.01581573486328" width="39.58584976196289" height="37.76420974731445" />
+        <frame id="17:1330" name="Group 100825" x="843.6670684814453" y="59.33264923095703" width="92.61258697509766" height="72.76799774169922" />
+        <frame id="17:1334" name="Group 100826" x="1038.2215576171875" y="51.8268928527832" width="62.98158264160156" height="88.02914428710938" />
+        <frame id="17:1341" name="Group 100827" x="941.8648986816406" y="160.29859924316406" width="50.66018815474922" height="48.14983857619427" />
+        <frame id="17:1357" name="Group 100828" x="745.1055755615234" y="117.48200988769531" width="77.364990234375" height="72.51788330078125" />
+        <vector id="17:1373" name="Vector 1233" x="693" y="64.468017578125" width="15.011367797851562" height="16.986549377441406" />
+        <vector id="17:1374" name="Vector 1234" x="704.4565448760986" y="79.47925567626953" width="53.724891662597656" height="35.158203125" />
+        <vector id="17:1375" name="Vector 1235" x="749.8853721618652" y="64.468017578125" width="16.59151268005371" height="15.011367797851562" />
+        <vector id="17:1376" name="Vector 1236" x="709.1968288421631" y="98.04601287841797" width="6.715611457824707" height="0.3950360119342804" />
+        <vector id="17:1377" name="Vector 1237" x="744.3547973632812" y="95.67587280273438" width="11.456043243408203" height="2.370216131210327" />
+        <vector id="17:1378" name="Vector 1238" x="705.2463474273682" y="67.23318481445312" width="47.40432357788086" height="20.14683723449707" />
+        <vector id="17:1379" name="Vector 1239" x="705.2463474273682" y="83.03477478027344" width="51.749717712402344" height="11.06100845336914" />
+        <vector id="17:1380" name="Vector 1347" x="731.2402534484863" y="20.42165002389811" width="0.6062203645706177" height="14.54928970336914" />
+        <vector id="17:1381" name="Vector 1348" x="907.2285308837891" y="22.554839372634888" width="9.321195602416992" height="12.32648754119873" />
+        <vector id="17:1382" name="Vector 1349" x="1074.6842651367188" y="21.488275289535522" width="7.4984869956970215" height="14.145148277282715" />
+        <vector id="17:1383" name="Vector 1350" x="1261.3388061523438" y="23.621464490890503" width="11.729222297668457" height="11.5181884765625" />
+        <frame id="17:1384" name="Group 100830" x="1209.3955688476562" y="55.38241195678711" width="126.27604675292969" height="55.437744140625" />
+        <frame id="17:1393" name="Group 100831" x="786.3074188232422" y="81.84967422485352" width="37.72514724731445" height="15.028570175170898" />
+        <frame id="17:1397" name="Group 100832" x="968.7353820800781" y="81.84967422485352" width="37.725189208984375" height="15.028533935546875" />
+        <frame id="17:1401" name="Group 100833" x="1143.8155212402344" y="81.84967422485352" width="37.724578857421875" height="15.028533935546875" />
+      </frame>
+    </frame>
+    <frame id="17:1405" name="Frame 100870" x="0" y="223" width="1352.003173828125" height="352.7713623046875">
+      <frame id="17:1406" name="Frame 100871" x="0" y="0" width="351.2069396972656" height="352.7713623046875">
+        <frame id="17:1407" name="Frame 100869" x="0" y="0" width="351.2069396972656" height="325.7713623046875">
+          <rounded-rectangle id="17:1408" name="image 188" x="0" y="3.410605131648481e-13" width="351.2069396972656" height="325.7713623046875" />
+        </frame>
+        <text id="17:1409" name="Criação de painéis" x="0" y="333.7713623046875" width="132" height="19" />
+      </frame>
+      <frame id="17:1410" name="Frame 100872" x="359.03326416015625" y="0" width="325.7713623046875" height="352.7713623046875">
+        <rounded-rectangle id="17:1411" name="image 178" x="0" y="0" width="325.7713623046875" height="325.7713623046875" />
+        <text id="17:1412" name="Esboços da logo" x="0" y="333.7713623046875" width="114" height="19" />
+      </frame>
+      <frame id="17:1413" name="Frame 100874" x="692.6309814453125" y="0" width="325.7713623046875" height="352.7713623046875">
+        <rounded-rectangle id="17:1414" name="image 186" x="0" y="0" width="325.7713623046875" height="325.7713623046875" />
+        <text id="17:1415" name="Testes em vetores" x="0" y="333.7713623046875" width="129" height="19" />
+      </frame>
+      <frame id="17:1416" name="Frame 100873" x="1026.2286376953125" y="0" width="325.7713623046875" height="352.7713623046875">
+        <rounded-rectangle id="17:1417" name="image 187" x="0" y="0" width="325.7713623046875" height="325.7713623046875" />
+        <text id="17:1418" name="Aplicações" x="0" y="333.7713623046875" width="79" height="19" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="17:1419" name="Frame 100882" x="188" y="2638" width="1351" height="132">
+    <frame id="17:1420" name="Frame 100881" x="0" y="0" width="669" height="132">
+      <text id="17:1421" name="Projeto final" x="0" y="0" width="179" height="18" />
+      <text id="17:1422" name="O projeto final é composto por um manual de uso de identidade visual completo, o que inclui todas as suas versões, exemplos de aplicações, definições de identidade da marca e orientações sobre seu posicionamento e abordagem, junto a pôsteres conceito e demais modelos visuais.  A fonte usada é a AM Novecento encontrada no Adobe Fonts." x="0" y="42" width="669" height="90" />
+    </frame>
+    <frame id="17:1423" name="Frame 100861" x="710" y="0" width="641" height="94">
+      <text id="17:1424" name="Ferramentas utilizadas" x="0" y="0" width="641" height="38" />
+      <frame id="17:1425" name="Frame 100773" x="0" y="62" width="641" height="32">
+        <frame id="17:1426" name="Frame 100814" x="0" y="0" width="176" height="32">
+          <frame id="17:1427" name="Frame 32" x="4" y="4" width="168" height="24" />
+        </frame>
+        <frame id="17:1430" name="Frame 100816" x="186" y="0" width="110" height="32">
+          <frame id="17:1431" name="Frame 32" x="4" y="4" width="102" height="24" />
+        </frame>
+        <frame id="17:1434" name="Frame 100815" x="306" y="0" width="141" height="32">
+          <frame id="17:1435" name="Frame 32" x="4" y="4" width="133" height="24" />
+        </frame>
+        <frame id="17:1438" name="Frame 100817" x="457" y="0" width="66" height="32">
+          <frame id="17:1439" name="Frame 32" x="4" y="4" width="58" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="17:1442" name="Frame 100891" x="186" y="2802" width="1354.1812744140625" height="5117.8740234375">
+    <frame id="17:1443" name="Frame 100888" x="0" y="0" width="1354.1812744140625" height="4655.56787109375">
+      <frame id="17:1444" name="Frame 100770" x="0" y="0" width="1354.1812744140625" height="1446.1265869140625">
+        <frame id="17:1445" name="H" x="9.094947017729282e-13" y="-1.0696202516555786" width="1354" height="1448.2657470703125">
+          <frame id="17:1446" name="Asset 7 1" x="-2.142207145690918" y="-3.0148401260375977" width="1360.4273681640625" height="1453.42333984375">
+            <frame id="17:1447" name="Camada 1" x="0" y="0" width="1360.42724609375" height="1453.4232177734375">
+              <vector id="17:1448" name="Vector" x="1139.7591552734375" y="480.7712097167969" width="216.38290405273438" height="214.2405242919922" />
+              <vector id="17:1449" name="Vector" x="1139.7591552734375" y="695.0116577148438" width="220.667724609375" height="274.2278747558594" />
+              <vector id="17:1450" name="Vector" x="923.5032348632812" y="480.720458984375" width="216.31951904296875" height="214.31655883789062" />
+              <vector id="17:1451" name="Vector" x="923.3761596679688" y="695.0116577148438" width="216.38290405273438" height="274.2278747558594" />
+              <vector id="17:1452" name="Vector" x="679.14208984375" y="695.0116577148438" width="244.23416137695312" height="274.2278747558594" />
+              <vector id="17:1453" name="Vector" x="679.14208984375" y="480.720458984375" width="244.3609619140625" height="214.31655883789062" />
+              <frame id="17:1454" name="Group" x="715.205078125" y="528.1072387695312" width="178.81219482421875" height="256.721435546875">
+                <vector id="17:1455" name="Vector" x="715.2051010413852" y="665.7144317626953" width="44.786434173583984" height="39.79866409301758" />
+                <vector id="17:1456" name="Vector" x="849.2308502197266" y="665.7144317626953" width="44.786434173583984" height="39.79866409301758" />
+                <vector id="17:1457" name="Vector" x="766.8716773986816" y="692.4416351318359" width="34.54241943359375" height="92.28440856933594" />
+                <vector id="17:1458" name="Vector" x="807.4675750732422" y="692.5442504882812" width="34.54241943359375" height="92.28440856933594" />
+                <vector id="17:1459" name="Vector" x="776.5770874023438" y="667.9736175537109" width="25.336427688598633" height="44.51692581176758" />
+                <vector id="17:1460" name="Vector" x="806.9755172729492" y="668.0758666992188" width="25.336463928222656" height="44.51692581176758" />
+                <vector id="17:1461" name="Vector" x="745.6758480072021" y="616.0259399414062" width="43.57852554321289" height="59.00181579589844" />
+                <vector id="17:1462" name="Vector" x="819.9768142700195" y="616.0259399414062" width="43.57852554321289" height="59.00181579589844" />
+                <vector id="17:1463" name="Vector" x="776.0190582275391" y="612.7030563354492" width="58.08735275268555" height="79.15328216552734" />
+                <vector id="17:1464" name="Vector" x="799.6600570678711" y="606.0616760253906" width="9.970556259155273" height="8.562076568603516" />
+                <vector id="17:1465" name="Vector" x="760.2124633789062" y="528.6961864829063" width="24.71004867553711" height="28.537044525146484" />
+                <vector id="17:1466" name="Vector" x="819.3498916625977" y="528.1072505434968" width="24.710050582885742" height="28.537044525146484" />
+                <vector id="17:1467" name="Vector" x="760.0653800964355" y="543.2740306854248" width="84.62703704833984" height="67.49984741210938" />
+                <vector id="17:1468" name="Vector" x="771.37060546875" y="553.870418548584" width="62.414207458496094" height="46.173152923583984" />
+                <vector id="17:1469" name="Vector" x="796.2542190551758" y="570.7976531982422" width="13.38513469696045" height="15.392081260681152" />
+                <vector id="17:1470" name="Vector" x="770.7988929748535" y="573.9228248596191" width="12.892781257629395" height="6.013927459716797" />
+                <vector id="17:1471" name="Vector" x="821.2047729492188" y="572.2107467651367" width="13.171340942382812" height="5.727611064910889" />
+                <vector id="17:1472" name="Vector" x="796.2972183227539" y="583.9438972473145" width="13.461983680725098" height="2.291978597640991" />
+                <vector id="17:1473" name="Vector" x="800.5479125976562" y="589.2365036010742" width="4.822456359863281" height="0.535007655620575" />
+                <vector id="17:1474" name="Vector" x="767.5235252380371" y="591.5571250915527" width="14.91117870046935" height="10.324671679590779" />
+                <vector id="17:1475" name="Vector" x="822.2226181030273" y="580.821964263916" width="14.911127273576653" height="10.324668966420518" />
+              </frame>
+              <frame id="17:1476" name="Group" x="943.7061157226562" y="523.1624145507812" width="174.23947143554688" height="261.6566467285156">
+                <vector id="17:1477" name="Vector" x="943.7061976441983" y="668.7873229980469" width="43.64352035522461" height="38.7623176574707" />
+                <vector id="17:1478" name="Vector" x="1074.3021545410156" y="668.7873229980469" width="43.64352035522461" height="38.7623176574707" />
+                <vector id="17:1479" name="Vector" x="994.0588150024414" y="694.8235168457031" width="33.64960479736328" height="89.89303588867188" />
+                <vector id="17:1480" name="Vector" x="1033.6095123291016" y="694.9258880615234" width="33.64960479736328" height="89.89303588867188" />
+                <vector id="17:1481" name="Vector" x="1003.501335144043" y="670.9951934814453" width="24.687362670898438" height="43.35853576660156" />
+                <vector id="17:1482" name="Vector" x="1033.1291732788086" y="671.0976867675781" width="24.687362670898438" height="43.35853576660156" />
+                <vector id="17:1483" name="Vector" x="973.418571472168" y="620.390251159668" width="42.44316101074219" height="57.479835510253906" />
+                <vector id="17:1484" name="Vector" x="1045.790870666504" y="620.390251159668" width="42.44327163696289" height="57.479835510253906" />
+                <vector id="17:1485" name="Vector" x="1002.8661003112793" y="617.1506118774414" width="56.58279800415039" height="77.1094741821289" />
+                <vector id="17:1486" name="Vector" x="1026.2505569458008" y="602.1261520385742" width="8.963263511657715" height="17.92652702331543" />
+                <vector id="17:1487" name="Vector" x="989.030689239502" y="547.0784149169922" width="89.37259674072266" height="91.00582885742188" />
+                <vector id="17:1488" name="Vector" x="1016.409797668457" y="523.1623142690732" width="19.188112258911133" height="31.371370315551758" />
+                <vector id="17:1489" name="Vector" x="1002.4727439880371" y="557.6771240234375" width="54.27437973022461" height="47.79854202270508" />
+                <vector id="17:1490" name="Vector" x="1027.9925689697266" y="585.4173393249512" width="5.846648693084717" height="6.05078649520874" />
+                <vector id="17:1491" name="Vector" x="1000.3510589599609" y="580.4554214477539" width="9.712454795837402" height="6.480051040649414" />
+                <vector id="17:1492" name="Vector" x="1047.660903930664" y="575.7262191772461" width="9.712470054626465" height="6.480051040649414" />
+                <vector id="17:1493" name="Vector" x="1027.8635635375977" y="590.5338516235352" width="5.974699020385742" height="0.9946048855781555" />
+                <vector id="17:1494" name="Vector" x="1020.6424102783203" y="596.5093307495117" width="6.222256183624268" height="1.745970368385315" />
+                <vector id="17:1495" name="Vector" x="1039.062759399414" y="593.5216522216797" width="3.986015558242798" height="2.49228835105896" />
+              </frame>
+              <frame id="17:1496" name="Group" x="1157.417724609375" y="545.3032836914062" width="170.28189086914062" height="239.50726318359375" />
+              <frame id="17:1515" name="Group" x="778.5485229492188" y="791.7379150390625" width="48.5419921875" height="43">
+                <text id="17:1516" name="A" x="778.5486977481341" y="791.7379088542871" width="24" height="43" />
+                <text id="17:1517" name="LI" x="803.0907497406006" y="801.1316471099854" width="24" height="30" />
+              </frame>
+              <text id="17:1518" name="J" x="983.8334350585938" y="791.7379150390625" width="20" height="43" />
+              <text id="17:1519" name="EMMY" x="1004.3031616210938" y="801.1314697265625" width="67" height="30" />
+              <text id="17:1520" name="L" x="1212.66064453125" y="791.419921875" width="20" height="43" />
+              <text id="17:1521" name="ac" x="1234.0250244140625" y="802.1318969726562" width="32" height="30" />
+              <frame id="17:1522" name="Group" x="747.3736572265625" y="843.1956787109375" width="121" height="50.3040771484375">
+                <text id="17:1523" name="O urso possui expressão" x="747.3738691392064" y="843.1956570124385" width="121" height="13" />
+                <text id="17:1524" name="serena, com cores que" x="751.2828938961029" y="855.6333255767822" width="112" height="13" />
+                <text id="17:1525" name="lembram a natureza." x="756.6608896255493" y="868.0623054504395" width="101" height="13" />
+                <text id="17:1526" name="Ali é serenidade!" x="765.8981800079346" y="880.4997138977051" width="82" height="13" />
+              </frame>
+              <frame id="17:1527" name="Group" x="971.0263671875" y="843.1959228515625" width="125.537109375" height="37.8663330078125">
+                <text id="17:1528" name="A tinta do polvo foi usada" x="971.5633807182312" y="843.1959170773571" width="125" height="13" />
+                <text id="17:1529" name="por décadas para escrita." x="971.0263630372938" y="855.6333255767822" width="125" height="13" />
+                <text id="17:1530" name="Jemmy é lirismo!" x="990.9331550598145" y="868.0623054504395" width="82" height="13" />
+              </frame>
+              <frame id="17:1531" name="Group" x="1187.853271484375" y="843.1957397460938" width="113" height="50.30401611328125">
+                <text id="17:1532" name="O rato na cor rosa e" x="1195.4584755897522" y="843.1957338365555" width="97" height="13" />
+                <text id="17:1533" name="expressão de sono" x="1198.4905004501343" y="855.6333255767822" width="93" height="13" />
+                <text id="17:1534" name="representa aconchego." x="1187.8532492897648" y="868.0623054504395" width="113" height="13" />
+                <text id="17:1535" name="Lac é ternura!" x="1210.5780410766602" y="880.4997138977051" width="68" height="13" />
+              </frame>
+              <text id="17:1536" name="16" x="1272.4249267578125" y="900.4921264648438" width="29" height="38" />
+              <vector id="17:1537" name="Vector" x="0.05119013413786888" y="0.5206244587898254" width="380.0509338378906" height="485.00653076171875" />
+              <frame id="17:1538" name="Group" x="59.498416900634766" y="98.60443115234375" width="212" height="94.80264282226562">
+                <text id="17:1539" name="CORES" x="59.498416900634766" y="98.60443115234375" width="212" height="80" />
+                <text id="17:1540" name="INSTITUCIONAIS" x="59.498297085869126" y="161.4070701599121" width="209" height="32" />
+              </frame>
+              <frame id="17:1541" name="Group" x="59.584415435791016" y="273.132080078125" width="226" height="87.8646240234375">
+                <text id="17:1542" name="As cores são um horizonte, quando as pétalas" x="59.584415435791016" y="273.132080078125" width="226" height="13" />
+                <text id="17:1543" name="do sol se põem e repousam sobre os" x="59.58435913729045" y="285.6127872467041" width="181" height="13" />
+                <text id="17:1544" name="sussurros do oceano para observar sua" x="59.58435913729045" y="298.0844612121582" width="194" height="13" />
+                <text id="17:1545" name="grandeza e imensidão. A harmonia entre elas" x="59.58435913729045" y="310.5647163391113" width="221" height="13" />
+                <text id="17:1546" name="traz um tom nostálgico e de lembrança, mas" x="59.58435913729045" y="323.04476165771484" width="218" height="13" />
+                <text id="17:1547" name="principalmente transmitem conforto, leveza," x="59.58435913729045" y="335.51673889160156" width="216" height="13" />
+                <text id="17:1548" name="serenidade e uma leve introspecção." x="59.58435913729045" y="347.99668884277344" width="180" height="13" />
+              </frame>
+              <vector id="17:1549" name="Vector" x="428.48089599609375" y="165.83761596679688" width="111.40505981445312" height="147.82594299316406" />
+              <vector id="17:1550" name="Vector" x="428.48089599609375" y="3.014852523803711" width="111.40505981445312" height="164.96519470214844" />
+              <vector id="17:1551" name="Vector" x="539.8854370117188" y="3.014852523803711" width="139.25631713867188" height="164.96519470214844" />
+              <vector id="17:1552" name="Vector" x="317.07537841796875" y="167.98001098632812" width="111.40505981445312" height="145.68353271484375" />
+              <vector id="17:1553" name="Vector" x="317.07537841796875" y="313.6636047363281" width="111.40505981445312" height="171.3924102783203" />
+              <vector id="17:1554" name="Vector" x="317.07537841796875" y="3.014852523803711" width="111.40505981445312" height="164.96519470214844" />
+              <vector id="17:1555" name="Vector" x="539.8854370117188" y="167.98001098632812" width="139.25631713867188" height="145.68353271484375" />
+              <vector id="17:1556" name="Vector" x="428.48089599609375" y="313.6636047363281" width="111.57127380371094" height="170.88246154785156" />
+              <vector id="17:1557" name="Vector" x="539.8854370117188" y="313.6636047363281" width="139.25631713867188" height="171.3924102783203" />
+              <frame id="17:1558" name="Group" x="328.3023986816406" y="116.59082794189453" width="59" height="22.972930908203125">
+                <text id="17:1559" name="HEX: #F1F1F1" x="328.3023986816406" y="116.59082794189453" width="40" height="8" />
+                <text id="17:1560" name="RGB: (241, 241, 241)" x="328.30256252472464" y="124.0774154663086" width="59" height="8" />
+                <text id="17:1561" name="CMYK: 0, 0, 0, 5" x="328.30256252472464" y="131.5637493133545" width="48" height="8" />
+              </frame>
+              <frame id="17:1562" name="Group" x="328.3023986816406" y="265.04803466796875" width="59" height="22.97314453125">
+                <text id="17:1563" name="HEX: #DDDDDD" x="328.3023986816406" y="265.04803466796875" width="47" height="8" />
+                <text id="17:1564" name="RGB: (221, 221, 221)" x="328.30256252472464" y="272.5349521636963" width="59" height="8" />
+                <text id="17:1565" name="CMYK: 0, 0, 0, 13" x="328.30256252472464" y="280.0211935043335" width="51" height="8" />
+              </frame>
+              <frame id="17:1566" name="Group" x="328.3023986816406" y="408.84429931640625" width="58" height="22.9730224609375">
+                <text id="17:1567" name="HEX: #B1B2B2" x="328.3023986816406" y="408.84429931640625" width="43" height="8" />
+                <text id="17:1568" name="RGB: (177, 178, 178)" x="328.30256252472464" y="416.33109426498413" width="58" height="8" />
+                <text id="17:1569" name="CMYK: 1, 0, 0, 30" x="328.30256252472464" y="423.8173360824585" width="51" height="8" />
+              </frame>
+              <frame id="17:1570" name="Group" x="443.04974365234375" y="116.82135009765625" width="63" height="22.972930908203125">
+                <text id="17:1571" name="HEX: #EAEAEA" x="443.0497234921568" y="116.8213439388528" width="44" height="8" />
+                <text id="17:1572" name="RGB: (234, 234, 234)" x="443.0496934889343" y="124.30774164199829" width="63" height="8" />
+                <text id="17:1573" name="CMYK: 0, 0, 0, 8" x="443.0496934889343" y="131.7942886352539" width="48" height="8" />
+              </frame>
+              <frame id="17:1574" name="Group" x="443.04974365234375" y="265.2699890136719" width="63" height="22.972625732421875">
+                <text id="17:1575" name="HEX: #F3F3F3" x="443.0497234921568" y="265.2700136532185" width="43" height="8" />
+                <text id="17:1576" name="RGB: (243, 243, 243)" x="443.0496934889343" y="272.75630712509155" width="63" height="8" />
+                <text id="17:1577" name="CMYK: 0, 0, 0, 5" x="443.0496934889343" y="280.2426404953003" width="48" height="8" />
+              </frame>
+              <frame id="17:1578" name="Group" x="443.04974365234375" y="409.0661926269531" width="54" height="22.97283935546875">
+                <text id="17:1579" name="HEX: #6F6F6F" x="443.0497234921568" y="409.06621567528964" width="43" height="8" />
+                <text id="17:1580" name="RGB: (111, 111, 111)" x="443.0496934889343" y="416.5526633262634" width="54" height="8" />
+                <text id="17:1581" name="CMYK: 0, 0, 0, 56" x="443.0496934889343" y="424.0390272140503" width="52" height="8" />
+              </frame>
+              <frame id="17:1582" name="Group" x="556.5341796875" y="116.59082794189453" width="60" height="22.972930908203125">
+                <text id="17:1583" name="HEX: #8B8B8B" x="556.5342033256602" y="116.59083782119887" width="44" height="8" />
+                <text id="17:1584" name="RGB: (139, 139, 139)" x="556.5342033256602" y="124.0774154663086" width="60" height="8" />
+                <text id="17:1585" name="CMYK: 0, 0, 0, 46" x="556.5342033256602" y="131.5637493133545" width="52" height="8" />
+              </frame>
+              <frame id="17:1586" name="Group" x="556.5341796875" y="265.0479736328125" width="59" height="22.973175048828125">
+                <text id="17:1587" name="HEX: #DDDDDD" x="556.5342033256602" y="265.0479772416911" width="47" height="8" />
+                <text id="17:1588" name="RGB: (221, 221, 221)" x="556.5342033256602" y="272.53492164611816" width="59" height="8" />
+                <text id="17:1589" name="CMYK: 0, 0, 0, 13" x="556.5342033256602" y="280.02116298675537" width="51" height="8" />
+              </frame>
+              <frame id="17:1590" name="Group" x="556.5341796875" y="408.84429931640625" width="62" height="22.9730224609375">
+                <text id="17:1591" name="HEX: #E5E5E5" x="556.5342033256602" y="408.8443028801739" width="43" height="8" />
+                <text id="17:1592" name="RGB: (229, 229, 229)" x="556.5342033256602" y="416.33109426498413" width="62" height="8" />
+                <text id="17:1593" name="CMYK: 0, 0, 0, 10" x="556.5342033256602" y="423.8173360824585" width="51" height="8" />
+              </frame>
+              <text id="17:1594" name="09" x="62.57197570800781" y="422.4429016113281" width="34" height="38" />
+              <vector id="17:1595" name="Vector" x="679.14208984375" y="0.8724467754364014" width="336.3575744628906" height="479.89874267578125" />
+              <frame id="17:1596" name="Group" x="732.2814331054688" y="79.64495086669922" width="250" height="74.92243957519531">
+                <text id="17:1597" name="TIPOGRAFIA" x="732.2816169332509" y="79.64496663336286" width="198" height="40" />
+                <text id="17:1598" name="INSTITUCIONAL" x="732.2816167973797" y="114.56741714477539" width="250" height="40" />
+              </frame>
+              <vector id="17:1599" name="Vector" x="1015.4998779296875" y="3.014852523803711" width="340.6424255371094" height="477.7563171386719" />
+              <frame id="17:1600" name="Group" x="732.2814331054688" y="304.94744873046875" width="252" height="75.35842895507812">
+                <text id="17:1601" name="A fonte institucional é a AM Novecento. Apesar de" x="732.2816169332509" y="304.9474192963553" width="247" height="13" />
+                <text id="17:1602" name="robusta ela é plena em sua grandiosidade, com" x="732.2816167973797" y="317.4189615249634" width="232" height="13" />
+                <text id="17:1603" name="silhuetas curvas e traço arredondado tem seu peso" x="732.2816167973797" y="329.8906364440918" width="252" height="13" />
+                <text id="17:1604" name="visual equilibrado devidamente em relação aos" x="732.2816167973797" y="342.3625259399414" width="230" height="13" />
+                <text id="17:1605" name="demais elementos, e se destaca de forma leve e" x="732.2816167973797" y="354.8342590332031" width="237" height="13" />
+                <text id="17:1606" name="convidativa." x="732.2816167973797" y="367.3058738708496" width="59" height="13" />
+              </frame>
+              <frame id="17:1607" name="Group" x="0" y="0" width="1316.91552734375" height="386.8282470703125">
+                <text id="17:1608" name="AM NOVECENTO" x="1047.702392578125" y="80.68647766113281" width="209" height="34" />
+                <text id="17:1609" name="A" x="1047.702392578125" y="125.13198852539062" width="19" height="34" />
+                <text id="17:1610" name="M" x="1069.0599365234375" y="133.70152282714844" width="14" height="24" />
+                <text id="17:1611" name="N" x="1083.8717041015625" y="125.13192749023438" width="28" height="34" />
+                <text id="17:1612" name="OVECENTO" x="1111.907958984375" y="133.70152282714844" width="98" height="24" />
+                <frame id="17:1613" name="Group" x="1047.701904296875" y="174.8604278564453" width="255" height="93.8663330078125">
+                  <text id="17:1614" name="A B C D E F G H I J" x="1047.7018885982689" y="174.86044310395664" width="242" height="34" />
+                  <text id="17:1615" name="K L M N O P Q R S T" x="1047.7018885982689" y="204.7893772125244" width="255" height="34" />
+                  <text id="17:1616" name="U V W X Y Z" x="1047.7018885982689" y="234.7267723083496" width="147" height="34" />
+                </frame>
+                <text id="17:1617" name="A" x="1047.702392578125" y="287.034423828125" width="14" height="24" />
+                <frame id="17:1618" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1619" name="B" x="1069.3682861328125" y="287.034423828125" width="14" height="24" />
+                <frame id="17:1620" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1621" name="C" x="1091.1959228515625" y="287.034423828125" width="12" height="24" />
+                <frame id="17:1622" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1623" name="D" x="1111.3167724609375" y="287.034423828125" width="14" height="24" />
+                <frame id="17:1624" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1625" name="E" x="1133.1365966796875" y="287.034423828125" width="13" height="24" />
+                <frame id="17:1626" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1627" name="F" x="1153.6234130859375" y="287.034423828125" width="12" height="24" />
+                <frame id="17:1628" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1629" name="G" x="1173.66650390625" y="287.034423828125" width="14" height="24" />
+                <frame id="17:1630" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1631" name="H" x="1195.42626953125" y="287.034423828125" width="14" height="24" />
+                <frame id="17:1632" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1633" name="I" x="1217.33984375" y="287.034423828125" width="8" height="24" />
+                <frame id="17:1634" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1635" name="J" x="1233.3531494140625" y="287.034423828125" width="12" height="24" />
+                <frame id="17:1636" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1637" name="K" x="1252.748291015625" y="287.034423828125" width="14" height="24" />
+                <frame id="17:1638" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1639" name="L" x="1274.78955078125" y="287.034423828125" width="11" height="24" />
+                <frame id="17:1640" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1641" name="M" x="1294.0992431640625" y="287.034423828125" width="15" height="24" />
+                <frame id="17:1642" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1643" name="N" x="1047.702392578125" y="316.9631652832031" width="15" height="24" />
+                <frame id="17:1644" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1645" name="O" x="1070.0679931640625" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1646" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1647" name="P" x="1092.049560546875" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1648" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1649" name="Q" x="1113.544921875" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1650" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1651" name="R" x="1135.5504150390625" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1652" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1653" name="S" x="1157.0457763671875" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1654" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1655" name="T" x="1178.4552001953125" y="316.9631652832031" width="12" height="24" />
+                <frame id="17:1656" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1657" name="U" x="1197.9359130859375" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1658" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1659" name="V" x="1219.8148193359375" y="316.9631652832031" width="13" height="24" />
+                <frame id="17:1660" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1661" name="W" x="1240.754150390625" y="316.9631652832031" width="14" height="24" />
+                <frame id="17:1662" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1663" name="X" x="1262.30078125" y="316.9631652832031" width="13" height="24" />
+                <frame id="17:1664" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1665" name="Y" x="1283.2742919921875" y="316.9631652832031" width="13" height="24" />
+                <frame id="17:1666" name="Group" x="0" y="0" width="85.36442565917969" height="85.36442565917969" />
+                <text id="17:1667" name="Z" x="1303.91552734375" y="316.9631652832031" width="13" height="24" />
+                <text id="17:1668" name="0 1 2 3 4 5 6 7 8 9" x="1047.702392578125" y="352.8282470703125" width="218" height="34" />
+              </frame>
+              <frame id="17:1669" name="Group" x="1294.8321533203125" y="417.8759460449219" width="30" height="38">
+                <text id="17:1670" name="10" x="1294.8321533203125" y="417.8759460449219" width="30" height="38" />
+              </frame>
+              <vector id="17:1671" name="Vector" x="2.14208984375" y="969.2395629882812" width="182.10443115234375" height="239.94937133789062" />
+              <vector id="17:1672" name="Vector" x="338.4998779296875" y="969.2395629882812" width="156.39556884765625" height="239.94937133789062" />
+              <vector id="17:1673" name="Vector" x="494.8951721191406" y="969.2395629882812" width="184.24684143066406" height="242.09178161621094" />
+              <vector id="17:1674" name="Vector" x="184.24630737304688" y="969.2395629882812" width="154.25315856933594" height="239.94937133789062" />
+              <frame id="17:1675" name="Group" x="46.82401657104492" y="1025.072998046875" width="97.7900390625" height="143.6444091796875">
+                <text id="17:1676" name="Pontos" x="49.6139600276947" y="1116.771499633789" width="95" height="29" />
+                <text id="17:1677" name="sem nó" x="50.407514810562134" y="1139.7174072265625" width="88" height="29" />
+                <frame id="17:1678" name="Group" x="46.82401657104492" y="1025.072998046875" width="86.11446380615234" height="85.61695861816406" />
+              </frame>
+              <frame id="17:1693" name="Group" x="211.02194213867188" y="1025.0731201171875" width="97.74755859375" height="146.1539306640625">
+                <text id="17:1694" name="Pontos" x="213.76954865455627" y="1119.2810440063477" width="95" height="29" />
+                <text id="17:1695" name="sem nó" x="214.56310367584229" y="1142.2270736694336" width="88" height="29" />
+                <frame id="17:1696" name="Group" x="211.02201002213405" y="1025.0730736566911" width="86.11482238769531" height="85.61697387695312" />
+              </frame>
+              <frame id="17:1711" name="Group" x="368.9461975097656" y="1025.072998046875" width="97.28662109375" height="144.4637451171875">
+                <text id="17:1712" name="Pontos" x="371.23295068740845" y="1117.590835571289" width="95" height="29" />
+                <text id="17:1713" name="sem nó" x="372.0172212123871" y="1140.536735534668" width="88" height="29" />
+                <frame id="17:1714" name="Group" x="368.94609869115084" y="1025.0729685599217" width="86.11485290527344" height="85.61697387695312" />
+              </frame>
+              <frame id="17:1729" name="Group" x="526.0162963867188" y="1025.07275390625" width="100.4371337890625" height="143.40548706054688">
+                <text id="17:1730" name="Pontos" x="531.453607082367" y="1114.9357986450195" width="95" height="29" />
+                <text id="17:1731" name="sem nó" x="531.453607082367" y="1139.4783325195312" width="88" height="29" />
+                <frame id="17:1732" name="Group" x="526.0164863541286" y="1025.0728366106923" width="86.1058120727539" height="85.61705017089844" />
+              </frame>
+              <vector id="17:1747" name="Vector" x="338.4998779296875" y="1209.18896484375" width="156.39556884765625" height="242.09178161621094" />
+              <vector id="17:1748" name="Vector" x="184.24630737304688" y="1209.18896484375" width="155.12350463867188" height="244.23416137695312" />
+              <vector id="17:1749" name="Vector" x="-0.00011728854588000104" y="1209.18896484375" width="184.24684143066406" height="242.09178161621094" />
+              <vector id="17:1750" name="Vector" x="494.8951721191406" y="1209.18896484375" width="184.24684143066406" height="242.09178161621094" />
+              <frame id="17:1751" name="Group" x="367.3664245605469" y="1242.8717041015625" width="97.791015625" height="143.9088134765625">
+                <text id="17:1752" name="Pontos" x="370.15726590156555" y="1334.8346557617188" width="95" height="29" />
+                <text id="17:1753" name="sem nó" x="370.9425137042999" y="1357.7805557250977" width="88" height="29" />
+                <frame id="17:1754" name="Group" x="367.3664245605469" y="1242.8717041015625" width="86.11482238769531" height="85.61709594726562" />
+              </frame>
+              <frame id="17:1769" name="Group" x="213.36962890625" y="1241.5662841796875" width="97.70413208007812" height="145.21478271484375">
+                <text id="17:1770" name="Pontos" x="216.0737714767456" y="1334.8351745605469" width="95" height="29" />
+                <text id="17:1771" name="sem nó" x="216.8678150177002" y="1357.7810745239258" width="88" height="29" />
+                <frame id="17:1772" name="Group" x="213.36962547781877" y="1241.5662911155014" width="86.10565185546875" height="85.61717987060547" />
+              </frame>
+              <frame id="17:1787" name="Group" x="534.35595703125" y="1242.8717041015625" width="100.7958984375" height="143.9088134765625">
+                <text id="17:1788" name="Pontos" x="540.1517429351807" y="1334.8346557617188" width="95" height="29" />
+                <text id="17:1789" name="sem nó" x="540.9443202018738" y="1357.7805557250977" width="88" height="29" />
+                <frame id="17:1790" name="Group" x="534.35595703125" y="1242.8717041015625" width="86.10673522949219" height="85.61717224121094" />
+              </frame>
+              <frame id="17:1805" name="Group" x="46.82401657104492" y="1240.65234375" width="96.50927734375" height="146.1282958984375">
+                <text id="17:1806" name="Pontos" x="48.33322894573212" y="1334.8347778320312" width="95" height="29" />
+                <text id="17:1807" name="sem nó" x="49.12727236747742" y="1357.7806777954102" width="88" height="29" />
+                <frame id="17:1808" name="Group" x="46.82401657104492" y="1240.65234375" width="86.11446380615234" height="85.617431640625" />
+              </frame>
+              <text id="17:1823" name="05" x="46.83036804199219" y="1395.9132080078125" width="35" height="38" />
+              <vector id="17:1824" name="Vector" x="2.14208984375" y="480.7712097167969" width="651.2911376953125" height="488.46832275390625" />
+              <vector id="17:1825" name="Vector" x="342.7843017578125" y="480.7712097167969" width="336.3575744628906" height="488.46832275390625" />
+              <vector id="17:1826" name="Vector" x="36.22829818725586" y="532.1616821289062" width="285.1171875" height="248.12875366210938" />
+              <frame id="17:1827" name="Group" x="364.84991455078125" y="535.294921875" width="274.2657775878906" height="303.8681640625">
+                <vector id="17:1828" name="Vector" x="364.84991455078125" y="535.294921875" width="274.2657775878906" height="303.8681640625" />
+                <vector id="17:1829" name="Vector" x="443.81185150146484" y="709.6986999511719" width="138.0139923095703" height="113.98372650146484" />
+                <vector id="17:1830" name="Vector" x="502.1728210449219" y="781.1094818115234" width="12.702228546142578" height="14.596052169799805" />
+                <vector id="17:1831" name="Vector" x="555.8056945800781" y="767.503173828125" width="24.273799896240234" height="10.82088565826416" />
+                <vector id="17:1832" name="Vector" x="442.371826171875" y="767.503173828125" width="24.273799896240234" height="10.82088565826416" />
+                <vector id="17:1833" name="Vector" x="502.20703125" y="793.8467407226562" width="12.702228546142578" height="1.9697856903076172" />
+                <vector id="17:1834" name="Vector" x="500.1161346435547" y="802.4001159667969" width="19.90699005126953" height="10.294999122619629" />
+                <vector id="17:1835" name="Vector" x="504.8935852050781" y="802.3964233398438" width="10.248506546020508" height="5.095709323883057" />
+              </frame>
+              <frame id="17:1836" name="Group" x="34.91336441040039" y="853.772216796875" width="202" height="80.4669189453125">
+                <text id="17:1837" name="ELEMENTOS" x="34.91336441040039" y="853.772216796875" width="202" height="43" />
+                <text id="17:1838" name="DE APOIO" x="34.91315365189803" y="891.2390899658203" width="166" height="43" />
+              </frame>
+              <frame id="17:1839" name="Group" x="46.846981048583984" y="668.6087646484375" width="98.34890747070312" height="61.21328353881836" />
+              <frame id="17:1848" name="Group" x="186.5438995361328" y="589.5597534179688" width="84.2081298828125" height="59.728633880615234" />
+              <frame id="17:1860" name="Group" x="236.43524169921875" y="659.6400146484375" width="68.43534851074219" height="66.85375213623047" />
+              <frame id="17:1872" name="Group" x="155.54884338378906" y="647.1483154296875" width="73.10578918457031" height="93.994140625" />
+              <frame id="17:1883" name="Group" x="87.86995697021484" y="561.3837280273438" width="86.5842514038086" height="95.9255142211914" />
+              <vector id="17:1892" name="Vector" x="968.366455078125" y="969.2395629882812" width="392.06011962890625" height="482.0411376953125" />
+              <vector id="17:1893" name="Vector" x="1014.4536743164062" y="1046.8582763671875" width="284.4854736328125" height="305.90338134765625" />
+              <vector id="17:1894" name="Vector" x="679.14208984375" y="969.2395629882812" width="291.3670654296875" height="482.0411376953125" />
+              <frame id="17:1895" name="Group" x="729.8739013671875" y="1181.767822265625" width="213" height="170.57421875">
+                <text id="17:1896" name="Em sua versão principal, um coelho" x="729.8739013671875" y="1181.767822265625" width="182" height="13" />
+                <text id="17:1897" name="escuta atentamente as vozes do oceano." x="729.8737718084594" y="1194.8967065811157" width="213" height="13" />
+                <text id="17:1898" name="Ele personifica a curiosidade inocente e" x="729.8737718084594" y="1208.0344619750977" width="206" height="13" />
+                <text id="17:1899" name="o convite ao escapismo. A concha que" x="729.8737718084594" y="1221.1634216308594" width="199" height="13" />
+                <text id="17:1900" name="traz às suas orelhas não é um simples" x="729.8737718084594" y="1234.292625427246" width="196" height="13" />
+                <text id="17:1901" name="caracol do mar, mas um portal alado," x="729.8737718084594" y="1247.4215850830078" width="191" height="13" />
+                <text id="17:1902" name="representando o estado de calmaria e" x="729.8737718084594" y="1260.559341430664" width="196" height="13" />
+                <text id="17:1903" name="descoberta interior ao qual a melodia" x="729.8737718084594" y="1273.6884155273438" width="193" height="13" />
+                <text id="17:1904" name="nos leva." x="729.8737718084594" y="1286.8173751831055" width="46" height="13" />
+                <text id="17:1905" name="A escolha sobre a expressão atenta do" x="729.8737718084594" y="1299.9464569091797" width="201" height="13" />
+                <text id="17:1906" name="coelho e as asas na extremidade da" x="729.8737718084594" y="1313.083969116211" width="186" height="13" />
+                <text id="17:1907" name="concha remetem, respectivamente, à" x="729.8737718084594" y="1326.2130584716797" width="192" height="13" />
+                <text id="17:1908" name="serenidade e escapismo." x="729.8737718084594" y="1339.3420104980469" width="129" height="13" />
+              </frame>
+              <frame id="17:1909" name="Group" x="1060.4295654296875" y="1065.5526123046875" width="188.37890625" height="278.5963134765625">
+                <text id="17:1910" name="Pontos" x="1065.808400630951" y="1243.9130096435547" width="183" height="56" />
+                <text id="17:1911" name="sem nó" x="1067.327100276947" y="1288.14892578125" width="170" height="56" />
+                <frame id="17:1912" name="Group" x="1060.4294278297166" y="1065.5525621041743" width="166.02622985839844" height="165.08197021484375" />
+              </frame>
+              <frame id="17:1927" name="Group" x="729.8739013671875" y="1046.52490234375" width="198" height="84.39599609375">
+                <text id="17:1928" name="Versão" x="729.8739013671875" y="1046.52490234375" width="147" height="45" />
+                <text id="17:1929" name="principal" x="729.8737718084594" y="1085.9208374023438" width="198" height="45" />
+              </frame>
+              <frame id="17:1930" name="Group" x="1073.0101318359375" y="1387.40234375" width="225.58935546875" height="29.024169921875">
+                <text id="17:1931" name="Manual de Identidade Visual 2025" x="1110.599292755127" y="1402.426565170288" width="188" height="14" />
+                <frame id="17:1932" name="Group" x="1073.0100131878644" y="1387.402300571419" width="27.40068244934082" height="27.23792266845703" />
+              </frame>
+              <text id="17:1947" name="03" x="729.8739013671875" y="1386.8389892578125" width="35" height="38" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="17:1948" name="Frame 83" x="0.1812744140625" y="1474.1265869140625" width="1354" height="459.88134765625">
+        <rounded-rectangle id="17:1949" name="Rectangle 11125" x="156.54776000976562" y="-12.90052604675293" width="990.8901977539062" height="265.78564453125" />
+        <ellipse id="17:1950" name="Ellipse 259" x="289.7591552734375" y="-180.509521484375" width="803.492919921875" height="803.492919921875" />
+        <vector id="17:1951" name="Vector 1049" x="-67.09027099609375" y="252.0267333984375" width="1500.097412109375" height="282.1284484863281" />
+        <rounded-rectangle id="17:1952" name="capa banner2 2" x="565.1123657226562" y="-289.8707275390625" width="852.4064331054688" height="1034.7877197265625" />
+        <frame id="17:1953" name="Group 100503" x="565.1123657226562" y="18.05312156677246" width="254.5915069580078" height="489.2227783203125">
+          <boolean-operation id="17:1954" name="Subtract" x="749.6419830322266" y="344.27821922302246" width="70.06187438964844" height="64.54716491699219" />
+          <vector id="17:1960" name="Vector 707" x="637.6440505981445" y="401.28261375427246" width="127.9280014038086" height="35.886775970458984" />
+          <vector id="17:1961" name="Vector 708" x="747.1609497070312" y="409.09898948669434" width="59.31545639038086" height="73.26109313964844" />
+          <vector id="17:1962" name="Vector 709" x="565.1123992386274" y="412.2535915374756" width="95.01629638671875" height="41.65098190307617" />
+          <vector id="17:1963" name="Vector 710" x="567.342227935791" y="442.1918239593506" width="101.59656524658203" height="64.52183532714844" />
+          <vector id="17:1964" name="Vector 711" x="651.3922271728516" y="473.43456077575684" width="134.9937744140625" height="33.84141540527344" />
+          <boolean-operation id="17:1965" name="Union" x="581.3018798828125" y="346.9804286956787" width="208.8125" height="146.666015625" />
+          <vector id="17:1970" name="Vector 712" x="653.477180480957" y="309.8064785003662" width="84.97543334960938" height="24.916210174560547" />
+          <vector id="17:1971" name="Vector 713" x="725.9971466064453" y="315.1920680999756" width="39.23373031616211" height="50.76212692260742" />
+          <vector id="17:1972" name="Vector 714" x="605.4975967407227" y="317.2431240081787" width="62.84834289550781" height="28.820987701416016" />
+          <vector id="17:1973" name="Vector 715" x="607.5498313903809" y="340.6694850921631" width="64.70775604248047" height="42.580684661865234" />
+          <vector id="17:1974" name="Vector 716" x="662.5869369506836" y="359.82546043395996" width="89.25209045410156" height="23.24273109436035" />
+          <ellipse id="17:1975" name="Ellipse 176" x="613.8268852233887" y="321.8377285003662" width="144.29086303710938" height="50.20430374145508" />
+          <frame id="17:1976" name="Group 263" x="618.956600189209" y="18.053142546501476" width="133.50181579589844" height="338.0032653808594">
+            <vector id="17:1977" name="Vector 603" x="679.9366035461426" y="107.87630844005616" width="15.433176040649414" height="14.782378196716309" />
+            <vector id="17:1978" name="Vector 605" x="729.4876365661621" y="49.426988600578625" width="18.58477234222869" height="26.354825101850054" />
+            <frame id="17:1979" name="Group 257" x="645.5375347137451" y="18.053122479323065" width="81.45060729980469" height="98.09893035888672" />
+            <vector id="17:1987" name="Vector 601" x="698.0661582946777" y="37.150953291740734" width="54.39226150512695" height="105.70377349853516" />
+            <vector id="17:1988" name="Vector 602" x="655.0492134094238" y="25.598722933616955" width="75.17538452148438" height="104.9859619140625" />
+            <vector id="17:1989" name="Vector 595" x="665.4079551696777" y="248.4121818531421" width="34.737034057033725" height="98.99396297075549" />
+            <vector id="17:1990" name="Vector 604" x="648.2364635467529" y="205.95313644298585" width="41.18901978694089" height="67.13493828383389" />
+            <vector id="17:1991" name="Vector 597" x="706.6297035217285" y="206.53264999279054" width="41.18901978694089" height="67.13493828383389" />
+            <vector id="17:1992" name="Vector 598" x="697.2085762023926" y="255.68235397228273" width="42.244137439563474" height="100.37403755691764" />
+            <vector id="17:1993" name="Vector 599" x="653.3428115844727" y="110.6862297047046" width="49.925384521484375" height="77.1080093383789" />
+            <vector id="17:1994" name="Vector 600" x="618.9565974556726" y="171.92269515880616" width="109.62080383300781" height="68.30811309814453" />
+          </frame>
+          <vector id="17:1995" name="Vector 717" x="589.0066776275635" y="395.93031883239746" width="195.05300903320312" height="63.92654800415039" />
+          <vector id="17:1996" name="Ellipse 177" x="680.5610961914062" y="435.9258632659912" width="5.961759567260742" height="11.923519134521484" />
+          <vector id="17:1997" name="Ellipse 178" x="646.2070159912109" y="425.7119960784912" width="16.265480001789456" height="14.535732238627872" />
+          <ellipse id="17:1998" name="Ellipse 179" x="684.0171279907227" y="439.4829616546631" width="4.8004560470581055" height="4.8004560470581055" />
+          <ellipse id="17:1999" name="Ellipse 180" x="645.0701904296875" y="431.7109889984131" width="8.30293597102468" height="8.30293597102468" />
+          <ellipse id="17:2000" name="Ellipse 181" x="611.3295021057129" y="423.6387538909912" width="5.811870287901002" height="6.940720532913474" />
+          <ellipse id="17:2001" name="Ellipse 182" x="729.1417999267578" y="438.82460594177246" width="6.3507398871666965" height="7.1493353477559936" />
+          <vector id="17:2002" name="Vector 718" x="674.071403503418" y="442.3040065765381" width="6.484721660614014" height="0" />
+          <vector id="17:2003" name="Vector 719" x="635.1127853393555" y="423.72752952575684" width="4.693166067577408" height="6.5559714018293676" />
+          <vector id="17:2004" name="Vector 720" x="620.7062301635742" y="425.1541042327881" width="5.495346072916391" height="2.8408375782439634" />
+          <vector id="17:2005" name="Vector 721" x="738.0950012207031" y="442.9167995452881" width="5.786812128125348" height="3.5408750685563746" />
+          <vector id="17:2006" name="Vector 722" x="692.692253112793" y="442.3040065765381" width="6.484721660614014" height="0" />
+          <vector id="17:2007" name="Vector 723" x="648.5151214599609" y="442.45998191833496" width="4.693166067577408" height="6.5559714018293676" />
+          <vector id="17:2008" name="Vector 724" x="605.0185661315918" y="417.03746604919434" width="5.495346072916391" height="2.8408375782439634" />
+          <vector id="17:2009" name="Vector 725" x="721.9949035644531" y="432.4359645843506" width="6.085939808807552" height="2.834959179845896" />
+          <vector id="17:2010" name="Vector 726" x="686.5256118774414" y="435.6133327484131" width="0" height="6.484721660614014" />
+          <vector id="17:2011" name="Vector 727" x="650.7566375732422" y="431.41014671325684" width="6.555971401829311" height="4.693166067577408" />
+          <vector id="17:2012" name="Vector 728" x="607.8168029785156" y="426.45860862731934" width="2.3787989038538626" height="6.562717650653553" />
+          <vector id="17:2013" name="Vector 729" x="725.2283630371094" y="442.14684104919434" width="2.5182880961910996" height="6.8512367050889225" />
+          <vector id="17:2014" name="Vector 730" x="686.5256118774414" y="454.33409690856934" width="0" height="6.484721660614014" />
+          <vector id="17:2015" name="Vector 731" x="631.8676452636719" y="444.93517112731934" width="6.555971401829311" height="4.693166067577408" />
+          <vector id="17:2016" name="Vector 732" x="614.6634368896484" y="407.55910301208496" width="2.3787989038538626" height="6.562717650653553" />
+          <ellipse id="17:2017" name="Ellipse 183" x="609.8351593017578" y="411.42873191833496" width="14.47592674516136" height="17.28199099723338" />
+          <ellipse id="17:2018" name="Ellipse 184" x="758.6010131835938" y="425.67812156677246" width="5.811870287901002" height="6.940720532913474" />
+          <vector id="17:2019" name="Vector 733" x="764.8891754150391" y="419.0774440765381" width="5.495346072916391" height="2.8408375782439634" />
+          <vector id="17:2020" name="Vector 734" x="762.1020355224609" y="428.51024436950684" width="2.3787989038538626" height="6.562717650653553" />
+          <vector id="17:2021" name="Vector 735" x="755.2437133789062" y="409.59963035583496" width="2.3787989038538626" height="6.562717650653553" />
+          <ellipse id="17:2022" name="Ellipse 185" x="760.0725708007812" y="413.4797878265381" width="14.47592674516136" height="17.28199099723338" />
+          <vector id="17:2023" name="Ellipse 186" x="727.1123504638672" y="426.3365077972412" width="16.014790163102248" height="17.98763340549891" />
+        </frame>
+        <rounded-rectangle id="17:2024" name="capa banner2 3" x="885.0872192382812" y="-127.3014907836914" width="807.6786499023438" height="980.4899291992188" />
+      </frame>
+      <frame id="17:2025" name="Frame 100883" x="0" y="1962.0079345703125" width="1354.1812744140625" height="586.1459350585938">
+        <frame id="17:2026" name="Frame 100790" x="0" y="0" width="512.5549926757812" height="586.1459350585938">
+          <vector id="17:2027" name="Vector 1200" x="176.87551879882812" y="63.26233673095703" width="1.2910703420639038" height="344.0702209472656" />
+          <vector id="17:2028" name="Vector 1201" x="315.6661071777344" y="59.38939666748047" width="6.455351829528809" height="353.7532653808594" />
+          <vector id="17:2029" name="Vector 1202" x="36.795066833496094" y="159.44732666015625" width="432.508544921875" height="10.974098205566406" />
+          <vector id="17:2030" name="Vector 1203" x="55.51677703857422" y="276.2891845703125" width="420.243408203125" height="12.265168190002441" />
+          <frame id="17:2031" name="Group 100799" x="207.6622772216797" y="191.0782012939453" width="78.75529479980469" height="68.65209197998047" />
+          <frame id="17:2037" name="Group 100798" x="207.6622772216797" y="76.81871795654297" width="78.75529479980469" height="68.65209197998047" />
+          <frame id="17:2043" name="Group 100796" x="360.6552734375" y="309.85699462890625" width="78.75529479980469" height="68.65209197998047" />
+          <frame id="17:2049" name="Group 100802" x="70.81080627441406" y="198.1791534423828" width="78.75529479980469" height="68.65209197998047" />
+          <frame id="17:2055" name="Group 100801" x="82.42938232421875" y="308.5657043457031" width="65.16206359863281" height="84.56510162353516" />
+          <frame id="17:2059" name="Group 100797" x="356.3365783691406" y="180.1046600341797" width="65.16206359863281" height="84.56510162353516" />
+          <frame id="17:2063" name="Group 100800" x="217.99197387695312" y="302.1103820800781" width="65.16206359863281" height="84.56510162353516" />
+          <text id="17:2067" name="Deserto das velhas passagens, jogo das mil miragens me revele qual o meu lugar nesse mundo." x="300.1743469238281" y="483.5057373046875" width="168.48468017578125" height="36" />
+          <text id="17:2068" name="CRENÇAS E CRIANCISSES" x="30.34048843383789" y="505.4537658691406" width="227.22837829589844" height="19" />
+          <text id="17:2069" name="JOGO DO TEMPO" x="30.34048843383789" y="471.24078369140625" width="228" height="36" />
+        </frame>
+        <frame id="17:2070" name="Frame 100769" x="530.7906494140625" y="0" width="823.2093505859375" height="586.1459350585938">
+          <rounded-rectangle id="17:2071" name="image 98" x="-22.14310646057129" y="-15.630513191223145" width="867.9193115234375" height="618.7095947265625" />
+        </frame>
+      </frame>
+      <frame id="17:2072" name="Frame 94" x="0" y="2576.15380859375" width="1354.1812744140625" height="1855.3228759765625">
+        <frame id="17:2073" name="Group 100835" x="0" y="527.0316162109375" width="653.9998168945312" height="893.34130859375">
+          <rounded-rectangle id="17:2074" name="Rectangle" x="0" y="527.0316162109375" width="653.9998168945312" height="893.34130859375" />
+          <frame id="17:2075" name="Group 100694" x="57.85240936279297" y="563.4524574279785" width="539.6841430664062" height="316.14013671875">
+            <text id="17:2076" name="Hoje" x="57.85252208029851" y="563.4524890379616" width="322.0431213378906" height="155" />
+            <text id="17:2077" name="não sou mais só" x="399.8683090209961" y="588.2987575531006" width="197.66835021972656" height="95.99748992919922" />
+            <text id="17:2078" name="Pontos" x="57.85269986372441" y="670.929027557373" width="496.06640625" height="153" />
+            <text id="17:2079" name="sem nó" x="57.85269986372441" y="793.5925788879395" width="253.03387451171875" height="86" />
+          </frame>
+        </frame>
+        <frame id="17:2080" name="Group 100753" x="-6.426792621612549" y="-0.00048828125" width="1368.996337890625" height="1855.5340576171875">
+          <frame id="17:2081" name="Group 100695" x="-6.426792621612549" y="-0.0003662109375" width="1368.996337890625" height="1413.987548828125">
+            <rounded-rectangle id="17:2082" name="image 173" x="653.4335589408875" y="-0.00012588209938257933" width="709.1360473632812" height="899.81005859375" />
+            <frame id="17:2083" name="Mask group" x="653.4333148002625" y="-0.0002517642133170739" width="700.2169799804688" height="892.2119750976562">
+              <rounded-rectangle id="17:2084" name="Rectangle 11417" x="653.4333246551396" y="-0.00025938779708667425" width="700.2169799804688" height="892.2119750976562" />
+              <frame id="17:2085" name="Group" x="496.51725339889526" y="481.1155929623492" width="444.21441650390625" height="441.5888671875">
+                <vector id="17:2086" name="Vector" x="741.9015154838562" y="481.1154752616567" width="92.35050201416016" height="194.65138244628906" />
+                <vector id="17:2087" name="Vector" x="625.604106426239" y="482.46996665581537" width="315.127685546875" height="440.234375" />
+                <vector id="17:2088" name="Vector" x="569.8706545829773" y="705.1720199643023" width="207.75978088378906" height="176.1228485107422" />
+                <vector id="17:2089" name="Vector" x="718.0033679008484" y="771.5275192318804" width="2.685760259628296" height="7.04460334777832" />
+                <vector id="17:2090" name="Vector" x="839.2797961235046" y="812.2395248471148" width="26.221155166625977" height="18.586069107055664" />
+                <vector id="17:2091" name="Vector" x="822.8494982719421" y="849.3699874935992" width="41.65683364868164" height="11.65619945526123" />
+                <vector id="17:2092" name="Vector" x="839.2797961235046" y="812.2395248471148" width="26.221155166625977" height="18.586069107055664" />
+                <vector id="17:2093" name="Vector" x="917.9651598930359" y="876.8029708920367" width="15.324094772338867" height="18.668241500854492" />
+                <vector id="17:2094" name="Vector" x="575.9863238334656" y="846.6846542416461" width="55.09210205078125" height="30.03563117980957" />
+                <vector id="17:2095" name="Vector" x="545.8315081596375" y="805.0803756771929" width="45.96796798706055" height="42.71125030517578" />
+                <vector id="17:2096" name="Vector" x="523.7025008201599" y="744.1446151791461" width="49.60267639160156" height="65.96304321289062" />
+                <vector id="17:2097" name="Vector" x="496.5173921109381" y="671.4028854428179" width="150.45806884765625" height="91.90348815917969" />
+                <vector id="17:2098" name="Vector" x="718.0033679008484" y="771.5275192318804" width="2.685760259628296" height="7.04460334777832" />
+                <vector id="17:2099" name="Vector" x="719.7674517631531" y="748.9686813412554" width="56.581050872802734" height="37.8779411315918" />
+                <vector id="17:2100" name="Vector" x="618.3190951347351" y="719.7957534848101" width="100.71591186523438" height="103.76972198486328" />
+                <vector id="17:2101" name="Vector" x="655.2543139457703" y="755.8091049252398" width="19.486875534057617" height="26.7570858001709" />
+              </frame>
+            </frame>
+            <text id="17:2102" name="cabe" x="1030.4975237846375" y="679.8851928710938" width="281" height="133" />
+            <text id="17:2103" name="apenas a você acreditar no que pode ser, em potencial, em fenômeno, em vida e em visão. Se dê boas vindas, pois as portas tem mudado de tamanho e ainda cabe a você atravessar esse sonho." x="1034.782069683075" y="813.152099609375" width="275.56927490234375" height="33" />
+            <text id="17:2104" name="@pontossemno" x="673.1119647026062" y="117.45618438720703" width="16" height="96" />
+            <rounded-rectangle id="17:2105" name="image 174" x="-6.42682739259908" y="529.1738891601562" width="659.9822387695312" height="529.0767211914062" />
+            <rounded-rectangle id="17:2106" name="image 175" x="651.2915301322937" y="891.240234375" width="704.8511962890625" height="522.746826171875" />
+            <text id="17:2107" name="Pontos" x="1070.7983050346375" y="1236.69775390625" width="241.0322723388672" height="74" />
+            <text id="17:2108" name="sem nó" x="1072.4239153862" y="1294.97314453125" width="224.0299835205078" height="74" />
+            <frame id="17:2109" name="Mask group" x="0.00020933151245117188" y="0.00025176419876515865" width="653.9122924804688" height="524.8887329101562">
+              <rounded-rectangle id="17:2110" name="Rectangle 11418" x="0.00020933151427016128" y="0.00025176419876515865" width="653.9122924804688" height="524.8887329101562" />
+              <frame id="17:2111" name="Group" x="-292.5481610298157" y="-282.80608368502" width="444.2144470214844" height="442.3087158203125">
+                <vector id="17:2112" name="Vector" x="-47.164005756378174" y="-282.8060377575748" width="92.35050201416016" height="194.96913146972656" />
+                <vector id="17:2113" name="Vector" x="-163.4613995552063" y="-281.4502874671016" width="315.127685546875" height="440.9529724121094" />
+                <vector id="17:2114" name="Vector" x="-219.19485139846802" y="-58.383293157676235" width="207.75978088378906" height="176.4103240966797" />
+                <vector id="17:2115" name="Vector" x="-71.06213808059692" y="8.080451959511265" width="2.685760259628296" height="7.056102752685547" />
+                <vector id="17:2116" name="Vector" x="50.215327739715576" y="48.85843657865189" width="26.221155166625977" height="18.61640739440918" />
+                <vector id="17:2117" name="Vector" x="33.7834734916687" y="86.04953765287064" width="41.65683364868164" height="11.675226211547852" />
+                <vector id="17:2118" name="Vector" x="50.215327739715576" y="48.85843657865189" width="26.221155166625977" height="18.61640739440918" />
+                <vector id="17:2119" name="Vector" x="128.89864683151245" y="113.52710723294877" width="15.324094772338867" height="18.698713302612305" />
+                <vector id="17:2120" name="Vector" x="-213.07818269729614" y="83.35984038724564" width="55.09210205078125" height="30.084657669067383" />
+                <vector id="17:2121" name="Vector" x="-243.23299074172974" y="41.687812799355015" width="45.96796798706055" height="42.780967712402344" />
+                <vector id="17:2122" name="Vector" x="-265.3630051612854" y="-19.34749603853561" width="49.60267639160156" height="66.07071685791016" />
+                <vector id="17:2123" name="Vector" x="-292.54810859443387" y="-92.20757294283248" width="150.45806884765625" height="92.05349731445312" />
+                <vector id="17:2124" name="Vector" x="-71.06213808059692" y="8.080451959511265" width="2.685760259628296" height="7.056102752685547" />
+                <vector id="17:2125" name="Vector" x="-69.29803895950317" y="-14.51528168306686" width="56.581050872802734" height="37.93977355957031" />
+                <vector id="17:2126" name="Vector" x="-170.74742555618286" y="-43.73615265474655" width="100.71591186523438" height="103.9391098022461" />
+                <vector id="17:2127" name="Vector" x="-133.81119203567505" y="-7.663871770957485" width="19.486875534057617" height="26.800762176513672" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="17:2128" name="Group 100715" x="0.00020933151245117188" y="1413.9873046875" width="1354" height="441.5462951660156">
+            <rounded-rectangle id="17:2129" name="Rectangle 11436" x="0.00020933151245117188" y="1413.9873046875" width="1354" height="441.5462951660156" />
+            <frame id="17:2130" name="Mask group" x="0.00020933151245117188" y="1413.9873046875" width="1354" height="441.5462951660156">
+              <rounded-rectangle id="17:2131" name="Rectangle 11420" x="0.00020933151245117188" y="1413.9873046875" width="1354" height="441.5462951660156" />
+              <frame id="17:2132" name="Group 100672" x="-152.57896852493286" y="1280.7899932861328" width="1771.39013671875" height="860.4505615234375">
+                <vector id="17:2133" name="Vector 1138" x="-106.0741696357727" y="1445.5250549316406" width="1690.0655517578125" height="6.08508825302124" />
+                <vector id="17:2134" name="Vector 1140" x="-138.4873013496399" y="1815.2886505126953" width="1690.0655517578125" height="6.08508825302124" />
+                <vector id="17:2135" name="Vector 1139" x="1617.6854357719421" y="1577.8583526611328" width="1757.7915347455514" height="111.03765086155181" />
+                <vector id="17:2136" name="Vector 1141" x="-149.4335060119629" y="1920.6682891845703" width="1758.8565255436188" height="150.7232723522884" />
+                <vector id="17:2137" name="Vector 1142" x="140.650737285614" y="1280.7899434539286" width="11.190475463867188" height="851.305908203125" />
+                <vector id="17:2138" name="Vector 1147" x="1240.5999865531921" y="1284.3446023464203" width="11.190475463867188" height="851.305908203125" />
+                <vector id="17:2139" name="Vector 1144" x="583.7164416313171" y="1280.7899434539286" width="11.190475463867188" height="851.305908203125" />
+                <vector id="17:2140" name="Vector 1146" x="1026.7948107719421" y="1280.7899434539286" width="11.190475463867188" height="851.305908203125" />
+                <vector id="17:2141" name="Vector 1143" x="367.2647204399109" y="1315.1605415344238" width="177.73598560840765" height="826.079960003738" />
+                <vector id="17:2142" name="Vector 1145" x="797.2759509086609" y="1280.7899434539286" width="177.73598560840765" height="826.079960003738" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <text id="17:2143" name="* Não foi utilizado nenhum agente IA de geração de imagens para as criações visuais (sketches, vetores, ilustrações…) neste projeto." x="909.1812744140625" y="4459.4765625" width="445" height="36" />
+      <frame id="17:2144" name="Frame 100823" x="1047.44287109375" y="4523.4765625" width="306.7384338378906" height="132.0911407470703">
+        <frame id="17:2145" name="Frame 100820" x="0" y="17.04557991027832" width="160" height="98">
+          <text id="17:2146" name="Obrigada por ter chegado até aqui!" x="20" y="35" width="116" height="34" />
+        </frame>
+        <frame id="17:2147" name="Group 100762" x="189.22569274902344" y="0" width="138.73842518751076" height="132.09113535895722" />
+      </frame>
+    </frame>
+    <frame id="17:2164" name="Frame 100889" x="0" y="4687.56787109375" width="1354.1812744140625" height="430.3062438964844">
+      <text id="17:2165" name="Talvez você goste..." x="0" y="0" width="279" height="38" />
+      <frame id="17:2166" name="Frame 100890" x="0" y="53.30624008178711" width="1353.590576171875" height="377">
+        <frame id="17:2167" name="Frame 100805" x="0" y="0" width="669.5906372070312" height="376.6447448730469">
+          <frame id="17:2168" name="Frame 100801" x="0" y="0" width="669.5906372070312" height="376.6447448730469">
+            <rounded-rectangle id="17:2169" name="Tela de bloqueio 1" x="0" y="0" width="669.5906982421875" height="376.644775390625" />
+          </frame>
+        </frame>
+        <frame id="17:2170" name="Frame 100806" x="684.5906372070312" y="0" width="669" height="377">
+          <frame id="17:2171" name="Frame 100799" x="0" y="0" width="669" height="377">
+            <rounded-rectangle id="17:2172" name="arte final (1) 1" x="0" y="0" width="755" height="377" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+</frame>
+IMPORTANT: After you call this tool, you MUST call get_design_context if trying to implement the design, since this tool only returns metadata. If you do not call get_design_context, the agent will not be able to implement the design.
+
+<mcp-result-metadata>
+{
+ "_meta": {
+  "mcpRequestId": "30f8aabc-08ba-4976-bdfc-591a04300e3e"
+ }
+}
+</mcp-result-metadata>

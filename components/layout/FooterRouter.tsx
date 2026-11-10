@@ -4,6 +4,7 @@ import { useSelectedLayoutSegments } from 'next/navigation';
 import { Footer } from './Footer';
 import { HomeFooter } from './HomeFooter';
 import type { Dictionary } from '@/i18n/dictionaries';
+import { isFullPageCase } from '@/lib/projects';
 
 /**
  * Alterna entre o Footer antigo (bg-band, outras páginas) e o HomeFooter novo
@@ -19,8 +20,13 @@ export function FooterRouter({ dict }: { dict: Dictionary }) {
   const segments = useSelectedLayoutSegments();
   const isHome = segments.length === 0;
   const isProjectsIndex = segments.length === 1 && segments[0] === 'projetos';
+  // Cases de página completa (Batuco-tuco, Pontinhas soltas) abertos direto: o mesmo
+  // footer padrão, com o voltar ao topo.
+  const isFullPage = segments.length === 2 && segments[0] === 'projetos' && isFullPageCase(segments[1]);
+  // Estudos: o mesmo footer do Figma ("visite também", node 17:2252).
+  const isStudies = segments.length === 1 && segments[0] === 'estudos';
 
-  if (isHome) return <HomeFooter dict={dict} />;
+  if (isHome || isFullPage || isStudies) return <HomeFooter dict={dict} />;
   if (isProjectsIndex) return <HomeFooter dict={dict} variant="projects" />;
   return <Footer dict={dict} />;
 }

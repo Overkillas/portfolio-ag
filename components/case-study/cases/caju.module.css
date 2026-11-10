@@ -1,0 +1,650 @@
+/* ==========================================================================
+   Case Caju — frame do Figma 17:5070 (coluna de 1352px) + livro do canvas do
+   Claude Design (ProjetoCaju): pilha de páginas no scroll e "Simulação de
+   leitura". Zoom, cursor, lightbox e reveal vêm de batuco.module.css (o
+   BatucoMotion procura as classes de lá).
+
+   Fileiras de imagens: flex com pesos = larguras do Figma (--grow) e os vãos do
+   Figma em px; abaixo de 48rem elas empilham. Texto em duas colunas só a partir
+   de 64rem, como no Batuco-tuco e no Pontinhas soltas.
+   ========================================================================== */
+
+/* ---------- imagens ---------- */
+/* Caixa do Figma (--ar = w / h) com o export 2x do nó dentro. */
+.pic {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ar);
+  object-fit: cover;
+}
+/* Hero (17:5177): 1354 × 461. */
+.hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1354 / 461;
+  object-fit: cover;
+}
+
+/* ---------- legendas: Clother Bold 16px / 18px ---------- */
+.cap {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 18px;
+  color: var(--color-blue);
+}
+.capCenter {
+  text-align: center;
+}
+/* "Brainstorming" fica 4px abaixo das fotos (o painel, 8px). */
+.capBrain {
+  margin-top: -4px;
+}
+
+/* ---------- cabeçalho | quadro (17:5181): 688 | 32 | 631, centralizados na vertical ---------- */
+.top {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 64rem) {
+  .top {
+    grid-template-columns: minmax(0, 688fr) minmax(0, 631fr);
+    column-gap: calc(32 / 1351 * 100%);
+    align-items: center;
+  }
+}
+
+/* ---------- fileiras ---------- */
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cell {
+  min-width: 0;
+}
+.fig {
+  min-width: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.block {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 48rem) {
+  .row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .row > * {
+    flex: var(--grow) 1 0;
+  }
+  .gapBrain {
+    gap: 3.516px;
+  }
+  .gap13 {
+    gap: 13px;
+  }
+  .gap16 {
+    gap: 16px;
+  }
+  .gap17 {
+    gap: 17px;
+  }
+}
+
+/* Brainstorming (17:5349): coluna de 316.8 (duas fotos, vão 3.516) | 4 | foto de 404.04 */
+.brainGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 316.8fr) minmax(0, 404.04fr);
+  gap: 4px;
+  align-items: start;
+}
+.brainCol {
+  display: flex;
+  flex-direction: column;
+  gap: 3.516px;
+}
+
+/* Pintura e diagramação (17:5436): vãos de 9.667 (esquerda) e 12.567 (direita). */
+.gapPaintL {
+  gap: 9.667px;
+}
+.gapPaintR {
+  gap: 12.567px;
+}
+
+/* Mídia impressa (17:5466): 8px + caixa vazia de 18px abaixo das fotos. */
+.printed {
+  padding-bottom: 26px;
+}
+
+/* ---------- Projeto final 667 | 22 | Ferramentas 641 (17:5443) ---------- */
+.two {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  .two {
+    grid-template-columns: minmax(0, 667fr) minmax(0, 641fr);
+    column-gap: 22px;
+  }
+}
+
+/* Nota de IA (17:5488): 445px à direita; o balão vem 32px abaixo (o CaseShell
+   põe 28px, os 4px que faltam ficam aqui). */
+.note {
+  margin: 0 0 4px auto;
+  max-width: 445px;
+}
+
+/* ==========================================================================
+   Pilha de páginas no scroll (Claude Design; Figma 17:5473)
+   ========================================================================== */
+.stkWrap {
+  position: relative;
+}
+.stkFrame {
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+/* 1360 × 1273: 2 colunas de páginas 662 × 662 (vão 35) e linhas a cada 305px.
+   cqw = largura da pilha. */
+.stack {
+  container-type: inline-size;
+  position: relative;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 1360 / 1273;
+  clip-path: inset(-60px -60px 0 -60px);
+  transform-origin: 50% 50%;
+}
+/* Página: cantos de 30px, sombra externa e sombra interna do Figma. */
+.stack .sCard {
+  position: absolute;
+  width: 48.68cqw;
+  aspect-ratio: 1 / 1;
+  border-radius: 2.206cqw;
+  overflow: hidden;
+  box-shadow: 0 5px 10px 2px rgba(110, 78, 45, 0.74);
+}
+.stack .sCard img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stack .sCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset -5px 7px 24.04px 0 rgba(110, 78, 45, 0.74);
+  pointer-events: none;
+}
+.sCol0 {
+  left: 0;
+}
+.sCol1 {
+  left: 51.29cqw;
+}
+.sRow0 {
+  top: 0;
+  z-index: 1;
+}
+/* Linhas 2 e 3 sobem de trás da borda de baixo: deslocamento = 1273 − topo. */
+.sRow1 {
+  top: 22.46cqw;
+  z-index: 2;
+  --o: 71.18cqw;
+}
+.sRow2 {
+  top: 44.93cqw;
+  z-index: 3;
+  --o: 48.68cqw;
+}
+.sRow1 {
+  --e: var(--e1, 1);
+}
+.sRow2 {
+  --e: var(--e2, 1);
+}
+/* +1.5cqw: a sombra de cima da página (≈7px) também fica abaixo do recorte
+   enquanto a linha espera para subir (sem um fio de sombra na borda). */
+.stack .sRow1,
+.stack .sRow2 {
+  transform: translateY(calc((var(--o) + 1.5cqw) * (1 - var(--e))));
+  will-change: transform;
+}
+
+
+/* ==========================================================================
+   §4.2 Flipbook "Simulação de leitura"
+   ========================================================================== */
+.fbFrame {
+  --flip: 900ms;
+  --page: cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.fbInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+.fbArea {
+  position: relative;
+  isolation: isolate;
+  /* largura final vem do CajuBook (Claude Design: min(86%, (tela − 250) × 2, 1180px)) */
+  width: 82%;
+  max-width: 100%;
+}
+.fbGlow {
+  position: absolute;
+  top: -9%;
+  height: 118%;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    closest-side,
+    rgba(111, 150, 206, 0.3),
+    rgba(186, 204, 235, 0.18) 55%,
+    rgba(249, 243, 234, 0)
+  );
+  transition:
+    left var(--flip) var(--page),
+    width var(--flip) var(--page);
+}
+.pulse.fbGlow {
+  animation: fbGlow 3.4s ease-in-out infinite;
+}
+.fbBook {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  transform-style: preserve-3d;
+  perspective: 2400px;
+  transition: transform var(--flip) var(--page);
+}
+.fbStack {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: #efe7db;
+  transform: translateZ(-1px);
+  transition:
+    opacity var(--flip) ease,
+    box-shadow var(--flip) ease;
+}
+.fbStackL {
+  left: 0;
+  border-radius: 4.3% 0 0 4.3% / 4.3% 0 0 4.3%;
+}
+.fbStackR {
+  left: 50%;
+  border-radius: 0 4.3% 4.3% 0 / 0 4.3% 4.3% 0;
+}
+.fbLeaf {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform var(--flip) var(--page);
+  will-change: transform;
+}
+.fbFace {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  transform: translateZ(0.01px);
+}
+.fbFace img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+.fbFront {
+  border-radius: 0 4.4% 4.4% 0 / 0 4.4% 4.4% 0;
+}
+.fbBack {
+  transform: rotateY(180deg) translateZ(0.01px);
+  border-radius: 4.4% 0 0 4.4% / 4.4% 0 0 4.4%;
+}
+.fbSpine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10%;
+  pointer-events: none;
+}
+.fbFront .fbSpine {
+  left: 0;
+  background: linear-gradient(to right, rgba(70, 45, 30, 0.24), rgba(70, 45, 30, 0.07) 40%, rgba(70, 45, 30, 0));
+}
+.fbBack .fbSpine {
+  right: 0;
+  background: linear-gradient(to left, rgba(70, 45, 30, 0.24), rgba(70, 45, 30, 0.07) 40%, rgba(70, 45, 30, 0));
+}
+.fbShade {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.fbFront .fbShade {
+  background: linear-gradient(to right, rgba(35, 30, 70, 0.08), rgba(35, 30, 70, 0.42));
+}
+.fbBack .fbShade {
+  background: linear-gradient(to left, rgba(35, 30, 70, 0.08), rgba(35, 30, 70, 0.42));
+}
+.flyFwd .fbFront .fbShade,
+.flyBack .fbBack .fbShade {
+  animation: fbDarken var(--flip) linear forwards;
+}
+.flyFwd .fbBack .fbShade,
+.flyBack .fbFront .fbShade {
+  animation: fbLighten var(--flip) linear forwards;
+}
+
+/* áreas de clique (metade esquerda volta, metade direita avança) + canto dobrando */
+.fbHits {
+  position: absolute;
+  inset: 0;
+  transition: transform var(--flip) var(--page);
+}
+.fbHit {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  container-type: inline-size;
+}
+.fbHit[hidden] {
+  display: none;
+}
+.fbHitPrev {
+  left: 0;
+}
+.fbHitNext {
+  left: 50%;
+}
+.fbHit:focus-visible {
+  outline: 3px solid #6f96ce;
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+.fbCurl {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  aspect-ratio: 1 / 1;
+  pointer-events: none;
+  transition:
+    width 0.3s cubic-bezier(0.3, 0.7, 0.4, 1),
+    opacity 0.18s ease;
+}
+.fbHitNext .fbCurl {
+  right: 0;
+}
+.fbHitPrev .fbCurl {
+  left: 0;
+}
+.fbUnder,
+.fbFlapWrap,
+.fbFlap {
+  position: absolute;
+  inset: 0;
+}
+.fbHitNext .fbFlapWrap {
+  filter: drop-shadow(1px 2px 2.5px rgba(60, 40, 25, 0.3));
+}
+.fbHitPrev .fbFlapWrap {
+  filter: drop-shadow(-1px 2px 2.5px rgba(60, 40, 25, 0.3));
+}
+.fbHitNext .fbUnder {
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  border-bottom-right-radius: 4.3cqw;
+  background: linear-gradient(135deg, #a99880 50%, #d6caba 57%, #ece4d8 74%, #f4eee5 100%);
+}
+.fbHitNext .fbFlap {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  border-top-left-radius: 4.3cqw;
+  background: linear-gradient(135deg, #fffdf8 0%, #faf4eb 22%, #ece2d4 40%, #d5c7b3 50%);
+}
+.fbHitPrev .fbUnder {
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  border-bottom-left-radius: 4.3cqw;
+  background: linear-gradient(225deg, #a99880 50%, #d6caba 57%, #ece4d8 74%, #f4eee5 100%);
+}
+.fbHitPrev .fbFlap {
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  border-top-right-radius: 4.3cqw;
+  background: linear-gradient(225deg, #fffdf8 0%, #faf4eb 22%, #ece2d4 40%, #d5c7b3 50%);
+}
+@media (hover: hover) {
+  .fbHit:hover .fbCurl {
+    width: 13cqw;
+  }
+}
+.fbHit:active .fbCurl {
+  width: 15cqw;
+}
+.fbHitNext.invite:not(:hover) .fbCurl {
+  animation: fbPeek 3.2s ease-in-out 1.2s infinite;
+}
+.fbHitPrev.invite:not(:hover) .fbCurl {
+  animation: fbPeek 3.2s ease-in-out 2.8s infinite;
+}
+.busy .fbHit .fbCurl {
+  opacity: 0;
+  width: 0;
+  animation: none;
+  transition:
+    opacity 0.16s ease,
+    width 0s linear 0.16s;
+}
+
+
+/* título "Simulação de leitura" (17:5485): Clother Bold 32px, linha de 18px; o
+   livro fica 28px abaixo (gap de 24 + 4). */
+.fbTitle {
+  margin: 0 0 4px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--color-blue);
+}
+@media (min-width: 48rem) {
+  .fbTitle {
+    font-size: 2rem;
+  }
+}
+
+/* controles: setas pontilhadas (as do lightbox) + contador com barra */
+.fbCtrl {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: min(100%, max(320px, 35rem));
+}
+.fbMeter {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+}
+.fbLabel {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-blue);
+}
+.fbTrack {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(111, 150, 206, 0.2);
+  overflow: hidden;
+}
+.fbFill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--color-blue);
+  transition: width var(--flip) var(--page);
+}
+.fbHint {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--color-blue);
+}
+/* Seta de avançar pulsando até a primeira virada. */
+.fbNext.pulse {
+  animation: fbRing 2.4s ease-out infinite;
+}
+/* Reiniciar: o ícone ocupa o miolo inteiro (sem o recorte do glifo de texto). */
+.fbRestart > span {
+  padding: 0;
+}
+.fbRestartIcon {
+  display: block;
+}
+/* Hovers iguais aos das setas do lightbox. */
+@media (prefers-reduced-motion: no-preference) {
+  .fbPrev:not(:disabled):hover {
+    translate: -4px 0;
+    rotate: -10deg;
+  }
+  .fbNext:hover {
+    translate: 4px 0;
+    rotate: 10deg;
+  }
+  .fbRestart:hover {
+    rotate: -30deg;
+  }
+}
+
+@keyframes fbGlow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.97);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+@keyframes fbRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(111, 150, 206, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(111, 150, 206, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(111, 150, 206, 0);
+  }
+}
+@keyframes fbDarken {
+  0% {
+    opacity: 0;
+  }
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fbLighten {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fbPeek {
+  0%,
+  55%,
+  100% {
+    width: 0;
+  }
+  68%,
+  86% {
+    width: 12cqw;
+  }
+}
+
+/* movimento reduzido: pilha montada, livro vira sem animação, sem convites */
+@media (prefers-reduced-motion: reduce) {
+  .stack .sRow1,
+  .stack .sRow2 {
+    transform: none;
+  }
+  .fbBook,
+  .fbLeaf,
+  .fbHits,
+  .fbStack,
+  .fbFill,
+  .fbGlow,
+  .fbCurl {
+    transition-duration: 1ms !important;
+  }
+  .fbShade,
+  .fbCurl,
+  .fbGlow,
+  .fbNext {
+    animation: none !important;
+  }
+  .fbGlow {
+    opacity: 0.6;
+  }
+}

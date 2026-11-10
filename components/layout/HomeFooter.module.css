@@ -1,0 +1,106 @@
+/*
+ * Botão de voltar ao topo do footer: pílula AZUL, copiada do `.pill` dos filtros de
+ * /projetos (components/projects/projects.module.css): forma, fonte, padding,
+ * borda tracejada, halo, hover/active e foco. Cores (R11): miolo #E7ECF2, texto,
+ * ícone e tracejado #527FB0, halo #BACCEA. Sem `word-spacing`: --word-gap é uma
+ * variável local do módulo de /projetos, não existe no footer.
+ * Mais encorpada que o `.pill` (~1.3×) a pedido da usuária: fonte 19px, padding
+ * 9×18, altura 40, tracejado 2px e halo 4px.
+ */
+.backTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  font: 700 19px var(--font-body), sans-serif;
+  line-height: 1;
+  padding: 9px 18px;
+  min-height: 40px;
+  border-radius: 999px;
+  background: #e7ecf2;
+  color: #527fb0 !important;
+  text-decoration: none;
+  border: 2px dashed #527fb0;
+  box-shadow: 0 0 0 4px #baccea;
+  transition:
+    transform 0.25s var(--ease-spring),
+    background 0.2s,
+    color 0.2s;
+}
+/* Em telas estreitas (< 380px) a pílula grande encostaria em "Redes sociais", que
+   divide a mesma linha (top 109): volta ao tamanho compacto do `.pill`. */
+@media (max-width: 379.98px) {
+  .backTop {
+    gap: 6px;
+    font-size: 14.5px;
+    padding: 5px 11px;
+    min-height: 26px;
+    border-width: 1.5px;
+    box-shadow: 0 0 0 3px #baccea;
+  }
+  .arrow {
+    width: 14px;
+    height: 9.9px;
+  }
+}
+@media (hover: hover) {
+  .backTop:hover {
+    transform: translateY(-2px) rotate(-1.5deg);
+  }
+}
+.backTop:active {
+  transform: scale(0.94);
+}
+.backTop:focus-visible {
+  outline: 3px solid var(--color-blue-darkest);
+  outline-offset: 4px;
+  border-radius: 24px;
+}
+/* Bob de 3px: o de 6px do bob global empurraria a seta para fora da pílula
+   (padding 9px). */
+.arrow {
+  flex: none;
+  animation: bobSm 1.8s ease-in-out infinite;
+}
+@keyframes bobSm {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+/* Links sociais (guia do Batuco-tuco, em todos os footers): no hover o texto fica branco
+   e o sublinhado se afasta 3px (no Claude Design, 3px → 6px). O repouso continua na
+   posição da fonte (decoration-from-font, como no Figma): o deslocamento é somado a ela. */
+/* Sublinhado e cores aqui (e não em utilitários do Tailwind): o `a { color: inherit;
+   text-decoration: none }` de globals.css fica fora de layer e ganharia deles. Figma:
+   sublinhado na posição e na espessura da fonte. */
+.social {
+  text-decoration-line: underline;
+  text-decoration-thickness: from-font;
+  text-underline-position: from-font;
+  text-underline-offset: 0;
+  transition:
+    color 0.2s,
+    text-underline-offset 0.25s;
+}
+.social:hover {
+  color: #fff;
+  text-underline-offset: 3px;
+}
+.social:focus-visible {
+  outline: 2px solid var(--color-cream);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    animation: none;
+  }
+  .backTop,
+  .social {
+    transition: none;
+  }
+}

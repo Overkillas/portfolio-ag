@@ -76,7 +76,7 @@ export default async function HomePage({
           decoding="async"
           width={695}
           height={695}
-          className="pointer-events-none absolute -z-10 hidden md:block"
+          className="anim-breathe pointer-events-none absolute -z-10 hidden md:block"
           style={{
             left: "80.6%", // 1394/1728
             top: "82px", // 436 - 354
@@ -94,7 +94,7 @@ export default async function HomePage({
           decoding="async"
           width={455}
           height={455}
-          className="pointer-events-none absolute -z-10 hidden md:block"
+          className="anim-breathe pointer-events-none absolute -z-10 hidden md:block"
           style={{
             left: "1.56%", // 27/1728
             top: "771px", // 1125 - 354
@@ -112,7 +112,7 @@ export default async function HomePage({
           decoding="async"
           width={879}
           height={879}
-          className="pointer-events-none absolute -z-10 hidden md:block"
+          className="anim-breathe pointer-events-none absolute -z-10 hidden md:block"
           style={{
             left: "33.6%", // 581/1728
             top: "1254px", // 1608 - 354
@@ -138,8 +138,8 @@ export default async function HomePage({
       {/* Personagem espiando por cima da galeria (será ajustado no Plan 4) */}
       <PeekingCharacter dict={dict} />
 
-      {/* Seção 3: Galeria de estudos (será reescrita no Plan 4) */}
-      <StudiesGallery dict={dict} />
+      {/* Seção 3: Galeria de estudos (o bloco Estudos leva a /estudos) */}
+      <StudiesGallery dict={dict} locale={lang} />
 
       {/* Seção 4: Contato — wrapper com elipses decorativas absolutas.
           (reescrita do ContactSection no Plan 5; por ela usar o padrão vw do
@@ -170,7 +170,7 @@ export default async function HomePage({
           decoding="async"
           width={455}
           height={455}
-          className="pointer-events-none absolute -z-10 hidden md:block"
+          className="anim-breathe pointer-events-none absolute -z-10 hidden md:block"
           style={{
             left: "65.4%", // 1131/1728
             top: "137px",
@@ -188,7 +188,7 @@ export default async function HomePage({
           decoding="async"
           width={695}
           height={695}
-          className="pointer-events-none absolute -z-10 hidden md:block"
+          className="anim-breathe pointer-events-none absolute -z-10 hidden md:block"
           style={{
             left: "4.3%", // 74/1728
             top: "320px",

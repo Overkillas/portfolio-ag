@@ -15,6 +15,7 @@
 #   5 - Runtime verification (Task 16)
 #   6 - Final pre-merge
 #   7 - Projects page (static checks + runtime checks, which SKIP without a server on :3000)
+#   8 - Home texts, animations and hovers (static + runtime; runtime SKIPs without a server; browser checks in the e2e.mjs)
 #
 # Exit code: 0 = PASS, 1 = FAIL
 #
@@ -654,6 +655,12 @@ console.log('Parity OK: ' + ptKeys.length + ' keys');
 gate_7() {
   log_gate "7" "Projects page (/[lang]/projetos + case modal)"
 
+  # Cases de página completa = slugs com `opensAsPage: true` em lib/projects.ts.
+  FULL_PAGE_CASES=$(awk "/slug: '/ { match(\$0, /slug: '[^']+'/); s = substr(\$0, RSTART + 7, RLENGTH - 8) } /opensAsPage: true/ && s { print s; s = \"\" }" lib/projects.ts)
+  if [ -z "$FULL_PAGE_CASES" ]; then
+    log_fail "No opensAsPage project found in lib/projects.ts (expected batuco-tuco, pontinhas-soltas)"
+  fi
+
   # ----------------------------------------------------------
   # Static checks (no server needed)
   # ----------------------------------------------------------
@@ -852,7 +859,18 @@ console.log('ok: ' + a.size + ' keys');
   HDR_IDX_PT=$(header_of "$HTML_PT")
   HDR_IDX_EN=$(header_of "$HTML_EN")
   HDR_HOME_PT=$(header_of "$(page "/pt-BR")")
-  HDR_CASE_PT=$(header_of "$(page "/pt-BR/projetos/batuco-tuco")")
+  # Primeiro case que ainda abre com o header do site (não é `opensAsPage`), se houver.
+  # Desde o 15 anos (2026-11-09) todos os cases são página completa; o teste do
+  # CaseHeader volta a valer sozinho quando um case novo não tiver `opensAsPage`.
+  NARROW_CASE=""
+  for slug in $PROJECT_SLUGS; do
+    if ! printf '%s\n' "$FULL_PAGE_CASES" | grep -qx -- "$slug"; then
+      NARROW_CASE="$slug"
+      break
+    fi
+  done
+  HDR_CASE_PT=""
+  [ -n "$NARROW_CASE" ] && HDR_CASE_PT=$(header_of "$(page "/pt-BR/projetos/$NARROW_CASE")")
   # Índice → HomeHeader ("sobre"/"about", não "Sobre mim"); aria-current só ali.
   if printf '%s' "$HDR_IDX_PT" | grep -q '>sobre<' && printf '%s' "$HDR_IDX_EN" | grep -q '>about<'; then
     log_pass "Index uses HomeHeader (sobre / about)"
@@ -865,23 +883,53 @@ console.log('ok: ' + a.size + ' keys');
   else
     log_fail "projetos link lacks aria-current=\"page\" on the index"
   fi
-  if printf '%s' "$HDR_HOME_PT" | grep -q 'aria-current'; then
-    log_fail "Home header has aria-current (only the index should)"
+  # Home → o ativo é "sobre" (link p/ a própria home); "projetos" não é ativo.
+  HDR_HOME_EN=$(header_of "$(page "/en")")
+  if printf '%s' "$HDR_HOME_PT" | grep -q 'aria-current="page"[^>]*href="/pt-BR"\|href="/pt-BR"[^>]*aria-current="page"' \
+    && printf '%s' "$HDR_HOME_EN" | grep -q 'aria-current="page"[^>]*href="/en"\|href="/en"[^>]*aria-current="page"'; then
+    log_pass "Home header marks the sobre/about link with aria-current=\"page\""
   else
-    log_pass "Home header has no aria-current"
+    log_fail "Home header sobre/about link lacks aria-current=\"page\""
   fi
-  # Case aberto direto → Header antigo ("Sobre mim"), como hoje.
-  if printf '%s' "$HDR_CASE_PT" | grep -q 'Sobre mim'; then
-    log_pass "Case page opened directly keeps the old Header"
+  if printf '%s' "$HDR_HOME_PT" | grep -q 'aria-current="page"[^>]*href="/pt-BR/projetos"\|href="/pt-BR/projetos"[^>]*aria-current="page"' \
+    || printf '%s' "$HDR_HOME_EN" | grep -q 'aria-current="page"[^>]*href="/en/projetos"\|href="/en/projetos"[^>]*aria-current="page"'; then
+    log_fail "Home header projetos link has aria-current (only sobre should)"
   else
-    log_fail "Case page opened directly does not show the old Header (expected 'Sobre mim')"
+    log_pass "Home header projetos link has no aria-current"
   fi
+  # Case aberto direto → CaseHeader do Figma: voltar (aria-label traduzido) e "projetos",
+  # ambos para o índice; nada do Header antigo ("Sobre mim").
+  if [ -z "$NARROW_CASE" ]; then
+    log_pass "No case opens with the site header (every slug in slugToKey is opensAsPage)"
+  elif printf '%s' "$HDR_CASE_PT" | grep -q 'aria-label="voltar aos projetos"' \
+    && printf '%s' "$HDR_CASE_PT" | grep -q 'href="/pt-BR/projetos"' \
+    && ! printf '%s' "$HDR_CASE_PT" | grep -q 'Sobre mim'; then
+    log_pass "$NARROW_CASE page opened directly uses the CaseHeader (back + projetos)"
+  else
+    log_fail "$NARROW_CASE page opened directly does not show the CaseHeader (expected back aria-label and /pt-BR/projetos link, no 'Sobre mim')"
+  fi
+  # Cases de página completa (opensAsPage: todos os de slugToKey hoje) abertos direto →
+  # sem header do site (o frame do Figma só tem a barra de voltar), mas com o seletor de
+  # idioma na barra do próprio case (AGENTS.md: nenhuma página sem trocar de idioma).
+  for slug in $FULL_PAGE_CASES; do
+    FULL_HTML=$(page "/pt-BR/projetos/$slug")
+    if [ -z "$(header_of "$FULL_HTML")" ]; then
+      log_pass "$slug page opened directly has no site header (Figma)"
+    else
+      log_fail "$slug page opened directly renders a <header> (the Figma frame has none)"
+    fi
+    if printf '%s' "$FULL_HTML" | grep -q 'aria-label="Switch to English"\|aria-label="Mudar para English"\|aria-pressed='; then
+      log_pass "$slug page renders the language switcher"
+    else
+      log_fail "$slug page has no language switcher (hidden header must be replaced by CaseTopBar)"
+    fi
+  done
 
-  log_sub "Test: the 3 project links per locale (/{locale}/projetos/<slug>)..."
+  log_sub "Test: one link per project per locale (/{locale}/projetos/<slug>)..."
   for locale in pt-BR en; do
     HTML_VAR=$([ "$locale" = "pt-BR" ] && printf '%s' "$HTML_PT" || printf '%s' "$HTML_EN")
     other=$([ "$locale" = "pt-BR" ] && echo "en" || echo "pt-BR")
-    for slug in pontos-sem-no batuco-tuco pontinhas-soltas; do
+    for slug in $PROJECT_SLUGS; do
       if printf '%s' "$HTML_VAR" | grep -q "href=\"/$locale/projetos/$slug\""; then
         log_pass "/$locale/projetos links to /$locale/projetos/$slug"
       else
@@ -902,19 +950,181 @@ console.log('ok: ' + a.size + ' keys');
   fi
 
   log_sub "Test: case opened directly is the full page (200, no dialog)..."
-  for locale in pt-BR en; do
-    STATUS=$(http_code "$BASE/$locale/projetos/batuco-tuco")
-    CASE_HTML=$(page "/$locale/projetos/batuco-tuco")
-    if [ "$STATUS" = "200" ] && ! printf '%s' "$CASE_HTML" | grep -q 'role="dialog"'; then
-      log_pass "/$locale/projetos/batuco-tuco → 200, no role=\"dialog\""
-    else
-      log_fail "/$locale/projetos/batuco-tuco → HTTP $STATUS or contains role=\"dialog\""
-    fi
+  for slug in $FULL_PAGE_CASES; do
+    for locale in pt-BR en; do
+      STATUS=$(http_code "$BASE/$locale/projetos/$slug")
+      CASE_HTML=$(page "/$locale/projetos/$slug")
+      if [ "$STATUS" = "200" ] && ! printf '%s' "$CASE_HTML" | grep -q 'role="dialog"'; then
+        log_pass "/$locale/projetos/$slug → 200, no role=\"dialog\""
+      else
+        log_fail "/$locale/projetos/$slug → HTTP $STATUS or contains role=\"dialog\""
+      fi
+    done
   done
 
   log_sub "Test: unknown project returns 404..."
   STATUS=$(http_code "$BASE/pt-BR/projetos/nao-existe")
   [ "$STATUS" = "404" ] && log_pass "/pt-BR/projetos/nao-existe → 404" || log_fail "/pt-BR/projetos/nao-existe → HTTP $STATUS (expected 404)"
+}
+
+# ============================================================
+# GATE 8: Home — textos, animações e hovers do protótipo About
+# ============================================================
+gate_8() {
+  log_gate "8" "Home texts, animations and hovers"
+
+  # ----------------------------------------------------------
+  # Static checks (no server needed)
+  # ----------------------------------------------------------
+  log_sub "Dictionary keys: new home keys (pt-BR ↔ en parity, no empty values)..."
+  # philosophyColUx pt-BR = "O " e en = "" (por desenho): só a paridade de existência vale
+  # para essa chave; as demais não podem ser vazias.
+  if node -e "
+const pt = require('./dictionaries/pt-BR.json');
+const en = require('./dictionaries/en.json');
+const fail = (msg) => { console.error(msg); process.exit(1); };
+const keys = [
+  'intro', 'philosophyBody1',
+  'philosophyBody2', 'philosophyBody2Bold1', 'philosophyBody2Mid', 'philosophyBody2Bold2',
+  'philosophyBody2Mid2', 'philosophyBody2Bold3', 'philosophyBody2End',
+  'philosophyColUx', 'philosophyColUxBold', 'philosophyColUxEnd',
+  'philosophyCol3d', 'philosophyCol3dBold1', 'philosophyCol3dMid', 'philosophyCol3dBold2', 'philosophyCol3dEnd',
+];
+const allowEmpty = new Set(['philosophyColUx']);
+let n = 0;
+for (const [name, d] of [['pt-BR', pt], ['en', en]]) {
+  for (const k of keys) {
+    const v = d.home && d.home[k];
+    if (typeof v !== 'string') fail('home.' + k + ' missing in ' + name);
+    if (!v.trim() && !(allowEmpty.has(k) && name === 'en')) fail('home.' + k + ' empty in ' + name);
+    n++;
+  }
+  for (const t of ['studies', 'career', 'gallery']) {
+    for (const f of ['title', 'text']) {
+      const v = d.home && d.home.tiles && d.home.tiles[t] && d.home.tiles[t][f];
+      if (typeof v !== 'string' || !v.trim()) fail('home.tiles.' + t + '.' + f + ' missing/empty in ' + name);
+      n++;
+    }
+  }
+  for (const k of ['philosophyBody1Bold', 'philosophyBody1End']) {
+    if (d.home && k in d.home) fail('home.' + k + ' must be removed in ' + name);
+  }
+}
+if (!pt.home.intro.startsWith('Prazer, sou a Ágatha!')) fail('pt-BR home.intro must start with \"Prazer, sou a Ágatha!\"');
+if (!en.home.intro.startsWith('Nice to meet you')) fail('en home.intro must start with \"Nice to meet you\"');
+console.log('ok: ' + n + ' checks');
+"; then
+    log_pass "home.* new keys present in both dictionaries; Body1Bold/Body1End removed; intro starts right"
+  else
+    log_fail "home.* new keys check failed"
+  fi
+
+  log_sub "Image assets in public/images/home/..."
+  for asset in "espiando-cabeca.png" "espiando-dedos.png" "icones/estudos.png" "icones/carreira.png" "icones/galeria.png"; do
+    if [ -f "public/images/home/$asset" ]; then
+      log_pass "  $asset exists"
+    else
+      log_fail "  public/images/home/$asset missing"
+    fi
+  done
+
+  log_sub "globals.css: keyframes and prefers-reduced-motion block..."
+  CSS="${GATE8_CSS:-app/[lang]/globals.css}"
+  for kf in float breathe swing swingHover; do
+    if grep -qE "@keyframes[[:space:]]+$kf[[:space:]]*\{" "$CSS"; then
+      log_pass "  @keyframes $kf"
+    else
+      log_fail "  @keyframes $kf missing in $CSS"
+    fi
+  done
+  # O bloco de movimento reduzido tem que citar as 4 classes de animação (Tasks 3 e 4).
+  # Extrai só o bloco @media (contando chaves) e casa a classe exata (.anim-float != .anim-float-2).
+  RM_BLOCK=$(awk '
+    !f && /@media[[:space:]]*\(prefers-reduced-motion:[[:space:]]*reduce\)/ {f=1}
+    f { print; n=gsub(/\{/,"{"); m=gsub(/\}/,"}"); d+=n-m; if (d<=0 && (n+m)>0) exit }
+  ' "$CSS" || true)
+  if [ -z "$RM_BLOCK" ]; then
+    log_fail "  no @media (prefers-reduced-motion: reduce) block in $CSS"
+  else
+    for cls in anim-float anim-float-2 anim-breathe cracha-swing; do
+      if printf '%s' "$RM_BLOCK" | grep -qE "\.${cls}([^-a-zA-Z0-9_]|$)"; then
+        log_pass "  reduced-motion block covers .$cls"
+      else
+        log_fail "  reduced-motion block does not mention .$cls"
+      fi
+    done
+  fi
+
+  log_sub "No hardcoded tile strings in components/ and app/..."
+  # Mesma ancoragem da gate 7: só casa a frase logo após aspa/crase/'>'.
+  HARDCODED_8=$(grep -rnIE "(['\">\`])[[:space:]]*(Minha carreira no design|Minha galeria|estudos despretensiosos|My design career|My gallery)" components app || true)
+  if [ -z "$HARDCODED_8" ]; then
+    log_pass "No hardcoded tile strings in components/ or app/"
+  else
+    log_fail "Hardcoded tile strings found:"
+    echo "$HARDCODED_8" | head -10
+  fi
+
+  log_sub "ContactForm.tsx untouched since the spec commit (535defa)..."
+  if git diff --quiet 535defa -- components/contact/ContactForm.tsx 2>/dev/null; then
+    log_pass "components/contact/ContactForm.tsx unchanged"
+  else
+    log_fail "components/contact/ContactForm.tsx changed since 535defa"
+  fi
+
+  log_sub "Peeking client component starts with 'use client'..."
+  if [ -f components/home/PeekingReveal.tsx ] && head -n 5 components/home/PeekingReveal.tsx | grep -qE "^['\"]use client['\"]"; then
+    log_pass "components/home/PeekingReveal.tsx is a Client Component"
+  else
+    log_fail "components/home/PeekingReveal.tsx missing or without 'use client'"
+  fi
+
+  # ----------------------------------------------------------
+  # Runtime checks (GATE_BASE_URL or :3000) — SKIP if nothing answers
+  # ----------------------------------------------------------
+  local BASE="${GATE_BASE_URL:-http://localhost:3000}"
+  BASE="${BASE%/}"
+  log_sub "Runtime: server on $BASE..."
+  if ! curl -s --connect-timeout 3 --max-time 60 -o /dev/null "$BASE/pt-BR"; then
+    log_skip "Nothing answers on $BASE — start 'pnpm build && pnpm start' (or set GATE_BASE_URL) and re-run for the runtime checks"
+    return 0
+  fi
+
+  page() { curl -s --max-time 60 "$BASE$1" | tr '\n' ' ' || true; }
+  local HTML_PT HTML_EN
+  HTML_PT=$(page "/pt-BR")
+  HTML_EN=$(page "/en")
+
+  # Âncoras `>…` / `<` casam o texto renderizado no DOM e não o payload RSC (dict em props).
+  log_sub "Test: /pt-BR has the new intro, 3 tile titles, id=\"top\" and the back-to-top link (visible text)..."
+  for pair in ">Prazer, sou a Ágatha!" ">Estudos<" ">Minha carreira no design<" ">Minha galeria<" ">voltar ao topo" 'id="top"'; do
+    if printf '%s' "$HTML_PT" | grep -qF -- "$pair"; then
+      log_pass "  /pt-BR contains: $pair"
+    else
+      log_fail "  /pt-BR does not contain: $pair"
+    fi
+  done
+
+  log_sub "Test: /en has the new intro, 3 tile titles, id=\"top\" and the back-to-top link (visible text)..."
+  for pair in ">Nice to meet you, I" ">Studies<" ">My design career<" ">My gallery<" ">back to top" 'id="top"'; do
+    if printf '%s' "$HTML_EN" | grep -qF -- "$pair"; then
+      log_pass "  /en contains: $pair"
+    else
+      log_fail "  /en does not contain: $pair"
+    fi
+  done
+
+  log_sub "Test: footer back-to-top is a link inside <footer> (both locales)..."
+  for locale in pt-BR en; do
+    HTML_VAR=$([ "$locale" = "pt-BR" ] && printf '%s' "$HTML_PT" || printf '%s' "$HTML_EN")
+    TXT=$([ "$locale" = "pt-BR" ] && echo "voltar ao topo" || echo "back to top")
+    FOOT=$(printf '%s' "$HTML_VAR" | grep -o '<footer.*' | sed 's#</footer>.*#</footer>#' | head -1 || true)
+    if printf '%s' "$FOOT" | grep -qE "<a [^>]*href=\"#top\"[^>]*>(<svg[^>]*>.*</svg>)?$TXT</a>"; then
+      log_pass "  /$locale footer has the pill link to #top with visible text \"$TXT\""
+    else
+      log_fail "  /$locale footer has no <a href=\"#top\"> with visible text \"$TXT\""
+    fi
+  done
 }
 
 # ============================================================
@@ -956,6 +1166,7 @@ main() {
     5) gate_5 ;;
     6) gate_6 ;;
     7) gate_7 ;;
+    8) gate_8 ;;
     all)
       gate_0
       gate_1
@@ -965,9 +1176,10 @@ main() {
       # gate_5  # Skip in 'all' — requires manual interaction
       # gate_6  # Skip in 'all' — run before PR
       # gate_7  # Skip in 'all' — projects page, run per task
+      # gate_8  # Skip in 'all' — home texts/animations, run per task
       ;;
     *)
-      echo "Usage: $0 [0|1|2|3|4|5|6|7|all]"
+      echo "Usage: $0 [0|1|2|3|4|5|6|7|8|all]"
       exit 1
       ;;
   esac

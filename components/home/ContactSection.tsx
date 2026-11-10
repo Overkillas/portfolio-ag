@@ -1,5 +1,5 @@
 import type { Dictionary } from "@/i18n/dictionaries";
-import { ContactForm } from "@/components/contact/ContactForm";
+import { HomeContactForm } from "@/components/home/HomeContactForm";
 
 /**
  * Seção de contato — fiel ao Figma Pontossemno (node 751:1318):
@@ -25,10 +25,9 @@ import { ContactForm } from "@/components/contact/ContactForm";
  * - Subtítulo: x=893, y=3908, w=517, Clother Regular 24px (box 29 = 1.2×24);
  *   gap título→subtítulo = 35 (3908 − (3522+351)); form (stub Figma
  *   750:1259) começa 26px depois (3963)
- * - Formulário: ContactForm existente (nome/email/telefone/mensagem)
- *   — o form REAL é ~456px (vs stub 129px do Figma), o que desce o rodapé
- *   da home (~+153px vs o height 4614 do frame) — impossível de fechar sem
- *   cortar funcionalidade do form.
+ * - Formulário: HomeContactForm (e-mail + solicitação, do protótipo; envio real
+ *   via EmailJS). Mais compacto que o antigo ContactForm (~456px) e mais perto
+ *   do stub de 129px do Figma.
  *
  * Container: fora do .container-narrow (padrão vw do Plan 2 — a coluna 1fr do
  * container limitava a ilustração a ~421px). Padding horizontal espelha o
@@ -45,16 +44,19 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
     <section className="grid grid-cols-1 items-center gap-10 px-6 md:grid-cols-[32.12vw_1fr] md:items-start md:gap-x-[4.74vw] md:px-0 md:pl-[14.70vw] md:pr-[4vw]">
       {/* Ilustração (mão no rosto BAKED no PNG — sem overlay) */}
       <div className="relative mx-auto md:mx-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/home/contato-personagem.png"
-          alt={home.contactIllustrationAlt}
-          loading="lazy"
-          decoding="async"
-          width={539}
-          height={661}
-          className="h-auto w-full md:w-[97.21%] md:ml-[2.793%] md:mt-[3.514%]"
-        />
+        {/* Wrapper flutuando (spec §4.1, fora de fase com o "Olá") */}
+        <div className="anim-float-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/home/contato-personagem.png"
+            alt={home.contactIllustrationAlt}
+            loading="lazy"
+            decoding="async"
+            width={539}
+            height={661}
+            className="h-auto w-full md:w-[97.21%] md:ml-[2.793%] md:mt-[3.514%]"
+          />
+        </div>
       </div>
 
       {/* Texto + formulário */}
@@ -86,8 +88,9 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
           {home.contactSubtitle}
         </p>
 
-        {/* Formulário — REUTILIZAR ContactForm existente (não modificar!) */}
-        <ContactForm />
+        {/* Formulário do protótipo (envio real via EmailJS). O ContactForm antigo
+            segue só em /contato. */}
+        <HomeContactForm />
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from '@/lib/i18n/use-translation';
+import { CaseHeader } from '@/components/case-study/CaseHeader';
 import s from './projects.module.css';
 
 const FOCUSABLE =
@@ -29,7 +30,7 @@ let handedOver = false;
 
 /**
  * Folha do modal de case (aberta por rota interceptada, por cima do índice).
- * Comportamento: foco no botão voltar ao abrir e devolvido ao elemento que abriu
+ * Comportamento: foco no botão voltar do CaseHeader ao abrir e devolvido ao elemento que abriu
  * ao fechar (ou ao card do projeto aberto, se quem abriu era o body); scroll do
  * body travado enquanto aberto, sem deslocar a página atrás; Esc e "voltar" fecham
  * com `router.back()`, uma vez só; Tab fica preso dentro da folha; "próximo" troca
@@ -42,6 +43,8 @@ export function ProjectModal({
   documentTitle,
   nextHref,
   nextTitle,
+  nextOpensAsPage = false,
+  wide = false,
   children,
 }: {
   slug: string;
@@ -50,8 +53,18 @@ export function ProjectModal({
   documentTitle: string;
   nextHref: string;
   nextTitle: string;
+  /**
+   * O próximo projeto abre como página completa (`opensAsPage`): "próximo" troca a
+   * entrada do histórico com carga completa, sem passar pelo modal. Continua valendo
+   * "um único voltar leva ao índice".
+   */
+  nextOpensAsPage?: boolean;
+  /** Case com layout 'wide': voltar e próximo seguem a coluna de 1352px. */
+  wide?: boolean;
   children: ReactNode;
 }) {
+  // Coluna do CaseShell: `.container-case` nos cases normais, `.container-wide` (1352px) nos 'wide'.
+  const container = wide ? 'container-wide' : 'container-case';
   const router = useRouter();
   const { t, locale } = useTranslations();
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -173,28 +186,21 @@ export function ProjectModal({
       tabIndex={-1}
       className={s.sheet}
     >
-      <div className={`container-narrow ${s.sheetInner}`}>
-        <div className={s.sheetCol}>
-          <button
-            ref={backRef}
-            type="button"
-            onClick={close}
-            className={s.backBtn}
-          >
-            <span aria-hidden>←</span>
-            {t('projectsPage.back')}
-          </button>
-        </div>
-      </div>
+      <CaseHeader onBack={close} backRef={backRef} wide={wide} />
 
       {children}
 
-      <div className={`container-narrow ${s.sheetFoot}`}>
+      <div className={`${container} ${s.sheetFoot}`}>
         <div className={s.sheetCol}>
           <button
             type="button"
             onClick={() => {
               if (closingRef.current) return;
+              if (nextOpensAsPage) {
+                closingRef.current = true;
+                window.location.replace(nextHref);
+                return;
+              }
               pendingHandoff = {
                 opener: openerRef.current,
                 toSlug: nextHref.slice(nextHref.lastIndexOf('/') + 1),

@@ -1,0 +1,177 @@
+/*
+ * Formulário da home — vindo do protótipo (for-implement/portfolio-about,
+ * about.module.css; ANIMACOES.md §7). O protótipo mede em `u` = px a 1728; a
+ * coluna de texto do contato já é em px (md:max-w-[517px]), então aqui as
+ * medidas são px diretos (u -> px, arredondado). Abaixo de `md` (768px) valem as
+ * regras de <700px do protótipo. Curvas --ease-* vêm do :root do globals.css.
+ */
+.form {
+  --field: #fbf6ef;
+  --placeholder: #baccea;
+  --send: #b7c9ea;
+  --send-hover: #8faee3;
+  --focus: #0e488b;
+
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.fieldWrap {
+  position: relative;
+  display: block;
+}
+
+.field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: var(--field);
+  color: #46689f;
+  border-radius: 14px;
+  box-shadow: 0 9px 17px -5px rgba(60, 60, 90, 0.18);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 24px;
+  transition:
+    box-shadow 0.25s,
+    transform 0.25s var(--ease-spring);
+}
+.field::placeholder {
+  color: var(--placeholder);
+}
+.field:focus {
+  box-shadow:
+    0 0 0 2px #c6d4e4,
+    0 12px 24px -7px rgba(60, 60, 90, 0.22);
+  transform: translateY(-1px);
+}
+
+.email {
+  height: 78px;
+  padding: 0 69px 0 30px;
+}
+.message {
+  height: 120px;
+  resize: none;
+  padding: 22px 86px 22px 30px;
+}
+
+.asterisk {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  width: 29px;
+  height: auto;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.send {
+  position: absolute;
+  right: 19px;
+  bottom: 19px;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background: var(--send);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.3s var(--ease-bouncy),
+    background 0.2s;
+}
+.send:hover:not(:disabled) {
+  transform: scale(1.12) rotate(-8deg);
+  background: var(--send-hover);
+}
+.send:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+.send:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+.send img {
+  width: 23px;
+  height: auto;
+}
+
+.toast {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  animation: pop 0.4s var(--ease-spring) both;
+}
+.error {
+  color: #c0392b;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Celular: regras de <700px do protótipo, no breakpoint md (768px) do site. */
+@media (max-width: 767px) {
+  .form {
+    gap: 16px;
+  }
+  .field {
+    font-size: 15px;
+    border-radius: 10px;
+  }
+  .email {
+    height: 52px;
+    padding: 0 44px 0 14px;
+  }
+  .message {
+    height: 110px;
+    padding: 14px 52px 14px 14px;
+  }
+  .asterisk {
+    width: 18px;
+    height: auto;
+    right: 14px;
+  }
+  .send {
+    right: 10px;
+    bottom: 10px;
+    width: 32px;
+    height: 32px;
+  }
+  .send img {
+    width: 15px;
+  }
+  .toast {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field,
+  .send {
+    transition: none;
+  }
+  .field:focus,
+  .send:hover:not(:disabled) {
+    transform: none;
+  }
+  .toast {
+    animation: none;
+  }
+}
