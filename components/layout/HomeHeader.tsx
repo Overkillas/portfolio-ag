@@ -1,7 +1,12 @@
-import Link from 'next/link';
-import type { Dictionary, Locale } from '@/i18n/dictionaries';
-import { LanguageSwitcher } from './LanguageSwitcher';
-import { NavBerry, activeNavStyle, navLinkClass, navLinkStyle } from './nav-link';
+import Link from "next/link";
+import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import {
+  NavBerry,
+  activeNavStyle,
+  navLinkClass,
+  navLinkStyle,
+} from "./nav-link";
 
 /**
  * Header específico da home — fiel ao Figma "Pontossemno" (spec v2 §4.1):
@@ -31,14 +36,14 @@ export function HomeHeader({
 }: {
   locale: Locale;
   dict: Dictionary;
-  active?: 'about' | 'projects';
+  active?: "about" | "projects";
 }) {
   const linkStyle = navLinkStyle;
   const activeStyle = activeNavStyle;
-  const activeClass = 'relative';
-  const leftClass = 'justify-self-start';
-  const rightClass = 'justify-self-end';
-  const berry = <NavBerry />;
+  const activeClass = "relative";
+  const leftClass = "justify-self-start";
+  const rightClass = "justify-self-end";
+  const berry = <NavBerry side="left" />;
   const linkClass = navLinkClass;
 
   const projectsHref = `/${locale}/projetos`;
@@ -49,12 +54,16 @@ export function HomeHeader({
         {/* Esquerda: "sobre" — aponta pra própria home (igual ao nav.about antigo) */}
         <Link
           href={`/${locale}`}
-          aria-current={active === 'about' ? 'page' : undefined}
-          className={active === 'about' ? `${linkClass} ${leftClass} ${activeClass}` : `${linkClass} ${leftClass}`}
-          style={active === 'about' ? activeStyle : linkStyle}
+          aria-current={active === "about" ? "page" : undefined}
+          className={
+            active === "about"
+              ? `${linkClass} ${leftClass} ${activeClass}`
+              : `${linkClass} ${leftClass}`
+          }
+          style={active === "about" ? activeStyle : linkStyle}
         >
+          {active === "about" && berry}
           {dict.nav.homeAbout}
-          {active === 'about' && berry}
         </Link>
 
         {/* Centro: seletor de idioma (componente existente, i18n obrigatório) */}
@@ -63,12 +72,16 @@ export function HomeHeader({
         {/* Direita: "projetos" */}
         <Link
           href={projectsHref}
-          aria-current={active === 'projects' ? 'page' : undefined}
-          className={active === 'projects' ? `${linkClass} ${rightClass} ${activeClass}` : `${linkClass} ${rightClass}`}
-          style={active === 'projects' ? activeStyle : linkStyle}
+          aria-current={active === "projects" ? "page" : undefined}
+          className={
+            active === "projects"
+              ? `${linkClass} ${rightClass} ${activeClass}`
+              : `${linkClass} ${rightClass}`
+          }
+          style={active === "projects" ? activeStyle : linkStyle}
         >
+          {active === "projects" && berry}
           {dict.nav.homeProjects}
-          {active === 'projects' && berry}
         </Link>
       </div>
     </header>

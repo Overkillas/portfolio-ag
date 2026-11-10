@@ -17,17 +17,20 @@ export const activeNavStyle = {
 
 /**
  * Mirtilo do link ativo. Escala com a fonte (≈1.4em no desktop, 1.2em abaixo do
- * md para caber no padding lateral de 24px) e fica FORA do fluxo, pendurado à
- * direita do texto: não alarga o link. O link precisa de `position: relative`.
+ * md para caber no padding lateral de 24px) e fica FORA do fluxo, pendurado ao
+ * lado do texto (`side`, direita por padrão): não alarga o link. A posição vem
+ * do `left`/`right` absoluto, não da ordem no JSX. O link precisa de
+ * `position: relative`.
  */
-export function NavBerry() {
+export function NavBerry({ side = 'right' }: { side?: 'left' | 'right' }) {
+  const position = side === 'left' ? 'right-[calc(100%+0.03em)]' : 'left-[calc(100%+0.03em)]';
   return (
     // eslint-disable-next-line @next/next/no-img-element -- ícone decorativo minúsculo
     <img
       src="/images/projetos/mirtilo.png"
       alt=""
       aria-hidden="true"
-      className="pointer-events-none absolute left-[calc(100%+0.03em)] top-[calc(50%-0.1em)] h-[1.2em] w-auto max-w-none -translate-y-1/2 sm:h-[1.1em] md:h-[1.4em]"
+      className={`pointer-events-none absolute ${position} top-[calc(50%-0.1em)] h-[1.2em] w-auto max-w-none -translate-y-1/2 sm:h-[1.1em] md:h-[1.4em]`}
     />
   );
 }
