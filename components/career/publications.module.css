@@ -1,0 +1,258 @@
+/*
+ * "publicações acadêmicas" (Figma 226:327 + 226:355) — ver CareerPublications.tsx.
+ *
+ * Coluna da esquerda: título AM Novecento 84, publicação Clother Bold 32 justificada,
+ * "Áreas de pesquisa" Clother Bold 32 e pills (casca Azul gelo 3.259, miolo #eaeef4 com
+ * tracejado 1.63 #527fb0, Clother Bold 20 #08488f), gaps 32 / 16.
+ * Tickets: container de 493 de largura; --k = 1px do Figma para os descendentes.
+ */
+
+.info {
+  --pu: 1px;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--pu) * 32);
+}
+.title {
+  font-size: clamp(40px, 10vw, 84px);
+  /* "auto" do Figma para a AM Novecento (2 linhas = 232) */
+  line-height: 1.383;
+}
+.paper {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: calc(var(--pu) * 24);
+  font-weight: 700;
+  /* Figma "auto" da Clother: 1.1923 (o normal do Chrome fica mais alto) */
+  line-height: 1.1923;
+  text-align: justify;
+}
+.areas {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--pu) * 16);
+}
+.areasTitle {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: calc(var(--pu) * 24);
+  font-weight: 700;
+  /* Figma "auto" da Clother: 1.1923 (o normal do Chrome fica mais alto) */
+  line-height: 1.1923;
+  letter-spacing: 0;
+}
+.areaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--pu) * 16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.area {
+  display: flex;
+  padding: calc(var(--pu) * 3.259);
+  border-radius: calc(var(--pu) * 81.48);
+  background: var(--color-blue-soft, #bacceb);
+}
+.areaInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--pu) * 4.889) calc(var(--pu) * 8.148) calc(var(--pu) * 6.518);
+  border: calc(var(--pu) * 1.63) dashed #527fb0;
+  border-radius: calc(var(--pu) * 48.888);
+  background: #eaeef4;
+  color: #08488f;
+  font-family: var(--font-body);
+  font-size: calc(var(--pu) * 16);
+  font-weight: 700;
+  /* Figma "auto" da Clother: 1.1923 (o normal do Chrome fica mais alto) */
+  line-height: 1.1923;
+  text-align: center;
+}
+
+/* ---------- tickets ---------- */
+.ticket {
+  --k: calc(100cqw / 493);
+  position: relative;
+  container-type: inline-size;
+  width: min(100%, 420px);
+  align-self: center;
+  aspect-ratio: 493 / 630.27;
+  perspective: 1400px;
+  /* o balanço do rebobinar (CareerPublications `rewind`) pende da fita */
+  transform-origin: 67% 0;
+}
+.art,
+.sheet,
+.face {
+  position: absolute;
+  inset: 0;
+}
+/* A folha gira no eixo da argola (centro do 226:401, (298, 158)); ver FLIP no TSX. */
+.sheet {
+  transform-origin: calc(var(--k) * 298) calc(var(--k) * 158);
+  transform-style: preserve-3d;
+}
+.face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+/* Verso: virado de costas (rotateY) e espelhado por dentro (scaleX), o recorte ocupa o
+   mesmo lugar da face; mais escuro, liso, como a folha de pé na prévia. */
+.back {
+  transform: rotateY(180deg);
+}
+.mirror {
+  position: absolute;
+  inset: 0;
+  transform: scaleX(-1);
+  filter: brightness(0.78);
+}
+.nextWord {
+  display: contents;
+  cursor: pointer;
+}
+.box {
+  position: absolute;
+  left: calc(var(--k) * var(--x));
+  top: calc(var(--k) * var(--y));
+  width: calc(var(--k) * var(--w));
+  height: calc(var(--k) * var(--h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rot {
+  position: relative;
+  flex: none;
+  width: calc(var(--k) * var(--iw));
+  height: calc(var(--k) * var(--ih));
+}
+.rot img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: calc(100% * (1 + var(--ir)));
+  height: calc(100% * (1 + var(--ib)));
+  max-width: none;
+}
+.fill {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* traço de 194.946 com 3.85 de espessura acima da caixa de altura 0 (inset -3.85 0 0 0) */
+.line {
+  position: relative;
+  flex: none;
+  width: calc(var(--k) * 194.946);
+  height: 0;
+  rotate: 17.2deg;
+}
+.line img {
+  position: absolute;
+  left: 0;
+  top: calc(var(--k) * -3.848);
+  display: block;
+  width: 100%;
+  height: calc(var(--k) * 3.848);
+  max-width: none;
+}
+
+/* Textos do ticket: P22 Typewriter no Figma (fora do kit; mesmo fallback do crachá da home) */
+.turned {
+  flex: none;
+  width: calc(var(--k) * 178.263);
+  rotate: 17.94deg;
+  font-family: "P22 Typewriter", "Courier New", monospace;
+  line-height: 1.8;
+  text-align: center;
+  text-transform: lowercase;
+}
+.read {
+  color: #f9f3ea;
+  font-size: calc(var(--k) * 25.651);
+}
+.read a {
+  color: inherit;
+  text-decoration: none;
+}
+.read a:hover,
+.read a:focus-visible {
+  text-decoration: underline;
+}
+.nextText {
+  color: #bacceb;
+  font-size: calc(var(--k) * 28);
+}
+.readText {
+  display: block;
+}
+
+.nextBtn {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.nextPill {
+  display: flex;
+  padding: calc(var(--k) * 4);
+  border-radius: calc(var(--k) * 100);
+  background: var(--color-blue-soft, #bacceb);
+  rotate: 6.33deg;
+  transition: transform 0.2s ease;
+}
+.nextCircle {
+  display: flex;
+  box-sizing: border-box;
+  width: calc(var(--k) * 44);
+  height: calc(var(--k) * 44);
+  margin: calc(var(--k) * 4.3);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px dashed #527fb0;
+  border-radius: calc(var(--k) * 60);
+  background: #eaeef4;
+  color: rgb(8 72 143 / 0.36);
+  font-family: var(--font-display);
+  font-size: calc(var(--k) * 48);
+  line-height: 1;
+  rotate: 12.7deg;
+}
+.nextBtn:hover .nextPill,
+.nextBtn:focus-visible .nextPill {
+  transform: scale(1.08);
+}
+.nextBtn:focus-visible {
+  outline: 2px dashed #527fb0;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+@media (min-width: 1024px) {
+  .info {
+    --pu: var(--u);
+  }
+  .title {
+    font-size: calc(var(--u) * 84);
+  }
+  .paper,
+  .areasTitle {
+    font-size: calc(var(--u) * 32);
+  }
+  .areaInner {
+    font-size: calc(var(--u) * 20);
+  }
+  /* .ticket também é .a: repete aqui o que este módulo sobrescreveria */
+  .ticket {
+    position: absolute;
+    width: calc(var(--u) * 493);
+  }
+}

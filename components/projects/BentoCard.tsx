@@ -1,11 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from '@/lib/hooks/use-media-query';
 import { useTranslations } from '@/lib/i18n/use-translation';
 import type { LocalizedProject } from '@/lib/projects';
 import s from './projects.module.css';
+
+/** Quanto o dedo precisa segurar o card (touch) para revelar o conteúdo do hover. */
+const HOLD_MS = 350;
 
 type Props = {
   project: LocalizedProject;
@@ -41,16 +44,56 @@ export function BentoCard({ project: p, index, tiltDegrees, hideCursor, onHover 
     onHover(null);
   };
 
+  // Toque (mobile): o conteúdo do hover só aparece enquanto o dedo segura o card.
+  // Toque curto navega normalmente; segurar revela e o clique que vem ao soltar é
+  // engolido. Rolar a página dispara `pointercancel` e cancela o timer.
+  const [peek, setPeek] = useState(false);
+  const holdTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const longPressed = useRef(false);
+
+  useEffect(() => () => clearTimeout(holdTimer.current), []);
+
+  const endHold = () => {
+    clearTimeout(holdTimer.current);
+    setPeek(false);
+  };
+
+  const onPointerDown = (e: React.PointerEvent<HTMLAnchorElement>) => {
+    if (e.pointerType !== 'touch') return;
+    longPressed.current = false;
+    clearTimeout(holdTimer.current);
+    holdTimer.current = setTimeout(() => {
+      longPressed.current = true;
+      setPeek(true);
+    }, HOLD_MS);
+  };
+
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (longPressed.current) {
+      e.preventDefault();
+      longPressed.current = false;
+      return;
+    }
+    reset();
+  };
+
   const linkProps = {
     ref,
     href: `/${locale}/projetos/${p.slug}`,
     'aria-label': t('projectsPage.openProject').replace('{title}', p.title),
-    className: `${s.card}${hideCursor ? ` ${s.cardCursorHidden}` : ''}`,
+    className: `${s.card}${hideCursor ? ` ${s.cardCursorHidden}` : ''}${peek ? ` ${s.cardPeek}` : ''}`,
     style: { aspectRatio: p.grid.aspect, animationDelay: `${index * 110}ms` },
-    onClick: reset,
+    onClick,
     onMouseEnter: () => onHover(p.slug),
     onMouseMove: onMove,
     onMouseLeave: reset,
+    onPointerDown,
+    onPointerUp: endHold,
+    onPointerCancel: endHold,
+    // Android abre o menu nativo do link ao segurar; iOS, o callout (CSS).
+    onContextMenu: (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (longPressed.current || peek) e.preventDefault();
+    },
   };
 
   const content = (

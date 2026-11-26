@@ -4,6 +4,11 @@
  * coluna de texto do contato já é em px (md:max-w-[517px]), então aqui as
  * medidas são px diretos (u -> px, arredondado). Abaixo de `md` (768px) valem as
  * regras de <700px do protótipo. Curvas --ease-* vêm do :root do globals.css.
+ *
+ * Geometria no desktop alinhada ao Figma novo (EGDJU9UG5XmLO6zV8Howwo, 17:174):
+ * campos 78 e 129 de altura com 26 entre eles, texto a 30 da esquerda e 24 do
+ * topo, raio 11.3, asterisco a 24 da direita e botão de enviar 40×40 a 24 da
+ * direita e 28 de baixo (17:184). Cores e sombra seguem as do protótipo.
  */
 .form {
   --field: #fbf6ef;
@@ -14,7 +19,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  gap: 26px;
   width: 100%;
 }
 
@@ -31,11 +36,13 @@
   outline: none;
   background: var(--field);
   color: #46689f;
-  border-radius: 14px;
+  border-radius: 11.3px;
   box-shadow: 0 9px 17px -5px rgba(60, 60, 90, 0.18);
   font-family: inherit;
   font-weight: 400;
   font-size: 24px;
+  /* Figma: caixa de 29 para 24px (1.2); o `normal` do navegador é ~1.4 */
+  line-height: 1.2;
   transition:
     box-shadow 0.25s,
     transform 0.25s var(--ease-spring);
@@ -52,18 +59,21 @@
 
 .email {
   height: 78px;
-  padding: 0 69px 0 30px;
+  /* 4px embaixo sobe o texto 2px: a tinta da Clother no navegador cai ~2px
+     abaixo da do Figma com a mesma caixa */
+  padding: 0 69px 4px 30px;
 }
 .message {
-  height: 120px;
+  height: 129px;
   resize: none;
-  padding: 22px 86px 22px 30px;
+  /* 24 no Figma; 23 compensa a métrica da fonte (tinta igual à do Figma) */
+  padding: 23px 86px 24px 30px;
 }
 
 .asterisk {
   position: absolute;
   right: 24px;
-  top: 50%;
+  top: calc(50% - 1.5px); /* tinta em 28..47 da caixa, como no Figma */
   width: 29px;
   height: auto;
   transform: translateY(-50%);
@@ -72,10 +82,10 @@
 
 .send {
   position: absolute;
-  right: 19px;
-  bottom: 19px;
-  width: 45px;
-  height: 45px;
+  right: 24px;
+  bottom: 28px;
+  width: 40px;
+  height: 40px;
   border: 0;
   border-radius: 50%;
   padding: 0;

@@ -1,7 +1,11 @@
 {
   "site": {
     "name": "Ágatha Sales",
-    "tagline": "Graphic design, UX/UI, 3D and service design."
+    "tagline": "Graphic design, UX/UI, 3D and service design.",
+    "copyright": {
+      "notice": "This image is Copyright © {year} {name}. All rights reserved.",
+      "close": "Close notice"
+    }
   },
   "nav": {
     "about": "About me",
@@ -15,9 +19,10 @@
     "switchLocale": "Switch to {name}"
   },
   "home": {
-    "greeting": "Hello everyone,",
+    "greeting": "Hello all,",
     "greetingAlt": "Illustration of Ágatha waving",
-    "intro": "Nice to meet you, I'm Ágatha! The designer from your neighborhood, your multinational company and your cute indie game. I work with research (UX and UI), illustration and 3D Design.",
+    "intro": "Hi, I'm Ágatha! The designer from your neighborhood, your multinational company and your cute indie game.",
+    "introWork": "I work in research (UX and UI), illustration and 3D Design.",
     "philosophy": "Philosophy",
     "philosophyAlt": "Illustration of Ágatha thinking",
     "philosophyLead": "For me, design is research, illustration and perspective.",
@@ -47,7 +52,7 @@
     "experienceBodyEnd": " profile.",
     "studiesAlt": "Illustration of studies — rabbits in a pink field with flowers",
     "studiesDoodlesAlt": "Blue panel with sea animal doodles",
-    "careerAlt": "Illustration of a cute whale swimming with bubbles",
+    "careerAlt": "Photo of Ágatha taking a picture with a camera on a grassy field",
     "tiles": {
       "studies": {
         "title": "Studies",
@@ -63,8 +68,7 @@
       }
     },
     "contactTitleLine1": "LET'S",
-    "contactTitleLine2": "WORK",
-    "contactTitleLine3": "TOGETHER?",
+    "contactTitleLine2": "WORK TOGETHER?",
     "contactSubtitle": "Get in touch by sending an email below!",
     "contactIllustrationAlt": "Illustration of Ágatha holding an envelope",
     "crachaAlt": "Blue badge with the words 'i believe that design is'",
@@ -1054,7 +1058,8 @@
     "identidadeEvento15Anos": "Event identity: 15th birthday",
     "caju": "Caju",
     "studies": "Studies",
-    "cascavel": "City of Cascavel"
+    "cascavel": "City of Cascavel",
+    "career": "My career"
   },
   "projectsPage": {
     "title": "Portfolio",
@@ -1209,6 +1214,204 @@
       "sketchFinal": {
         "caption": "Studies",
         "alt": "Pencil sketch of a girl with long wavy hair, a headscarf and bows, holding her hands close to her chest."
+      }
+    }
+  },
+  "career": {
+    "back": "back to about me",
+    "hero": {
+      "title": "how did I\nget here?",
+      "col1": {
+        "p1": "I went into ",
+        "b1": "Design",
+        "p2": " knowing I would get along with the ",
+        "b2": "graphic",
+        "p3": " side, but what caught my eye was ",
+        "b3": "UX",
+        "p4": "."
+      },
+      "col2": {
+        "p1": "I became a ",
+        "b1": "UX teaching assistant",
+        "p2": " and then an intern at ",
+        "b2": "Vortex",
+        "p3": ", where health, technology and culture projects found me."
+      },
+      "col3": {
+        "p1": "There, ",
+        "b1": "3D modeling",
+        "p2": " led me back to ",
+        "b2": "drawing",
+        "p3": " and to my love for the stories I always wanted to tell."
+      },
+      "dollAlt": "Illustration of Ágatha slowly turning around, full body",
+      "thoughtAlt": "Thought bubble with an apple"
+    },
+    "artHistory": {
+      "title": "a brief history of art...",
+      "items": {
+        "01": "I started out in Dentistry, with anatomy drawings, histology observation and tooth sculpting.",
+        "02": "That meticulous work kept me for two years, until the clinical appointments came. They did not suit me at all and made me think about how I wanted to care for others.",
+        "03": "During a break, I recognized a calling that had always surrounded me. Illustration and literature enchanted me in history, philosophy, animation, games and theater.",
+        "04": "Design felt like a modern alternative to animation and technical illustration. It was what I had imagined...",
+        "05": "In the Design Methodology and UX Design courses, I was struck by a genuine wish to pursue research. Working with people and designing digital products suited me.",
+        "06": "Then came the teaching assistantship, outreach and, without leaving illustration behind, the UX/UI and 3D modeling internship at Vortex. I arrived raw in technique and grew little by little, bringing my personality into the projects.",
+        "07": "Today, my studies in 3D, research, UX and illustration guide my choices. I am proud of the sensitive maturity that has grown in me, and I want to give back to the world work that cares for human well-being."
+      }
+    },
+    "paths": {
+      "title": "paths",
+      "text": "In research, I feel like a little journalist who cares about every small event in a curious village. Nothing makes me happier than showing people that someone recognizes their problem and that one day it will change. When I see people using what we built together, I feel like a very successful fairy craftswoman.",
+      "sceneAlt": "Illustration of Ágatha turning the crank of a little box, out of which comes a striped scarf with the experiences she has gathered",
+      "experiencesLabel": "Experiences",
+      "experiences": {
+        "monitoria": "Teaching assistant",
+        "extensao": "Outreach",
+        "estagio": "Internship",
+        "oficinas": "Workshops",
+        "publicacoes": "Academic papers"
+      }
+    },
+    "train": {
+      "alt": "Ágatha rides a train: she walks from window to window, the landscape changes and she waves at every stop",
+      "stopsLabel": "Train stops",
+      "stops": {
+        "ilustracao": "Illustration and animation",
+        "pesquisa": "Research and UX",
+        "design3d": "3D, VR and my design"
+      }
+    },
+    "publications": {
+      "title": "academic papers",
+      "areasTitle": "Research areas",
+      "read": "click here to read the paper",
+      "next": "next",
+      "nextLabel": "Show the next paper",
+      "items": {
+        "ludificacao": {
+          "title": "An Analysis of Gamification in the Design of Music Teaching Apps: How Design Supports the App Experience Through Play",
+          "areas": {
+            "a1": "Undergraduate Research Thesis",
+            "a2": "Gamification",
+            "a3": "Nielsen’s Heuristics",
+            "a4": "HCI",
+            "a5": "UX and UI Design"
+          }
+        },
+        "espaleira": {
+          "title": "Designing an Adjustable Shoulder Rest for Children: Design Research and Innovation in Violin Music Education",
+          "areas": {
+            "a1": "Product design",
+            "a2": "Playfulness",
+            "a3": "Musical equipment",
+            "a4": "Design Research",
+            "a5": "UX and UI Design"
+          }
+        },
+        "hep2": {
+          "title": "Pattern Classification of HEp-2 Cells with DenseNet121: A Per-Class Evaluation",
+          "areas": {
+            "a1": "Image classification",
+            "a2": "Deep learning technology",
+            "a3": "AI",
+            "a4": "Design Research"
+          }
+        },
+        "cincoPlanos": {
+          "title": "The 5 Planes of Experience Methodology in Teaching UX/UI: Reflections on Practice and Research in the Classroom",
+          "areas": {
+            "a1": "Methodological application",
+            "a2": "Teaching",
+            "a3": "Teaching Assistant Program",
+            "a4": "Design Research",
+            "a5": "UX and UI Design"
+          }
+        }
+      }
+    },
+    "gallery": {
+      "title": "life gallery",
+      "text1": "My favorite animations are Avatar: The Last Airbender and Over the Garden Wall.\n (short) Avatar and Over the Garden Wall are my favorite animations!",
+      "text2": "I also love painting tiny watercolors, they are like simple memories",
+      "text3": "I am full of knick-knacks and I would not have it any other way, I believe a good designer’s desk is never empty or bare.",
+      "text4": "I really love music, and for a while I made it a little hobby, more specifically, I play the kalimba and have a tiny channel of amateur songs!",
+      "music": "My music channel (please don’t listen)",
+      "collageAlt": "Photo collage of Ágatha: tiny watercolors of a forest, fish and a pink sky; a painting of the Pale Blue Dot; a drawing with a quote from The Little Prince; Ágatha taking pictures in the park and at the track; a little orange fish in an aquarium; a moth; her desk with a monitor and a tablet; and an illustrated ladybug"
+    },
+    "drawing": {
+      "title": "drawing time",
+      "heading": "Your turn to use the tools!",
+      "text": "My little desk might remind you of a playroom. Pick a block, grab the pen and doodle with its stroke.",
+      "boardAlt": "Pink magic drawing board with doodles of a turtle, an octopus, a fish, seaweed, bubbles and a pufferfish",
+      "drawnAlt": "Pink magic drawing board with the {name} icon drawn on it",
+      "blocksLabel": "Blocks with the tools I use. Pick a block for the pen to draw the tool's icon on the board.",
+      "flip": "Flip block {n} and draw its icon on the board",
+      "draw": "Draw the {name} icon on the board",
+      "drawing": "Drawing the {name} icon…",
+      "eraser": "Board knob: drag to erase",
+      "locked": "Pick a tool from the blocks first"
+    },
+    "moments": {
+      "title": "memorable moments",
+      "label": "Memorable moments, in photos that scroll like a carousel. Focus to pause.",
+      "cards": {
+        "hackathon1": "My first Hackathon, second place at PROENERGIA Summit2025",
+        "extensao": "Second Place award at the 9th UNIVERSITY OUTREACH MEETING, in Exact Sciences, for the project “Building an Adjustable Shoulder Rest for Children: Design Research and Innovation in Violin Music Education”",
+        "ilustangram": "Ilustangram workshops and classes, a project by the Tangram Practice Group",
+        "vortex": "Onboarding challenge at Vortex, Unifor’s Research, Innovation and Technology Lab",
+        "monitoria": "Meetups and events from my volunteer UX and UI Design teaching assistantship",
+        "artigo": "Presenting the paper “Pattern Classification in HEp-2 Cells with DENSENET121: Per-Class Evaluation” at the 2026 Undergraduate Research Meeting at Unifor",
+        "moema": "First walk-cycle animation for Moema, Unifor’s mascot",
+        "hackathon2": "My second Hackathon, O-HACK A TA-ON by M. Dias Branco",
+        "agreste": "Meetings and tests for the Agreste research project, where I was the 3D modeler of the characters and some props",
+        "cascavel": "Handing over the projects of the Yolanda and Edson Queiroz Cultural Complex, a VR experience project, Cascavel"
+      }
+    },
+    "about": {
+      "title": "about this site",
+      "headAlt": "Ágatha’s little head winking and smiling",
+      "quote": "“Those who pass by us do not go alone, and do not leave us alone. They leave a little of themselves and take a little of us.”",
+      "quoteAuthor": "  Antoine de Saint-Exupéry",
+      "banner": "This space would not be possible without the effort and dedication of these devs!",
+      "devsLabel": "The site’s devs",
+      "linkedin": "{name}’s LinkedIn",
+      "thanks": "To everyone who contributed to this project, my most genuine thanks, partnership and admiration. ;D S2"
+    }
+  },
+  "treasure": {
+    "catch": "Catch {icon} and get a free artwork",
+    "icons": {
+      "aguaViva": "the jellyfish",
+      "aguaVivaLua": "the moon jellyfish",
+      "peixinho": "the little fish",
+      "concha": "the seashell",
+      "relogio": "the pocket watch",
+      "estrela": "the star",
+      "bolinhaDeGude": "the marble",
+      "pontosSemNo": "the Pontos sem nó bunny",
+      "lirioDoVale": "the lily of the valley",
+      "dadinho": "the little die",
+      "folhaDeOutono": "the autumn leaf",
+      "trevo": "the four-leaf clover"
+    },
+    "gift": {
+      "close": "Close",
+      "download": "Download",
+      "heading": "You got a free artwork!",
+      "text": "Unlike the other artworks in this portfolio, this one you can download and use as a wallpaper or however you like.",
+      "titles": {
+        "aguaViva": "Congrats! The jellyfish caught up with you!",
+        "aguaVivaLua": "Congrats! The moon jellyfish caught up with you!",
+        "peixinho": "Congrats! The little fish caught up with you!",
+        "concha": "Congrats! The seashell caught up with you!",
+        "relogio": "Congrats! The pocket watch caught up with you!",
+        "estrela": "Congrats! The star caught up with you!",
+        "bolinhaDeGude": "Congrats! The marble caught up with you!",
+        "pontosSemNo": "Congrats! The little bunny caught up with you!",
+        "lirioDoVale": "Congrats! The lily of the valley caught up with you!",
+        "dadinho": "Congrats! The little die caught up with you!",
+        "folhaDeOutono": "Congrats! The autumn leaf caught up with you!",
+        "trevo": "Congrats! The four-leaf clover caught up with you!"
       }
     }
   }

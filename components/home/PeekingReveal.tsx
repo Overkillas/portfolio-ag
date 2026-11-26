@@ -23,7 +23,8 @@ const getReducedServer = () => false;
  * p = 1 a 55% da altura. Estado inicial (SSR/sem JS/movimento reduzido): p = 1.
  *
  * O recorte (overflow hidden) tem a borda de baixo exatamente no topo da
- * galeria; os dedos ficam logo abaixo dessa borda, por cima da galeria.
+ * galeria; os dedos ficam logo abaixo dessa borda, por cima da galeria, e
+ * nunca se deslocam (ver `fingersOn`).
  */
 export function PeekingReveal({ alt }: { alt: string }) {
   const clipRef = useRef<HTMLDivElement>(null);
@@ -63,7 +64,14 @@ export function PeekingReveal({ alt }: { alt: string }) {
 
   const pp = reduced ? 1 : p;
   const e = pp * pp * (3 - 2 * pp);
-  const f = clamp01((pp - 0.9) / 0.1);
+  // Dedos: continuação RÍGIDA da mão que está na imagem da cabeça (o corte é
+  // a borda do recorte). Qualquer movimento próprio descola a junção — a
+  // antiga queda de −60% com --ease-bouncy (overshoot 1.6) os sobrepunha à
+  // mão e depois os passava ~5px abaixo dela (anotação Figma 17:259,
+  // "miniglitch nos dedinhos"). Agora só aparecem com a cabeça no lugar
+  // (e ≥ 0.999, < 0.4px de folga) e após a transição dela (.35s); somem na
+  // hora ao rolar para cima, antes de a cabeça descer.
+  const fingersOn = e >= 0.999;
 
   return (
     <>
@@ -109,11 +117,12 @@ export function PeekingReveal({ alt }: { alt: string }) {
           width: "744px",
           height: "99px",
           maxWidth: "none",
-          opacity: f,
-          transform: `translateY(${((1 - f) * -60).toFixed(1)}%)`,
+          opacity: fingersOn ? 1 : 0,
           transition: reduced
             ? "none"
-            : "opacity .35s ease, transform .45s var(--ease-bouncy)",
+            : fingersOn
+              ? "opacity .2s ease .3s"
+              : "none", // some no mesmo frame em que a cabeça começa a descer
         }}
       />
       <span className="sr-only">{alt}</span>

@@ -1,0 +1,291 @@
+/*
+ * Minha carreira (Figma EGDJU9UG5XmLO6zV8Howwo, frame 226:56, 1728 × 10344; antes 201:53).
+ *
+ * ≥ 1024px: o canvas do Figma. A página é container e --u = 100cqw / 1728 = 1px do
+ * Figma (a 1728 de viewport tudo fica 1:1). Cada peça é `.a` com as coordenadas
+ * absolutas do Figma em --x/--y/--w (e --h quando precisa), lidas do get_design_context.
+ * As seções não têm caixa no desktop (position: static): as peças se posicionam no
+ * canvas. O --u só é usado em DESCENDENTES do container (cqw resolve no consumidor).
+ *
+ * < 1024px: layout empilhado (proposta para revisão). Mesma arte e mesmo texto, uma
+ * coluna; as "ilhas" (faixas, nuvem, cena da boneca, colagem) mantêm a composição do
+ * Figma em escala, cada uma com a própria unidade de container.
+ *
+ * Arte: recortes do render 2x do Figma (fundo creme = fundo da página) e GIFs da Ágatha.
+ * Nenhuma sombra/filtro CSS na arte, exceto a sombra do grupo da boneca, que é o efeito
+ * do próprio Figma (ver knitting.module.css). Movimento só em transform/opacity.
+ */
+
+.page {
+  --u: calc(100cqw / 1728);
+  --blue: #6f96ce;
+  position: relative;
+  container-type: inline-size;
+  overflow-x: clip;
+  padding-bottom: 64px;
+}
+
+/* ---------- barra do topo ---------- */
+.top {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- texto ---------- */
+.text {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  /* Figma: linhas de 31px a 26px (caixas de 124 = 4 linhas, 279 = 9). O "normal" do
+     Chrome para a Clother dá mais que isso. */
+  line-height: 1.1923;
+  text-align: justify;
+  hyphens: manual;
+}
+.text b {
+  font-weight: 900;
+}
+
+.title {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-display);
+  font-weight: 400;
+  /* globals.css põe h1–h4 com line-height 1 e -0.01em: o Figma é "auto" (≈1.383) e 0. */
+  line-height: normal;
+  letter-spacing: 0;
+  text-transform: lowercase;
+  font-size: clamp(44px, 11vw, 80px);
+  /* quebra explícita (\n) onde a tradução não cabe no desenho do Figma (en do h1) */
+  white-space: pre-line;
+}
+.alignRight {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.preWrap {
+  white-space: pre-wrap;
+}
+.textSm {
+  font-size: 16px;
+}
+.drawingHeading {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.1923;
+  letter-spacing: 0;
+}
+.musicLink {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
+.musicLink:hover,
+.musicLink:focus-visible {
+  color: #08488f;
+}
+
+/* ---------- pills tracejados (Frame 32 do Figma) ---------- */
+/* Casca Azul gelo com 4px de respiro; miolo #eaeef4 com tracejado 2px #527fb0;
+   Clother Bold 20 a 36% de #08488f. Alto: 48/39 (o miolo fica no topo, sobra 5 embaixo);
+   baixo: 39/31. Tamanhos em --pu (1px no celular, --u no desktop, --s na cena). */
+.pill {
+  --pu: 1px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  height: calc(var(--pu) * 48);
+  min-width: calc(var(--pu) * var(--min, 0));
+  padding: calc(var(--pu) * 4);
+  border-radius: calc(var(--pu) * 100);
+  background: var(--color-blue-soft);
+}
+.pillInner {
+  display: flex;
+  box-sizing: border-box;
+  height: calc(var(--pu) * 39);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--pu) * 6) calc(var(--pu) * 10) calc(var(--pu) * 8);
+  border: 2px dashed #527fb0;
+  border-radius: calc(var(--pu) * 60);
+  background: #eaeef4;
+  color: rgba(8, 72, 143, 0.36);
+  font-family: var(--font-body);
+  font-size: calc(var(--pu) * 20);
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+}
+.pillSm {
+  height: calc(var(--pu) * 39);
+}
+.pillSm .pillInner {
+  height: calc(var(--pu) * 31);
+}
+/* números da história da arte (226:109): 52 × 52, miolo de 44 */
+.pillRound {
+  width: calc(var(--pu) * 52);
+  height: calc(var(--pu) * 52);
+}
+.pillRound .pillInner {
+  height: calc(var(--pu) * 44);
+}
+/* pills da cena dos caminhos (226:214): texto #08488f cheio */
+.pillStrong .pillInner {
+  color: #08488f;
+}
+
+/* ---------- ilhas (composição do Figma em escala) ---------- */
+.island {
+  position: relative;
+  container-type: inline-size;
+}
+.island > * {
+  position: absolute;
+  left: calc(100cqw * var(--x) / var(--iw));
+  top: calc(100cqw * var(--y) / var(--iw));
+  width: calc(100cqw * var(--w) / var(--iw));
+}
+.island img {
+  display: block;
+  height: auto;
+}
+.fill {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.section picture {
+  display: block;
+}
+
+/* Olhar (GIF) por cima do recorte da faixa, cortado pela metade da faixa (frame com
+   overflow-clip no Figma): 658², 103 à direita e 81 acima da borda do frame. */
+.olharClip {
+  height: calc(100cqw * var(--ih) / var(--iw));
+  overflow: hidden;
+}
+.island .olhar {
+  position: absolute;
+  left: calc(100cqw * 103 / 1728);
+  top: calc(100cqw * -81 / 1728);
+  width: calc(100cqw * 658 / 1728);
+  max-width: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  /* o recorte da faixa já tem o 1º quadro do Figma */
+  .island .olhar {
+    display: none;
+  }
+}
+
+/* ---------- celular / tablet: empilhado ---------- */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px clamp(16px, 5vw, 40px) 0;
+}
+.section img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* o GIF tem respiro transparente em volta da boneca: margens negativas no empilhado */
+/* boneca: caixa de 606 × 722 com overflow (226:94), o GIF de 751² passa dela */
+.heroDoll { position: relative; width: min(100%, 360px); align-self: center; aspect-ratio: 606 / 722; overflow: hidden; }
+.heroDollGif { position: absolute; left: -12.37%; top: -1.94%; width: 123.93%; }
+.heroCloud { width: min(100%, 520px); align-self: center; aspect-ratio: 863.963 / 645.585; }
+.heroCloudBox { aspect-ratio: 798.581 / 544; overflow: hidden; }
+.island .heroCloudGif { position: absolute; left: 0; top: 0; width: 106.06%; }
+.doodleCloud { width: 72px; align-self: flex-end; margin-top: -24px; }
+.cols { display: flex; flex-direction: column; gap: 20px; }
+
+.bandBlue { width: 100%; aspect-ratio: 1728 / 497; margin-top: 48px; }
+.bandRose { margin-top: 48px; }
+
+/* Parágrafos numerados: o pill fica no começo da 1ª linha, sobre o recuo. */
+.numbered { position: relative; }
+.numbered .pill { --pu: 0.75px; position: absolute; left: 0; top: -9px; }
+.numbered .text { text-indent: calc(var(--indent-sm) * 1px); }
+.jelly { width: 140px; align-self: center; }
+.cluster { width: min(70%, 260px); align-self: center; }
+
+.lifeHead { display: flex; align-items: center; gap: 12px; }
+.bunny { width: 72px; flex-shrink: 0; }
+
+.turtleHead { display: flex; align-items: center; gap: 8px; }
+.turtle { width: 72px; flex-shrink: 0; }
+.board { width: 100%; }
+.tools { width: min(45%, 200px); align-self: center; }
+
+.galleryHead { display: flex; align-items: center; justify-content: flex-end; gap: 12px; }
+.ghost { width: 64px; flex-shrink: 0; }
+.collage { width: 100%; aspect-ratio: 1500 / 992; }
+.drawingNote { display: flex; flex-direction: column; gap: 8px; }
+
+@media (min-width: 640px) {
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+
+/* ---------- desktop: o canvas do Figma ---------- */
+@media (min-width: 1024px) {
+  .page {
+    height: calc(var(--u) * 9995); /* footer em y=10075 = 9995 + 80 de margem do HomeFooter */
+    padding-bottom: 0;
+  }
+  .top {
+    position: absolute;
+    inset: 0 0 auto;
+  }
+  .section {
+    display: block;
+    padding: 0;
+  }
+  .a {
+    position: absolute;
+    left: calc(var(--u) * var(--x));
+    top: calc(var(--u) * var(--y));
+    width: calc(var(--u) * var(--w));
+    max-width: none;
+    margin: 0;
+  }
+  .a.h {
+    height: calc(var(--u) * var(--h));
+  }
+  /* Título alinhado à direita no Figma: --x é a borda DIREITA (translate -100%). */
+  .a.right {
+    width: auto;
+    white-space: nowrap;
+    transform: translateX(-100%);
+  }
+  .section img.a { height: auto; }
+
+  .nowrap { white-space: nowrap; }
+  .text { font-size: calc(var(--u) * 26); }
+  .pill { --pu: var(--u); }
+  .h1 { font-size: calc(var(--u) * 111.975); }
+  .h2 { font-size: calc(var(--u) * 100); }
+  .h2sm { font-size: calc(var(--u) * 80); }
+  .h2paths { font-size: calc(var(--u) * 95.647); }
+  .h2gallery { font-size: calc(var(--u) * 72.633); }
+  .textSm { font-size: calc(var(--u) * 20); }
+  .drawingHeading { font-size: calc(var(--u) * 24); }
+
+  .bandBlue, .bandRose { margin-top: 0; }
+  .heroDoll { width: calc(var(--u) * var(--w)); }
+  .lifeHead, .turtleHead, .galleryHead, .cols, .drawingNote { display: contents; }
+  .numbered { position: static; }
+  .numbered .pill { --pu: var(--u); position: absolute; left: calc(var(--u) * var(--px)); top: calc(var(--u) * var(--py)); }
+  .numbered .text { text-indent: calc(var(--u) * var(--indent)); }
+}

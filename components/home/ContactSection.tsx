@@ -18,22 +18,24 @@ import { HomeContactForm } from "@/components/home/HomeContactForm";
  *   (classes md:* — mobile fica w-full centrado).
  *   NÃO usar w-full: o PNG é mais estreito que a coluna e w-full esticaria
  *   para 555 (preflight clamp: max-width 100% estica, não reduz).
- * - Título: x=891, y=3522, box 351 — 3 LINHAS de 78px (4.51vw @1728),
- *   lineHeight 1.5 (pitch 117: 78×1.5 = 351/3 exato; largura do box 511
- *   confirma 78 — 84.8 daria 559.8). lineHeight inline: o h2
- *   { line-height: 1 } de globals.css vence a utility leading-*
- * - Subtítulo: x=893, y=3908, w=517, Clother Regular 24px (box 29 = 1.2×24);
- *   gap título→subtítulo = 35 (3908 − (3522+351)); form (stub Figma
- *   750:1259) começa 26px depois (3963)
+ * - Título (Figma novo EGDJU9UG5XmLO6zV8Howwo, 17:173): caixa 517 centrada,
+ *   DUAS linhas — "vAMOS" 132px (7.639vw) e "TRABALHAR JUNTOS?" 43px
+ *   (2.488vw), AM Novecento. Calibrado pela TINTA no render 1:1 do Figma
+ *   (relativo ao topo do bloco 17:133): "VAMOS" y=118..218 x=900..1403,
+ *   linha pequena y=244..276, subtítulo y=320..337. Com lineHeight 1:
+ *   mt-99 no h2, mt-7 na linha pequena, mb-30 no h2. lineHeight inline: o
+ *   h2 { line-height: 1 } de globals.css vence a utility leading-*
+ * - Subtítulo (17:175): w=517, Clother Light 26px (box 31 = 1.2×26); form
+ *   (17:176) começa 26px depois
  * - Formulário: HomeContactForm (e-mail + solicitação, do protótipo; envio real
  *   via EmailJS). Mais compacto que o antigo ContactForm (~456px) e mais perto
  *   do stub de 129px do Figma.
  *
  * Container: fora do .container-narrow (padrão vw do Plan 2 — a coluna 1fr do
  * container limitava a ilustração a ~421px). Padding horizontal espelha o
- * Figma: ilustração em x=254 (14.70vw); bloco de texto em x=891 (51.56%
- * = 14.70 + 32.12 + 4.74 de gap), limitado a w=517px (o pr fiel seria
- * 1728−1408 = 318px ≈ 18.4vw, coberto pelo max-w do bloco).
+ * Figma novo (17:133): ilustração em x=256 (14.815vw); bloco de texto em
+ * x=895 (14.815 + 32.12 + 4.861 de gap), limitado a w=517px (o pr fiel seria
+ * 1728−1412 = 316px ≈ 18.3vw, coberto pelo max-w do bloco).
  *
  * As elipses decorativas (758:110 em x=1131 y=3486, 758:111 em x=74 y=3669)
  * são posicionadas no wrapper do contato em page.tsx, NÃO aqui.
@@ -41,7 +43,7 @@ import { HomeContactForm } from "@/components/home/HomeContactForm";
 export function ContactSection({ dict }: { dict: Dictionary }) {
   const home = dict.home;
   return (
-    <section className="grid grid-cols-1 items-center gap-10 px-6 md:grid-cols-[32.12vw_1fr] md:items-start md:gap-x-[4.74vw] md:px-0 md:pl-[14.70vw] md:pr-[4vw]">
+    <section className="grid grid-cols-1 items-center gap-10 px-6 md:grid-cols-[32.12vw_1fr] md:items-start md:gap-x-[4.861vw] md:px-0 md:pl-[14.815vw] md:pr-[4vw]">
       {/* Ilustração (mão no rosto BAKED no PNG — sem overlay) */}
       <div className="relative mx-auto md:mx-0">
         {/* Wrapper flutuando (spec §4.1, fora de fase com o "Olá") */}
@@ -61,30 +63,25 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
 
       {/* Texto + formulário */}
       <div className="md:max-w-[517px]">
-        {/* Título em 3 LINHAS — Figma: 78px (4.51vw @1728) nas 3, linha 1.5:
-            box 351 = 3×pitch 117 (117 = 78×1.5). As 3 linhas têm o MESMO
-            tamanho (o antigo 120/72/72 era leitura errada; o 84.8/1.38 da
-            inferência anterior estica a largura 559.8 vs box 511 do Figma).
-            mt-[86px]: ilustração assenta em 3437 (padding-top 87 do wrapper
-            em page.tsx) e o título em 3522 (3437+86) */}
+        {/* Título em 2 linhas (Figma 17:173): palavra grande + frase pequena,
+            centradas na caixa de 517. Margens calibradas pela tinta (ver doc
+            acima): "VAMOS" a 118px do topo do bloco. */}
         <h2
-          className="w-fit font-display uppercase text-[color:var(--color-blue)] md:mt-[86px] mb-[35px]"
-          style={{ lineHeight: 1.5 }}
+          className="mb-[30px] w-full text-center font-display uppercase text-[color:var(--color-blue)] md:mt-[99px]"
+          style={{ lineHeight: 1 }}
         >
-          <span className="block text-[clamp(3.25rem,4.51vw,4.875rem)]">
+          <span className="block text-[clamp(4rem,7.639vw,8.25rem)]">
             {home.contactTitleLine1}
           </span>
-          <span className="block text-[clamp(3.25rem,4.51vw,4.875rem)]">
+          <span className="mt-[7px] block text-[clamp(1.303rem,2.488vw,2.6875rem)]">
             {home.contactTitleLine2}
-          </span>
-          <span className="block text-[clamp(3.25rem,4.51vw,4.875rem)]">
-            {home.contactTitleLine3}
           </span>
         </h2>
 
-        {/* Subtítulo: 24px no Figma = text-[1.5rem], box 29 = 1.2×24;
-            mb-[26px]: stub do form no Figma começa em 3963 (3908+29+26) */}
-        <p className="mb-[26px] text-[1.5rem] font-normal leading-[1.2] text-[color:var(--color-blue)]">
+        {/* Subtítulo: Clother Light 26px (17:175), caixa 31; o form (17:176)
+            começa 26px depois no Figma; 28 aqui compensa a caixa de linha do
+            navegador (31.2 vs 31) e assenta o form em 369.8 como no Figma */}
+        <p className="mb-[28px] text-[1.625rem] font-light leading-[1.2] text-[color:var(--color-blue)]">
           {home.contactSubtitle}
         </p>
 

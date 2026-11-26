@@ -21,13 +21,17 @@ export const activeNavStyle = {
  * lado do texto (`side`, direita por padrão): não alarga o link. A posição vem
  * do `left`/`right` absoluto, não da ordem no JSX. O link precisa de
  * `position: relative`.
+ *
+ * Asset: SVG vetorial do Figma (node 17:191, "Group 100810" da Landing page),
+ * com o viewBox recortado no desenho e a precisão dos paths em 1 casa decimal —
+ * nítido em telas retina (o PNG de 43×52 antigo borrava).
  */
 export function NavBerry({ side = 'right' }: { side?: 'left' | 'right' }) {
   const position = side === 'left' ? 'right-[calc(100%+0.03em)]' : 'left-[calc(100%+0.03em)]';
   return (
     // eslint-disable-next-line @next/next/no-img-element -- ícone decorativo minúsculo
     <img
-      src="/images/projetos/mirtilo.png"
+      src="/images/projetos/mirtilo.svg"
       alt=""
       aria-hidden="true"
       className={`pointer-events-none absolute ${position} top-[calc(50%-0.1em)] h-[1.2em] w-auto max-w-none -translate-y-1/2 sm:h-[1.1em] md:h-[1.4em]`}

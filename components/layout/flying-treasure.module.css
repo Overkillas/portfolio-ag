@@ -1,0 +1,144 @@
+/*
+ * Ícone voador (components/layout/FlyingTreasure.tsx). O botão anda por transform (rAF);
+ * atrás do desenho, raios girando e um halo pulsando, como a recompensa de um jogo. O
+ * rastro de brilhos é o canvas .trail, por baixo do ícone. z 65: acima da página e da
+ * folha do modal (60), abaixo do card do brinde (70) que ele abre. Pego, o canvas sobe
+ * para 71: os confetes caem por cima do card enquanto ele entra.
+ */
+.trail {
+  position: fixed;
+  inset: 0;
+  z-index: 64;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+.trail[data-caught] {
+  z-index: 71;
+}
+
+.flyer {
+  --size: 96px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 65;
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 639px) {
+  .flyer {
+    --size: 72px;
+  }
+}
+.flyer > * {
+  grid-area: 1 / 1;
+}
+
+.icon {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 10px rgb(255 190 60 / 0.45));
+  transition: scale 0.25s var(--ease-spring);
+  user-select: none;
+}
+.flyer:hover .icon,
+.flyer:focus-visible .icon {
+  scale: 1.15;
+}
+.flyer:focus-visible {
+  outline: 2px dashed #527fb0;
+  outline-offset: 4px;
+}
+
+/* raios de luz girando (o "brilho de recompensa") */
+.rays {
+  width: 210%;
+  height: 210%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgb(255 222 130 / 0.55) 0deg 9deg, transparent 9deg 30deg);
+  mask: radial-gradient(circle, #000 18%, transparent 68%);
+  animation: treasureSpin 7s linear infinite;
+  pointer-events: none;
+}
+/* halo pulsando */
+.halo {
+  width: 150%;
+  height: 150%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(255 246 200 / 0.95) 0%, rgb(255 214 102 / 0.5) 38%, transparent 70%);
+  animation: treasurePulse 1.3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+/* anel que estoura quando pega */
+.flash {
+  width: 100%;
+  height: 100%;
+  border: 3px solid rgb(255 214 102 / 0.9);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.flyer[data-caught] .flash {
+  animation: treasureFlash 0.5s ease-out forwards;
+}
+.flyer[data-caught] .rays,
+.flyer[data-caught] .halo {
+  animation: treasureFade 0.45s ease-out forwards;
+}
+.flyer[data-caught] {
+  pointer-events: none;
+}
+
+/* movimento reduzido: parado, sem girar nem pulsar; entra e sai com fade */
+.flyer[data-still] {
+  animation: treasureFade 0.6s ease-out reverse both;
+}
+.flyer[data-still] .rays,
+.flyer[data-still] .halo {
+  animation: none;
+}
+.flyer[data-still][data-leaving] {
+  animation: treasureFade 0.6s ease-out forwards;
+}
+
+@keyframes treasureSpin {
+  to {
+    rotate: 1turn;
+  }
+}
+@keyframes treasurePulse {
+  from {
+    scale: 0.85;
+    opacity: 0.75;
+  }
+  to {
+    scale: 1.12;
+    opacity: 1;
+  }
+}
+@keyframes treasureFlash {
+  from {
+    scale: 0.6;
+    opacity: 1;
+  }
+  to {
+    scale: 2.6;
+    opacity: 0;
+  }
+}
+@keyframes treasureFade {
+  to {
+    opacity: 0;
+  }
+}

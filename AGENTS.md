@@ -87,11 +87,12 @@ Every route lives in `app/[lang]/<route>/page.tsx` and follows the pattern:
    every case flagged `opensAsPage` in `lib/projects.ts` — Pontos sem nó,
    Batuco-tuco, Pontinhas soltas, Identidade de evento: 15 anos, Caju and
    Cascavel, i.e. all of them, via `isFullPageCase()` — and
-   `/estudos`) must render the
+   `/estudos` and `/carreira`) must render the
    switcher in its own top bar — pattern: `components/case-study/CaseTopBar.tsx`
    (centered in a `grid-cols-[1fr_auto_1fr]`; `variant="about"` is the Estudos
-   bar, which links back to the home). Do not ship a page without a way to switch
-   language.
+   bar, which links back to the home; `variant="career"` is the Minha carreira
+   bar: back to the home, "projetos" to the index). Do not ship a page without a
+   way to switch language.
 
 Canonical example: `app/[lang]/contato/page.tsx`.
 

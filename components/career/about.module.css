@@ -1,0 +1,132 @@
+/*
+ * "sobre este site" (Figma 226:775) — ver CareerAbout.tsx.
+ * Título AM Novecento 156.299; citação Clother 32 (itálico + Light), justificada;
+ * faixa #f9cedc com borda #c57e9c e sombra 0 2 2 rgba(26,41,73,.26), Clother Bold 24
+ * #08488f; nomes Clother Black 32; agradecimento Clother Itálico 20.
+ */
+
+.about {
+  align-items: center;
+}
+
+.head {
+  width: min(60%, 240px);
+}
+.title {
+  font-size: clamp(48px, 13vw, 100px);
+  align-self: flex-start;
+}
+
+.quote {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.1923;
+  text-align: justify;
+}
+.quote i {
+  font-style: italic;
+  font-weight: 400;
+}
+.author {
+  font-weight: 300;
+  white-space: pre-wrap;
+}
+
+.banner {
+  margin: 0;
+  padding: 3px;
+  background: #f9cedc;
+}
+.bannerInner {
+  display: block;
+  padding: 4px 6px;
+  border: 1px solid #c57e9c;
+  background: #f9cedc;
+  color: #08488f;
+  filter: drop-shadow(0 2px 2px rgb(26 41 73 / 0.26));
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.1923;
+  text-align: center;
+}
+
+.devs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dev {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.avatar {
+  width: 72px;
+}
+.name {
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.1923;
+  white-space: nowrap;
+}
+.name a {
+  color: inherit;
+  text-decoration: none;
+}
+.name a:hover,
+.name a:focus-visible {
+  text-decoration: underline;
+}
+
+.thanks {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.1923;
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .head {
+    width: calc(var(--u) * 280);
+  }
+  .title {
+    font-size: calc(var(--u) * 156.299);
+  }
+  .quote {
+    font-size: calc(var(--u) * 32);
+  }
+  .bannerInner {
+    padding: calc(var(--u) * 4) calc(var(--u) * 6);
+    font-size: calc(var(--u) * 24);
+  }
+  .banner {
+    padding: calc(var(--u) * 3);
+  }
+  .devs,
+  .dev {
+    display: contents;
+  }
+  .avatar {
+    width: calc(var(--u) * var(--aw));
+  }
+  .name {
+    width: auto;
+    font-size: calc(var(--u) * 32);
+  }
+  .thanks {
+    font-size: calc(var(--u) * 20);
+    white-space: nowrap;
+  }
+}

@@ -25,8 +25,13 @@ export function FooterRouter({ dict }: { dict: Dictionary }) {
   const isFullPage = segments.length === 2 && segments[0] === 'projetos' && isFullPageCase(segments[1]);
   // Estudos: o mesmo footer do Figma ("visite também", node 17:2252).
   const isStudies = segments.length === 1 && segments[0] === 'estudos';
+  // Minha carreira: "visite também" à direita (Figma 201:64, x=919 numa banda de 1728).
+  const isCareer = segments.length === 1 && segments[0] === 'carreira';
 
-  if (isHome || isFullPage || isStudies) return <HomeFooter dict={dict} />;
-  if (isProjectsIndex) return <HomeFooter dict={dict} variant="projects" />;
+  // "visite também" à direita na home (Figma 17:69), na carreira e nas telas de
+  // projetos (índice e cases de página completa); só Estudos o mantém à esquerda.
+  if (isHome || isFullPage || isCareer) return <HomeFooter dict={dict} visitAlign="right" />;
+  if (isStudies) return <HomeFooter dict={dict} />;
+  if (isProjectsIndex) return <HomeFooter dict={dict} variant="projects" visitAlign="right" />;
   return <Footer dict={dict} />;
 }

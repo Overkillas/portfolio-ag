@@ -1,0 +1,157 @@
+/*
+ * Lousa mágica (Figma 201:413) — ver MagicBoard.tsx.
+ * A lousa é container: --s = 1px do Figma dentro dela (1151 de largura), em qualquer
+ * tamanho; cada camada usa --x/--y/--w/--h no sistema "B" (geometry.ts).
+ * Nada de sombra/filtro CSS: a sombra da lousa já está na base.webp.
+ */
+
+.board {
+  --s: calc(100cqw / 1151);
+  container-type: inline-size;
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 1151 / 709;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.stage > * {
+  position: absolute;
+  left: calc(var(--s) * var(--x));
+  top: calc(var(--s) * var(--y));
+  width: calc(var(--s) * var(--w));
+  height: calc(var(--s) * var(--h));
+  max-width: none;
+  margin: 0;
+}
+.stage img {
+  display: block;
+}
+
+/* ---------- tela: rabiscos (fallback do servidor) → canvas → grão ---------- */
+.inkWrap {
+  overflow: hidden;
+  border-radius: 0 calc(var(--s) * 16.254) calc(var(--s) * 16.254) 0;
+}
+.inkWrap > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+.inkWrap canvas {
+  visibility: hidden;
+}
+.inkWrap[data-ready] canvas {
+  visibility: visible;
+}
+.inkWrap[data-ready] .inkFallback {
+  visibility: hidden;
+}
+.grain {
+  pointer-events: none;
+}
+
+/* ---------- faixa bege (201:474): a régua que anda com a bolinha ---------- */
+/* a tela que a faixa descobre: branco com o mesmo grão rosa (as 1as colunas do grao.webp) */
+.underStrip {
+  background: #fff url('/images/carreira/lousa/grao.webp') 0 0 / calc(var(--s) * 891.5) calc(var(--s) * 532) no-repeat;
+}
+.stripTrack {
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 0 calc(var(--s) * 16.254) calc(var(--s) * 16.254) 0;
+}
+.stripTrack .strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--s) * 32);
+  height: 100%;
+  max-width: none;
+}
+
+/* ---------- cordão ---------- */
+.cordRest,
+.cordCanvas {
+  pointer-events: none;
+}
+.cordCanvas {
+  visibility: hidden;
+  z-index: 2;
+}
+.stage[data-out] .cordCanvas {
+  visibility: visible;
+}
+.stage[data-out] .cordRest {
+  visibility: hidden;
+}
+
+/* ---------- bolinha (201:473) ---------- */
+.knob {
+  border-radius: calc(var(--s) * 11);
+  background: #f9f3ea;
+  touch-action: none;
+  cursor: grab;
+}
+.knob:active {
+  cursor: grabbing;
+}
+.knob:focus-visible {
+  outline: 3px solid #6f96ce;
+  outline-offset: 3px;
+}
+
+/* ---------- caneta (201:465): gira em torno da ponta ---------- */
+.pen {
+  z-index: 3;
+  transform-origin: 50% 4.2278%; /* ponta: (25.12, 16.7) de 50.24 × 395 */
+  touch-action: none;
+  cursor: grab;
+}
+.pen svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+/* caneta na mão: a ponta é o cursor; a caneta não pega cliques (eles vão para a lousa,
+   que desenha, ou para o suporte, que a guarda) e o toque desenha em vez de rolar */
+.holder {
+  pointer-events: none;
+}
+.stage[data-holding] {
+  cursor: none;
+  touch-action: none;
+}
+.stage[data-holding] .pen {
+  pointer-events: none;
+}
+.stage[data-holding] .holder {
+  pointer-events: auto;
+  cursor: pointer;
+}
+.stage[data-busy] .pen,
+.stage[data-busy] .knob {
+  cursor: progress;
+}
+
+/* bloqueadas até o 1º desenho: um balancinho diz "escolha um bloco primeiro" */
+.stage[data-locked] .pen,
+.stage[data-locked] .knob {
+  cursor: pointer;
+}
+.stage[data-locked] .pen:hover {
+  animation: nudge 0.5s ease-in-out;
+}
+@keyframes nudge {
+  25% { translate: 0 calc(var(--s) * -6); }
+  60% { translate: 0 calc(var(--s) * 2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stage[data-locked] .pen:hover {
+    animation: none;
+  }
+}

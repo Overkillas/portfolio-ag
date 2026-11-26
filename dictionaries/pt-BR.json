@@ -1,7 +1,11 @@
 {
   "site": {
     "name": "Ágatha Sales",
-    "tagline": "Design gráfico, UX/UI, 3D e design de serviços."
+    "tagline": "Design gráfico, UX/UI, 3D e design de serviços.",
+    "copyright": {
+      "notice": "Esta imagem é protegida por direitos autorais © {year} {name}. Todos os direitos reservados.",
+      "close": "Fechar aviso"
+    }
   },
   "nav": {
     "about": "Sobre mim",
@@ -17,7 +21,8 @@
   "home": {
     "greeting": "Olá a todos,",
     "greetingAlt": "Ilustração da Ágatha acenando",
-    "intro": "Prazer, sou a Ágatha! A designer do seu bairro, da sua empresa multinacional e do seu jogo indie fofinho. Trabalho com pesquisa (UX e UI), ilustração e Design 3D.",
+    "intro": "Prazer, sou a Ágatha! A designer do seu bairro, da sua empresa multinacional e do seu jogo indie fofinho.",
+    "introWork": "Trabalho com pesquisa (UX e UI), ilustração e Design 3D.",
     "philosophy": "Filosofia",
     "philosophyAlt": "Ilustração da Ágatha pensando",
     "philosophyLead": "Para mim o design é pesquisa, ilustração e perspectiva.",
@@ -47,7 +52,7 @@
     "experienceBodyEnd": ".",
     "studiesAlt": "Ilustração de estudos — coelhos em um campo rosa com flores",
     "studiesDoodlesAlt": "Painel azul com doodles de animais marinhos",
-    "careerAlt": "Ilustração de uma baleia fofa nadando com bolhas",
+    "careerAlt": "Foto de Ágatha fotografando com uma câmera em um gramado",
     "tiles": {
       "studies": {
         "title": "Estudos",
@@ -63,8 +68,7 @@
       }
     },
     "contactTitleLine1": "vAMOS",
-    "contactTitleLine2": "TRABALHAR",
-    "contactTitleLine3": "JUNTOS?",
+    "contactTitleLine2": "TRABALHAR JUNTOS?",
     "contactSubtitle": "Entre em contato enviando um e-mail abaixo!",
     "contactIllustrationAlt": "Ilustração da Ágatha segurando um envelope",
     "crachaAlt": "Crachá azul com os dizeres 'Acredito que o design é'",
@@ -104,10 +108,22 @@
     }
   },
   "categories": {
-    "grafico": { "title": "Design Gráfico", "heroTitle": "Design Gráfico" },
-    "interacao": { "title": "UX e UI Design", "heroTitle": "UX e UI Design" },
-    "servicos": { "title": "Design de Serviços", "heroTitle": "Design de Serviços" },
-    "3d": { "title": "3D Design", "heroTitle": "3D Design" }
+    "grafico": {
+      "title": "Design Gráfico",
+      "heroTitle": "Design Gráfico"
+    },
+    "interacao": {
+      "title": "UX e UI Design",
+      "heroTitle": "UX e UI Design"
+    },
+    "servicos": {
+      "title": "Design de Serviços",
+      "heroTitle": "Design de Serviços"
+    },
+    "3d": {
+      "title": "3D Design",
+      "heroTitle": "3D Design"
+    }
   },
   "projects": {
     "seeMore": "Ver mais.",
@@ -1042,7 +1058,8 @@
     "identidadeEvento15Anos": "Identidade de evento: 15 anos",
     "caju": "Caju",
     "studies": "Estudos",
-    "cascavel": "Cidade de Cascavel"
+    "cascavel": "Cidade de Cascavel",
+    "career": "Minha carreira"
   },
   "projectsPage": {
     "title": "Portfólio",
@@ -1197,6 +1214,204 @@
       "sketchFinal": {
         "caption": "Estudos",
         "alt": "Esboço a lápis de uma garota de cabelo longo e ondulado, com lenço na cabeça e laços, segurando as mãos junto ao peito."
+      }
+    }
+  },
+  "career": {
+    "back": "voltar para sobre mim",
+    "hero": {
+      "title": "como vim parar aqui?",
+      "col1": {
+        "p1": "Entrei no ",
+        "b1": "Design",
+        "p2": " sabendo que teria afinidade com a parte ",
+        "b2": "gráfica",
+        "p3": ", mas quem encantou meus olhos foi o ",
+        "b3": "UX",
+        "p4": "."
+      },
+      "col2": {
+        "p1": "Virei ",
+        "b1": "monitora de UX",
+        "p2": " e depois estagiária no ",
+        "b2": "Vortex",
+        "p3": ", onde projetos de saúde, tecnologia e cultura me encontraram."
+      },
+      "col3": {
+        "p1": "Lá, a ",
+        "b1": "modelagem 3D",
+        "p2": " me levou de volta ao ",
+        "b2": "desenho",
+        "p3": " e ao amor pelas histórias que eu sempre quis contar."
+      },
+      "dollAlt": "Ilustração da Ágatha girando devagar, de corpo inteiro",
+      "thoughtAlt": "Balão de pensamento com uma maçã"
+    },
+    "artHistory": {
+      "title": "uma breve história da arte...",
+      "items": {
+        "01": "Comecei na Odontologia, com desenhos de anatomia, observação histológica e escultura de dentes.",
+        "02": "Esse trabalho minucioso me reteve por dois anos, até chegarem os atendimentos clínicos. Eles em nada combinavam comigo e me fizeram refletir sobre como eu queria atender ao outro.",
+        "03": "Num momento de recesso, reconheci uma projeção que sempre me cercou. A ilustração e a literatura me encantavam na história, na filosofia, nas animações, nos jogos e no teatro.",
+        "04": "O Design pareceu uma alternativa moderna à animação e à ilustração técnica. Era o que eu imaginava...",
+        "05": "Nas disciplinas de Metodologia de Projeto e UX Design, fui atingida por uma vontade genuína de seguir na pesquisa. O contato com as pessoas e o design de produtos digitais combinavam comigo.",
+        "06": "Vieram a monitoria, a extensão e, sem deixar a ilustração, o estágio em UX/UI e modelagem 3D no Vortex. Cheguei crua na técnica e evoluí aos poucos, levando minha personalidade aos projetos.",
+        "07": "Hoje, meus estudos em 3D, pesquisa, UX e ilustração guiam minhas decisões. Tenho orgulho da maturidade sensível que se formou em mim e quero devolver ao mundo um trabalho que cuide do bem-estar humano."
+      }
+    },
+    "paths": {
+      "title": "caminhos",
+      "text": "Na pesquisa, me sinto uma pequena jornalista, que se importa com todo pequeno evento de uma vila curiosa. Nada me alegra tanto quanto mostrar às pessoas que há alguém que reconhece o problema delas e que um dia isso vai mudar. Quando vejo as pessoas usando o que construímos juntos, me sinto uma fada artesã muito bem-sucedida.",
+      "sceneAlt": "Ilustração da Ágatha girando a manivela de uma caixinha, de onde sai um cachecol listrado com as experiências que ela juntou",
+      "experiencesLabel": "Experiências",
+      "experiences": {
+        "monitoria": "Monitoria",
+        "extensao": "Extensão",
+        "estagio": "Estágio",
+        "oficinas": "Oficinas",
+        "publicacoes": "Publicações acadêmicas"
+      }
+    },
+    "train": {
+      "alt": "A Ágatha viaja num trem: anda de janela em janela, a paisagem muda e ela dá tchau em cada parada",
+      "stopsLabel": "Paradas do trem",
+      "stops": {
+        "ilustracao": "Ilustração e animação",
+        "pesquisa": "Pesquisa e UX",
+        "design3d": "3D, VR e meu design"
+      }
+    },
+    "publications": {
+      "title": "publicações acadêmicas",
+      "areasTitle": "Áreas de pesquisa",
+      "read": "clique aqui para ler a publicação",
+      "next": "próxima",
+      "nextLabel": "Mostrar a próxima publicação",
+      "items": {
+        "ludificacao": {
+          "title": "Análise da Ludificação no Design de Aplicações de Ensino de Música: Como o Design Apoia a Experiência da Aplicação Através do Lúdico",
+          "areas": {
+            "a1": "Tese de Conclusão de Curso em Pesquisa",
+            "a2": "Ludificação",
+            "a3": "Heurísticas de Nielsen",
+            "a4": "IHC",
+            "a5": "UX e UI Design"
+          }
+        },
+        "espaleira": {
+          "title": "Criação de Espaleira Ajustável para Crianças: Pesquisa em Design e Inovação na Educação Musical de Violino",
+          "areas": {
+            "a1": "Design de produto",
+            "a2": "Lúdico",
+            "a3": "Equipamento musical",
+            "a4": "Design Research",
+            "a5": "UX e UI Design"
+          }
+        },
+        "hep2": {
+          "title": "Classificação de Padrões em Células HEP-2 com DENSENET121: Avaliação por Classe",
+          "areas": {
+            "a1": "Classificação por imagem",
+            "a2": "Tecnologia de aprendizado profundo",
+            "a3": "IA",
+            "a4": "Design Research"
+          }
+        },
+        "cincoPlanos": {
+          "title": "A Metodologia dos 5 Planos da Experiência no Ensino de UX/UI: Reflexões Sobre Prática e Pesquisa em Sala de Aula",
+          "areas": {
+            "a1": "Aplicação metodológica",
+            "a2": "Ensino e Docência",
+            "a3": "Programa de Monitoria",
+            "a4": "Design Research",
+            "a5": "UX e UI Design"
+          }
+        }
+      }
+    },
+    "gallery": {
+      "title": "life gallery",
+      "text1": "Minhas animações favoritas são Avatar: A Lenda de Aang e O Segredo Além do Jardim.\n (curta) Avatar e O Segredo Além do Jardim são minhas animações favoritas!",
+      "text2": "Também adoro pintar mini aquarelas, são como memórias simples",
+      "text3": "Sou cheia de cacareco e disso não abro mão, acredito que a mesa de um bom designer nunca está vazia ou sem enfeites.",
+      "text4": "Gosto muito de música, e por um tempo fiz disso um pequeno hobbie, mais especificamente, toco kalimba e tenho um canalzinho de músicas amadoras!",
+      "music": "Meu canal de música (favor não escutar)",
+      "collageAlt": "Colagem de fotos da Ágatha: mini aquarelas de floresta, peixes e céu rosa; uma pintura do Pálido Ponto Azul; um desenho com uma frase do Pequeno Príncipe; a Ágatha fotografando no parque e na pista; um peixinho laranja num aquário; uma mariposa; a mesa de trabalho com monitor e tablet; e uma joaninha ilustrada"
+    },
+    "drawing": {
+      "title": "hora do desenho",
+      "heading": "Sua vez de usar as ferramentas!",
+      "text": "Minha mesinha talvez lhe lembre uma brinquedoteca. Escolha um bloquinho, pegue a caneta e rabisque com o traço dele.",
+      "boardAlt": "Lousa mágica rosa com desenhinhos de tartaruga, polvo, peixe, alga, bolhas e baiacu",
+      "drawnAlt": "Lousa mágica rosa com o ícone do {name} desenhado",
+      "blocksLabel": "Blocos das ferramentas que uso. Escolha um bloco para a caneta desenhar o ícone da ferramenta na lousa.",
+      "flip": "Virar o bloco {n} e desenhar o ícone dele na lousa",
+      "draw": "Desenhar o ícone do {name} na lousa",
+      "drawing": "Desenhando o ícone do {name}…",
+      "eraser": "Bolinha da lousa: arraste para apagar",
+      "locked": "Escolha uma ferramenta nos blocos primeiro"
+    },
+    "moments": {
+      "title": "momentos memoráveis",
+      "label": "Momentos memoráveis, em fotos que passam como um carrossel. Foque para pausar.",
+      "cards": {
+        "hackathon1": "Meu primeiro Hackathon, Segundo lugar no PROENERGIA Summit2025",
+        "extensao": "Premiação de Segundo Lugar no IX ENCONTRO DE EXTENSÃO UNIVERSITÁRIA, na área de Ciências Exatas do projeto “Criação de Espaleira Ajustável para Crianças: Pesquisa em Design e Inovação na Educação Musical de Violino”",
+        "ilustangram": "Oficinas e aulas do Ilustangram, projeto promovido pelo Grupo de Práticas Tangram",
+        "vortex": "Desafio de chegada no Vortex Laboratório de Pesquisa, Inovação e Tecnologia da Unifor",
+        "monitoria": "Encontros e eventos da jornada de Monitoria Voluntária em UX e UI Design",
+        "artigo": "Apresentação do artigo “Classificação de Padrões em Células HEP-2 com DENSENET121: Avaliação por Classe” no Encontro de Iniciação à Pesquisa 2026 na Unifor",
+        "moema": "Primeira animação de ciclo de caminhada para a mascote Moema (da Unifor)",
+        "hackathon2": "Meu segundo Hackathon, O-HACK A TA-ON da M. Dias Branco",
+        "agreste": "Reuniões e testes do projeto de pesquisa Agreste onde fui modeladora 3D dos personagens e de alguns itens",
+        "cascavel": "Entrega dos projetos do Complexo Cultural Yolanda e Edson Queiroz, Projeto de experiência em VR, Cascavel"
+      }
+    },
+    "about": {
+      "title": "sobre este site",
+      "headAlt": "Cabecinha da Ágatha piscando e sorrindo",
+      "quote": "“Aqueles que passam por nós, não vão sós, não nos deixam sós. Deixam um pouco de si, levam um pouco de nós.”",
+      "quoteAuthor": "  De Antoine de Saint-Exupéry",
+      "banner": "Este espaço não seria possível sem o empenho e a dedicação destes devs!",
+      "devsLabel": "Devs do site",
+      "linkedin": "LinkedIn de {name}",
+      "thanks": "A todos os contribuintes desse projeto, meus mais genuínos agradecimentos, parceria e admiração. ;D S2"
+    }
+  },
+  "treasure": {
+    "catch": "Pegar {icon} e ganhar uma arte de brinde",
+    "icons": {
+      "aguaViva": "a água-viva",
+      "aguaVivaLua": "a água-viva-lua",
+      "peixinho": "o peixinho",
+      "concha": "a concha",
+      "relogio": "o relógio de bolso",
+      "estrela": "a estrela",
+      "bolinhaDeGude": "a bolinha de gude",
+      "pontosSemNo": "o coelhinho do Pontos sem nó",
+      "lirioDoVale": "o lírio-do-vale",
+      "dadinho": "o dadinho",
+      "folhaDeOutono": "a folha de outono",
+      "trevo": "o trevo de quatro folhas"
+    },
+    "gift": {
+      "close": "Fechar",
+      "download": "Baixar",
+      "heading": "Você recebeu uma arte de brinde!",
+      "text": "Diferente das demais artes no portfólio, essa você pode baixar e utilizar como papel de parede ou o que desejar.",
+      "titles": {
+        "aguaViva": "Parabéns! A água-viva lhe alcançou!",
+        "aguaVivaLua": "Parabéns! A água-viva-lua lhe alcançou!",
+        "peixinho": "Parabéns! O peixinho lhe alcançou!",
+        "concha": "Parabéns! A concha lhe alcançou!",
+        "relogio": "Parabéns! O relógio de bolso lhe alcançou!",
+        "estrela": "Parabéns! A estrela lhe alcançou!",
+        "bolinhaDeGude": "Parabéns! A bolinha de gude lhe alcançou!",
+        "pontosSemNo": "Parabéns! O coelhinho lhe alcançou!",
+        "lirioDoVale": "Parabéns! O lírio-do-vale lhe alcançou!",
+        "dadinho": "Parabéns! O dadinho lhe alcançou!",
+        "folhaDeOutono": "Parabéns! A folha de outono lhe alcançou!",
+        "trevo": "Parabéns! O trevo de quatro folhas lhe alcançou!"
       }
     }
   }

@@ -23,14 +23,15 @@ import type { Dictionary } from "@/i18n/dictionaries";
  * termina em x=1534 (pr 11.23vw). A elipse rosa (695×695, x=1394, y=436) e o
  * ":d" gigante são posicionados no wrapper da página (page.tsx), NÃO aqui.
  *
- * pb-[196px]: o rodapé do texto (fim do intro = 1047) recebe pb 196 → o
- * wrapper da filosofia (page.tsx) começa em 1243 e o título (Filosofia)
- * assenta em y=1266 com o pt-6 de lá.
+ * pb-[122px]: a coluna mais alta é a ILUSTRAÇÃO (557 + 563 = 1120 @1728),
+ * não o texto (fim do intro = 1047) — com pb 196 a Filosofia caía em 1340,
+ * 74px abaixo do Figma. 1120 + 122 = 1242 → com o pt-6 do wrapper da
+ * filosofia (page.tsx) o título assenta em y=1266 (Figma 17:110).
  */
 export function GreetingSection({ dict }: { dict: Dictionary }) {
   const home = dict.home;
   return (
-    <section className="relative grid grid-cols-1 items-start gap-8 px-6 pb-12 pt-12 md:grid-cols-[29.68vw_1fr] md:gap-x-[14.93vw] md:pb-[196px] md:pl-[15.05vw] md:pr-[11.23vw] md:pt-[203px]">
+    <section className="relative grid grid-cols-1 items-start gap-8 px-6 pb-12 pt-12 md:grid-cols-[29.68vw_1fr] md:gap-x-[14.93vw] md:pb-[122px] md:pl-[15.05vw] md:pr-[11.23vw] md:pt-[203px]">
       {/* Ilustração — personagem achatado (mão + sombras baked, sem overlay) */}
       <div className="relative mx-auto md:mx-0">
         {/* Wrapper flutuando (spec §4.1): o transform fica fora da img,
@@ -61,8 +62,21 @@ export function GreetingSection({ dict }: { dict: Dictionary }) {
         </h2>
         {/* Intro: 26px no Figma = text-[1.625rem], justificado; w=648 → 37.5vw, */}
         {/* outdent pra x=843 (10.88vw à esquerda da coluna do título, x=1031) */}
+        {/* Duas frases em blocos: o Figma (17:109) quebra a linha depois da
+            1ª (`<br>` após "fofinho."). Em pt-BR a quebra caía ali por acaso
+            da largura do justify; em inglês sumia — por isso 2 chaves
+            (intro + introWork), não uma string só.
+            O Figma também justifica a linha antes da quebra; o CSS não
+            (é a última do bloco). text-align-last só com a caixa cheia
+            (648px, ≥1728): ali ela ocupa 87% (pt) / 95% (en); abaixo cai a
+            15–50% e esticaria demais. */}
         <div className="max-w-[648px] text-[1.625rem] leading-[1.26] text-justify text-[color:var(--color-blue)] md:-ml-[10.88vw] md:w-[37.5vw]">
-          <p>{home.intro}</p>
+          <p>
+            <span className="block min-[1728px]:[text-align-last:justify]">
+              {home.intro}
+            </span>
+            <span className="block">{home.introWork}</span>
+          </p>
         </div>
       </div>
     </section>

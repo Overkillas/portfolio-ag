@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Dictionary, Locale } from "@/i18n/dictionaries";
+import { site } from "@/lib/site";
 import s from "./StudiesGallery.module.css";
 
 type TileKey = "studies" | "career" | "gallery";
@@ -37,15 +38,6 @@ function TileOverlay({
   );
 }
 
-function tileProps(tile: TileKey, title: string, text: string) {
-  return {
-    "data-tile": tile,
-    tabIndex: 0,
-    role: "group",
-    "aria-label": `${title}: ${text}`,
-  } as const;
-}
-
 /**
  * Galeria de estudos — fiel ao Figma Pontossemno (canvas 1728px):
  *
@@ -56,11 +48,15 @@ function tileProps(tile: TileKey, title: string, text: string) {
  *   1. Fundo: estudos-coelhos.png (h=161.56%, top=-8.61%, left=-1.36%, w=117.38%)
  *   2. Topo (VISÍVEL): estudos-cover.png (1727×558 at x=-95, object-cover)
  *
- * Célula azul (Frame 10, x=0, y=2793, 1152×558, bg #6F96CE):
- *   - carreira-baleia.png (h=153.99%, top=-28.29%, left=-4.16%, w=110.24%)
+ * Célula Carreira (x=0, y=2793, 1152×558) → página Minha carreira (/carreira):
+ *   - carreira-foto.jpg = export 2x do node 17:258 do arquivo
+ *     EGDJU9UG5XmLO6zV8Howwo, já recortado na proporção da célula.
  *
- * Sidebar (Frame 9, x=1152, y=2234, 576×1117):
+ * Sidebar Galeria (Frame 9, x=1152, y=2234, 576×1117) → Instagram do footer:
  *   - doodles-azul.svg (tem gradiente próprio #485699→#5C76B4→#6F95CE)
+ *
+ * Galeria abre o Instagram em nova aba, com a mesma URL do footer
+ * (`site.social` em lib/site.ts).
  */
 export function StudiesGallery({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const home = dict.home;
@@ -116,29 +112,23 @@ export function StudiesGallery({ dict, locale }: { dict: Dictionary; locale: Loc
           />
         </Link>
 
-        {/* Célula AZUL — baleia */}
-        <div
-          {...tileProps(
-            "career",
-            home.tiles.career.title,
-            home.tiles.career.text,
-          )}
-          className={`${s.tile} relative h-[300px] overflow-hidden bg-[color:var(--color-blue)] md:h-[558px]`}
+        {/* Célula CARREIRA — foto (Figma 17:258); o bloco leva à página Minha
+            carreira (Figma 201:53). object-position à esquerda: no mobile a célula
+            corta as laterais e a pessoa (≈17–39% da largura) continua no quadro. */}
+        <Link
+          href={`/${locale}/carreira`}
+          data-tile="career"
+          aria-label={`${home.tiles.career.title}: ${home.tiles.career.text}`}
+          className={`${s.tile} relative block h-[300px] overflow-hidden bg-[color:var(--color-blue)] md:h-[558px]`}
         >
           <div className={s.tileImg}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/home/carreira-baleia.png"
+              src="/images/home/carreira-foto.jpg"
               alt={home.careerAlt}
-              width={869}
-              height={588}
-              className="absolute max-w-none object-cover"
-              style={{
-                height: "153.99%",
-                top: "-28.29%",
-                left: "-4.16%",
-                width: "110.24%",
-              }}
+              width={2304}
+              height={1116}
+              className="absolute inset-0 h-full w-full object-cover object-[30%_50%]"
             />
           </div>
           <TileOverlay
@@ -146,17 +136,17 @@ export function StudiesGallery({ dict, locale }: { dict: Dictionary; locale: Loc
             title={home.tiles.career.title}
             text={home.tiles.career.text}
           />
-        </div>
+        </Link>
       </div>
 
-      {/* Coluna direita (1/3): sidebar com doodles */}
-      <div
-        {...tileProps(
-          "gallery",
-          home.tiles.gallery.title,
-          home.tiles.gallery.text,
-        )}
-        className={`${s.tile} relative min-h-[400px] overflow-hidden md:min-h-0`}
+      {/* Coluna direita (1/3): sidebar com doodles; o bloco leva ao Instagram */}
+      <a
+        href={site.social.instagram.url}
+        target="_blank"
+        rel="noreferrer"
+        data-tile="gallery"
+        aria-label={`${home.tiles.gallery.title}: ${home.tiles.gallery.text}`}
+        className={`${s.tile} relative block min-h-[400px] overflow-hidden md:min-h-0`}
       >
         <div className={s.tileImg}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -173,7 +163,7 @@ export function StudiesGallery({ dict, locale }: { dict: Dictionary; locale: Loc
           title={home.tiles.gallery.title}
           text={home.tiles.gallery.text}
         />
-      </div>
+      </a>
     </section>
   );
 }

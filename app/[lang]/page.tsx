@@ -54,7 +54,10 @@ export default async function HomePage({
             fontSize: "clamp(120px, 19.57vw, 338px)",
             left: "47.4%", // 819/1728
             top: "145px", // 499 - 354 (hero height)
-            lineHeight: 1,
+            // 1.383 = box do Figma (467/338.2, line-height natural da fonte,
+            // igual aos h2). Com 1 o glifo subia ~65px e ficava alinhado ao
+            // topo do "Olá a todos,"; no Figma ele fica centrado no título.
+            lineHeight: 1.383,
           }}
           aria-hidden="true"
         >
@@ -145,17 +148,21 @@ export default async function HomePage({
           (reescrita do ContactSection no Plan 5; por ela usar o padrão vw do
           Plan 2, o container-narrow foi substituído pelo próprio padding da
           section). pt-[87px] assenta a ilustração em y=3437 (wrapper em 3350,
-          Figma) e o título em 3522 via mt-86 no h2 (ContactSection).
-          pb 0: o form (funcional, ~456px) é mais alto que o stub do Figma
-          (~129px, frame 750:1259) — o rodapé da home desce proporcional
-          (ver doc do HomeFooter). */}
+          Figma) e o título 118px abaixo dele via mt-99 no h2 (ContactSection).
+          pb-[147px]: Figma 17:56 — o bloco de contato (17:133) vai de 3437 a
+          4112.6 e a banda do footer começa em 4345, ou seja, 908px abaixo do
+          topo do bloco (232 de vazio). A section mede 681 @1728 (a coluna da
+          ilustração: mt 19.5 + PNG 661.5; o form termina antes, em 602 como no
+          Figma): 681 + 147 + mt-20 do footer (80) = 908. O ajuste fica aqui, e
+          não no mt do footer, porque o HomeFooter é compartilhado com Estudos
+          e cases. */}
       {/* z-0 — mesma razão do wrapper de cima: stacking context para a elipse
           rosa em -z-10 pintar acima do background de html/body.
           overflow-x: clip — a ellipse-2 (left 65.4% + 455px fixos) estoura a
           viewport abaixo de ~1315px; clip (NÃO hidden) mata o scroll
           horizontal sem afetar o bleed vertical. */}
       <div
-        className="relative z-0 py-12 md:pb-0 md:pt-[87px]"
+        className="relative z-0 py-12 md:pb-[147px] md:pt-[87px]"
         style={{ overflowX: 'clip' }}
       >
         {/* Elipse cyan-pink — Figma node 758:110: 455×455 at x=1131, y=3486 */}

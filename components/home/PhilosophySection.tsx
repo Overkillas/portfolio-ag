@@ -27,15 +27,20 @@ import type { Dictionary } from "@/i18n/dictionaries";
  *      escalonados -11.51/-22.32/-33.13/-44px e tops 244.43/285.21/325.98/
  *      366.76px; child w=174.802 h=0 (img com espessura natural 3.45) e
  *      rotate 14.8° — continuam como SVG vivo (cracha-linha.svg)
- *   6. Texto typewriter (crachaSaying): wrapper left=-36.7px, top=247.3px,
- *      186.964×161.345; child rotate 14.8° (mesmo ângulo das réguas — spec
- *      v3 §2.3) com p de 23px, leading 1.8, lowercase, width 159.843 — por
+ *   6. Texto typewriter (crachaSaying): wrapper left=-35.67px, top=247.3px,
+ *      186.964×161.345; child rotate 15.55° (Figma 17:132 — NÃO os 14.8° das
+ *      réguas) com p de 23px, leading 1.8, lowercase, width 159.843 — por
  *      último no DOM (pinta sobre as linhas). Texto SEMPRE vivo (i18n): nunca
  *      baked nos PNGs.
+ *   0. Fundo do furo (Ellipse 429, 17:118): círculo #1A5292 atrás do corpo,
+ *      visível só pelo recorte (anotação Figma 17:120).
  *
- * Texto: o left/top do wrapper (-36.7/247.3, antes -1.7/237.3) foi medido
- * contra o render do Figma (correlação das máscaras de glifo, réguas
- * mascaradas, pt-BR): cada linha fica ENTRE o par de réguas, não sobre elas.
+ * Texto: o left/top do wrapper (-35.67/247.3) foi medido contra o render
+ * 1728 do Figma 17:56 — correlação das máscaras de glifo (threshold 60,
+ * pt-BR), recorte ANCORADO no .cracha (um clip por scroll fixo pega o layout
+ * com scrollbar, 15px deslocado, e falseia o resultado). Pico 0.612 em
+ * (0,0) com 15.55°; com os 14.8° antigos o melhor era 0.573. A posição
+ * nativa do Figma (-34.67/244.3) fica 3px alta (métrica da P22 no browser).
  * Mobile (<md): a composição (corpo+réguas+texto, bbox visual 334px a partir
  * de -99.4px do box) é centralizada na coluna com margin-left: 50% − 67.6px
  * (centro do bbox em 67.6px do box) e justify-start; desktop inalterado. As
@@ -65,6 +70,19 @@ function Cracha({ alt, saying }: { alt: string; saying: string }) {
       className="cracha cracha-swing relative mx-auto max-md:mx-0 max-md:ml-[calc(50%-67.6px)]"
       style={{ width: "377px", height: "506px" }}
     >
+      {/* 0. Fundo do furo — Ellipse 429 (Figma 17:118, #1A5292, 94²), irmã
+          do grupo do crachá e pintada ANTES dele: só aparece pelo recorte do
+          corpo. (1318, 1347) − box (1259.4, 1237) = (58.6, 110). */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/home/cracha-furo.svg"
+        alt=""
+        aria-hidden="true"
+        width={94}
+        height={94}
+        className="absolute max-md:max-w-none"
+        style={{ left: "58.6px", top: "110px", width: "94px", height: "94px" }}
+      />
       {/* 1–4. Arte achatada (PNG já rotacionado — sem wrappers de rotate):
           corpo (alt-bearer, furo recortado), anel, ellipse 378, pétala —
           nessa ordem de pintura. Ver doc do Cracha. */}
@@ -174,13 +192,13 @@ function Cracha({ alt, saying }: { alt: string; saying: string }) {
       <div
         className="absolute flex items-center justify-center"
         style={{
-          left: "-36.7px",
+          left: "-35.67px",
           top: "247.3px",
           width: "186.964px",
           height: "161.345px",
         }}
       >
-        <div className="flex-none rotate-[14.8deg]">
+        <div className="flex-none rotate-[15.55deg]">
           <p
             className="lowercase text-center text-[color:var(--color-blue-soft)] text-[23px] leading-[1.8]"
             style={{

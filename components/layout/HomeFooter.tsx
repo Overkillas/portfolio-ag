@@ -7,10 +7,14 @@ import type { Dictionary } from "@/i18n/dictionaries";
  *
  * - Altura fixa: 269px (band y=4345–4614 no Figma, 1728px)
  * - Gradiente -63.62° (.bg-footer, token --gradient-footer próprio)
- * - Texto gigante (dict.footer.visitAlso): AM Novecento 120px cream
- *   (clamp 3rem→7.5rem), x=1, y=-45 relativos à banda → transborda ACIMA do
- *   footer (por isso overflow-visible, e não o clip padrão); caixa de 166px
- *   (lineHeight 1.383 — mesmo padrão do título Filosofia)
+ * - Texto gigante (dict.footer.visitAlso): AM Novecento 95.36px cream
+ *   (clamp 2.375rem→5.96rem), x=1, y=-35 relativos à banda → transborda ACIMA
+ *   do footer (por isso overflow-visible, e não o clip padrão); caixa de 132px
+ *   (lineHeight 1.383 — mesmo padrão do título Filosofia). Figma novo
+ *   (EGDJU9UG5XmLO6zV8Howwo): na home (17:69) ele fica à DIREITA (tinta em
+ *   x=923..1726, encostada na borda) → `visitAlign="right"`, e as telas de
+ *   projetos (índice e cases) seguem a home; em Estudos (17:2253) fica à
+ *   esquerda, x=1 (padrão).
  * - Label de redes sociais (dict.footer.social): Clother Regular 24px cream,
  *   x=28, y=109
  * - Social rows: IG (16px Regular) + handle (16px Light, underline); gap
@@ -25,9 +29,12 @@ import type { Dictionary } from "@/i18n/dictionaries";
  */
 export function HomeFooter({
   dict,
+  visitAlign = "left",
 }: {
   dict: Dictionary;
   variant?: "home" | "projects";
+  /** Lado do "visite também": a home o põe à direita (Figma 17:69). */
+  visitAlign?: "left" | "right";
 }) {
   const arrow = (
     <span
@@ -45,14 +52,14 @@ export function HomeFooter({
       className={`bg-footer relative mt-20 w-full overflow-visible text-[color:var(--color-cream)]`}
       style={{ height: "269px" }}
     >
-      {/* "visite também" — transborda ACIMA do band (y=-45 no Figma) */}
+      {/* "visite também" — transborda ACIMA do band (y=-35 no Figma) */}
       <h2
-        className="absolute font-display"
+        className="absolute whitespace-nowrap font-display"
         style={{
-          fontSize: "clamp(3rem, 6.94vw, 7.5rem)", // 120px @1728
-          left: "1px",
-          top: "-45px", // transborda acima!
-          lineHeight: 1.383, // caixa 166px = Figma (AM Novecento line-height auto)
+          fontSize: "clamp(2.375rem, 5.519vw, 5.96rem)", // 95.36px @1728
+          ...(visitAlign === "right" ? { right: "1px" } : { left: "1px" }),
+          top: "-35px", // transborda acima!
+          lineHeight: 1.383, // caixa 132px = Figma (AM Novecento line-height auto)
         }}
       >
         {dict.footer.visitAlso}

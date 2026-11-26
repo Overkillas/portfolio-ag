@@ -1,0 +1,183 @@
+/*
+ * Card do brinde (components/layout/GiftCard.tsx, Figma 281:301). Medidas do Figma em
+ * --u: 1px numa tela larga, encolhe junto com o card (1018 de largura) em telas menores;
+ * os textos têm piso para continuarem legíveis no celular.
+ * z 70: acima da página e do modal do case; o rastro do ícone pego (71) cai por cima.
+ */
+.backdrop {
+  --u: min(1px, calc((100vw - 24px) / 1018));
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 12px;
+  background: rgb(14 30 66 / 0.55);
+  animation: giftFade 0.3s ease both;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--u) * 21.1);
+  box-sizing: border-box;
+  width: min(1018px, 100%);
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  padding: calc(var(--u) * 31.6) calc(var(--u) * 35.2);
+  border-radius: calc(var(--u) * 56.3);
+  background: #f9f3ea;
+  box-shadow: 0 30px 60px -24px rgb(14 30 66 / 0.55);
+  animation: giftPop 0.5s var(--ease-spring) both;
+  overscroll-behavior: contain;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  align-self: stretch;
+  /* 56 até a arte no Figma (o gap do card já dá 21) */
+  margin-bottom: calc(var(--u) * 35.2);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--u) * 14);
+  margin: 0;
+  color: #08488f;
+  font-family: var(--font-body);
+  font-size: max(18px, calc(var(--u) * 42.2));
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* o SVG do ícone tem respiro (110 com o desenho ~60 no meio): a caixa é maior que o desenho */
+.icon {
+  flex-shrink: 0;
+  width: max(48px, calc(var(--u) * 84));
+  height: auto;
+  margin: calc(var(--u) * -12) calc(var(--u) * -10);
+  user-select: none;
+}
+
+/* fechar: o pontilhado do lightbox (48) no tamanho do Figma (70.3) */
+.close {
+  flex-shrink: 0;
+  scale: 1.465;
+  margin: 11px;
+}
+@media (max-width: 639px) {
+  .close {
+    scale: 1;
+    margin: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .close:hover {
+    rotate: 90deg;
+  }
+}
+
+/* arte inteira (retrato ou paisagem): cabe na largura e numa altura que deixa o resto à vista */
+.art {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  /* o resto do card (cabeçalho, botão, textos e respiros) ocupa ~540 a 1728 */
+  max-height: max(200px, calc(100dvh - 24px - var(--u) * 560));
+  border-radius: calc(var(--u) * 42.2);
+  object-fit: contain;
+}
+
+/* "Baixar": casca Azul gelo + miolo tracejado, a receita do DottedButton em pílula */
+.download {
+  display: inline-flex;
+  flex-shrink: 0;
+  padding: max(4px, calc(var(--u) * 5.95));
+  border-radius: 9999px;
+  background: var(--color-blue-soft);
+  color: #08488f;
+  text-decoration: none;
+  transition: translate 0.35s var(--ease-spring);
+}
+.downloadInner {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--u) * 3.5);
+  padding: calc(var(--u) * 3.5) calc(var(--u) * 28.1) calc(var(--u) * 7) calc(var(--u) * 14.1);
+  border: max(2px, calc(var(--u) * 2.975)) dashed #527fb0;
+  border-radius: 9999px;
+  background: #eaeef4;
+  font-family: var(--font-body);
+  font-size: max(18px, calc(var(--u) * 36.5));
+  font-weight: 700;
+  line-height: normal;
+}
+.downloadIcon {
+  width: max(32px, calc(var(--u) * 63.3));
+  height: auto;
+}
+.download:focus-visible {
+  outline: 3px solid #0e488b;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .download:hover {
+    translate: 0 -3px;
+  }
+  .download:hover .downloadIcon {
+    animation: giftNudge 0.6s ease-in-out;
+  }
+}
+
+.copy {
+  max-width: calc(var(--u) * 1016);
+  font-family: var(--font-body);
+  text-align: center;
+}
+.heading {
+  margin: 0 0 1.2em;
+  color: #08488f;
+  font-size: max(18px, calc(var(--u) * 42.2));
+  font-weight: 700;
+  line-height: normal;
+}
+.text {
+  margin: 0;
+  color: #6f96ce;
+  font-size: max(15px, calc(var(--u) * 35.2));
+  font-weight: 400;
+  line-height: normal;
+}
+
+@keyframes giftFade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes giftPop {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.86);
+  }
+}
+@keyframes giftNudge {
+  40% {
+    translate: 0 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .card {
+    animation: none;
+  }
+}

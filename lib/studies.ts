@@ -206,3 +206,29 @@ export function rowWidth(row: StudyRow, items: StudyItem[] = row.items): number 
 export function matchesFilter(item: StudyItem, filter: StudyFilter): boolean {
   return filter === 'all' || item.category === filter;
 }
+
+/**
+ * Fora do brinde do ícone voador (components/layout/GiftCard.tsx): rascunhos e estudos a
+ * lápis (sketches, retratos de expressão, Twig, Chikorita), os calendários e o gato
+ * (luminária 3D, nas duas cores). O resto da galeria pode ser sorteado e baixado.
+ */
+export const giftExcluded: readonly StudyItemKey[] = [
+  'sketchGarota',
+  'sketchFinal',
+  'retrato1',
+  'retrato2',
+  'retrato3',
+  'retrato4',
+  'twig',
+  'chikorita',
+  'calendario2023',
+  'calendario2024',
+  'calendario2025',
+  'gatoAzul',
+  'gatoAmarelo',
+];
+
+/** Artes que o ícone voador pode dar de brinde (as de `studyRows`, menos `giftExcluded`). */
+export const giftItems: readonly StudyItem[] = studyRows
+  .flatMap((row) => row.items)
+  .filter((item) => !giftExcluded.includes(item.key));

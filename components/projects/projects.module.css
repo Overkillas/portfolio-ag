@@ -245,10 +245,18 @@
 @media (max-width: 700px) {
   .topRow { flex-direction: column-reverse; align-items: center; }
 }
-/* Sem hover (touch): conteúdo do card sempre visível */
+/* Sem hover (touch): o conteúdo do card só aparece ao apertar e segurar
+   (`.cardPeek`, ligado pelo BentoCard). Sem o callout/seleção do iOS no gesto. */
 @media (hover: none) {
-  .overlay, .up, .badge { opacity: 1; transform: none; }
+  .card { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 }
+.cardPeek { box-shadow: 0 24px 44px -20px rgba(14,72,139,.6); }
+.cardPeek .cardImg { transform: scale(1.08); filter: blur(2px) saturate(.75); }
+.cardPeek .overlay, .cardPeek .up { opacity: 1; transform: none; }
+.cardPeek .d1 { transition-delay: .05s; }
+.cardPeek .d2 { transition-delay: .12s; }
+.cardPeek .d3 { transition-delay: .19s; }
+.cardPeek .badge { opacity: 1; transform: none; transition-delay: .15s; }
 
 /* ============================================================
    MODAL DO CASE (a folha vive no slot @modal, fora de .page)

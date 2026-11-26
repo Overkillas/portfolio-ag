@@ -1,0 +1,123 @@
+/*
+ * "momentos memoráveis" (Figma 226:701) — ver CareerMoments.tsx.
+ *
+ * --mu = 1px do Figma: --u no desktop (1:1 a 1728), 0.6px no celular (o carrossel
+ * continua passando, em escala menor). Só transform no movimento.
+ */
+
+.moments {
+  --mu: 0.6px;
+  padding-top: 48px;
+}
+
+.title {
+  text-align: center;
+  /* "auto" do Figma para a AM Novecento: 138 de altura (as fileiras começam 62 abaixo) */
+  line-height: 1.383;
+}
+
+.rows {
+  margin-top: calc(var(--mu) * 62);
+  outline-offset: 4px;
+}
+.rows:focus-visible {
+  outline: 2px dashed #527fb0;
+}
+
+.row {
+  position: relative;
+  height: calc(var(--mu) * 283.922);
+}
+.row + .row {
+  margin-top: calc(var(--mu) * 37.825);
+}
+
+.track {
+  position: absolute;
+  top: 0;
+  left: calc(var(--mu) * var(--x));
+  display: flex;
+  align-items: flex-end;
+  gap: calc(var(--mu) * 25.216);
+  animation: slide var(--dur) linear infinite;
+  will-change: transform;
+}
+@keyframes slide {
+  to {
+    transform: translateX(calc(var(--mu) * var(--period) * var(--dir)));
+  }
+}
+/* sem pausa no hover (pedido do André); pausa só com o foco do teclado */
+.rows:focus-within .track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}
+
+/* Card (226:705…): creme, cantos 16.081, sombra do Figma (8.543 / 7.538, blur 4.523, 17%). */
+.card {
+  flex: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--mu) * 5.025);
+  height: calc(var(--mu) * 282.896);
+  margin: 0;
+  padding: calc(var(--mu) * 12.563) calc(var(--mu) * 15.076);
+  overflow: clip;
+  border-radius: calc(var(--mu) * 16.081);
+  background: #f9f3ea;
+  box-shadow: calc(var(--mu) * 8.543) calc(var(--mu) * 7.538) calc(var(--mu) * 4.523) rgb(0 0 0 / 0.17);
+}
+
+.photos {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--mu) * var(--gap));
+  padding: calc(var(--mu) * 4.02) calc(var(--mu) * 16.081);
+}
+.photos img {
+  display: block;
+  flex: none;
+  width: calc(var(--mu) * var(--w));
+  height: calc(var(--mu) * var(--h));
+  max-width: none;
+  object-fit: cover;
+}
+.photos img:first-child {
+  border-radius: calc(var(--mu) * 14.184) 0 0 calc(var(--mu) * 14.184);
+}
+.photos img:last-child {
+  border-radius: 0 calc(var(--mu) * 14.184) calc(var(--mu) * 14.184) 0;
+}
+.photos img:only-child {
+  border-radius: calc(var(--mu) * 14.184);
+}
+
+.caption {
+  width: calc(var(--mu) * var(--cap));
+  margin: 0;
+  color: #6f96ce;
+  font-family: var(--font-body);
+  font-size: calc(var(--mu) * 10.051);
+  font-weight: 700;
+  /* Figma "auto" da Clother: 1.1923 (o normal do Chrome fica mais alto) */
+  line-height: 1.1923;
+  text-align: center;
+}
+.nowrap {
+  width: auto;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .moments {
+    --mu: var(--u);
+    padding-top: 0;
+  }
+}

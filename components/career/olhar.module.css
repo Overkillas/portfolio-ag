@@ -1,0 +1,35 @@
+/*
+ * Rosto do "olhar" que segue o cursor (OlharFace.tsx). Ocupa a mesma caixa do GIF
+ * (.olhar em career.module.css: 658², 103 à direita e 81 acima da borda do frame).
+ */
+.face {
+  aspect-ratio: 1;
+}
+/* Em repouso exato (sem cursor) a camada some e fica o 1º quadro já assado no recorte
+   da faixa — o pixel do Figma. Ela aparece quando o cursor mexe. */
+.face:not([data-active]) {
+  visibility: hidden;
+}
+.face > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Caixa do olho recortada pela abertura (máscara do GIF); as duas camadas de íris se
+   somam (crossfade aditivo) dentro do grupo isolado. */
+.eye {
+  position: absolute;
+  isolation: isolate;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+}
+.iris {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  mix-blend-mode: plus-lighter;
+  will-change: transform, opacity;
+}

@@ -1,0 +1,115 @@
+/*
+ * O trem (Figma 226:312) — ver CareerTrain.tsx.
+ *
+ * A cena é container: --t = 1px do Figma (1728 de largura) para os descendentes.
+ * Vídeo de 1728 × 498 (altura par para o H.264) numa janela de 1728 × 497: a linha extra
+ * fica cortada. Cards (226:314): 3 × 400 × 56, gap 164, 24 abaixo do vídeo, centrados.
+ * Aceso (226:315): casca #a2de84 e miolo #daf0bb; apagado: Azul gelo #bacceb e #eaeef4.
+ */
+
+.train {
+  --t: calc(100cqw / 1728);
+  container-type: inline-size;
+  margin-top: 48px;
+}
+
+.window {
+  position: relative;
+  aspect-ratio: 1728 / 497;
+  overflow: hidden;
+}
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top;
+}
+
+.stops {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0 16px;
+  list-style: none;
+}
+.stop {
+  --pu: 0.8px;
+  display: flex;
+  box-sizing: border-box;
+  width: min(100%, 320px);
+  height: calc(var(--pu) * 56);
+  padding: calc(var(--pu) * 4);
+  border-radius: calc(var(--pu) * 100);
+  background: var(--color-blue-soft, #bacceb);
+  transition: background-color 0.25s ease;
+}
+.stopInner {
+  display: flex;
+  flex: 1;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: calc(var(--pu) * 6) calc(var(--pu) * 10) calc(var(--pu) * 8);
+  border: 2px dashed #527fb0;
+  border-radius: calc(var(--pu) * 60);
+  background: #eaeef4;
+  color: #08488f;
+  font-family: var(--font-body);
+  font-size: calc(var(--pu) * 24);
+  font-weight: 700;
+  /* Figma "auto" da Clother: 1.1923 (o normal do Chrome fica mais alto) */
+  line-height: 1.1923;
+  white-space: nowrap;
+  transition: background-color 0.25s ease;
+}
+.on {
+  background: #a2de84;
+}
+.on .stopInner {
+  background: #daf0bb;
+}
+
+/* "Quando ela para nesse ponto o botão faz pop" (anotação do Figma, 226:316): só depois
+   que o vídeo começou — no repouso o card 1 já está aceso, como no Figma. */
+[data-playing] .on {
+  animation: pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.12);
+  }
+  65% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-playing] .on {
+    animation: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .train {
+    margin-top: 0;
+  }
+  .stops {
+    flex-wrap: nowrap;
+    gap: calc(var(--t) * 164);
+    margin-top: calc(var(--t) * 24);
+    padding: 0;
+  }
+  .stop {
+    --pu: var(--t);
+    width: calc(var(--t) * 400);
+  }
+}

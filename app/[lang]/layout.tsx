@@ -5,6 +5,9 @@ import { getDictionary, isLocale } from '@/i18n/dictionaries';
 import { locales } from '@/i18n/config';
 import { HeaderRouter } from '@/components/layout/HeaderRouter';
 import { FooterRouter } from '@/components/layout/FooterRouter';
+import { ImageCopyGuard } from '@/components/layout/ImageCopyGuard';
+import { ScrollbarReveal } from '@/components/layout/ScrollbarReveal';
+import { FlyingTreasure } from '@/components/layout/FlyingTreasure';
 import { I18nProvider } from '@/lib/i18n/provider';
 import './globals.css';
 
@@ -96,6 +99,12 @@ export default async function RootLayout({
           {/* Roteia: home v2 usa HomeFooter (Figma Pontossemno); demais
               páginas mantêm o Footer antigo */}
           <FooterRouter dict={dict} />
+          {/* Aviso de copyright no botão direito/arrastar de qualquer imagem */}
+          <ImageCopyGuard />
+          {/* Barra de rolagem oculta até rolar (globals.css) */}
+          <ScrollbarReveal />
+          {/* Evento aleatório: ícones voando que dão uma arte de presente */}
+          <FlyingTreasure />
         </I18nProvider>
       </body>
     </html>

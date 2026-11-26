@@ -352,6 +352,7 @@ gate_4() {
     "app/[lang]/projetos/pontos-sem-no/page.tsx"
     "app/[lang]/projetos/batuco-tuco/page.tsx"
     "app/[lang]/projetos/pontinhas-soltas/page.tsx"
+    "app/[lang]/carreira/page.tsx"
   )
 
   for page in "${PAGES[@]}"; do
@@ -382,6 +383,7 @@ gate_4() {
     "app/[lang]/projetos/pontos-sem-no/page.tsx"
     "app/[lang]/projetos/batuco-tuco/page.tsx"
     "app/[lang]/projetos/pontinhas-soltas/page.tsx"
+    "app/[lang]/carreira/page.tsx"
   )
 
   for page in "${METADATA_PAGES[@]}"; do
@@ -479,7 +481,7 @@ gate_5() {
   # mediria o redirect, não a rota.
   FAILED_ROUTES=0
   for locale in pt-BR en; do
-    for path in "" "contato" "grafico" "interacao" "servicos" "3d" "projetos/pontos-sem-no" "projetos/batuco-tuco" "projetos/pontinhas-soltas"; do
+    for path in "" "contato" "grafico" "interacao" "servicos" "3d" "projetos/pontos-sem-no" "projetos/batuco-tuco" "projetos/pontinhas-soltas" "carreira"; do
       STATUS=$(curl -s --max-time 15 -o /dev/null -w "%{http_code}" "http://localhost:3000/$locale${path:+/$path}")
       if [ "$STATUS" != "200" ]; then
         log_fail "/$locale/$path → HTTP $STATUS (expected 200)"
@@ -1011,7 +1013,7 @@ for (const [name, d] of [['pt-BR', pt], ['en', en]]) {
   }
 }
 if (!pt.home.intro.startsWith('Prazer, sou a Ágatha!')) fail('pt-BR home.intro must start with \"Prazer, sou a Ágatha!\"');
-if (!en.home.intro.startsWith('Nice to meet you')) fail('en home.intro must start with \"Nice to meet you\"');
+if (!en.home.intro.startsWith('Hi, I')) fail('en home.intro must start with \"Hi, I\"');
 console.log('ok: ' + n + ' checks');
 "; then
     log_pass "home.* new keys present in both dictionaries; Body1Bold/Body1End removed; intro starts right"
@@ -1106,7 +1108,7 @@ console.log('ok: ' + n + ' checks');
   done
 
   log_sub "Test: /en has the new intro, 3 tile titles, id=\"top\" and the back-to-top link (visible text)..."
-  for pair in ">Nice to meet you, I" ">Studies<" ">My design career<" ">My gallery<" ">back to top" 'id="top"'; do
+  for pair in ">Hi, I" ">Studies<" ">My design career<" ">My gallery<" ">back to top" 'id="top"'; do
     if printf '%s' "$HTML_EN" | grep -qF -- "$pair"; then
       log_pass "  /en contains: $pair"
     else
@@ -1125,6 +1127,174 @@ console.log('ok: ' + n + ' checks');
       log_fail "  /$locale footer has no <a href=\"#top\"> with visible text \"$TXT\""
     fi
   done
+}
+
+# ============================================================
+# GATE 9: Página Minha carreira (Figma 226:56; antes 201:53)
+# ============================================================
+gate_9() {
+  log_gate "9" "Minha carreira page"
+
+  log_sub "Dictionary: career.* and metadata.career (pt-BR ↔ en, same keys, no empty values)..."
+  if node -e "
+const pt = require('./dictionaries/pt-BR.json');
+const en = require('./dictionaries/en.json');
+const fail = (m) => { console.error(m); process.exit(1); };
+const walk = (a, b, p) => {
+  for (const k of Object.keys(a)) {
+    if (!(k in b)) fail(p + k + ' missing in en');
+    if (typeof a[k] === 'object') walk(a[k], b[k], p + k + '.');
+    else if (typeof a[k] !== 'string' || !a[k].trim() || typeof b[k] !== 'string' || !b[k].trim()) fail(p + k + ' empty');
+  }
+  for (const k of Object.keys(b)) if (!(k in a)) fail(p + k + ' only in en');
+};
+if (!pt.career || !en.career) fail('career missing');
+walk(pt.career, en.career, 'career.');
+if (!pt.metadata.career || !en.metadata.career) fail('metadata.career missing');
+// negrito por chaves partidas: a ordem p*/b* tem que ser igual nos dois idiomas
+for (const c of ['col1', 'col2', 'col3']) {
+  if (Object.keys(pt.career.hero[c]).join() !== Object.keys(en.career.hero[c]).join()) fail('hero.' + c + ' key order differs');
+}
+console.log('ok');
+"; then
+    log_pass "career.* parity ok (pt-BR ↔ en), metadata.career present"
+  else
+    log_fail "career.* dictionary check failed"
+  fi
+
+  log_sub "Route, routers and top bar..."
+  [ -f "app/[lang]/carreira/page.tsx" ] && log_pass "app/[lang]/carreira/page.tsx exists" || log_fail "app/[lang]/carreira/page.tsx missing"
+  grep -q '"x-default": "/pt-BR/carreira"' "app/[lang]/carreira/page.tsx" && log_pass "  alternates with x-default" || log_fail "  carreira page without x-default alternate"
+  grep -q "segments\[0\] === 'carreira'" components/layout/HeaderRouter.tsx && log_pass "  HeaderRouter hides the site header on /carreira" || log_fail "  HeaderRouter has no carreira branch"
+  grep -q "segments\[0\] === 'carreira'" components/layout/FooterRouter.tsx && log_pass "  FooterRouter uses HomeFooter on /carreira" || log_fail "  FooterRouter has no carreira branch"
+  grep -q 'variant="career"' "app/[lang]/carreira/page.tsx" && log_pass "  CaseTopBar variant=\"career\" (back, language switcher, projetos)" || log_fail "  carreira page without CaseTopBar variant=\"career\""
+  grep -q 'href={`/${locale}/carreira`}' components/home/StudiesGallery.tsx && log_pass "  home career tile links to /carreira" || log_fail "  home career tile does not link to /carreira"
+
+  log_sub "Assets referenced by components/career exist in public/images/carreira..."
+  local missing=0
+  for asset in $(grep -rhoE '/images/carreira/[a-z0-9-]+(\.webp)?' components/career | sort -u); do
+    case "$asset" in
+      *.webp) [ -f "public$asset" ] || { log_fail "  public$asset missing"; missing=1; } ;;
+    esac
+  done
+  # Loop("name") → name.webp + name-static.webp
+  for name in $(grep -rhoE 'Loop name="[a-z0-9-]+"' components/career | sed -E 's/.*"(.*)"/\1/' | sort -u); do
+    for f in "$name.webp" "$name-static.webp"; do
+      [ -f "public/images/carreira/$f" ] || { log_fail "  public/images/carreira/$f missing"; missing=1; }
+    done
+  done
+  # olhos que seguem o cursor (OlharFace monta os nomes por olho)
+  for f in olhar-rosto.webp olhar-iris-esq.webp olhar-iris-dir.webp olhar-olho-esq.png olhar-olho-dir.png; do
+    [ -f "public/images/carreira/$f" ] || { log_fail "  public/images/carreira/$f missing"; missing=1; }
+  done
+  [ $missing -eq 0 ] && log_pass "All career assets exist"
+  grep -q "useFinePointer" components/career/OlharFace.tsx && log_pass "  OlharFace follows the cursor only with a fine pointer (GIF on touch)" || log_fail "  OlharFace without useFinePointer"
+
+  log_sub "No hardcoded copy in components/career (text comes from dict.career)..."
+  # Comentários (linhas que começam com *, // ou {/*) citam o texto do Figma e não contam.
+  HARDCODED_9=$(grep -rnIE "(['\">\`])[[:space:]]*(como vim parar|Monitoria|caminhos|hora do desenho|life gallery|Entrei no|Sou cheia de|momentos memoráveis|sobre este site|Pesquisa e UX|Áreas de pesquisa|clique aqui)" components/career \
+    | grep -vE '^[^:]+:[0-9]+:[[:space:]]*(\*|//|/\*|\{/\*)' || true)
+  if [ -z "$HARDCODED_9" ]; then
+    log_pass "No hardcoded career strings"
+  else
+    log_fail "Hardcoded career strings found:"
+    echo "$HARDCODED_9" | head -10
+  fi
+
+  log_sub "Motion: knitting scene and drawing board, each with a reduced-motion fallback..."
+  head -n 3 components/career/KnittingDoll.tsx | grep -qE "^['\"]use client['\"]" && log_pass "  KnittingDoll is a Client Component" || log_fail "  KnittingDoll without 'use client'"
+  grep -q "prefers-reduced-motion: reduce" components/career/knitting.module.css && log_pass "  knitting.module.css has a reduced-motion block" || log_fail "  knitting.module.css without reduced-motion block"
+  grep -q "prefers-reduced-motion" components/career/layout.tsx && log_pass "  GIF loops fall back to their first frame" || log_fail "  Loop without reduced-motion <source>"
+
+  # Emenda 5 (Figma 226:56): trem em vídeo, publicações, momentos e sobre este site
+  log_sub "Train, papers, memorable moments and about this site (Emenda 5)..."
+  [ -f public/videos/carreira/trem.mp4 ] && [ -f public/images/carreira/trem.webp ] && log_pass "  train video + poster exist" || log_fail "  train video or poster missing"
+  head -n 3 components/career/CareerTrain.tsx | grep -qE "^['\"]use client['\"]" && log_pass "  CareerTrain is a Client Component" || log_fail "  CareerTrain without 'use client'"
+  grep -q "prefers-reduced-motion" components/career/CareerTrain.tsx && grep -q "prefers-reduced-motion" components/career/train.module.css && log_pass "  train keeps the poster (Figma) with reduced motion" || log_fail "  train ignores reduced motion"
+  grep -q "prefers-reduced-motion: reduce" components/career/moments.module.css && log_pass "  moments carousel stops with reduced motion" || log_fail "  moments.module.css without reduced-motion block"
+  grep -q "prefers-reduced-motion" components/career/CareerPublications.tsx && log_pass "  ticket flip skips the animation with reduced motion" || log_fail "  CareerPublications ignores reduced motion"
+  # fotos: <card>-<n>.webp para cada largura em `photos: [...]`
+  while IFS=: read -r card list; do
+    n=$(echo "$list" | tr ',' '\n' | grep -c .)
+    for i in $(seq 1 "$n"); do
+      [ -f "public/images/carreira/momentos/$card-$i.webp" ] || { log_fail "  momentos/$card-$i.webp missing"; missing=1; }
+    done
+  done < <(grep -oE "key: '[a-z0-9]+', photos: \[[^]]+\]" components/career/CareerMoments.tsx | sed -E "s/key: '([a-z0-9]+)', photos: \[([^]]+)\]/\1:\2/")
+  for slug in $(grep -oE "slug: '[a-z-]+'" lib/site.ts | sed -E "s/slug: '(.*)'/\1/"); do
+    [ -f "public/images/carreira/devs/$slug.webp" ] || { log_fail "  devs/$slug.webp missing"; missing=1; }
+  done
+  for f in g100961.svg g100962.svg g100963.svg g100964.svg exclude.svg line10.svg line11.svg ellipse379.svg ellipse429.svg union.svg ellipse378.webp; do
+    [ -f "public/images/carreira/publicacao/$f" ] || { log_fail "  publicacao/$f missing"; missing=1; }
+  done
+  [ $missing -eq 0 ] && log_pass "  moment photos, dev avatars and ticket layers exist"
+  grep -q "name: 'André Garcia'" lib/site.ts && log_pass "  dev name is André Garcia" || log_fail "  André Garcia missing from career.devs"
+
+  # Lousa mágica + blocos (spec, Emenda 3)
+  log_sub "Drawing board (lousa mágica) and tool blocks..."
+  for f in DrawingPlayground MagicBoard ToolBlocks; do
+    head -n 3 "components/career/board/$f.tsx" | grep -qE "^['\"]use client['\"]" && log_pass "  board/$f is a Client Component" || log_fail "  board/$f without 'use client'"
+  done
+  for f in base.webp tinta.webp grao.webp cordao.webp faixa.webp pincel.png caneta.svg; do
+    [ -f "public/images/carreira/lousa/$f" ] || { log_fail "  public/images/carreira/lousa/$f missing"; missing=1; }
+  done
+  # um pincel por ferramenta (spec, Emenda 6): toda imagem de BRUSH_IMAGES existe
+  for f in $(grep -oE "\\\$\{DIR\}/[a-z/.-]+" components/career/board/brushes.ts | sed 's#^\$[{]DIR[}]/##'); do
+    [ -f "public/images/carreira/lousa/$f" ] || { log_fail "  brush image lousa/$f missing"; missing=1; }
+  done
+  grep -q "TOOL_BRUSH\[tool\]" components/career/board/MagicBoard.tsx && log_pass "  MagicBoard draws each tool with its own brush" || log_fail "  MagicBoard ignores TOOL_BRUSH"
+  for t in $(grep -oE "TOOLS = \[[^]]+\]" components/career/board/glyphs.ts | grep -oE "'[a-z]+'" | tr -d "'"); do
+    for f in "$t.svg" "$t-verso.svg"; do
+      [ -f "public/images/carreira/blocos/$f" ] || { log_fail "  public/images/carreira/blocos/$f missing"; missing=1; }
+    done
+  done
+  [ $missing -eq 0 ] && log_pass "  Board layers and the 8 blocks (front + back) exist"
+  grep -q "prefers-reduced-motion: reduce" components/career/board/blocks.module.css && log_pass "  blocks.module.css has a reduced-motion block" || log_fail "  blocks.module.css without reduced-motion block"
+  grep -q "reducedMotion()" components/career/board/MagicBoard.tsx && log_pass "  MagicBoard draws/erases instantly with reduced motion" || log_fail "  MagicBoard ignores reduced motion"
+  grep -q "useSyncExternalStore" components/career/board/DrawingPlayground.tsx && log_pass "  Blocks start face-down only after hydration (server renders the Figma)" || log_fail "  DrawingPlayground arms the blocks without useSyncExternalStore"
+  if node -e "
+const pt = require('./dictionaries/pt-BR.json').career.drawing, en = require('./dictionaries/en.json').career.drawing;
+const need = { drawnAlt: '{name}', draw: '{name}', drawing: '{name}', flip: '{n}' };
+for (const [k, ph] of Object.entries(need)) for (const d of [pt, en]) if (!d[k] || !d[k].includes(ph)) { console.error(k + ' without ' + ph); process.exit(1); }
+"; then
+    log_pass "  career.drawing placeholders ({name}, {n}) in both languages"
+  else
+    log_fail "  career.drawing placeholder missing"
+  fi
+  if pnpm exec vitest run components/career/board > /tmp/gate9-vitest.log 2>&1; then
+    log_pass "  vitest: board machine, geometry and glyphs ($(grep -E 'Tests ' /tmp/gate9-vitest.log | grep -oE '[0-9]+ passed'))"
+  else
+    log_fail "  vitest failed (see /tmp/gate9-vitest.log)"
+  fi
+
+  # ----------------------------------------------------------
+  # Runtime (GATE_BASE_URL or :3000) — SKIP if nothing answers
+  # ----------------------------------------------------------
+  local BASE="${GATE_BASE_URL:-http://localhost:3000}"
+  BASE="${BASE%/}"
+  log_sub "Runtime: server on $BASE..."
+  if ! curl -s --connect-timeout 3 --max-time 60 -o /dev/null "$BASE/pt-BR"; then
+    log_skip "Nothing answers on $BASE — start 'pnpm build && pnpm start' (or set GATE_BASE_URL) and re-run for the runtime checks"
+    return 0
+  fi
+  for locale in pt-BR en; do
+    STATUS=$(curl -s --max-time 60 -o /dev/null -w "%{http_code}" "$BASE/$locale/carreira")
+    [ "$STATUS" = "200" ] && log_pass "  /$locale/carreira → 200" || log_fail "  /$locale/carreira → $STATUS"
+  done
+  local HTML
+  HTML=$(curl -s --max-time 60 "$BASE/pt-BR/carreira" | tr '\n' ' ' || true)
+  for pair in ">como vim parar aqui?<" ">Monitoria<" ">caminhos<" ">momentos memoráveis<" ">André Garcia<" "trem.mp4" 'hrefLang="en"' 'hrefLang="x-default"' ">voltar ao topo"; do
+    if printf '%s' "$HTML" | grep -qF -- "$pair"; then
+      log_pass "  /pt-BR/carreira contains: $pair"
+    else
+      log_fail "  /pt-BR/carreira does not contain: $pair"
+    fi
+  done
+  # a home liga o bloco de carreira à página
+  if curl -s --max-time 60 "$BASE/pt-BR" | grep -qF 'href="/pt-BR/carreira"'; then
+    log_pass "  /pt-BR links to /pt-BR/carreira"
+  else
+    log_fail "  /pt-BR has no link to /pt-BR/carreira"
+  fi
 }
 
 # ============================================================
@@ -1167,6 +1337,7 @@ main() {
     6) gate_6 ;;
     7) gate_7 ;;
     8) gate_8 ;;
+    9) gate_9 ;;
     all)
       gate_0
       gate_1
@@ -1177,9 +1348,10 @@ main() {
       # gate_6  # Skip in 'all' — run before PR
       # gate_7  # Skip in 'all' — projects page, run per task
       # gate_8  # Skip in 'all' — home texts/animations, run per task
+      # gate_9  # Skip in 'all' — Minha carreira page, run per task
       ;;
     *)
-      echo "Usage: $0 [0|1|2|3|4|5|6|7|8|all]"
+      echo "Usage: $0 [0|1|2|3|4|5|6|7|8|9|all]"
       exit 1
       ;;
   esac

@@ -21,6 +21,12 @@ const focusRing = "focus-visible:outline-3 focus-visible:outline-offset-4 focus-
  *   Sininho (node 17:2270, mesmo SVG) girado 57.39°, canto em (1430.30, 33) →
  *   16.70px antes e 9px acima da caixa do texto (1447, 42); o SVG tem 0.42px de
  *   respiro no topo (inset -0.85% do Figma), que girado vira +0.35 / -0.22.
+ * - career: Minha carreira (barra 201:341 + 201:346). O texto (caixa de 178 em
+ *   x=1362.09) termina em 1540.09, a borda da coluna de 1352 → margem 0. Sininho
+ *   (201:347) 46 × 49.03 girado 57.39° no centro da caixa de 66.09 × 65.17 em
+ *   (1300, 31): o canto superior esquerdo girado cai em (1341.30, 31.00), ou seja,
+ *   20.79px antes e 10.58 acima da caixa do texto (1362.09, 41.58); com o respiro de
+ *   0.42 do SVG girado (+0.35 / -0.22), -20.44 / -10.80.
  */
 const variants = {
   projects: {
@@ -31,7 +37,23 @@ const variants = {
     text: "lg:-mr-[27px]",
     bell: "left-[-16.35px] top-[-9.22px] rotate-[57.39deg]",
   },
+  career: {
+    text: "",
+    bell: "left-[-20.44px] top-[-10.8px] rotate-[57.39deg]",
+  },
 } as const;
+
+/** Destinos e rótulos por variante: voltar (esquerda) e o link da direita. */
+function links(variant: keyof typeof variants, locale: Locale, dict: Dictionary) {
+  switch (variant) {
+    case "about":
+      return { backHref: `/${locale}`, backLabel: dict.studies.back, href: `/${locale}`, label: dict.nav.homeAbout };
+    case "career":
+      return { backHref: `/${locale}`, backLabel: dict.career.back, href: `/${locale}/projetos`, label: dict.nav.homeProjects };
+    default:
+      return { backHref: `/${locale}/projetos`, backLabel: dict.projectsPage.back, href: `/${locale}/projetos`, label: dict.nav.homeProjects };
+  }
+}
 
 /**
  * Barra acima da capa dos cases 'wide' (Figma node 17:2460, 1354 × 48): voltar
@@ -44,7 +66,8 @@ const variants = {
  * "projetos" é link para o índice com o mesmo hover do header da home.
  *
  * `variant="about"` (página de Estudos, Figma 17:2264): voltar e "sobre" levam
- * para a home (Sobre mim), com a mesma barra.
+ * para a home (Sobre mim), com a mesma barra. `variant="career"` (Minha carreira,
+ * Figma 201:341): voltar leva para a home e "projetos" para o índice.
  */
 export function CaseTopBar({
   locale,
@@ -55,9 +78,7 @@ export function CaseTopBar({
   dict: Dictionary;
   variant?: keyof typeof variants;
 }) {
-  const href = variant === "about" ? `/${locale}` : `/${locale}/projetos`;
-  const label = variant === "about" ? dict.nav.homeAbout : dict.nav.homeProjects;
-  const backLabel = variant === "about" ? dict.studies.back : dict.projectsPage.back;
+  const { backHref, backLabel, href, label } = links(variant, locale, dict);
   const geometry = variants[variant];
 
   return (
@@ -69,7 +90,7 @@ export function CaseTopBar({
           2px tracejada #527fb0; "<" em AM Novecento 32px, recortado como no Figma
           (padding 6/16/8 + overflow). */}
       <Link
-        href={href}
+        href={backHref}
         aria-label={backLabel}
         className={`inline-flex size-12 shrink-0 justify-self-start rounded-full bg-[color:var(--color-blue-soft)] p-1 ${spring} motion-safe:hover:-translate-x-1 motion-safe:hover:-rotate-[10deg] ${focusRing}`}
       >

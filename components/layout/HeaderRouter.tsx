@@ -40,8 +40,10 @@ export function HeaderRouter({
   const isFullPage = segments.length === 2 && segments[0] === 'projetos' && isFullPageCase(segments[1]);
   // Estudos (Figma 17:2174): também sem header — a página desenha a própria barra.
   const isStudies = segments.length === 1 && segments[0] === 'estudos';
+  // Minha carreira (Figma 201:53): idem, com a própria barra (CaseTopBar variant="career").
+  const isCareer = segments.length === 1 && segments[0] === 'carreira';
 
-  if (isFullPage || isStudies) return null;
+  if (isFullPage || isStudies || isCareer) return null;
   if (isHome || isProjectsIndex) {
     return (
       <HomeHeader

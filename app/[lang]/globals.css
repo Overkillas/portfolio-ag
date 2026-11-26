@@ -302,3 +302,104 @@ a {
     animation: none;
   }
 }
+
+/* Aviso de copyright das imagens (components/layout/ImageCopyGuard.tsx). O iOS
+   não dispara contextmenu no toque longo; o callout "Salvar na Fotos" some aqui. */
+img,
+video {
+  -webkit-touch-callout: none;
+}
+/* o brinde do ícone voador (GiftCard) pode ser salvo */
+[data-free-image] img {
+  -webkit-touch-callout: default;
+}
+
+.image-copy-notice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  max-width: min(20rem, calc(100vw - 24px));
+  padding: 0.75rem 0.75rem 0.75rem 1rem;
+  background: #fff;
+  color: var(--color-ink);
+  border-radius: 4px;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.22);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  animation: imageCopyNoticeIn 160ms var(--ease-out);
+}
+
+.image-copy-notice button {
+  flex: none;
+  margin: -0.25rem -0.125rem 0 0;
+  padding: 0 0.25rem;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+@keyframes imageCopyNoticeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-copy-notice {
+    animation: none;
+  }
+}
+
+/* Barra de rolagem (anotação do Figma: "permanecer oculta até que o user comece a
+   scrollar"). Pílula Azul gelo, sem trilho; o polegar só pinta com html[data-scrolling],
+   que o ScrollbarReveal (components/layout/ScrollbarReveal.tsx) liga ao rolar e desliga
+   ~1s depois. A largura (15) é a do gutter nativo do Chrome, então o layout (medido
+   contra o Figma de 1728 com a barra) não muda: polegar de 7 com 4 de folga. Vale para
+   qualquer área que role (a folha do modal também). */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  margin-block: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+  background-color: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+html[data-scrolling] ::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-soft);
+}
+html[data-scrolling] ::-webkit-scrollbar-thumb:hover,
+html[data-scrolling] ::-webkit-scrollbar-thumb:active {
+  background-color: #a3bbe4;
+}
+
+/* Firefox (sem ::-webkit-scrollbar): só cor e espessura. O Chrome 121+ ignora as
+   pseudo acima se scrollbar-color existir, por isso fica só aqui. */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  html[data-scrolling] * {
+    scrollbar-color: var(--color-blue-soft) transparent;
+  }
+  html[data-scrolling] {
+    scrollbar-color: var(--color-blue-soft) transparent;
+  }
+}
